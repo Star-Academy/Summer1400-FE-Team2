@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Cabin", sans-serif;
+  background-color: #eaf0f0;
+}
+
+main {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+header a {
+  color: black;
+  font-size: 1.5rem;
+  padding: 0.9rem;
+}
+
+.container {
+  width: 95%;
+  height: 60%;
+  margin: 1rem auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#container__header {
+  margin-bottom: 1rem;
+}
+
+#password-description {
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.5rem;
+  color: #1F3B4D;
+}
+
+.register-control {
+  font-size: 0.8rem;
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 1.3rem;
+  justify-content: space-between;
+}
+.register-control input {
+  margin-top: 0.4rem;
+  outline: 0;
+  padding: 0.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.register-control small {
+  margin-top: 0.3rem;
+}
+
+#signUp-birth {
+  width: 100%;
+}
+#signUp-birth select,
+#signUp-birth div,
+#signUp-birth input {
+  width: 100%;
+}
+#signUp-birth label {
+  margin: 0.3rem auto;
+  display: block;
+  color: #099e53;
+}
+#signUp-birth input {
+  margin: 0;
+}
+#signUp-birth div {
+  margin-bottom: 0.4rem;
+}
+#signUp-birth select {
+  padding: 0.3rem;
+  outline: 0;
+}
+
+.signUp-gender__items {
+  margin-top: 0.3rem;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+}
+.signUp-gender__items div {
+  margin-right: 1rem;
+}
+.signUp-gender__items label {
+  color: #099e53;
+}
+
+#signInBtn {
+  text-decoration: underline;
+  color: #07a007;
+}
+#signInBtn:hover {
+  color: #19a87d;
+}
+
+#registerBtn {
+  display: block;
+  margin: auto;
+  border: 0;
+  border-radius: 999px;
+  background-color: #4dc257;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+#registerBtn:active {
+  transform: scale(1.1);
+}
+#registerBtn:hover {
+  background-color: #17e980;
+}
+
+#signIn-header {
+  margin-top: 1rem;
+}
+
+.label-color {
+  color: #017374;
+}
+
+@media (min-width: 480px) {
+  .container {
+    width: 70%;
+  }
+
+  #signUp-birth {
+    flex-flow: row;
+    justify-content: space-between;
+  }
+  #signUp-birth div {
+    width: 30%;
+  }
+}
+@media (min-width: 600px) {
+  .container {
+    width: 60%;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 50%;
+  }
+}
+@media (min-width: 900px) {
+  .container {
+    width: 40%;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 27%;
+  }
+}
+
+/*# sourceMappingURL=Register.css.map */
