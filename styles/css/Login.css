@@ -1,12 +1,13 @@
+@font-face {
+  font-family: Dirooz;
+  src: url("../../fonts/Dirooz.ttf");
+}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html,
-body {
-  font-family: "Cabin", sans-serif;
+  font-family: Dirooz;
+  direction: rtl;
 }
 
 main {
@@ -27,6 +28,8 @@ header {
   justify-content: center;
   align-items: center;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
+  font-family: "Cabin", sans-serif !important;
 }
 header a {
   color: black;
@@ -76,7 +79,7 @@ header a {
   width: 100%;
   display: block;
   padding: 0.3rem 0.7rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin: auto;
 }
 .login-items__lists a:hover {
@@ -97,7 +100,7 @@ header a {
 }
 
 .login-form {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   width: 100%;
   margin-top: 2rem;
 }
@@ -138,7 +141,7 @@ header a {
   margin: 0.7rem 0;
 }
 .login-controls #loginBtn {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 .login-controls #loginBtn:hover {
   background-color: #0d5252;
@@ -181,10 +184,10 @@ header a {
   .login-controls #loginBtn {
     width: 40%;
     padding: 0.2rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     height: 1.7rem;
     margin: auto;
-    margin-right: 0;
+    margin-left: 0;
   }
 }
 @media (min-width: 900px) {
