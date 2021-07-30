@@ -1,0 +1,331 @@
+.player__part {
+  background-color: black;
+  color: white;
+}
+.player__part div:nth-child(0) {
+  /*background-color: $bgcolor;*/
+  color: white;
+  max-width: auto;
+  width: auto !important;
+  height: auto !important;
+  /*margin: auto;*/
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.player__part .fa-heart {
+  color: wheat;
+}
+.player__part .fa-ellipsis-v {
+  color: wheat;
+}
+.player__part .fa-fast-forward {
+  color: wheat;
+}
+.player__part .fa-play {
+  color: wheat;
+}
+.player__part .fa-fast-backward {
+  color: wheat;
+}
+.player__part div:nth-child(1) {
+  /*background-color: $bgcolor;*/
+  color: white;
+  max-width: auto;
+  width: auto !important;
+  height: auto !important;
+  /*margin: auto;*/
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.player__part .fa-heart {
+  color: wheat;
+}
+.player__part .fa-ellipsis-v {
+  color: wheat;
+}
+.player__part .fa-fast-forward {
+  color: wheat;
+}
+.player__part .fa-play {
+  color: wheat;
+}
+.player__part .fa-fast-backward {
+  color: wheat;
+}
+.player__part .column {
+  float: left;
+}
+.player__part .album-cover {
+  /*background-color: $bgcolor;*/
+  color: white;
+  max-width: auto;
+  width: auto !important;
+  height: auto !important;
+  /*margin: auto;*/
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.player__part .fa-heart {
+  color: wheat;
+}
+.player__part .fa-ellipsis-v {
+  color: wheat;
+}
+.player__part .fa-fast-forward {
+  color: wheat;
+}
+.player__part .fa-play {
+  color: wheat;
+}
+.player__part .fa-fast-backward {
+  color: wheat;
+}
+.player__part div:nth-child(3) {
+  /*background-color: $bgcolor;*/
+  color: white;
+  max-width: auto;
+  width: auto !important;
+  height: auto !important;
+  /*margin: auto;*/
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.player__part .fa-heart {
+  color: wheat;
+}
+.player__part .fa-ellipsis-v {
+  color: wheat;
+}
+.player__part .fa-fast-forward {
+  color: wheat;
+}
+.player__part .fa-play {
+  color: wheat;
+}
+.player__part .fa-fast-backward {
+  color: wheat;
+}
+.player__part div:nth-child(4) {
+  /*background-color: $bgcolor;*/
+  color: white;
+  max-width: auto;
+  width: auto !important;
+  height: auto !important;
+  /*margin: auto;*/
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.player__part .fa-heart {
+  color: wheat;
+}
+.player__part .fa-ellipsis-v {
+  color: wheat;
+}
+.player__part .fa-fast-forward {
+  color: wheat;
+}
+.player__part .fa-play {
+  color: wheat;
+}
+.player__part .fa-fast-backward {
+  color: wheat;
+}
+.player__part div:nth-child(5) {
+  /*background-color: $bgcolor;*/
+  color: white;
+  max-width: auto;
+  width: auto !important;
+  height: auto !important;
+  /*margin: auto;*/
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.player__part .fa-heart {
+  color: wheat;
+}
+.player__part .fa-ellipsis-v {
+  color: wheat;
+}
+.player__part .fa-fast-forward {
+  color: wheat;
+}
+.player__part .fa-play {
+  color: wheat;
+}
+.player__part .fa-fast-backward {
+  color: wheat;
+}
+
+@media screen and (min-width: 300px) {
+  .player__part {
+    background-color: black;
+    color: white;
+  }
+  .player__part div:nth-child(0) {
+    /*background-color: $bgcolor;*/
+    color: white;
+    max-width: auto;
+    width: auto !important;
+    height: auto !important;
+    /*margin: auto;*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .player__part .fa-heart {
+    color: wheat;
+  }
+  .player__part .fa-ellipsis-v {
+    color: wheat;
+  }
+  .player__part .fa-fast-forward {
+    color: wheat;
+  }
+  .player__part .fa-play {
+    color: wheat;
+  }
+  .player__part .fa-fast-backward {
+    color: wheat;
+  }
+  .player__part div:nth-child(1) {
+    /*background-color: $bgcolor;*/
+    color: white;
+    max-width: auto;
+    width: auto !important;
+    height: auto !important;
+    /*margin: auto;*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .player__part .fa-heart {
+    color: wheat;
+  }
+  .player__part .fa-ellipsis-v {
+    color: wheat;
+  }
+  .player__part .fa-fast-forward {
+    color: wheat;
+  }
+  .player__part .fa-play {
+    color: wheat;
+  }
+  .player__part .fa-fast-backward {
+    color: wheat;
+  }
+  .player__part .column {
+    float: left;
+  }
+  .player__part .album-cover {
+    /*background-color: $bgcolor;*/
+    color: white;
+    max-width: auto;
+    width: auto !important;
+    height: auto !important;
+    /*margin: auto;*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .player__part .fa-heart {
+    color: wheat;
+  }
+  .player__part .fa-ellipsis-v {
+    color: wheat;
+  }
+  .player__part .fa-fast-forward {
+    color: wheat;
+  }
+  .player__part .fa-play {
+    color: wheat;
+  }
+  .player__part .fa-fast-backward {
+    color: wheat;
+  }
+  .player__part div:nth-child(3) {
+    /*background-color: $bgcolor;*/
+    color: white;
+    max-width: auto;
+    width: auto !important;
+    height: auto !important;
+    /*margin: auto;*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .player__part .fa-heart {
+    color: wheat;
+  }
+  .player__part .fa-ellipsis-v {
+    color: wheat;
+  }
+  .player__part .fa-fast-forward {
+    color: wheat;
+  }
+  .player__part .fa-play {
+    color: wheat;
+  }
+  .player__part .fa-fast-backward {
+    color: wheat;
+  }
+  .player__part div:nth-child(4) {
+    /*background-color: $bgcolor;*/
+    color: white;
+    max-width: auto;
+    width: auto !important;
+    height: auto !important;
+    /*margin: auto;*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .player__part .fa-heart {
+    color: wheat;
+  }
+  .player__part .fa-ellipsis-v {
+    color: wheat;
+  }
+  .player__part .fa-fast-forward {
+    color: wheat;
+  }
+  .player__part .fa-play {
+    color: wheat;
+  }
+  .player__part .fa-fast-backward {
+    color: wheat;
+  }
+  .player__part div:nth-child(5) {
+    /*background-color: $bgcolor;*/
+    color: white;
+    max-width: auto;
+    width: auto !important;
+    height: auto !important;
+    /*margin: auto;*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .player__part .fa-heart {
+    color: wheat;
+  }
+  .player__part .fa-ellipsis-v {
+    color: wheat;
+  }
+  .player__part .fa-fast-forward {
+    color: wheat;
+  }
+  .player__part .fa-play {
+    color: wheat;
+  }
+  .player__part .fa-fast-backward {
+    color: wheat;
+  }
+}
+
+/*# sourceMappingURL=song_player.css.map */

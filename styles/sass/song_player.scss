@@ -1,0 +1,66 @@
+$bgcolor:black;
+$textcolor:white;
+@mixin signs_color{color: wheat;}
+@mixin background_text{
+  background-color: $bgcolor;
+  color:$textcolor;
+}
+@mixin background_text1{
+  /*background-color: $bgcolor;*/
+  color:$textcolor;
+  max-width: auto;
+  width: auto!important;
+  height: auto!important;
+  /*margin: auto;*/
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.player__part{
+  @include background_text;
+  @for $i from 0 to 5+1{
+    @if $i==2 {
+      .column{
+        float: left;
+      }
+        .album-cover{@include background_text1;}
+    }
+    @else{
+      div:nth-child(#{$i}){
+        @include background_text1;
+      }
+    }
+    .fa-heart{@include  signs_color}
+    .fa-ellipsis-v{@include  signs_color}
+     .fa-fast-forward{@include  signs_color}
+      .fa-play{@include  signs_color}
+     .fa-fast-backward{@include  signs_color}
+  }
+}
+
+@media screen and(min-width: 300px){
+  .player__part{
+
+    @include background_text;
+    @for $i from 0 to 5+1{
+      @if $i==2 {
+        .column{
+          float: left;
+        }
+        .album-cover{@include background_text1;}
+      }
+      @else {
+        div:nth-child(#{$i}){
+          @include background_text1;
+        }
+      }
+      .fa-heart{@include  signs_color}
+      .fa-ellipsis-v{@include  signs_color}
+      .fa-fast-forward{@include  signs_color}
+      .fa-play{@include  signs_color}
+      .fa-fast-backward{@include  signs_color}
+    }
+  }
+}
+
+
