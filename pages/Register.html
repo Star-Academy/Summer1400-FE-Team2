@@ -21,26 +21,26 @@
             <h5 id="container__header">ثبت نام با ادرس ایمیل</h5>
             <form action="#">
                 <div class="register-control">
-                    <label class="label-color" for="register-email">ادرس ایمیل</label>
+                    <label for="register-email">ادرس ایمیل</label>
                     <input id="register-email" type="email" placeholder="ایمیل خود را وارد کن" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" spellcheck="false" />
                 </div>
                 <div class="register-control">
-                    <label class="label-color" for="register-email2">تایید ادرس ایمیل</label>
+                    <label for="register-email2">تایید ادرس ایمیل</label>
                     <input id="register-email2" type="email" placeholder="ایمیل را مجدد وارد کن" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" spellcheck="false" />
                 </div>
                 <div class="register-control">
-                    <label class="label-color" for="register-password">کلمه عبور بساز</label>
+                    <label for="register-password">کلمه عبور بساز</label>
                     <input id="register-password" type="password" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
                     <p id="password-description">
                         کلمه عبور باید شامل <u> حداقل </u> یک عدد و<b> یک حرف بزرگ و کوچک </b> و <u> حداقل </u>به تعداد <b>۸ کاراکتر یا بیشتر </b> باشد.
                     </p>
                 </div>
                 <div class="register-control">
-                    <label class="label-color" for="register-username">نام کاربری بساز</label>
-                    <input id="register-username" type="text" placeholder="یک نام کاربری برای حسابت بساز" required />
+                    <label for="register-username">نام کاربری </label>
+                    <input id="register-username" type="text" placeholder="یک نام کاربری وارد" required />
                     <small>این نام کاربری روی پروفایلت نمایش داده میشه</small>
                 </div>
-                <p class="label-color">تاریخ تولد</p>
+                <p>تاریخ تولد</p>
                 <div class="register-control" id="signUp-birth">
                     <div>
                         <label for="">روز</label>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="register-control" id="signUp-gender">
-                    <p class="label-color">جنسیت خود را وارد کن</p>
+                    <p>جنسیت خود را وارد کن</p>
                     <div class="signUp-gender__items">
                         <div>
                             <input type="radio" name="gender" value="gender-male" id="gender-male" />
