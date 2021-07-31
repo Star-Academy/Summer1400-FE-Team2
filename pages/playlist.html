@@ -6,90 +6,153 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../assets/images/logo.png" />
+    <link rel="stylesheet" href="../styles/css/Playlist.css">
     <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
     <title>Playlist</title>
 </head>
 
 <body>
     <!-------------- Sidebar -------------->
-    <aside>
-        <nav>
-            <a href="../index.html"> <i class="fab fa-spotify"></i> Spotify </a>
+    <aside class="aside-box" id="aside-desktop">
+        <nav id="nav-links">
+            <a href="../index.html" id="spotify-logo"> <i class="fab fa-spotify"></i> Spotify </a>
             <ul>
                 <li>
-                    <a href="../index.html"> <i class="fas fa-home"></i>Home </a>
+                    <a href="#"> <i class="fas fa-home"></i>خانه </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-search"></i>Search </a>
+                    <a href="#"> <i class="fas fa-search"></i>جست و جو </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-book"></i>Your Library </a>
+                    <a href="#"> <i class="fas fa-book"></i>کتابخانه شما </a>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="#"> <i class="fas fa-plus-square"></i>Create Playlist </a>
+                    <a href="#"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-heart"></i>Liked Songs </a>
+                    <a href="#"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <aside id="aside-mobile">
+        <nav class="aside-mobile__links">
+            <ul>
+                <li>
+                    <a href="#"> <i class="fas fa-home"></i>خانه</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-search"></i>جست و جو </a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-book"></i>کتابخانه </a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
                 </li>
             </ul>
         </nav>
     </aside>
     <!-------------- Header -------------->
     <header>
-        <div>
-            <a href="#"><i class="fas fa-chevron-circle-left"></i></a>
+        <div class="user-controls__links">
+            <a href="./Register.html" class="controlBtn">ثبت نام</a>
+            <a href="./Login.html" class="controlBtn"> <i class="fas fa-sign-in-alt vertical-middle"></i> <span>ورود</span></a>
+            <a href="#" id="user-account__link">
+                <i class="far fa-user"></i> <span>نام کاربری</span>
+            </a>
+        </div>
+        <div id="navigation__links">
             <a href="#"><i class="fas fa-chevron-circle-right"></i></a>
+            <a href="#"><i class="fas fa-chevron-circle-left"></i></a>
         </div>
-        <div>
-            <a href="./Login.html">LOG IN</a>
-            <a href="./Register.html">SIGN UP</a>
-        </div>
+
     </header>
     <!--------------- main --------------->
     <main>
         <section>
-            <h2>playlist name</h2>
-            <div class="card-playlist">
-                <img src="../assets/images/sample.jpg" alt="cover" />
-                <h4 class="card-playlist__title">genre of songs in this category</h4>
-                <p>description..</p>
-            </div>
-            <div class="card-playlist">
-                <img src="../assets/images/sample.jpg" alt="cover" />
-                <h4 class="card-playlist__title">genre of songs in this category</h4>
-                <p>description..</p>
-            </div>
-            <div class="card-playlist">
-                <img src="../assets/images/sample.jpg" alt="cover" />
-                <h4 class="card-playlist__title">genre of songs in this category</h4>
-                <p>description..</p>
-            </div>
-            <div class="card-playlist">
-                <img src="../assets/images/sample.jpg" alt="cover" />
-                <h4 class="card-playlist__title">genre of songs in this category</h4>
-                <p>description..</p>
-            </div>
-            <div class="card-playlist">
-                <img src="../assets/images/sample.jpg" alt="cover" />
-                <h4 class="card-playlist__title">genre of songs in this category</h4>
-                <p>description..</p>
-            </div>
-            <div class="card-playlist">
-                <img src="../assets/images/sample.jpg" alt="cover" />
-                <h4 class="card-playlist__title">genre of songs in this category</h4>
-                <p>description..</p>
-            </div>
-            <div class="card-playlist">
-                <img src="../assets/images/sample.jpg" alt="cover" />
-                <h4 class="card-playlist__title">genre of songs in this category</h4>
-                <p>description..</p>
-            </div>
-            <div class="card-playlist">
-                <img src="../assets/images/sample.jpg" alt="cover" />
-                <h4 class="card-playlist__title">genre of songs in this category</h4>
-                <p>description..</p>
+            <h3 class="playlist-title">عنوان لیست اهنگ</h3>
+            <div class="playlists__container" id="playlist-section">
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
+                <div class="card-playlist">
+                    <img src="../assets/images/sample.jpg" alt="cover" />
+                    <h4 class="card-playlist__title">ژانر اهنگ ها در این گروه</h4>
+                    <p>توضیحات..</p>
+                </div>
             </div>
         </section>
     </main>

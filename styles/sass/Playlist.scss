@@ -1,0 +1,48 @@
+@use './header.scss';
+section {
+    width: 95%;
+    margin: auto;
+}
+
+.playlists__container {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
+}
+
+.playlist-title {
+    color: white;
+}
+
+@media (max-width: 1200px) {
+    .playlists__container {
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .playlists__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .playlists__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .playlists__container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    #user-account__link {
+        display: none;
+    }
+}
