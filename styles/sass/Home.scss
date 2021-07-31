@@ -1,306 +1,71 @@
-    @font-face {
-        font-family: Dirooz;
-        src: url('../../fonts/Dirooz.ttf');
-    }
-    
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: Dirooz;
-        direction: rtl;
-    }
-    
-    @mixin flex-between {
+@use './header.scss';
+// *********************//
+.playlists__container {
+    width: 90%;
+    margin-bottom: 1.4rem;
+    padding: 0 0.5rem;
+    .playlists__title {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-    }
-    
-    @mixin ul-setup {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-    }
-    
-    body {
-        background-color: #202020;
-    }
-    
-    a {
-        text-decoration: none;
-        color: black;
-    }
-    
-    header {
-        background-color: #070707;
-        width: 83%;
-        position: fixed;
-        left: 0;
-        top: 0;
-        padding: 0.8rem 0.9rem;
-        z-index: 10;
-        @include flex-between();
+        margin-bottom: 1rem;
         a {
-            text-align: center;
-            color: white;
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
-        }
-        border-bottom: 2px solid rgba($color: #000000,
-        $alpha: 0.3);
-        .controlBtn {
-            border-radius: 999px;
-            background-color: white;
-            color: black;
-            padding: 0.3rem 0.7rem;
-        }
-    }
-    
-    .user-controls__links a {
-        display: inline-block;
-        max-width: 7rem;
-    }
-    
-    .user-controls__links a:hover {
-        background-color: #555555;
-        color: white;
-    }
-    
-    .aside-box {
-        position: fixed;
-        right: 0;
-        top: 0;
-        width: 17%;
-        height: 100vh;
-        background-color: black;
-    }
-    
-    main {
-        width: 80%;
-        margin: 7% auto 0 0;
-    }
-    
-    #nav-links {
-        ul {
-            @include ul-setup();
-            margin-bottom: 2rem;
-        }
-        a {
-            color: rgb(168, 168, 168);
-            display: block;
-            padding: 0.4rem 1rem;
-            font-size: 0.9rem;
+            color: #ffffff;
         }
         a:hover {
-            color: white;
-        }
-        a:focus {
-            background-color: #282828;
-            color: white;
-        }
-        i {
-            margin-left: 0.8rem;
-        }
-        #spotify-logo {
-            color: white;
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            i {
-                margin: 0;
-            }
+            transform: scale(1.1);
+            color: hsl(0, 1%, 65%);
         }
     }
-    
-    #navigation__links a {
-        font-size: 1rem;
-        &:hover,
-        &:active {
-            color: #7c7c7c;
-        }
-    }
-    
-    .aside-mobile__links {
-        display: none;
-        background-color: #282828;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        nav {
-            width: 100%;
-        }
-        ul {
-            display: flex;
-            justify-content: space-evenly;
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
-            @include ul-setup();
-        }
-        li {
-            display: inline-block;
-        }
-        a {
-            font-size: 0.9rem;
-            color: white;
-            text-align: center;
-            display: flex;
-            flex-flow: column;
-            padding: 0.7rem 0 0.7rem 0.3rem;
-            border-radius: 5px;
-            min-width: 5rem;
-            margin-left: 0.8rem;
-        }
-        a:hover,
-        a:focus {
-            background: #444444;
-        }
-    }
-    
-    #user-account__link {
-        span {
-            color: white;
-        }
-        i {
-            color: gray;
-        }
-        border-radius: 999px;
-        background-color: #282828;
-        padding: 0.3rem 0.7rem;
-    }
-    
-    .playlists__container {
-        width: 90%;
-        margin-bottom: 1.4rem;
-        padding: 0 0.5rem;
-        .playlists__title {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            a {
-                color: #FFFFFF;
-            }
-            a:hover {
-                transform: scale(1.1);
-                color: hsl(0, 1%, 65%);
-            }
-        }
-    }
-    
-    .playlists__title h3:hover {
-        text-decoration: underline;
-    }
-    
+}
+
+.playlists__title h3:hover {
+    text-decoration: underline;
+}
+
+.cards__container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 0.5rem;
+}
+
+@media (max-width: 1450px) {
     .cards__container {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        column-gap: 0.5rem;
+        grid-template-columns: repeat(6, 1fr);
     }
-    
-    .card-playlist {
-        background-color: #181818;
-        color: #FEFEFE;
+    .playlists__container {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 0.8rem 0.4rem;
-        img {
-            width: 100%;
-            margin-bottom: 0.5rem;
-        }
-        &:hover {
-            background-color: #282828;
-            cursor: pointer;
-        }
     }
-    
-    @media (max-width:1450px) {
-        .cards__container {
-            grid-template-columns: repeat(6, 1fr);
-        }
-        .aside-box {
-            width: 23%;
-        }
-        header {
-            width: 77%;
-        }
-        main {
-            width: 77%;
-        }
-        .playlists__container {
-            width: 100%;
-        }
+}
+
+@media (max-width: 1200px) {
+    .cards__container {
+        grid-template-columns: repeat(4, 1fr);
     }
-    
-    @media (max-width:1200px) {
-        .aside-box {
-            display: none;
-        }
-        .aside-mobile__links {
-            display: block;
-        }
-        header {
-            width: 100%;
-        }
-        main {
-            width: 95%;
-            margin: 13% auto 0 auto;
-        }
-        .cards__container {
-            grid-template-columns: repeat(4, 1fr);
-        }
+}
+
+@media (max-width: 900px) {
+    .cards__container {
+        grid-template-columns: repeat(3, 1fr);
     }
-    
-    @media (max-width:900px) {
-        .cards__container {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        .aside-mobile__links {
-            li:nth-child(1) {
-                margin-right: 4rem;
-            }
-        }
+}
+
+@media (max-width: 768px) {
+    .cards__container {
+        grid-template-columns: repeat(2, 1fr);
     }
-    
-    @media (max-width:768px) {
-        main {
-            margin: 17% auto 0 auto;
-        }
-        .cards__container {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .aside-mobile__links {
-            li:nth-child(1) {
-                margin-right: 10rem;
-            }
-        }
+}
+
+@media (max-width: 600px) {
+    .cards__container {
+        grid-template-columns: repeat(1, 1fr);
     }
-    
-    @media (max-width:600px) {
-        .cards__container {
-            grid-template-columns: repeat(1, 1fr);
-        }
-        .aside-mobile__links {
-            li:nth-child(1) {
-                margin-right: 13rem;
-            }
-        }
+}
+
+@media (max-width: 500px) {
+    header {
+        padding: 0.3rem 0.5rem;
     }
-    
-    @media (max-width:480px) {
-        #user-account__link {
-            display: none;
-        }
-        main {
-            margin-top: 30%;
-        }
-        .aside-mobile__links {
-            li:nth-child(1) {
-                margin-right: 20rem;
-            }
-        }
+    #user-account__link {
+        display: none;
     }
+}

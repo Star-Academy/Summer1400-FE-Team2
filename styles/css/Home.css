@@ -45,6 +45,10 @@ header .controlBtn {
   padding: 0.3rem 0.7rem;
 }
 
+.vertical-middle {
+  vertical-align: middle;
+}
+
 .user-controls__links a {
   display: inline-block;
   max-width: 7rem;
@@ -53,6 +57,18 @@ header .controlBtn {
 .user-controls__links a:hover {
   background-color: #555555;
   color: white;
+}
+
+#user-account__link {
+  border-radius: 999px;
+  background-color: #282828;
+  padding: 0.3rem 0.7rem;
+}
+#user-account__link span {
+  color: white;
+}
+#user-account__link i {
+  color: gray;
 }
 
 .aside-box {
@@ -139,7 +155,6 @@ main {
   display: flex;
   flex-flow: column;
   padding: 0.7rem 0 0.7rem 0.3rem;
-  border-radius: 5px;
   min-width: 5rem;
   margin-left: 0.8rem;
 }
@@ -148,55 +163,16 @@ main {
   background: #444444;
 }
 
-#user-account__link {
-  border-radius: 999px;
-  background-color: #282828;
-  padding: 0.3rem 0.7rem;
-}
-#user-account__link span {
-  color: white;
-}
-#user-account__link i {
-  color: gray;
-}
-
-.playlists__container {
-  width: 90%;
-  margin-bottom: 1.4rem;
-  padding: 0 0.5rem;
-}
-.playlists__container .playlists__title {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-.playlists__container .playlists__title a {
-  color: #FFFFFF;
-}
-.playlists__container .playlists__title a:hover {
-  transform: scale(1.1);
-  color: #a7a5a5;
-}
-
-.playlists__title h3:hover {
-  text-decoration: underline;
-}
-
-.cards__container {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  column-gap: 0.5rem;
-}
-
 .card-playlist {
   background-color: #181818;
-  color: #FEFEFE;
+  color: #fefefe;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   padding: 0.8rem 0.4rem;
+  font-size: 0.8rem;
 }
 .card-playlist img {
   width: 100%;
@@ -208,10 +184,6 @@ main {
 }
 
 @media (max-width: 1450px) {
-  .cards__container {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
   .aside-box {
     width: 23%;
   }
@@ -222,10 +194,6 @@ main {
 
   main {
     width: 77%;
-  }
-
-  .playlists__container {
-    width: 100%;
   }
 }
 @media (max-width: 1200px) {
@@ -245,7 +213,80 @@ main {
     width: 95%;
     margin: 13% auto 0 auto;
   }
+}
+@media (max-width: 900px) {
+  .aside-mobile__links li:nth-child(1) {
+    margin-right: 0rem;
+  }
+}
+@media (max-width: 768px) {
+  main {
+    margin: 17% auto 0 auto;
+  }
 
+  .aside-mobile__links li:nth-child(1) {
+    margin-right: 8rem;
+  }
+  .aside-mobile__links a {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 600px) {
+  .aside-mobile__links li:nth-child(1) {
+    margin-right: 7rem;
+  }
+}
+@media (max-width: 500px) {
+  main {
+    margin-top: 30%;
+  }
+
+  header {
+    padding: 0.7rem 0.5rem;
+  }
+
+  .aside-mobile__links li:nth-child(1) {
+    margin-right: 16rem;
+  }
+}
+.playlists__container {
+  width: 90%;
+  margin-bottom: 1.4rem;
+  padding: 0 0.5rem;
+}
+.playlists__container .playlists__title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.playlists__container .playlists__title a {
+  color: #ffffff;
+}
+.playlists__container .playlists__title a:hover {
+  transform: scale(1.1);
+  color: #a7a5a5;
+}
+
+.playlists__title h3:hover {
+  text-decoration: underline;
+}
+
+.cards__container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 0.5rem;
+}
+
+@media (max-width: 1450px) {
+  .cards__container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .playlists__container {
+    width: 100%;
+  }
+}
+@media (max-width: 1200px) {
   .cards__container {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -254,44 +295,24 @@ main {
   .cards__container {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  .aside-mobile__links li:nth-child(1) {
-    margin-right: 4rem;
-  }
 }
 @media (max-width: 768px) {
-  main {
-    margin: 17% auto 0 auto;
-  }
-
   .cards__container {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .aside-mobile__links li:nth-child(1) {
-    margin-right: 10rem;
   }
 }
 @media (max-width: 600px) {
   .cards__container {
     grid-template-columns: repeat(1, 1fr);
   }
-
-  .aside-mobile__links li:nth-child(1) {
-    margin-right: 13rem;
-  }
 }
-@media (max-width: 480px) {
+@media (max-width: 500px) {
+  header {
+    padding: 0.3rem 0.5rem;
+  }
+
   #user-account__link {
     display: none;
-  }
-
-  main {
-    margin-top: 30%;
-  }
-
-  .aside-mobile__links li:nth-child(1) {
-    margin-right: 20rem;
   }
 }
 
