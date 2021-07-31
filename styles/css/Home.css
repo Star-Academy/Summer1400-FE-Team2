@@ -149,14 +149,14 @@ main {
   display: inline-block;
 }
 .aside-mobile__links a {
+  width: 100%;
   font-size: 0.9rem;
   color: white;
   text-align: center;
   display: flex;
   flex-flow: column;
-  padding: 0.7rem 0 0.7rem 0.3rem;
+  padding: 0.7rem 0.5rem;
   min-width: 5rem;
-  margin-left: 0.8rem;
 }
 .aside-mobile__links a:hover,
 .aside-mobile__links a:focus {
@@ -225,7 +225,7 @@ main {
   }
 
   .aside-mobile__links li:nth-child(1) {
-    margin-right: 8rem;
+    margin-right: 3rem;
   }
   .aside-mobile__links a {
     font-size: 0.8rem;
@@ -233,7 +233,7 @@ main {
 }
 @media (max-width: 600px) {
   .aside-mobile__links li:nth-child(1) {
-    margin-right: 7rem;
+    margin-right: 8rem;
   }
 }
 @media (max-width: 500px) {
@@ -246,7 +246,15 @@ main {
   }
 
   .aside-mobile__links li:nth-child(1) {
-    margin-right: 16rem;
+    margin-right: 10rem;
+  }
+  .aside-mobile__links a {
+    font-size: 0.6rem;
+  }
+}
+@media (max-width: 400px) {
+  .aside-mobile__links li:nth-child(1) {
+    margin-right: 15rem;
   }
 }
 .playlists__container {

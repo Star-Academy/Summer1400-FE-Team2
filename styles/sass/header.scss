@@ -157,16 +157,17 @@ main {
     }
     li {
         display: inline-block;
+        // margin-left: 0.8rem;
     }
     a {
+        width: 100%;
         font-size: 0.9rem;
         color: white;
         text-align: center;
         display: flex;
         flex-flow: column;
-        padding: 0.7rem 0 0.7rem 0.3rem;
+        padding: 0.7rem 0.5rem;
         min-width: 5rem;
-        margin-left: 0.8rem;
     }
     a:hover,
     a:focus {
@@ -195,9 +196,6 @@ main {
 }
 
 @media (max-width: 1450px) {
-    // .cards__container {
-    //     grid-template-columns: repeat(6, 1fr);
-    // }
     .aside-box {
         width: 23%;
     }
@@ -239,7 +237,7 @@ main {
     }
     .aside-mobile__links {
         li:nth-child(1) {
-            margin-right: 8rem;
+            margin-right: 3rem;
         }
         a {
             font-size: 0.8rem;
@@ -250,7 +248,7 @@ main {
 @media (max-width: 600px) {
     .aside-mobile__links {
         li:nth-child(1) {
-            margin-right: 7rem;
+            margin-right: 8rem;
         }
     }
 }
@@ -264,7 +262,18 @@ main {
     }
     .aside-mobile__links {
         li:nth-child(1) {
-            margin-right: 16rem;
+            margin-right: 10rem;
+        }
+        a {
+            font-size: 0.6rem;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .aside-mobile__links {
+        li:nth-child(1) {
+            margin-right: 15rem;
         }
     }
 }
