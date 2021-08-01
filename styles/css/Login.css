@@ -58,6 +58,11 @@ header a {
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
+  border-radius: 7px;
+  padding: 1rem;
+  background-color: #fffbf6;
+  border-radius: 7px;
+  box-shadow: 0px 0px 3px 5px rgba(255, 251, 246, 0.2);
 }
 
 #seperator {
@@ -119,6 +124,7 @@ header a {
   margin-top: 0.5rem;
   border-radius: 5px;
   border: 0;
+  border-bottom: 1px solid #000;
 }
 
 .login__group {
@@ -135,12 +141,7 @@ header a {
   margin-bottom: 0.6rem;
 }
 .signUp a {
-  color: white;
-  width: 40%;
-  margin: auto;
-}
-.signUp a:hover {
-  background-color: #2c2b2b;
+  color: #E66946;
 }
 
 .login-controls {

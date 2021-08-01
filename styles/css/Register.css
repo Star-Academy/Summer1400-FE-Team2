@@ -56,19 +56,21 @@ header a {
   justify-content: space-evenly;
   align-items: center;
   font-weight: bold;
-  background-color: #e49648;
-  border-radius: 6px;
+  background-color: #fffbf6;
+  border-radius: 7px;
+  box-shadow: 0px 0px 3px 5px rgba(238, 238, 238, 0.5);
 }
 
 #container__header {
   margin-bottom: 1rem;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
 }
 
 #password-description {
   width: 100%;
   margin-top: 0.5rem;
   font-size: 0.7rem;
+  color: #d15b3b;
 }
 
 .register-control {
@@ -85,9 +87,11 @@ header a {
   border: 0;
   font-size: 0.8rem;
   border-radius: 5px;
+  border-bottom: 1px solid #000;
 }
 .register-control small {
   margin-top: 0.3rem;
+  color: #d15b3b;
 }
 
 #signUp-birth {
@@ -133,6 +137,7 @@ header a {
 
 #signInBtn {
   font-size: 0.9rem;
+  color: #E66946;
 }
 #signInBtn:hover {
   text-decoration: underline;
@@ -141,10 +146,12 @@ header a {
 #registerBtn {
   display: block;
   font-weight: bold;
+  max-width: 120px;
+  width: 100%;
   margin: auto;
   border: 0;
   border-radius: 999px;
-  background-color: black;
+  background-color: #FF5024;
   color: white;
   padding: 0.4rem 1rem;
   cursor: pointer;
@@ -177,6 +184,15 @@ header a {
 @media (min-width: 600px) {
   .container {
     width: 60%;
+  }
+}
+@media (max-width: 600px) {
+  .img-background {
+    display: none;
+  }
+
+  body {
+    background-color: #fce0c3;
   }
 }
 @media (min-width: 768px) {
