@@ -177,7 +177,9 @@ main {
 
 .card-playlist {
     background-color: #181818;
-    color: #fefefe;
+    a {
+        color: #fefefe;
+    }
     width: 100%;
     display: flex;
     flex-direction: column;

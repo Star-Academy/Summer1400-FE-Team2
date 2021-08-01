@@ -13,15 +13,21 @@
 html,
 body {
   font-family: "Cabin", sans-serif;
+  background-color: #FDF0E2;
 }
 
 main {
   display: flex;
-  flex-flow: column;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background: linear-gradient(180deg, #329140 0%, #54db77 38%, #3fc9ba 69%, #529a84 100%);
+}
+
+.img-background {
+  width: 60%;
+}
+.img-background img {
+  width: 100%;
 }
 
 a {
@@ -44,13 +50,14 @@ header a {
   width: 95%;
   padding: 1rem;
   height: 60%;
-  margin: 1rem auto;
+  margin: auto;
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
   font-weight: bold;
-  box-shadow: 1px #eee;
+  background-color: #e49648;
+  border-radius: 6px;
 }
 
 #container__header {
@@ -62,14 +69,13 @@ header a {
   width: 100%;
   margin-top: 0.5rem;
   font-size: 0.7rem;
-  color: #1F3B4D;
 }
 
 .register-control {
   font-size: 0.8rem;
   display: flex;
   flex-flow: column;
-  margin-bottom: 1.3rem;
+  margin-bottom: 0.7rem;
   justify-content: space-between;
 }
 .register-control input {
@@ -78,6 +84,7 @@ header a {
   padding: 0.3rem;
   border: 0;
   font-size: 0.8rem;
+  border-radius: 5px;
 }
 .register-control small {
   margin-top: 0.3rem;
@@ -109,6 +116,8 @@ header a {
   padding: 0.3rem;
   font-size: 0.7rem;
   outline: 0;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .signUp-gender__items {
@@ -124,7 +133,6 @@ header a {
 
 #signInBtn {
   font-size: 0.9rem;
-  color: #026202;
 }
 #signInBtn:hover {
   text-decoration: underline;
@@ -136,7 +144,7 @@ header a {
   margin: auto;
   border: 0;
   border-radius: 999px;
-  background-color: #06460b;
+  background-color: black;
   color: white;
   padding: 0.4rem 1rem;
   cursor: pointer;
@@ -146,8 +154,7 @@ header a {
   transform: scale(1.1);
 }
 #registerBtn:hover {
-  background-color: #1DB954;
-  color: black;
+  background-color: #3f3f3f;
 }
 
 #signIn-header {
@@ -189,12 +196,12 @@ header a {
 }
 @media (min-width: 1200px) {
   main {
-    width: 50%;
+    width: 90%;
     margin: auto;
   }
 
   .container {
-    width: 60%;
+    width: 30%;
   }
 }
 

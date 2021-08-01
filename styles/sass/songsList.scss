@@ -1,4 +1,8 @@
 @use './header.scss';
+body {
+    background-color: #0F1317;
+}
+
 .playlist-table {
     width: 100%;
     // margin-left: 0;
@@ -7,7 +11,8 @@
 
 .playlist-details {
     // text-align: left;
-    background-color: rgb(83, 83, 83);
+    // background-color: rgb(83, 83, 83);
+    background-color: #1D2B37;
     display: flex;
     // justify-content: space-between;
     align-items: center;
@@ -38,9 +43,11 @@
 }
 
 table {
-    color: white;
+    color: rgb(192, 192, 192);
     text-align: center;
-    td {
+    font-size: 0.7rem;
+    td,
+    th {
         width: 100%;
         display: flex;
         align-items: center;
@@ -52,18 +59,28 @@ table {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
     }
+    tbody tr:hover {
+        background-color: rgba($color: #525252, $alpha: 0.5);
+        color: white;
+    }
 }
 
 .song-details__container {
-    background-color: rgb(65, 65, 65);
-    width: 50%;
+    // background-color: rgb(65, 65, 65);
+    width: 100%;
     margin: auto;
 }
 
 .song-details {
     width: 100%;
+    display: flex;
     img {
         width: 100%;
+        display: block;
+    }
+    div:nth-child(1) {
+        width: 30%;
+        margin-left: 0.5rem;
     }
 }
 

@@ -165,7 +165,6 @@ main {
 
 .card-playlist {
   background-color: #181818;
-  color: #fefefe;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -173,6 +172,9 @@ main {
   align-items: flex-start;
   padding: 0.8rem 0.4rem;
   font-size: 0.8rem;
+}
+.card-playlist a {
+  color: #fefefe;
 }
 .card-playlist img {
   width: 100%;
@@ -257,12 +259,16 @@ main {
     margin-right: 15rem;
   }
 }
+body {
+  background-color: #0F1317;
+}
+
 .playlist-table {
   width: 100%;
 }
 
 .playlist-details {
-  background-color: #535353;
+  background-color: #1D2B37;
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
@@ -292,10 +298,12 @@ main {
 }
 
 table {
-  color: white;
+  color: silver;
   text-align: center;
+  font-size: 0.7rem;
 }
-table td {
+table td,
+table th {
   width: 100%;
   display: flex;
   align-items: center;
@@ -307,18 +315,27 @@ table tr {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
+table tbody tr:hover {
+  background-color: rgba(82, 82, 82, 0.5);
+  color: white;
+}
 
 .song-details__container {
-  background-color: #414141;
-  width: 50%;
+  width: 100%;
   margin: auto;
 }
 
 .song-details {
   width: 100%;
+  display: flex;
 }
 .song-details img {
   width: 100%;
+  display: block;
+}
+.song-details div:nth-child(1) {
+  width: 30%;
+  margin-left: 0.5rem;
 }
 
 .flex {
