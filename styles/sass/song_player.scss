@@ -1,66 +1,208 @@
-$bgcolor:black;
-$textcolor:white;
-@mixin signs_color{color: wheat;}
-@mixin background_text{
-  background-color: $bgcolor;
-  color:$textcolor;
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-size: 62.5%; 
+  font-family: Dirooz;
 }
-@mixin background_text1{
-  /*background-color: $bgcolor;*/
-  color:$textcolor;
-  max-width: auto;
-  width: auto!important;
-  height: auto!important;
-  /*margin: auto;*/
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+@font-face {
+  font-family: Dirooz;
+  src: url('../../fonts/Dirooz.ttf');
 }
-.player__part{
-  @include background_text;
-  @for $i from 0 to 5+1{
-    @if $i==2 {
-      .column{
-        float: left;
-      }
-        .album-cover{@include background_text1;}
-    }
-    @else{
-      div:nth-child(#{$i}){
-        @include background_text1;
-      }
-    }
-    .fa-heart{@include  signs_color}
-    .fa-ellipsis-v{@include  signs_color}
-     .fa-fast-forward{@include  signs_color}
-      .fa-play{@include  signs_color}
-     .fa-fast-backward{@include  signs_color}
+@mixin sidebar{
+  height: 0.2rem;
+  width: 100%;
+  max-width: 50rem;
+  -webkit-appearance: none;
+  z-index: 100;
+  position: relative;
+  background-color:#A8A8A8;
+  box-shadow: 0 0 2px 1px #eee;
+  &::-webkit-slider-thumb{
+      -webkit-appearance: none;
+      width: 1rem;
+      height: 1rem;
+      background-color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      transform: scale(1);
+  }
+  &:active::-webkit-slider-thumb{
+      transform: scale(1.3);
   }
 }
 
-@media screen and(min-width: 300px){
-  .player__part{
-
-    @include background_text;
-    @for $i from 0 to 5+1{
-      @if $i==2 {
-        .column{
-          float: left;
-        }
-        .album-cover{@include background_text1;}
+body{
+  height: 100vh;
+  main{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      direction: rtl;
+      width: 100%;
+      height: 100%;
+      .music__container{
+          position: fixed;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100vh;
+          padding:2rem 3rem;
+      .music__content{
+          width:100%;
+          height:100%;
+          max-width: 70rem;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .img--back{
+                top:0;
+                left: 0;
+                right: 0;
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                z-index: 2;
+                position: absolute;
+                background-image: linear-gradient(to bottom, #FED317,#000);;
+                background-size: cover;
+          }
+          .volume__container{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              z-index: 3;
+              margin:2rem;
+              width: 100%;
+              max-width: 25rem;
+              #vol{
+                  @include sidebar;
+              }
+          }
+          .playlist__container{
+            position: absolute;
+            top:0;
+            padding:4rem 9rem;
+            @media (max-width:425px) {
+              padding:4rem 4rem;
+          }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            width: 100%;
+            margin-bottom: 5rem;
+            h5{
+               color:#fff;
+               font-size: 1.8rem;
+               width: 100%;
+               text-align: center;
+            }
+          }
+          .img--music{
+              display: grid;
+              place-items: center;
+              width: 100%;
+              max-width: 35rem;
+              height: auto; 
+              z-index: 3;
+              .music__img{
+                  border-radius: 5px;
+                  width: 100%;
+                  height: auto;
+                  border: 0.1rem solid #686868;
+              }     
+          }
+          .info__music{
+            display: flex;
+            place-items: center;
+            width: 100%;
+            z-index: 3;
+            margin:1rem;
+            .music__img{
+                border-radius: 5px;
+                width: 100%;
+                max-width: 25rem;
+                max-height: 25rem;
+                height: auto;
+                border: 0.1rem solid #686868;
+            }
+            .title__artist{
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              color: whitesmoke;
+              text-align: right;
+              h2{
+                  font-size: 2rem;
+              }
+              h4{
+                  font-size: 1.3rem;
+              }
+            }
+          }
+          .current__time{
+              z-index: 3;
+              justify-content: center;
+              align-items: center;
+              color: #fff;
+              font-size: 2rem;
+              display: flex;
+              grid-gap: 2rem;
+              width: 100%;
+              input{
+                  height: 0.2rem;
+                  width: 100%;
+                  -webkit-appearance: none;
+                  background-color:#A8A8A8;
+                  box-shadow: 0 0 2px 1px #eee;
+                  &::-webkit-slider-thumb{
+                      -webkit-appearance: none;
+                      width: 1rem;
+                      height: 1rem;
+                      background-color: #fff;
+                      border-radius: 50%;
+                      cursor: pointer;
+                      transform: scale(1);
+                  }
+                  &:active::-webkit-slider-thumb{
+                      transform: scale(1.3);
+                  }
+              }
+          }
+          .btns{
+              position: relative;
+              margin: 2rem auto;
+              display: flex;
+              align-content: center;
+              justify-content: center;
+              width: 100%;
+              z-index: 3;
+              .controls{
+                width: 100%;
+                text-align: center;
+                  button{
+                    background-color: transparent;
+                    border:none;
+                        img{
+                            width: 7rem;
+                            @media (max-width:425px) {
+                              width: 4rem;
+                          }  
+                        }
+                      }
+                   }
+                }
+              }
+              .btn--like , #repeat, #more, #dropdown,#shuffle{
+                background-color: transparent;
+                border:none;
+            }
+          }
       }
-      @else {
-        div:nth-child(#{$i}){
-          @include background_text1;
-        }
-      }
-      .fa-heart{@include  signs_color}
-      .fa-ellipsis-v{@include  signs_color}
-      .fa-fast-forward{@include  signs_color}
-      .fa-play{@include  signs_color}
-      .fa-fast-backward{@include  signs_color}
-    }
+      
   }
-}
-
-
