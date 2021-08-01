@@ -17,7 +17,7 @@
   z-index: 100;
   position: relative;
   background-color:#A8A8A8;
-  box-shadow: 0 0 2px 1px #eee;
+  box-shadow: 0 0 1px 1px #eee;
   &::-webkit-slider-thumb{
       -webkit-appearance: none;
       width: 1rem;
@@ -159,7 +159,7 @@ body{
                   width: 100%;
                   -webkit-appearance: none;
                   background-color:#A8A8A8;
-                  box-shadow: 0 0 2px 1px #eee;
+                  box-shadow: 0 0 1px 1px #eee;
                   &::-webkit-slider-thumb{
                       -webkit-appearance: none;
                       width: 1rem;
