@@ -143,6 +143,9 @@ header a {
 .signUp a {
   color: #E66946;
 }
+.signUp a:hover {
+  text-decoration: underline;
+}
 
 .login-controls {
   margin-top: 0.6rem;
@@ -182,6 +185,11 @@ header a {
   }
 }
 @media (min-width: 768px) {
+  main {
+    width: 90%;
+    margin: auto;
+  }
+
   .container {
     width: 50%;
   }
@@ -196,20 +204,20 @@ header a {
     margin: auto;
     margin-left: 0;
   }
-}
-@media (min-width: 900px) {
-  .container {
-    width: 35%;
-  }
 
   .img-background {
     display: block;
     width: 50%;
   }
 }
+@media (min-width: 900px) {
+  .container {
+    width: 40%;
+  }
+}
 @media (min-width: 1200px) {
   .container {
-    width: 27%;
+    width: 30%;
   }
 }
 

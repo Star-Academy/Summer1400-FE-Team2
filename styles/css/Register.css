@@ -183,10 +183,15 @@ header a {
 }
 @media (min-width: 600px) {
   .container {
-    width: 60%;
+    width: 80%;
+  }
+
+  main {
+    width: 90%;
+    margin: auto;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .img-background {
     display: none;
   }
@@ -211,11 +216,6 @@ header a {
   }
 }
 @media (min-width: 1200px) {
-  main {
-    width: 90%;
-    margin: auto;
-  }
-
   .container {
     width: 30%;
   }
