@@ -63,20 +63,34 @@
     </aside>
     <!-------------- Header -------------->
     <header>
-        <div class="user-controls__links">
-            <a href="./pages/Register.html" class="controlBtn">
-                <span>ثبت نام</span>
-            </a>
-            <a href="./pages/Login.html" class="controlBtn">
-                <i class="fas fa-sign-in-alt vertical-middle"></i>
-                <span>ورود</span></a>
-            <a href="#" id="user-account__link">
-                <i class="far fa-user"></i> <span>نام کاربری</span>
-            </a>
+        <div class="grid-item__header">
+            <div class="user-controls__links">
+                <a href="./pages/Register.html" class="controlBtn">
+                    <span>ثبت نام</span>
+                </a>
+                <a href="./pages/Login.html" class="controlBtn">
+                    <i class="fas fa-sign-in-alt vertical-middle"></i>
+                    <span>ورود</span></a>
+                <a href="#" id="user-account__link">
+                    <i class="far fa-user"></i> <span>نام کاربری</span>
+                </a>
+            </div>
         </div>
-        <div id="navigation__links">
-            <a href="#"><i class="fas fa-chevron-circle-right"></i></a>
-            <a href="#"><i class="fas fa-chevron-circle-left"></i></a>
+        <div class="grid-item__header">
+            <div class="searchBox">
+                <form action="#">
+                    <input type="text" placeholder="خواننده ها , اهنگ ها" />
+                    <button class="searchBox__button" id="searchBtn">
+                        <i class="fa fa-search"></i>
+                      </button>
+                </form>
+            </div>
+        </div>
+        <div class="grid-item__header">
+            <div id="navigation__links">
+                <a href="#"><i class="fas fa-chevron-circle-right"></i></a>
+                <a href="#"><i class="fas fa-chevron-circle-left"></i></a>
+            </div>
         </div>
     </header>
     <!--------------- main --------------->
