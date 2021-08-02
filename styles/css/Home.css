@@ -205,7 +205,7 @@ main {
 }
 .aside-mobile__links a {
   width: 100%;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: white;
   text-align: center;
   display: flex;
@@ -357,6 +357,10 @@ main {
 
   .searchBox {
     width: 80%;
+  }
+
+  header a {
+    font-size: 0.6rem;
   }
 }
 .playlists__container {
