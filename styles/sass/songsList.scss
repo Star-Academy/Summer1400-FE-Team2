@@ -5,16 +5,11 @@ body {
 
 .playlist-table {
     width: 100%;
-    // margin-left: 0;
-    // margin-right: auto;
 }
 
 .playlist-details {
-    // text-align: left;
-    // background-color: rgb(83, 83, 83);
     background-color: #1D2B37;
     display: flex;
-    // justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
     color: white;
@@ -43,21 +38,27 @@ body {
 }
 
 table {
+    width: 95%;
     color: rgb(192, 192, 192);
     text-align: center;
     font-size: 0.7rem;
+    th {
+        font-size: 0.9rem;
+    }
     td,
     th {
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
     }
     tr {
+        padding: 0.2rem 0.4rem;
+        width: 100%;
         display: block;
         margin-bottom: 1.5rem;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: 5% 50% 35% 5% 5%;
     }
     tbody tr:hover {
         background-color: rgba($color: #525252, $alpha: 0.5);
@@ -66,7 +67,6 @@ table {
 }
 
 .song-details__container {
-    // background-color: rgb(65, 65, 65);
     width: 100%;
     margin: auto;
 }
@@ -74,12 +74,13 @@ table {
 .song-details {
     width: 100%;
     display: flex;
+    justify-content: flex-start;
     img {
         width: 100%;
         display: block;
     }
     div:nth-child(1) {
-        width: 30%;
+        width: 10%;
         margin-left: 0.5rem;
     }
 }
