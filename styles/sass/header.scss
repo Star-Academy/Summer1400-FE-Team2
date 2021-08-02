@@ -85,7 +85,7 @@ header {
 }
 
 .user-controls__links a:hover {
-    background-color: #555555;
+    background-color: #333333;
     color: white;
 }
 
@@ -191,7 +191,7 @@ main {
     font-size: 1rem;
     &:hover,
     &:active {
-        color: #7c7c7c;
+        color: #9e9e9e;
     }
 }
 
@@ -215,7 +215,6 @@ main {
     }
     li {
         display: inline-block;
-        // margin-left: 0.8rem;
     }
     a {
         width: 100%;
