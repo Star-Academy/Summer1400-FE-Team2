@@ -54,7 +54,7 @@ body{
           width:100%;
           height:100%;
           max-width: 70rem;
-          overflow: hidden;
+          overflow: auto;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -84,18 +84,11 @@ body{
               }
           }
           .playlist__container{
-            position: absolute;
-            top:0;
-            padding:4rem 9rem;
-            @media (max-width:425px) {
-              padding:4rem 4rem;
-          }
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 3;
             width: 100%;
-            margin-bottom: 5rem;
             h5{
                color:#fff;
                font-size: 1.8rem;
@@ -189,7 +182,7 @@ body{
                     background-color: transparent;
                     border:none;
                         img{
-                            width: 7rem;
+                            width: 5.5rem;
                             @media (max-width:425px) {
                               width: 4rem;
                           }  

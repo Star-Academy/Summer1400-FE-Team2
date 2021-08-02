@@ -35,7 +35,7 @@ body main .music__container .music__content {
   width: 100%;
   height: 100%;
   max-width: 70rem;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,20 +85,11 @@ body main .music__container .music__content .volume__container #vol:active::-web
   transform: scale(1.3);
 }
 body main .music__container .music__content .playlist__container {
-  position: absolute;
-  top: 0;
-  padding: 4rem 9rem;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 3;
   width: 100%;
-  margin-bottom: 5rem;
-}
-@media (max-width: 425px) {
-  body main .music__container .music__content .playlist__container {
-    padding: 4rem 4rem;
-  }
 }
 body main .music__container .music__content .playlist__container h5 {
   color: #fff;
@@ -195,7 +186,7 @@ body main .music__container .music__content .btns .controls button {
   border: none;
 }
 body main .music__container .music__content .btns .controls button img {
-  width: 7rem;
+  width: 5.5rem;
 }
 @media (max-width: 425px) {
   body main .music__container .music__content .btns .controls button img {
