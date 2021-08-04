@@ -27,6 +27,11 @@ body {
     background-color: #202020;
 }
 
+main {
+    width: 80%;
+    margin: 7% auto 5rem 0;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -150,11 +155,6 @@ header {
     background-color: black;
 }
 
-main {
-    width: 80%;
-    margin: 7% auto 0 0;
-}
-
 #nav-links {
     ul {
         @include ul-setup();
@@ -246,10 +246,13 @@ main {
     justify-content: space-between;
     align-items: flex-start;
     padding: 0.8rem 0.4rem;
+    border-radius: 8px;
     font-size: 0.8rem;
     img {
         width: 100%;
         margin-bottom: 0.5rem;
+        border-radius: 8px;
+
     }
     &:hover {
         background-color: #282828;
@@ -281,7 +284,7 @@ main {
     }
     main {
         width: 95%;
-        margin: 13% auto 0 auto;
+        margin-top: 13%;
     }
     .header-left {
         width: 45%
@@ -307,7 +310,7 @@ main {
 
 @media (max-width: 768px) {
     main {
-        margin: 25% auto 0 auto;
+        margin-top: 25%;
     }
     .aside-mobile__links {
         li:nth-child(1) {
@@ -348,14 +351,14 @@ main {
         margin-top: 35%;
     }
     header {
-        padding: 0.7rem 0.5rem;
+        padding: 1rem 0.6rem 0.5rem 0.6rem;
     }
     .aside-mobile__links {
         li:nth-child(1) {
             margin-right: 10rem;
         }
         a {
-            font-size: 0.6rem;
+            font-size: 0.8rem;
         }
     }
     .searchBox {
@@ -373,6 +376,6 @@ main {
         width: 80%;
     }
     header a {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 }

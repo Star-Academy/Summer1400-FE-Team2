@@ -5,6 +5,13 @@
   font-size: 62.5%; 
   font-family: Dirooz;
 }
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @font-face {
   font-family: Dirooz;
   src: url('../../fonts/Dirooz.ttf');
@@ -35,18 +42,14 @@
 body{
   height: 100vh;
   main{
-      display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      @include flex-center;
       direction: rtl;
       width: 100%;
       height: 100%;
       .music__container{
           position: fixed;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include flex-center;
           width: 100%;
           height: 100vh;
           padding:2rem 3rem;
@@ -55,10 +58,8 @@ body{
           height:100%;
           max-width: 70rem;
           overflow: auto;
-          display: flex;
+          @include flex-center;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
           .img--back{
                 top:0;
                 left: 0;
@@ -72,9 +73,7 @@ body{
                 background-size: cover;
           }
           .volume__container{
-              display: flex;
-              align-items: center;
-              justify-content: center;
+            @include flex-center;
               z-index: 3;
               margin:2rem;
               width: 100%;
@@ -84,9 +83,7 @@ body{
               }
           }
           .playlist__container{
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flex-center;
             z-index: 3;
             width: 100%;
             h5{
@@ -140,11 +137,9 @@ body{
           }
           .current__time{
               z-index: 3;
-              justify-content: center;
-              align-items: center;
+              @include flex-center;
               color: #fff;
               font-size: 2rem;
-              display: flex;
               grid-gap: 2rem;
               width: 100%;
               input{

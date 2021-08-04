@@ -17,22 +17,24 @@ body {
 
 $login-font:'Cabin',
 sans-serif;
-$dark-green:rgb(13,
-82,
-82);
-$light-green:rgb(113,
-223,
-181);
+$dark-green:rgb(13,82,82);
+$light-green:rgb(113,223,181);
+
 @mixin flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-main {
+@mixin flex-space-evenly {
     display: flex;
-    justify-content: center;
+    flex-flow: column;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+main {
+    @include flex-center();
     height: 100%;
 }
 
@@ -64,13 +66,10 @@ header {
 }
 
 .container {
+    @include flex-space-evenly();
     width: 90%;
     height: 60%;
     margin: auto;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-evenly;
-    align-items: center;
     border-radius: 7px;
     padding: 1rem;
     background-color: #fffbf6;
@@ -107,10 +106,10 @@ header {
         padding: 0.3rem 0.7rem;
         font-size: 0.8rem;
         margin: auto;
-    }
-    a:hover {
-        background-color: rgb(44, 43, 43);
-        border: 0;
+        &:hover {
+            background-color: rgb(44, 43, 43);
+            border: 0;
+        }
     }
 }
 
@@ -155,9 +154,9 @@ header {
     }
     a {
         color: #E66946;
-    }
-    a:hover {
-        text-decoration: underline;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
@@ -168,9 +167,9 @@ header {
     }
     #loginBtn {
         font-size: 0.8rem;
-    }
-    #loginBtn:hover {
-        background-color: rgb(44, 43, 43);
+        &:hover {
+            background-color: rgb(44, 43, 43);
+        }
     }
 }
 
