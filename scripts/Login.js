@@ -36,6 +36,7 @@ const checkData = (e) => {
             }
         }
     }
-    alert(result);
-};
+}
+showToast(result);
+
 login_btn.addEventListener("click", checkData);

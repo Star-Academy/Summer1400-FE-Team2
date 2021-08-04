@@ -7,7 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assets/images/logo.png" />
     <link rel="stylesheet" href="./styles/css/Home.css" />
+    <link rel="stylesheet" href="./styles/css/toast.css" />
+    <link rel="stylesheet" href="./styles/css/modal.css" />
+
     <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
+    <script src="./scripts/toast.js" defer></script>
+    <script src="./scripts/modal.js" defer></script>
+
     <title>Spotify</title>
 </head>
 
@@ -26,15 +32,15 @@
                     <a href="#"> <i class="fas fa-search"></i>جست و جو </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-book"></i>کتابخانه شما </a>
+                    <a href="#" id="ErrorLogin" onclick="showModal1()"> <i class="fas fa-book"></i>کتابخانه شما </a>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="#"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
+                    <a href="#" id="showToast1" onclick="showToastPlayList()"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
+                    <a href="#"  id="showToast2" onclick="showToastPlayList2()"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
                 </li>
             </ul>
         </nav>
@@ -269,6 +275,14 @@
         </section>
     </main>
     <footer></footer>
+    <div id="snackbar">سلام من یک نون تست هستم D:</div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <span id="modal-close">&times;</span>
+          <p id="modal-text">ُسلام من یک مودال هستم D:</p>
+        </div>
+      
+      </div>
 </body>
 
 </html>
