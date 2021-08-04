@@ -14,6 +14,11 @@ body {
   background-color: #202020;
 }
 
+main {
+  width: 80%;
+  margin: 7% auto 5rem 0;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -133,11 +138,6 @@ header .controlBtn {
   width: 17%;
   height: 100vh;
   background-color: black;
-}
-
-main {
-  width: 80%;
-  margin: 7% auto 0 0;
 }
 
 #nav-links ul {
@@ -268,7 +268,7 @@ main {
 
   main {
     width: 95%;
-    margin: 13% auto 0 auto;
+    margin-top: 13%;
   }
 
   .header-left {
@@ -294,7 +294,7 @@ main {
 }
 @media (max-width: 768px) {
   main {
-    margin: 25% auto 0 auto;
+    margin-top: 25%;
   }
 
   .aside-mobile__links li:nth-child(1) {
@@ -336,14 +336,14 @@ main {
   }
 
   header {
-    padding: 0.7rem 0.5rem;
+    padding: 1rem 0.6rem 0.5rem 0.6rem;
   }
 
   .aside-mobile__links li:nth-child(1) {
     margin-right: 10rem;
   }
   .aside-mobile__links a {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .searchBox {
@@ -360,7 +360,7 @@ main {
   }
 
   header a {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 }
 .playlists__container {

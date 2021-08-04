@@ -14,6 +14,11 @@ body {
   background-color: #202020;
 }
 
+main {
+  width: 80%;
+  margin: 7% auto 5rem 0;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -133,11 +138,6 @@ header .controlBtn {
   width: 17%;
   height: 100vh;
   background-color: black;
-}
-
-main {
-  width: 80%;
-  margin: 7% auto 0 0;
 }
 
 #nav-links ul {
@@ -268,7 +268,7 @@ main {
 
   main {
     width: 95%;
-    margin: 13% auto 0 auto;
+    margin-top: 13%;
   }
 
   .header-left {
@@ -294,7 +294,7 @@ main {
 }
 @media (max-width: 768px) {
   main {
-    margin: 25% auto 0 auto;
+    margin-top: 25%;
   }
 
   .aside-mobile__links li:nth-child(1) {
@@ -336,14 +336,14 @@ main {
   }
 
   header {
-    padding: 0.7rem 0.5rem;
+    padding: 1rem 0.6rem 0.5rem 0.6rem;
   }
 
   .aside-mobile__links li:nth-child(1) {
     margin-right: 10rem;
   }
   .aside-mobile__links a {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .searchBox {
@@ -360,15 +360,11 @@ main {
   }
 
   header a {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 }
 body {
   background-color: #0F1317;
-}
-
-main {
-  margin-bottom: 3rem;
 }
 
 .playlist-table {
@@ -422,10 +418,10 @@ table {
   width: 95%;
   color: silver;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 table th {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 table td,
 table th {
@@ -537,7 +533,7 @@ table tbody tr:hover {
   }
   .playlist-details .playlist-details__content {
     width: 90%;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     text-align: center;
   }
 
@@ -560,11 +556,6 @@ table tbody tr:hover {
 
   #playMusicBtn {
     font-size: 1.3rem;
-  }
-}
-@media (max-width: 500px) {
-  header {
-    padding: 0.3rem 0.5rem;
   }
 }
 

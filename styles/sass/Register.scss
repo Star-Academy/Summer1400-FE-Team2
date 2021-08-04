@@ -11,6 +11,19 @@
     direction: rtl;
 }
 
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-space-evenly {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 $paragraph-color:rgb(73,
 194,
 73);
@@ -21,9 +34,7 @@ body {
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center();
     height: 100%;
 }
 
@@ -55,10 +66,7 @@ header {
     padding: 1rem;
     height: 60%;
     margin: auto;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-evenly;
-    align-items: center;
+    @include flex-space-evenly();
     font-weight: bold;
     background-color: #fffbf6;
     border-radius: 7px;
@@ -81,8 +89,8 @@ header {
     font-size: 0.8rem;
     display: flex;
     flex-flow: column;
-    margin-bottom: 0.7rem;
     justify-content: space-between;
+    margin-bottom: 0.7rem;
     input {
         margin-top: 0.4rem;
         outline: 0;
