@@ -243,10 +243,13 @@ header {
     justify-content: space-between;
     align-items: flex-start;
     padding: 0.8rem 0.4rem;
+    border-radius: 8px;
     font-size: 0.8rem;
     img {
         width: 100%;
         margin-bottom: 0.5rem;
+        border-radius: 8px;
+
     }
     &:hover {
         background-color: #282828;

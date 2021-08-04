@@ -17,12 +17,9 @@ body {
 
 $login-font:'Cabin',
 sans-serif;
-$dark-green:rgb(13,
-82,
-82);
-$light-green:rgb(113,
-223,
-181);
+$dark-green:rgb(13,82,82);
+$light-green:rgb(113,223,181);
+
 @mixin flex-center {
     display: flex;
     justify-content: center;
