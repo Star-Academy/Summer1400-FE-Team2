@@ -8,12 +8,12 @@
     <link rel="shortcut icon" href="./assets/images/logo.png" />
     <link rel="stylesheet" href="./styles/css/Home.css" />
     <link rel="stylesheet" href="./styles/css/toast.css" />
-    <link rel="stylesheet" href="./styles/css/modal.css" />
-
+    <link rel="stylesheet" href="./styles/css/box-modal.css" />
     <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
     <script src="./scripts/toast.js" defer></script>
     <script src="./scripts/modal.js" defer></script>
-
+    <script src="./scripts/Menubar.js" defer></script>
+    <script src="./scripts/playlists.js" defer></script>
     <title>Spotify</title>
 </head>
 
@@ -21,48 +21,45 @@
     <!-------------- Sidebar -------------->
     <aside class="aside-box" id="aside-desktop">
         <nav id="nav-links">
-            <a href="#" id="spotify-logo">
-                <i class="fab fa-spotify"></i> Spotify
-            </a>
+            <a href="./index.html" id="spotify-logo"> <i class="fab fa-spotify"></i> Spotify </a>
             <ul>
                 <li>
-                    <a href="#"> <i class="fas fa-home"></i>خانه </a>
+                    <a href="./index.html"> <i class="fas fa-home"></i>خانه </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-search"></i>جست و جو </a>
+                    <a href="#" id="btnSearchMenu"> <i class="fas fa-search"></i>جست و جو </a>
                 </li>
                 <li>
-                    <a href="#" id="ErrorLogin" onclick="showModal1()"> <i class="fas fa-book"></i>کتابخانه شما </a>
+                    <a id="libraryMenu"> <i class="fas fa-book"></i>کتابخانه شما </a>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="#" id="showToast1" onclick="showToastPlayList()"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
+                    <a id="createListMenu"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
                 </li>
                 <li>
-                    <a href="#"  id="showToast2" onclick="showToastPlayList2()"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
+                    <a id="ArchivedMenu"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
                 </li>
             </ul>
         </nav>
     </aside>
     <aside id="aside-mobile">
         <nav class="aside-mobile__links">
-            <!-- <a href="#" id="spotify-logo"> <i class="fab fa-spotify"></i> Spotify </a> -->
             <ul>
                 <li>
-                    <a href="#"> <i class="fas fa-home"></i>خانه</a>
+                    <a href="./index.html"> <i class="fas fa-home"></i>خانه</a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-search"></i>جست و جو </a>
+                    <a href="#" id="btnSearchMenuMobile"> <i class="fas fa-search"></i>جست و جو </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-book"></i>کتابخانه </a>
+                    <a id="libraryMenuMobile"> <i class="fas fa-book"></i>کتابخانه </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
+                    <a id="createListMenuMobile"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
+                    <a id="ArchivedMenuMobile"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
                 </li>
             </ul>
         </nav>
@@ -70,219 +67,37 @@
     <!-------------- Header -------------->
     <header>
         <div class="grid-item__header">
-            <div class="user-controls__links">
-                <a href="./pages/Register.html" class="controlBtn">
-                    <span>ثبت نام</span>
-                </a>
-                <a href="./pages/Login.html" class="controlBtn">
-                    <i class="fas fa-sign-in-alt vertical-middle"></i>
-                    <span>ورود</span></a>
-                <a href="#" id="user-account__link">
-                    <i class="far fa-user"></i> <span>نام کاربری</span>
-                </a>
+            <div class="user-controls__links" id="userStatusMenu">
+
             </div>
         </div>
-        <div class="grid-item__header">
+        <div class="grid-item__header" id="boxSearchMenu">
             <div class="searchBox">
                 <form action="#">
                     <input type="text" placeholder="خواننده ها , اهنگ ها....." />
                     <button class="searchBox__button" id="searchBtn">
                         <i class="fa fa-search"></i>
-                      </button>
+                    </button>
                 </form>
             </div>
         </div>
         <div class="grid-item__header">
             <div id="navigation__links">
-                <a href="#"><i class="fas fa-chevron-circle-right"></i></a>
-                <a href="#"><i class="fas fa-chevron-circle-left"></i></a>
+                <a id="goBack"><i class="fas fa-chevron-circle-right"></i></a>
+                <a id="goForward"><i class="fas fa-chevron-circle-left"></i></a>
             </div>
         </div>
     </header>
     <!--------------- main --------------->
-    <main>
-        <section class="playlists__container">
-            <div class="playlists__title">
-                <h3><a href="./pages/playlist.html">لیست اهنگ ۱</a></h3>
-                <a href="./pages/playlist.html">مشاهده همه</a>
-            </div>
-            <div class="cards__container">
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="playlists__container">
-            <div class="playlists__title">
-                <h3><a href="#">لیست اهنگ ۲</a></h3>
-                <a href="#">مشاهده همه</a>
-            </div>
-            <div class="cards__container">
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <section class="playlists__container">
-            <div class="playlists__title">
-                <h3><a href="#"> لیست اهنگ ۳</a></h3>
-                <a href="#">مشاهده همه</a>
-            </div>
-            <div class="cards__container">
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-                <div class="card-playlist">
-                    <a href="./pages/songsList.html">
-                        <img src="assets/images/sample.jpg" alt="cover" />
-                        <h4 class="card-playlist__title">عنوان اهنگ</h4>
-                        <p>توضیحات..</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
+    <main id="playlists"></main>
     <footer></footer>
-    <div id="snackbar">سلام من یک نون تست هستم D:</div>
+    <div id="snackbar"></div>
     <div id="modal" class="modal">
         <div class="modal-content">
-          <span id="modal-close">&times;</span>
-          <p id="modal-text">ُسلام من یک مودال هستم D:</p>
+            <span id="modal-close">&times;</span>
+            <div id="modal-text">ُ</div>
         </div>
-      
-      </div>
+    </div>
 </body>
 
 </html>

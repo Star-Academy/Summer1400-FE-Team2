@@ -30,6 +30,7 @@ body {
 a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 header {
@@ -64,7 +65,7 @@ header {
 
 .grid-item__header:nth-child(2) {
     grid-area: column-2;
-    display: flex;
+    display: none;
     justify-content: flex-end;
     margin-left: 1rem;
 }
@@ -90,7 +91,6 @@ header {
 }
 
 #user-account__link {
-    display: none;
     span {
         color: white;
     }
@@ -189,6 +189,10 @@ main {
 
 #navigation__links a {
     font-size: 1rem;
+    background-color: transparent;
+    color:#fff;
+    border:none;
+    cursor: pointer;
     &:hover,
     &:active {
         color: #9e9e9e;
@@ -231,7 +235,6 @@ main {
         background: #444444;
     }
 }
-
 .card-playlist {
     background-color: #181818;
     a {

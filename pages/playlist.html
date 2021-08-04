@@ -8,6 +8,9 @@
     <link rel="shortcut icon" href="../assets/images/logo.png" />
     <link rel="stylesheet" href="../styles/css/Playlist.css">
     <script src="../scripts/playlist.js" defer></script>
+    <script src="../scripts/Menubar.js" defer></script>
+    <script src="../scripts/toast.js" defer></script>
+    <link rel="stylesheet" href="../styles/css/toast.css" />
     <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
     <title>Playlist</title>
 </head>
@@ -22,18 +25,18 @@
                     <a href="../index.html"> <i class="fas fa-home"></i>خانه </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-search"></i>جست و جو </a>
+                    <a href="#" id="btnSearchMenu"> <i class="fas fa-search"></i>جست و جو </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-book"></i>کتابخانه شما </a>
+                    <a id="libraryMenu"> <i class="fas fa-book"></i>کتابخانه شما </a>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="#"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
+                    <a id="createListMenu"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
+                    <a id="ArchivedMenu"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
                 </li>
             </ul>
         </nav>
@@ -45,16 +48,16 @@
                     <a href="../index.html"> <i class="fas fa-home"></i>خانه</a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-search"></i>جست و جو </a>
+                    <a href="#" id="btnSearchMenuMobile"> <i class="fas fa-search"></i>جست و جو </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-book"></i>کتابخانه </a>
+                    <a id="libraryMenuMobile"> <i class="fas fa-book"></i>کتابخانه </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
+                    <a id="createListMenuMobile"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
+                    <a id="ArchivedMenuMobile"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
                 </li>
             </ul>
         </nav>
@@ -62,32 +65,24 @@
     <!-------------- Header -------------->
     <header>
         <div class="grid-item__header">
-            <div class="user-controls__links">
-                <a href="./Register.html" class="controlBtn">
-                    <span>ثبت نام</span>
-                </a>
-                <a href="./Login.html" class="controlBtn">
-                    <i class="fas fa-sign-in-alt vertical-middle"></i>
-                    <span>ورود</span></a>
-                <a href="#" id="user-account__link">
-                    <i class="far fa-user"></i> <span>نام کاربری</span>
-                </a>
+            <div class="user-controls__links" id="userStatusMenu">
+
             </div>
         </div>
-        <div class="grid-item__header">
+        <div class="grid-item__header" id="boxSearchMenu">
             <div class="searchBox">
                 <form action="#">
                     <input type="text" placeholder="خواننده ها , اهنگ ها....." />
                     <button class="searchBox__button" id="searchBtn">
                         <i class="fa fa-search"></i>
-                      </button>
+                    </button>
                 </form>
             </div>
         </div>
         <div class="grid-item__header">
             <div id="navigation__links">
-                <a href="#"><i class="fas fa-chevron-circle-right"></i></a>
-                <a href="#"><i class="fas fa-chevron-circle-left"></i></a>
+                <a id="goBack"><i class="fas fa-chevron-circle-right"></i></a>
+                <a id="goForward"><i class="fas fa-chevron-circle-left"></i></a>
             </div>
         </div>
     </header>
@@ -99,6 +94,7 @@
             </div>
         </section>
     </main>
+    <div id="snackbar"></div>
 </body>
 
 </html>

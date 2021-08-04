@@ -13,7 +13,19 @@ window.onclick = function (event) {
   }
 };
 
-function showModal1() {
+
+//example of how to use
+function permission() {
   modal.style.display = "block";
-  text.innerHTML = "شما روی من کلیک کردی D:";
+  text.innerHTML = `
+      <div class="main-modal">
+          <div class="modal-info flex-center">
+                <p>با یه حساب رایگان شروع به گوش دادن اهنگ ها کن</p>
+                <a href="Register.html">ثبت نام رایگان</a>
+                <small>قبلا حساب کاربری ایجاد کردی؟ <a href="Login.html">ورود</a></small>
+          </div>
+          <div class="modal-photo flex-center">
+              <img src="./assets/images/box-modal.jpg" alt="" />
+          </div>
+        </div>`;
 }
