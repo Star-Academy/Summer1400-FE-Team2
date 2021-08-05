@@ -17,11 +17,12 @@ goForward.addEventListener("click", fgoForward);
 const userStatusMenu = document.getElementById("userStatusMenu");
 
 function welcomeUser() {
+  let name = localStorage.getItem("username");
   if (
     localStorage.getItem("token") !== null &&
-    sessionStorage.getItem("welcome") == "false"
+    sessionStorage.getItem("welcome") === "false"
   ) {
-    showToast(`${localStorage.getItem("username")} عزیز با موفقیت وارد شدید .`);
+    showToast(`${name} عزیز با موفقیت وارد شدید .`);
     sessionStorage.setItem("welcome", "true");
   }
 }
