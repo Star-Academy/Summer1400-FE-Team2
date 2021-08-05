@@ -240,6 +240,7 @@ header .controlBtn {
   padding: 0.8rem 0.4rem;
   border-radius: 8px;
   font-size: 0.8rem;
+  margin-bottom: 1rem;
 }
 .card-playlist a {
   color: #fefefe;
