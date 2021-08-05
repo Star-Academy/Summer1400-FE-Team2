@@ -1,0 +1,67 @@
+@use './header.scss';
+// *********************//
+.playlists__container {
+    width: 90%;
+    margin-bottom: 1.4rem;
+    padding: 0 0.5rem;
+    .playlists__title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        a {
+            color: #ffffff;
+        }
+        a:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.playlists__title h3:hover {
+    text-decoration: underline;
+}
+
+.cards__container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 0.5rem;
+}
+
+@media (max-width: 1450px) {
+    .cards__container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .playlists__container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .cards__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .cards__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cards__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .cards__container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        padding: 0.3rem 0.5rem;
+    }
+}

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../assets/images/logo.png" />
+    <link rel="stylesheet" href="../styles/css/songsList.css">
+    <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
+    <title>songs</title>
+</head>
+
+<body>
+    <div class="box-shadow"></div>
+    <!-------------- Sidebar -------------->
+    <aside class="aside-box" id="aside-desktop">
+        <nav id="nav-links">
+            <a href="../index.html" id="spotify-logo"> <i class="fab fa-spotify"></i> Spotify </a>
+            <ul>
+                <li>
+                    <a href="../index.html"> <i class="fas fa-home"></i>خانه </a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-search"></i>جست و جو </a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-book"></i>کتابخانه شما </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="#"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <aside id="aside-mobile">
+        <nav class="aside-mobile__links">
+            <ul>
+                <li>
+                    <a href="../index.html"> <i class="fas fa-home"></i>خانه</a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-search"></i>جست و جو </a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-book"></i>کتابخانه </a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
+                </li>
+                <li>
+                    <a href="#"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <!-------------- Header -------------->
+    <header>
+        <div class="grid-item__header">
+            <div class="user-controls__links">
+                <a href="./Register.html" class="controlBtn">
+                    <span>ثبت نام</span>
+                </a>
+                <a href="./Login.html" class="controlBtn">
+                    <i class="fas fa-sign-in-alt vertical-middle"></i>
+                    <span>ورود</span></a>
+                <a href="#" id="user-account__link">
+                    <i class="far fa-user"></i> <span>نام کاربری</span>
+                </a>
+            </div>
+        </div>
+        <div class="grid-item__header">
+            <div class="searchBox">
+                <form action="#">
+                    <input type="text" placeholder="خواننده ها , اهنگ ها....." />
+                    <button class="searchBox__button" id="searchBtn">
+                        <i class="fa fa-search"></i>
+                      </button>
+                </form>
+            </div>
+        </div>
+        <div class="grid-item__header">
+            <div id="navigation__links">
+                <a href="#"><i class="fas fa-chevron-circle-right"></i></a>
+                <a href="#"><i class="fas fa-chevron-circle-left"></i></a>
+            </div>
+        </div>
+    </header>
+    <!--------------- main --------------->
+    <main>
+        <section class="playlist-details">
+            <div class="playlist-details__image">
+                <img src="../assets/images/sample.jpg" alt="playlist-image" />
+            </div>
+            <div class="playlist-details__content">
+                <p>لیست اهنگ</p>
+                <h1>عنوان لیست اهنگ</h1>
+                <h6>توضیحات..</h6>
+                <div class="flex">
+                    <span> <b>Spotify</b> </span>
+                    <span>likes 5000 </span>
+                    <span>100 اهنگ</span>
+                    <span>4hr 53min</span>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="playlist-controls">
+                <a href="#" id="playMusicBtn">
+                    <i class="fas fa-play-circle"></i>
+                </a>
+                <a href="#">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a href="#">
+                    <i class="fas fa-ellipsis-h"></i>
+                </a>
+            </div>
+            <div class="playlist-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>عنوان</th>
+                            <th>البوم</th>
+                            <th></th>
+                            <th><i class="far fa-clock"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="hide-column">1</td>
+                            <td class="song-details__container">
+                                <div class="song-details">
+                                    <div>
+                                        <img src="../assets/images/song.jpg" alt="song-details" />
+                                    </div>
+                                    <div>
+                                        <b><h6>نام اهنگ</h6></b>
+                                        <h6>نام خواننده</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="hide-column">نام البوم</td>
+                            <td class="hide-column"><i class="far fa-heart"></i></td>
+                            <td class="hide-column">1:50</td>
+                            <td class="songsList-details"><i class="fas fa-ellipsis-v"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="hide-column">1</td>
+                            <td class="song-details__container">
+                                <div class="song-details">
+                                    <div>
+                                        <img src="../assets/images/song.jpg" alt="song-details" />
+                                    </div>
+                                    <div>
+                                        <b><h6>نام اهنگ</h6></b>
+                                        <h6>نام خواننده</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="hide-column">نام البوم</td>
+                            <td class="hide-column"><i class="far fa-heart"></i></td>
+                            <td class="hide-column">1:50</td>
+                            <td class="songsList-details"><i class="fas fa-ellipsis-v"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="hide-column">1</td>
+                            <td class="song-details__container">
+                                <div class="song-details">
+                                    <div>
+                                        <img src="../assets/images/song.jpg" alt="song-details" />
+                                    </div>
+                                    <div>
+                                        <b><h6>نام اهنگ</h6></b>
+                                        <h6>نام خواننده</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="hide-column">نام البوم</td>
+                            <td class="hide-column"><i class="far fa-heart"></i></td>
+                            <td class="hide-column">1:50</td>
+                            <td class="songsList-details"><i class="fas fa-ellipsis-v"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="hide-column">1</td>
+                            <td class="song-details__container">
+                                <div class="song-details">
+                                    <div>
+                                        <img src="../assets/images/song.jpg" alt="song-details" />
+                                    </div>
+                                    <div>
+                                        <b><h6>نام اهنگ</h6></b>
+                                        <h6>نام خواننده</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="hide-column">نام البوم</td>
+                            <td class="hide-column"><i class="far fa-heart"></i></td>
+                            <td class="hide-column">1:50</td>
+                            <td class="songsList-details"><i class="fas fa-ellipsis-v"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="hide-column">1</td>
+                            <td class="song-details__container">
+                                <div class="song-details">
+                                    <div>
+                                        <img src="../assets/images/song.jpg" alt="song-details" />
+                                    </div>
+                                    <div>
+                                        <b><h6>نام اهنگ</h6></b>
+                                        <h6>نام خواننده</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="hide-column">نام البوم</td>
+                            <td class="hide-column"><i class="far fa-heart"></i></td>
+                            <td class="hide-column">1:50</td>
+                            <td class="songsList-details"><i class="fas fa-ellipsis-v"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="hide-column">1</td>
+                            <td class="song-details__container">
+                                <div class="song-details">
+                                    <div>
+                                        <img src="../assets/images/song.jpg" alt="song-details" />
+                                    </div>
+                                    <div>
+                                        <b><h6>نام اهنگ</h6></b>
+                                        <h6>نام خواننده</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="hide-column">نام البوم</td>
+                            <td class="hide-column"><i class="far fa-heart"></i></td>
+                            <td class="hide-column">1:50</td>
+                            <td class="songsList-details"><i class="fas fa-ellipsis-v"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="hide-column">1</td>
+                            <td class="song-details__container">
+                                <div class="song-details">
+                                    <div>
+                                        <img src="../assets/images/song.jpg" alt="song-details" />
+                                    </div>
+                                    <div>
+                                        <b><h6>نام اهنگ</h6></b>
+                                        <h6>نام خواننده</h6>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="hide-column">نام البوم</td>
+                            <td class="hide-column"><i class="far fa-heart"></i></td>
+                            <td class="hide-column">1:50</td>
+                            <td class="songsList-details"><i class="fas fa-ellipsis-v"></i></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <!-------------- signUp modal -------------->
+        <!-- <section>
+            <div class="modal">
+                <div class="modal-photo">
+                    <img src="../assets/images/box-modal.jpg" alt="" />
+                </div>
+                <div class="modal-info">
+                    <p>با یه حساب رایگان شروع به گوش دادن اهنگ ها کن</p>
+                    <a href="Register.html">ثبت نام رایگان</a>
+                    <small>قبلا حساب کاربری ایجاد کردی؟ <a href="Login.html">ورود</a>
+            </small>
+                </div>
+            </div>
+        </section> -->
+    </main>
+</body>
+
+</html>
