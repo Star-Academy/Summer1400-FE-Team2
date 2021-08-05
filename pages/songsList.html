@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="../styles/css/songsList.css">
     <link rel="stylesheet" href="../styles/css/box-modal.css">
     <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
+    <script src="../scripts/toast.js" defer></script>
     <script src="../scripts/songsList.js" defer></script>
     <script src="../scripts/Menubar.js" defer></script>
-    <script src="../scripts/toast.js" defer></script>
+    <script src="../scripts/modal.js" defer></script>
+
     <link rel="stylesheet" href="../styles/css/toast.css" />
     <title>songs</title>
 </head>
@@ -49,7 +51,7 @@
                     <a href="../index.html"> <i class="fas fa-home"></i>خانه</a>
                 </li>
                 <li>
-                    <a href="#" id="btnSearchMenuMobile"> <i class="fas fa-search"></i>جست و جو </a>
+                    <a id="btnSearchMenuMobile"> <i class="fas fa-search"></i>جست و جو </a>
                 </li>
                 <li>
                     <a id="libraryMenuMobile"> <i class="fas fa-book"></i>کتابخانه </a>
@@ -110,7 +112,7 @@
                 <a href="#" id="playMusicBtn">
                     <i class="fas fa-play-circle"></i>
                 </a>
-                <a href="#">
+                <a href="#" id="like-songs">
                     <i class="far fa-heart"></i>
                 </a>
                 <a href="#">
@@ -134,7 +136,13 @@
             </div>
         </section>
         <!-------------- signUp modal -------------->
-        <section class="box-modal"></section>
+        <!-- <section class="box-modal"></section> -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span id="modal-close">&times;</span>
+                <div id="modal-text"></div>
+            </div>
+        </div>
     </main>
     <div id="snackbar"></div>
 

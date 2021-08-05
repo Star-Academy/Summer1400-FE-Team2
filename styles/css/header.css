@@ -16,7 +16,7 @@ body {
 
 main {
   width: 80%;
-  margin: 7% auto 5rem 0;
+  margin: 9% auto 5rem 0;
 }
 
 a {
@@ -34,7 +34,7 @@ header {
   padding: 1rem 0.9rem;
   z-index: 10;
   display: grid;
-  grid-template-columns: 30% 55% 15%;
+  grid-template-columns: 35% 50% 15%;
   grid-gap: 10px;
   grid-template-areas: "column-1 column-2 column-3";
 }
@@ -82,16 +82,23 @@ header .controlBtn {
   color: white;
 }
 
-#user-account__link {
+#user-account__link,
+#logoutBtn {
   border-radius: 999px;
   background-color: #282828;
   padding: 0.3rem 0.7rem;
 }
-#user-account__link span {
+#user-account__link span,
+#logoutBtn span {
   color: white;
 }
-#user-account__link i {
+#user-account__link i,
+#logoutBtn i {
   color: gray;
+}
+
+#logoutBtn:hover {
+  background-color: #333333;
 }
 
 .searchBox {
@@ -185,6 +192,7 @@ header .controlBtn {
 
 .aside-mobile__links {
   display: none;
+  z-index: 40;
   background-color: #282828;
   width: 100%;
   position: fixed;
@@ -274,6 +282,7 @@ header .controlBtn {
 
   main {
     width: 95%;
+    margin: auto;
     margin-top: 13%;
   }
 
@@ -311,7 +320,7 @@ header .controlBtn {
   }
 
   header {
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 75% 25%;
     grid-template-areas: " column-1 column-3 " " column-2 column-2 ";
   }
 

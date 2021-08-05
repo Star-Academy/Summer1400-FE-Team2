@@ -10,10 +10,15 @@
   position: fixed;
   z-index: 1;
   left: 50%;
-  bottom: 30px;
+  bottom: 2rem;
   font-size: 17px;
 }
 
+@media (max-width: 1200px) {
+  #snackbar {
+    bottom: 5rem;
+  }
+}
 #snackbar.show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;

@@ -8,7 +8,7 @@ body {
 }
 
 .playlist-details {
-    border:8px;
+    border: 8px;
     background-color: rgb(255, 255, 207);
     display: flex;
     align-items: center;
@@ -20,7 +20,7 @@ body {
             display: block;
             width: 100%;
             height: 100%;
-            border:10px;
+            border: 10px;
         }
     }
     .playlist-details__content {
@@ -79,6 +79,12 @@ table {
         background-color: rgba($color: #525252, $alpha: 0.5);
         color: white;
     }
+}
+
+.likeBtn {
+    color: #3BB954;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .songsList-details {
