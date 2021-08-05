@@ -37,8 +37,10 @@ function setStatus() {
         `;
     } else {
         let path = window.location.pathname.split("/").pop();
-        let href_register = path === 'index.html' ? './pages/Register.html' : './Register.html';
-        let href_login = path === 'index.html' ? './pages/Login.html' : './Login.html';
+        
+console.log(path)
+        let href_register = path === 'index.html' || path ==='' ? './pages/Register.html' : './Register.html';
+        let href_login = path === 'index.html' || path ==='' ? './pages/Login.html' : './Login.html';
         userStatusMenu.innerHTML = `
     <a href=${href_register} class="controlBtn">
     <span>ثبت نام</span>
@@ -50,6 +52,7 @@ function setStatus() {
     `;
     }
 }
+
 
 setStatus();
 welcomeUser();
