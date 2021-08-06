@@ -48,9 +48,14 @@
   border: 0;
   outline: 0;
   color: white;
+  margin-top: 2.3rem;
   margin-left: 0.7rem;
   font-size: 0.9rem;
   cursor: pointer;
+  height: 1.5rem;
+}
+.current-music .current-music_controls button img {
+  width: 1.5rem;
 }
 
 .progress-container {

@@ -18,7 +18,6 @@
     <script src="../scripts/Menubar.js" defer></script>
     <script src="../scripts/modal.js" defer></script>
     <script src="../scripts/song.js" defer></script>
-    <script src="../scripts/current_song.js" defer></script>
     <title>songs</title>
 </head>
 
@@ -150,7 +149,36 @@
     </main>
     <div id="snackbar"></div>
     <!-----------------play current music  ----------------->
-    <section id="current-music__container"></section>
+    <section id="current-music__container">
+        <div class="current-music" >
+            <div class="current__time" style="display:flex">
+                <span id="durtime"></span>
+                <!-- <input type="range" name="during" id="songduring" min="0" max="100" value="0" step="1"> -->
+                <div class="progress-container" id="progress-container">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <span id="curtime"></span>
+            </div>
+            <div class="current-music_content music__container">
+                <div class="current-music_details">
+                    <audio src="" id="audio"></audio>
+                    <div class="current-music_img">
+                        <a href="./song.html"><img src="" alt="" class="music__img" id="cover" /></a>
+                    </div>
+                    <div class="title__artist">
+                        <h2 class="music__name" id="title">اسم آهنگ</h2>
+                        <h4 class="singer">نام خواننده</h4>
+                    </div>
+                </div>
+                <div class="current-music_controls">
+                    <button class="btn--like"><img src="../assets/Icons/favorite_border_white_24dp.svg" alt=""></button>
+                    <button id="playpause">
+                        <img src="../assets/Icons/play-button.svg" alt="" class="controls-button">
+                    </button>       
+                </div>
+            </div>
+        </div>
+    </section>        
 </body>
 
 </html>
