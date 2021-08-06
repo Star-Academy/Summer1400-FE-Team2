@@ -349,6 +349,7 @@ header .controlBtn {
 @media (max-width: 500px) {
   main {
     margin-top: 35%;
+    margin-bottom: 5rem;
   }
 
   header {

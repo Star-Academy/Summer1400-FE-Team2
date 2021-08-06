@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../assets/images/logo.png" />
-    <link rel="stylesheet" href="../styles/css/songsList.css">
-    <link rel="stylesheet" href="../styles/css/box-modal.css">
+    <link rel="stylesheet" href="../styles/css/songsList.css" />
+    <link rel="stylesheet" href="../styles/css/box-modal.css" />
+    <link rel="stylesheet" href="../styles/css/song-modal.css" />
     <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
     <script src="../scripts/toast.js" defer></script>
+    <script src="../scripts/song-modal.js" defer></script>
     <script src="../scripts/songsList.js" defer></script>
     <script src="../scripts/Menubar.js" defer></script>
     <script src="../scripts/modal.js" defer></script>
-
+    <script src="../scripts/current_song.js" defer></script>
     <link rel="stylesheet" href="../styles/css/toast.css" />
     <title>songs</title>
 </head>
@@ -22,13 +24,17 @@
     <!-------------- Sidebar -------------->
     <aside class="aside-box" id="aside-desktop">
         <nav id="nav-links">
-            <a href="../index.html" id="spotify-logo"> <i class="fab fa-spotify"></i> Spotify </a>
+            <a href="../index.html" id="spotify-logo">
+                <i class="fab fa-spotify"></i> Spotify
+            </a>
             <ul>
                 <li>
                     <a href="../index.html"> <i class="fas fa-home"></i>خانه </a>
                 </li>
                 <li>
-                    <a href="#" id="btnSearchMenu"> <i class="fas fa-search"></i>جست و جو </a>
+                    <a href="#" id="btnSearchMenu">
+                        <i class="fas fa-search"></i>جست و جو
+                    </a>
                 </li>
                 <li>
                     <a id="libraryMenu"> <i class="fas fa-book"></i>کتابخانه شما </a>
@@ -36,10 +42,14 @@
             </ul>
             <ul>
                 <li>
-                    <a id="createListMenu"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
+                    <a id="createListMenu">
+                        <i class="fas fa-plus-square"></i>ساخت لیست اهنگ
+                    </a>
                 </li>
                 <li>
-                    <a id="ArchivedMenu"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
+                    <a id="ArchivedMenu">
+                        <i class="fas fa-heart"></i>اهنگ های موردعلاقه
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -51,16 +61,22 @@
                     <a href="../index.html"> <i class="fas fa-home"></i>خانه</a>
                 </li>
                 <li>
-                    <a id="btnSearchMenuMobile"> <i class="fas fa-search"></i>جست و جو </a>
+                    <a id="btnSearchMenuMobile">
+                        <i class="fas fa-search"></i>جست و جو
+                    </a>
                 </li>
                 <li>
                     <a id="libraryMenuMobile"> <i class="fas fa-book"></i>کتابخانه </a>
                 </li>
                 <li>
-                    <a id="createListMenuMobile"> <i class="fas fa-plus-square"></i>ساخت لیست اهنگ </a>
+                    <a id="createListMenuMobile">
+                        <i class="fas fa-plus-square"></i>ساخت لیست اهنگ
+                    </a>
                 </li>
                 <li>
-                    <a id="ArchivedMenuMobile"> <i class="fas fa-heart"></i>اهنگ های موردعلاقه </a>
+                    <a id="ArchivedMenuMobile">
+                        <i class="fas fa-heart"></i>اهنگ های موردعلاقه
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -68,17 +84,15 @@
     <!-------------- Header -------------->
     <header>
         <div class="grid-item__header">
-            <div class="user-controls__links" id="userStatusMenu">
-
-            </div>
+            <div class="user-controls__links" id="userStatusMenu"></div>
         </div>
         <div class="grid-item__header" id="boxSearchMenu">
             <div class="searchBox">
                 <form action="#">
                     <input type="text" placeholder="خواننده ها , اهنگ ها....." />
                     <button class="searchBox__button" id="searchBtn">
-                        <i class="fa fa-search"></i>
-                    </button>
+              <i class="fa fa-search"></i>
+            </button>
                 </form>
             </div>
         </div>
@@ -91,23 +105,9 @@
     </header>
     <!--------------- main --------------->
     <main>
-        <section class="playlist-details">
-            <div class="playlist-details__image">
-                <img src="../assets/images/sample.jpg" alt="playlist-image" />
-            </div>
-            <div class="playlist-details__content">
-                <p>لیست اهنگ</p>
-                <h1>عنوان لیست اهنگ</h1>
-                <h6>توضیحات..</h6>
-                <div class="flex">
-                    <span> <b>Spotify</b> </span>
-                    <span>likes 5000 </span>
-                    <span>100 اهنگ</span>
-                    <span>4hr 53min</span>
-                </div>
-            </div>
-        </section>
-        <section>
+        <section class="playlist-details"></section>
+
+        <section class="playlist-controls__container">
             <div class="playlist-controls">
                 <a href="#" id="playMusicBtn">
                     <i class="fas fa-play-circle"></i>
@@ -130,11 +130,11 @@
                             <th><i class="far fa-clock"></i></th>
                         </tr>
                     </thead>
-                    <tbody id="playlist-table__body">
-                    </tbody>
+                    <tbody id="playlist-table__body"></tbody>
                 </table>
             </div>
         </section>
+
         <!-------------- signUp modal -------------->
         <!-- <section class="box-modal"></section> -->
         <div id="modal" class="modal">
@@ -143,9 +143,12 @@
                 <div id="modal-text"></div>
             </div>
         </div>
+        <!------------ song modal ------------>
+        <div class="song-modal__container"></div>
     </main>
     <div id="snackbar"></div>
-
+    <!-----------------play current music  ----------------->
+    <section id="current-music__container"></section>
 </body>
 
 </html>

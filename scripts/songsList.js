@@ -1,5 +1,29 @@
 const playlistTable = document.querySelector('.playlist-table');
 const playlist_body = document.getElementById('playlist-table__body');
+const playlist_details = document.querySelector('.playlist-details');
+const playlist_controls_container = document.querySelector('.playlist-controls__container');
+
+let playlist_title = 'عنوان لیست اهنگ';
+let playlist_description = 'توضیحات..';
+let playlist_likes = 'likes 5000';
+let songs_number = '100 اهنگ';
+let playlist_time = '4hr 53min';
+playlist_details.innerHTML = `
+<div class="playlist-details__image">
+<img src="../assets/images/sample.jpg" alt="playlist-image" />
+</div>
+<div class="playlist-details__content">
+<p>لیست اهنگ</p>
+<h1>${playlist_title}</h1>
+<h6>${playlist_description}</h6>
+<div class="flex songsListDetails">
+    <span><b>Spotify</b></span>
+    <span>${playlist_likes}</span>
+    <span>${songs_number}</span>
+    <span>${playlist_time}</span>
+</div>
+</div>
+`
 
 for (let i = 1; i <= 10; i++) {
     let row = document.createElement('tr');
@@ -7,6 +31,7 @@ for (let i = 1; i <= 10; i++) {
     let song_number_container;
     let song_number;
     let playButton;
+    let details_sign;
     for (let j = 1; j <= 6; j++) {
         let column = document.createElement('td');
         if (j == 1) {
@@ -42,7 +67,7 @@ for (let i = 1; i <= 10; i++) {
             column.classList.add('hide-column');
             column.innerText = 'نام البوم';
         } else if (j == 4) {
-            column.classList.add('hide-column');
+            // column.classList.add('hide-column');
             like_sign = document.createElement('i');
             like_sign.classList.add('far', 'fa-heart', 'likeBtn');
             like_sign.style.display = 'none';
@@ -51,9 +76,8 @@ for (let i = 1; i <= 10; i++) {
             column.classList.add('hide-column');
             column.innerText = '1:50';
         } else if (j == 6) {
-            const details_sign = document.createElement('i');
-            details_sign.classList.add('fas');
-            details_sign.classList.add('fa-ellipsis-v');
+            details_sign = document.createElement('i');
+            details_sign.classList.add('fas', 'fa-ellipsis-v', 'details_sign_button');
             column.appendChild(details_sign);
             column.classList.add('songsList-details');
         }
@@ -104,6 +128,9 @@ for (let i = 1; i <= 10; i++) {
             }
         }
     })
+    details_sign.addEventListener('click', () => {
+        song_modal_container.style.display = 'block';
+    })
     playlist_body.appendChild(row);
 }
 
@@ -120,20 +147,42 @@ playMusic_button.addEventListener('click', () => {
 })
 
 let likedMode = 0;
+let playMode = 0;
 like_songsList.addEventListener('click', () => {
+    const like_songsList_tag = like_songsList.querySelector('i');
+    likeSongHandler(like_songsList_tag);
+})
+
+
+function likeSongHandler(likeTag) {
     if (localStorage.getItem("token") === null) {
         permission();
     } else {
-        const like_songsList_tag = like_songsList.querySelector('i');
         if (likedMode) {
-            like_songsList_tag.classList.replace('fas', 'far');
+            likeTag.classList.replace('fas', 'far');
+            likeTag.style.color = '#fff';
             likedMode = 0;
             showToast('از اهنگ های مورد علاقه حذف شد.');
         } else {
-            like_songsList_tag.classList.replace('far', 'fas');
+            likeTag.classList.replace('far', 'fas');
+            likeTag.style.color = '#3BB954';
             likedMode = 1;
             showToast('به اهنگ های مورد علاقه اضافه شد.');
 
         }
     }
-})
+}
+
+function playSongHandler(playTag) {
+    if (localStorage.getItem("token") === null) {
+        permission();
+    } else {
+        if (playMode) {
+            playTag.classList.replace('fa-pause', 'fa-play');
+            playMode = 0;
+        } else {
+            playTag.classList.replace('fa-play', 'fa-pause');
+            playMode = 1;
+        }
+    }
+}
