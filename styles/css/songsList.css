@@ -419,11 +419,14 @@ body {
   align-items: center;
   margin-bottom: 1rem;
 }
-.playlist-controls a {
+.playlist-controls button {
   color: #909090;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
   font-size: 1.2rem;
 }
-.playlist-controls a:hover {
+.playlist-controls button:hover {
   color: white;
 }
 
@@ -506,61 +509,6 @@ table tbody tr:hover {
 .flex {
   display: flex;
   justify-content: space-between;
-}
-
-#current-music__container {
-  width: 100%;
-}
-
-.current-music {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #313131;
-  border-bottom: 2px solid #252525;
-  color: white;
-  padding: 0.5rem 0.4rem;
-  padding-bottom: 0.7rem;
-}
-.current-music .song-details {
-  width: 70%;
-}
-.current-music .current-music_content {
-  display: flex;
-}
-.current-music .current-music_details {
-  width: 90%;
-  display: flex;
-  align-items: center;
-}
-.current-music .current-music_info {
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  flex-flow: column;
-}
-.current-music .current-music_img {
-  width: 25%;
-  margin-left: 1rem;
-}
-.current-music .current-music_img img {
-  width: 100%;
-  display: block;
-}
-.current-music .current-music_controls {
-  width: 30%;
-  display: flex;
-  justify-content: flex-end;
-}
-.current-music .current-music_controls button {
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-  color: white;
-  margin-left: 0.7rem;
-  font-size: 0.9rem;
-  cursor: pointer;
 }
 
 @media (max-width: 1200px) {

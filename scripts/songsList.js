@@ -141,8 +141,8 @@ playMusic_button.addEventListener('click', () => {
     if (localStorage.getItem("token") === null) {
         permission();
     } else {
-        // window.href = `./pages/song.html?id=${2}`;
-        window.location.href = `./song.html`;
+        // window.href = `. / pages / song.html ? id = $ { 2 }`;
+        window.location.href = './song.html';
     }
 })
 
@@ -169,20 +169,6 @@ function likeSongHandler(likeTag) {
             likedMode = 1;
             showToast('به اهنگ های مورد علاقه اضافه شد.');
 
-        }
-    }
-}
-
-function playSongHandler(playTag) {
-    if (localStorage.getItem("token") === null) {
-        permission();
-    } else {
-        if (playMode) {
-            playTag.classList.replace('fa-pause', 'fa-play');
-            playMode = 0;
-        } else {
-            playTag.classList.replace('fa-play', 'fa-pause');
-            playMode = 1;
         }
     }
 }

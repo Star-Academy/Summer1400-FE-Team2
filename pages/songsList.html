@@ -9,14 +9,16 @@
     <link rel="stylesheet" href="../styles/css/songsList.css" />
     <link rel="stylesheet" href="../styles/css/box-modal.css" />
     <link rel="stylesheet" href="../styles/css/song-modal.css" />
+    <link rel="stylesheet" href="../styles/css/currentSong.css">
+    <link rel="stylesheet" href="../styles/css/toast.css" />
     <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
     <script src="../scripts/toast.js" defer></script>
     <script src="../scripts/song-modal.js" defer></script>
     <script src="../scripts/songsList.js" defer></script>
     <script src="../scripts/Menubar.js" defer></script>
     <script src="../scripts/modal.js" defer></script>
+    <script src="../scripts/song.js" defer></script>
     <script src="../scripts/current_song.js" defer></script>
-    <link rel="stylesheet" href="../styles/css/toast.css" />
     <title>songs</title>
 </head>
 
@@ -109,15 +111,15 @@
 
         <section class="playlist-controls__container">
             <div class="playlist-controls">
-                <a href="#" id="playMusicBtn">
+                <button id="playMusicBtn">
                     <i class="fas fa-play-circle"></i>
-                </a>
-                <a href="#" id="like-songs">
+                </button>
+                <button id="like-songs">
                     <i class="far fa-heart"></i>
-                </a>
-                <a href="#">
+                </button>
+                <button>
                     <i class="fas fa-ellipsis-h"></i>
-                </a>
+                </button>
             </div>
             <div class="playlist-table">
                 <table>

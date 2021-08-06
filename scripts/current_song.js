@@ -5,6 +5,10 @@ let image_src = '../assets/images/song.jpg';
 
 current_music_container.innerHTML = `
 <div class="current-music">
+<span id="durtime"></span>
+<div class="progress-container" id="progress-container">
+    <div class="progress" id="progress"></div>
+</div>
 <div class="current-music_content">
     <div class="current-music_details">
         <div class="current-music_img">
@@ -27,7 +31,7 @@ const current_music = document.querySelector('.current-music');
 const current_music_details = document.querySelector('.current-music_details');
 const like_button = document.querySelector('#like-button');
 const play_button = document.querySelector('#play-button');
-
+// const current_audio = document.getElementById('');
 
 current_music_details.addEventListener('click', () => {
     window.location = './song.html';
@@ -42,3 +46,20 @@ play_button.addEventListener('click', () => {
     const playTag = play_button.querySelector('i');
     playSongHandler(playTag);
 })
+
+
+function playSongHandler(playTag) {
+    if (localStorage.getItem("token") === null) {
+        permission();
+    } else {
+        if (playMode) {
+            audio.play();
+            playTag.classList.replace('fa-pause', 'fa-play');
+            playMode = 0;
+        } else {
+            playTag.classList.replace('fa-play', 'fa-pause');
+            playMode = 1;
+            audio.pause();
+        }
+    }
+}
