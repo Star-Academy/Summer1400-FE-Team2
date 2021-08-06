@@ -471,10 +471,15 @@ table tbody tr:hover {
   cursor: pointer;
 }
 
-.likeBtn {
+.likeBtn,
+.like_sign_button {
   color: #3BB954;
   cursor: pointer;
   font-weight: bold;
+}
+
+.hide {
+  display: none !important;
 }
 
 .songsList-details {

@@ -53,13 +53,11 @@ function playSongHandler(playTag) {
         permission();
     } else {
         if (playMode) {
-            audio.play();
             playTag.classList.replace('fa-pause', 'fa-play');
             playMode = 0;
         } else {
             playTag.classList.replace('fa-play', 'fa-pause');
             playMode = 1;
-            audio.pause();
         }
     }
 }

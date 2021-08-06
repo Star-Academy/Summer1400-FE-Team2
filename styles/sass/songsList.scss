@@ -90,10 +90,19 @@ table {
     cursor: pointer;
 }
 
-.likeBtn {
+.likeBtn,
+.like_sign_button {
     color: #3BB954;
     cursor: pointer;
     font-weight: bold;
+}
+
+.like_sign_button {
+    display: none;
+}
+
+.hide {
+    display: none;
 }
 
 .songsList-details {
