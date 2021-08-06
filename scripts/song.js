@@ -10,43 +10,47 @@ const cover = document.getElementById('cover');
 const likeBtn = document.querySelector('.btn--like');
 const moreBtn = document.getElementById('more');
 
-
 let currTime = document.querySelector('#curtime');
 let durTime = document.querySelector('#durtime');
 
 
 const songs = ['hope', 'La-Vie-En-Rose', 'Rainy City', 'When She Flows'];
 const progress = document.getElementById('progress');
-
 const progressContainer = document.getElementById('progress-container');
 
-
 // keep track of song
-let songIndex = 2;
+let musicId = sessionStorage.getItem("id");
+
+let songIndex = musicId ? musicId : 0;
+
 loadSong(songs[songIndex]);
 
 function loadSong(song) {
-    console.log(song);
     title.innerHTML = song;
     audio.src = `../assets/songs/${song}.mp3`;
     cover.src = `../assets/images/songs-cover/${song}.jpg`;
 }
 
 // play song
+audio.currentTime = sessionStorage.getItem("time") === null ? 0 : sessionStorage.getItem("time");
 
 function playSong() {
     musicContainer.classList.add('play');
     playBtn.querySelector('img').src = '../assets/Icons/pause-button.svg';
+    sessionStorage.setItem("time", `${audio.currentTime}`);
+    audio.currentTime = sessionStorage.getItem("time");
     audio.play();
 }
 
 function pauseSong() {
     musicContainer.classList.remove('play');
     playBtn.querySelector('img').src = '../assets/Icons/play-button.svg';
+    sessionStorage.setItem("time", `${audio.currentTime}`);
     audio.pause();
 }
 
 function prevSong() {
+    sessionStorage.setItem("id", `${songIndex}`);
     if (isShuffle) {
         let random = Math.floor(Math.random() * songs.length);
         while (songIndex === random) {
@@ -65,6 +69,7 @@ function prevSong() {
 }
 
 function nextSong() {
+    sessionStorage.setItem("id", `${songIndex}`);
     if (isShuffle) {
         let random = Math.floor(Math.random() * songs.length);
         while (songIndex === random) {
@@ -82,7 +87,7 @@ function nextSong() {
 }
 
 playBtn.addEventListener('click', () => {
-    console.log('hello', musicContainer);
+    sessionStorage.setItem("id", `${songIndex}`);
     const isPlaying = musicContainer.classList.contains('play');
     if (isPlaying) {
         pauseSong();
@@ -94,7 +99,7 @@ playBtn.addEventListener('click', () => {
 function updateProgress(e) {
     const { duration, currentTime } = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
-    progress.style.width = `${progressPercent}%`;
+    if(progress) progress.style.width = `${progressPercent}%`;
 }
 
 // set progress bar
@@ -107,12 +112,12 @@ function setProgress(e) {
 
 //get duration & currentTime for Time of song
 function DurTime(e) {
+    let sec , min;
     const { duration, currentTime } = e.srcElement;
-    let sec;
     let sec_d;
 
     //define minutes curretTime
-    let min = (currentTime == null) ? 0 : Math.floor(currentTime / 60);
+    min = (currentTime == null) ? musicTimeMin ? musicTimeMin : 0 : Math.floor(currentTime / 60);
     min = min < 10 ? '0' + min : min;
 
     // define seconds currentTime
@@ -131,7 +136,7 @@ function DurTime(e) {
     }
 
     get_sec(currentTime, sec);
-    currTime.innerHTML = min + ':' + sec;
+    if(currTime) currTime.innerHTML = min + ':' + sec;
     // define minutes duration
     let min_d = (isNaN(duration) === true) ? '0' : Math.floor(duration / 60);
     min_d = min_d < 10 ? '0' + min_d : min_d;
@@ -150,7 +155,7 @@ function DurTime(e) {
         }
     }
     get_sec_d(duration);
-    durTime.innerHTML = min_d + ':' + sec_d;
+    if(durTime) durTime.innerHTML = min_d + ':' + sec_d;
 }
 
 
@@ -193,16 +198,12 @@ function likeSongHandler() {
     }
 }
 
-// change Song
-prevBtn.addEventListener('click', prevSong);
-nextBtn.addEventListener('click', nextSong);
-
 
 // Time/song update
 audio.addEventListener('timeupdate', updateProgress);
 
 //click on progress bar
-progressContainer.addEventListener('click', setProgress);
+if(progressContainer) progressContainer.addEventListener('click', setProgress);
 
 // song ends
 audio.addEventListener('ended', nextSong);
@@ -210,12 +211,16 @@ audio.addEventListener('ended', nextSong);
 //Time of song
 audio.addEventListener('timeupdate', DurTime);
 
-
-replayBtn.addEventListener('click', replaySongHandler);
-shuffleBtn.addEventListener('click', shuffleSongHandler);
+if(replayBtn) replayBtn.addEventListener('click', replaySongHandler);
+if(shuffleBtn) shuffleBtn.addEventListener('click', shuffleSongHandler);
 likeBtn.addEventListener('click', likeSongHandler);
-moreBtn.addEventListener('click', () => {
+if(moreBtn) moreBtn.addEventListener('click', () => {
     let path = window.location.pathname.split("/").pop();
-    // sessionStorage.setItem('currentSong', `${songs[songIndex]}`);
+    sessionStorage.setItem("time", `${audio.currentTime}`);
+    sessionStorage.setItem("id", `${songIndex}`);
     window.location = path == 'index.html' ? './pages/songsList.html' : './songsList.html';
 })
+
+// change Song
+if(prevBtn) prevBtn.addEventListener('click', prevSong);
+if(nextBtn) nextBtn.addEventListener('click', nextSong);
