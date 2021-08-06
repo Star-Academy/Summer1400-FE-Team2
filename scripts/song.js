@@ -19,7 +19,7 @@ const progress = document.getElementById('progress');
 const progressContainer = document.getElementById('progress-container');
 
 // keep track of song
-let musicId = sessionStorage.getItem("id-time");
+let musicId = sessionStorage.getItem("id");
 
 let songIndex = musicId ? musicId : 0;
 
