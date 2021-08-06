@@ -50,6 +50,7 @@ function pauseSong() {
 }
 
 function prevSong() {
+    sessionStorage.setItem("id", `${songIndex}`);
     if (isShuffle) {
         let random = Math.floor(Math.random() * songs.length);
         while (songIndex === random) {
@@ -68,6 +69,7 @@ function prevSong() {
 }
 
 function nextSong() {
+    sessionStorage.setItem("id", `${songIndex}`);
     if (isShuffle) {
         let random = Math.floor(Math.random() * songs.length);
         while (songIndex === random) {
@@ -215,6 +217,7 @@ likeBtn.addEventListener('click', likeSongHandler);
 if(moreBtn) moreBtn.addEventListener('click', () => {
     let path = window.location.pathname.split("/").pop();
     sessionStorage.setItem("time", `${audio.currentTime}`);
+    sessionStorage.setItem("id", `${songIndex}`);
     window.location = path == 'index.html' ? './pages/songsList.html' : './songsList.html';
 })
 
