@@ -360,7 +360,7 @@ header .controlBtn {
     margin-right: 10rem;
   }
   .aside-mobile__links a {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .searchBox {
@@ -442,10 +442,10 @@ table {
   width: 95%;
   color: silver;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 table th {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 table td,
 table th {
@@ -480,6 +480,10 @@ table tbody tr:hover {
 
 .like_sign_button {
   display: none;
+}
+
+.play_sign_button {
+  cursor: pointer;
 }
 
 .hide {
@@ -559,6 +563,7 @@ table tbody tr:hover {
 
   table {
     width: 100%;
+    font-size: 1.2rem;
   }
 
   thead {

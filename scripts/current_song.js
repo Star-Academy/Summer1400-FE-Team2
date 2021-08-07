@@ -31,7 +31,6 @@ const current_music = document.querySelector('.current-music');
 const current_music_details = document.querySelector('.current-music_details');
 const like_button = document.querySelector('#like-button');
 const play_button = document.querySelector('#play-button');
-// const current_audio = document.getElementById('');
 
 current_music_details.addEventListener('click', () => {
     window.location = './song.html';

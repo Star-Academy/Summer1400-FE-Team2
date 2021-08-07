@@ -61,9 +61,9 @@ table {
     width: 95%;
     color: rgb(192, 192, 192);
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1rem;
     th {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
     td,
     th {
@@ -99,6 +99,10 @@ table {
 
 .like_sign_button {
     display: none;
+}
+
+.play_sign_button {
+    cursor: pointer;
 }
 
 .hide {
@@ -177,6 +181,7 @@ table {
     }
     table {
         width: 100%;
+        font-size: 1.2rem;
     }
     thead {
         display: none;

@@ -11,7 +11,7 @@
   border-bottom: 2px solid #252525;
   color: white;
   padding: 0.5rem 0.4rem;
-  padding-bottom: 0.7rem;
+  padding-bottom: 1rem;
 }
 .current-music .song-details {
   width: 70%;
@@ -84,10 +84,13 @@
   transition: width 0.1s linear;
 }
 
+.svgColor {
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+}
+
 @media (max-width: 1200px) {
   .current-music {
     display: block;
-    bottom: 85px;
   }
 }
 
