@@ -15,9 +15,9 @@ window.onclick = function(event) {
 //example of how to use
 function permission() {
     modal.style.display = "block";
-    let path = window.location.pathname.split("/").pop();
-    let href_register = path === 'index.html' ? './pages/Register.html' : './Register.html';
-    let href_login = path === 'index.html' ? './pages/Login.html' : './Login.html';
+    let path = calculatePath();
+    let href_register = getNavLink(path, 'Register');
+    let href_login = getNavLink(path, 'Login');
     let image_address = path === 'index.html' ? './assets/images/box-modal.jpg' : '../assets/images/box-modal.jpg';
     text.innerHTML = `
       <div class="main-modal">
