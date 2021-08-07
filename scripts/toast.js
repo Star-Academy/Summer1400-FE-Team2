@@ -1,5 +1,3 @@
-/** @format */
-
 function showToast(content) {
   var x = document.getElementById("snackbar");
   x.innerHTML = content;
