@@ -57,7 +57,6 @@ function prevSong() {
             random = Math.floor(Math.random() * songs.length);
         }
         songIndex = random;
-        console.log('prevsong: ', songIndex);
     } else {
         songIndex--;
     }
@@ -99,7 +98,7 @@ playBtn.addEventListener('click', () => {
 function updateProgress(e) {
     const { duration, currentTime } = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
-    if(progress) progress.style.width = `${progressPercent}%`;
+    if (progress) progress.style.width = `${progressPercent}%`;
 }
 
 // set progress bar
@@ -112,7 +111,7 @@ function setProgress(e) {
 
 //get duration & currentTime for Time of song
 function DurTime(e) {
-    let sec , min;
+    let sec, min;
     const { duration, currentTime } = e.srcElement;
     let sec_d;
 
@@ -136,7 +135,7 @@ function DurTime(e) {
     }
 
     get_sec(currentTime, sec);
-    if(currTime) currTime.innerHTML = min + ':' + sec;
+    if (currTime) currTime.innerHTML = min + ':' + sec;
     // define minutes duration
     let min_d = (isNaN(duration) === true) ? '0' : Math.floor(duration / 60);
     min_d = min_d < 10 ? '0' + min_d : min_d;
@@ -155,7 +154,7 @@ function DurTime(e) {
         }
     }
     get_sec_d(duration);
-    if(durTime) durTime.innerHTML = min_d + ':' + sec_d;
+    if (durTime) durTime.innerHTML = min_d + ':' + sec_d;
 }
 
 
@@ -203,7 +202,7 @@ function likeSongHandler() {
 audio.addEventListener('timeupdate', updateProgress);
 
 //click on progress bar
-if(progressContainer) progressContainer.addEventListener('click', setProgress);
+if (progressContainer) progressContainer.addEventListener('click', setProgress);
 
 // song ends
 audio.addEventListener('ended', nextSong);
@@ -211,10 +210,10 @@ audio.addEventListener('ended', nextSong);
 //Time of song
 audio.addEventListener('timeupdate', DurTime);
 
-if(replayBtn) replayBtn.addEventListener('click', replaySongHandler);
-if(shuffleBtn) shuffleBtn.addEventListener('click', shuffleSongHandler);
+if (replayBtn) replayBtn.addEventListener('click', replaySongHandler);
+if (shuffleBtn) shuffleBtn.addEventListener('click', shuffleSongHandler);
 likeBtn.addEventListener('click', likeSongHandler);
-if(moreBtn) moreBtn.addEventListener('click', () => {
+if (moreBtn) moreBtn.addEventListener('click', () => {
     let path = window.location.pathname.split("/").pop();
     sessionStorage.setItem("time", `${audio.currentTime}`);
     sessionStorage.setItem("id", `${songIndex}`);
@@ -222,5 +221,5 @@ if(moreBtn) moreBtn.addEventListener('click', () => {
 })
 
 // change Song
-if(prevBtn) prevBtn.addEventListener('click', prevSong);
-if(nextBtn) nextBtn.addEventListener('click', nextSong);
+if (prevBtn) prevBtn.addEventListener('click', prevSong);
+if (nextBtn) nextBtn.addEventListener('click', nextSong);

@@ -1,3 +1,15 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 #current-music__container {
     width: 100%;
 }
@@ -10,8 +22,7 @@
     background-color: #313131;
     border-bottom: 2px solid #252525;
     color: white;
-    padding: 0.5rem 0.4rem;
-    padding-bottom: 1rem;
+    padding: 0.5rem 0.4rem 0.9rem 0.5rem;
     .song-details {
         width: 70%;
     }
@@ -39,9 +50,7 @@
     }
     .current-music_controls {
         width: 30%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-end();
         button {
             display: block;
             background-color: transparent;

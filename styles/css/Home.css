@@ -461,7 +461,7 @@ header .controlBtn {
 }
 @media (max-width: 500px) {
   header {
-    padding: 0.3rem 0.5rem;
+    padding: 0.8rem 0.5rem 0.6rem 0.5rem;
   }
 }
 

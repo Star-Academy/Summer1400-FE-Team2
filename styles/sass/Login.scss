@@ -17,9 +17,6 @@ body {
 
 $login-font:'Cabin',
 sans-serif;
-$dark-green:rgb(13,82,82);
-$light-green:rgb(113,223,181);
-
 @mixin flex-center {
     display: flex;
     justify-content: center;
@@ -119,7 +116,7 @@ header {
     color: white;
     background-color: black;
     padding: 0.3rem 0.7rem;
-    margin:0 1rem;
+    margin: 0 1rem;
     display: block;
     text-align: center;
     border: 0;

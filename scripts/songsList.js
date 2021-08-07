@@ -3,36 +3,39 @@ const playlist_body = document.getElementById('playlist-table__body');
 const playlist_details = document.querySelector('.playlist-details');
 const playlist_controls_container = document.querySelector('.playlist-controls__container');
 
+const playMusic_button = document.getElementById('playMusicBtn');
+const like_songsList = document.getElementById("like-songs");
+
+let mobile_nav_height;
+const mobile_nav = document.querySelector('.aside-mobile__links');
+const current_music_div = document.querySelector('.current-music');
+
 let playlist_title = 'عنوان لیست اهنگ';
 let playlist_description = 'توضیحات..';
 let playlist_likes = 'likes 5000';
 let songs_number = '100 اهنگ';
 let playlist_time = '4hr 53min';
 playlist_details.innerHTML = `
-<div class="playlist-details__image">
-<img src="../assets/images/sample.jpg" alt="playlist-image" />
-</div>
-<div class="playlist-details__content">
-<p>لیست اهنگ</p>
-<h1>${playlist_title}</h1>
-<h6>${playlist_description}</h6>
-<div class="flex songsListDetails">
-    <span><b>Spotify</b></span>
-    <span>${playlist_likes}</span>
-    <span>${songs_number}</span>
-    <span>${playlist_time}</span>
-</div>
-</div>
+    <div class="playlist-details__image">
+        <img src="../assets/images/sample.jpg" alt="playlist-image" />
+    </div>
+    <div class="playlist-details__content">
+        <p>لیست اهنگ</p>
+        <h1>${playlist_title}</h1>
+        <h6>${playlist_description}</h6>
+        <div class="flex songsListDetails">
+            <span><b>Spotify</b></span>
+            <span>${playlist_likes}</span>
+            <span>${songs_number}</span>
+            <span>${playlist_time}</span>
+        </div>
+    </div>
 `
 
-const playMusic_button = document.getElementById('playMusicBtn');
-const like_songsList = document.getElementById("like-songs");
-
 playMusic_button.addEventListener('click', () => {
-    if (localStorage.getItem("token") === null) {
+    if (!isLogedin) {
         permission();
     } else {
-        // window.href = `. / pages / song.html ? id = $ { 2 }`;
         window.location.href = './song.html';
     }
 })
@@ -89,7 +92,7 @@ row_arr.forEach((item) => {
     });
 
     likeBtn.addEventListener('click', () => {
-        if (localStorage.getItem("token") === null) {
+        if (!isLogedin()) {
             permission();
         } else {
             if (likeBtn.classList.contains('likedMode')) {
@@ -113,12 +116,11 @@ row_arr.forEach((item) => {
     });
 })
 
-let mobile_nav_height;
-const mobile_nav = document.querySelector('.aside-mobile__links');
-const current_music_div = document.querySelector('.current-music');
+
+
 mobile_nav_height = mobile_nav.clientHeight;
-console.log(mobile_nav_height);
-current_music_div.style.bottom = `${mobile_nav_height+3}px`;
+current_music_div.style.bottom = `${mobile_nav_height}px`;
+
 window.addEventListener('resize', () => {
     mobile_nav_height = mobile_nav.clientHeight;
     current_music_div.style.bottom = `${mobile_nav_height}px`;

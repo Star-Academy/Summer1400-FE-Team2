@@ -24,13 +24,11 @@
     -webkit-appearance: none;
     z-index: 100;
     position: relative;
-    // background-color: #A8A8A8;
     box-shadow: 0 0 1px 1px #eee;
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         width: 1rem;
         height: 1rem;
-        // background-color: #fff;
         border-radius: 50%;
         cursor: pointer;
         transform: scale(1);
@@ -58,8 +56,6 @@ body {
                 width: 100%;
                 height: 100%;
                 max-width: 70rem;
-                // overflow: auto;
-                // @include flex-center;
                 display: flex;
                 justify-content: space-evenly;
                 align-items: center;
@@ -73,8 +69,6 @@ body {
                     height: 100vh;
                     z-index: 2;
                     position: absolute;
-                    // background-image: linear-gradient(to bottom, #FED317, #000);
-                    ;
                     background-size: cover;
                 }
                 .volume__container {
@@ -92,7 +86,6 @@ body {
                     z-index: 3;
                     width: 100%;
                     h5 {
-                        // color: #fff;
                         font-size: 1.8rem;
                         width: 100%;
                         text-align: center;
@@ -103,14 +96,11 @@ body {
                     place-items: center;
                     width: 100%;
                     max-width: 35rem;
-                    // height: 35rem;
-                    // height: auto;
                     z-index: 3;
                     .music__img {
                         border-radius: 5px;
                         width: 100%;
                         height: auto;
-                        // border: 0.1rem solid #686868;
                     }
                 }
                 .info__music {
@@ -125,13 +115,11 @@ body {
                         max-width: 25rem;
                         max-height: 25rem;
                         height: auto;
-                        // border: 0.1rem solid #686868;
                     }
                     .title__artist {
                         width: 100%;
                         display: flex;
                         flex-direction: column;
-                        // color: whitesmoke;
                         text-align: center;
                         h2 {
                             font-size: 2rem;
@@ -144,7 +132,6 @@ body {
                 .current__time {
                     z-index: 3;
                     @include flex-center;
-                    // color: #fff;
                     font-size: 2rem;
                     grid-gap: 2rem;
                     width: 100%;
@@ -152,13 +139,11 @@ body {
                         height: 0.2rem;
                         width: 100%;
                         -webkit-appearance: none;
-                        // background-color: #A8A8A8;
                         box-shadow: 0 0 1px 1px #eee;
                         &::-webkit-slider-thumb {
                             -webkit-appearance: none;
                             width: 1rem;
                             height: 1rem;
-                            // background-color: #fff;
                             border-radius: 50%;
                             cursor: pointer;
                             transform: scale(1);
@@ -171,9 +156,7 @@ body {
                 .btns {
                     position: relative;
                     margin: 2rem auto;
-                    display: flex;
-                    align-content: center;
-                    justify-content: center;
+                    @include flex-center();
                     width: 100%;
                     z-index: 3;
                     .controls {
@@ -186,7 +169,6 @@ body {
                             border: none;
                             cursor: pointer;
                             img {
-                                // width: 5.5rem;
                                 width: 3rem;
                                 @media (max-width: 425px) {
                                     width: 2.5rem;
@@ -214,7 +196,6 @@ body {
 
 .controls-button i {
     background-size: 10px 20px;
-    // background-color: black;
 }
 
 .progress-container {
