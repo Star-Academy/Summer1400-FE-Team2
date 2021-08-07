@@ -1,104 +1,105 @@
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin flex-end {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #current-music__container {
-    width: 100%;
+  width: 100%;
 }
 
 .current-music {
-    display: none;
-    position: fixed;
-    bottom: 0;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #313131;
+  border-bottom: 2px solid #252525;
+  color: white;
+  padding: 0.5rem 0.4rem 0.9rem 0.5rem;
+  .song-details {
+    width: 70%;
+  }
+  .current-music_content {
+    display: flex;
+  }
+  .current-music_details {
+    width: 90%;
+    display: flex;
+    align-items: center;
+  }
+  .current-music_info {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+  }
+  .current-music_img {
+    width: 20%;
+    margin-right: 2rem;
+    img {
+      width: 50%;
+      display: block;
+    }
+  }
+  .current-music_controls {
+    width: 30%;
+    @include flex-end();
+    button {
+      display: block;
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      color: white;
+      margin-left: 0.7rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      height: 1.5rem;
+      img {
+        width: 1.5rem;
+      }
+    }
+  }
+  .progress-container {
     width: 100%;
-    background-color: #313131;
-    border-bottom: 2px solid #252525;
-    color: white;
-    padding: 0.5rem 0.4rem 0.9rem 0.5rem;
-    .song-details {
-        width: 70%;
-    }
-    .current-music_content {
-        display: flex;
-    }
-    .current-music_details {
-        width: 90%;
-        display: flex;
-        align-items: center;
-    }
-    .current-music_info {
-        font-size: 0.8rem;
-        display: flex;
-        align-items: center;
-        flex-flow: column;
-    }
-    .current-music_img {
-        width: 30%;
-        margin-left: 1rem;
-        img {
-            width: 100%;
-            display: block;
-        }
-    }
-    .current-music_controls {
-        width: 30%;
-        @include flex-end();
-        button {
-            display: block;
-            background-color: transparent;
-            border: 0;
-            outline: 0;
-            color: white;
-            margin-left: 0.7rem;
-            font-size: 0.9rem;
-            cursor: pointer;
-            height: 1.5rem;
-            img {
-                width: 1.5rem;
-            }
-        }
-    }
-    .progress-container {
-        width: 100%;
-        background-color: gray;
-    }
-    .progress {
-        background-color: white;
-    }
+    background-color: gray;
+  }
+  .progress {
+    background-color: white;
+  }
 }
 
 .progress-container {
-    direction: ltr !important;
-    background-color: #fff;
-    border-radius: 6px;
-    cursor: pointer;
-    margin: 10px 0;
-    height: 6px;
-    width: 100%;
+  direction: ltr !important;
+  background-color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 6px;
+  width: 100%;
 }
 
 .progress {
-    background-color: #242627;
-    border-radius: 5px;
-    height: 100%;
-    width: 0;
-    transition: width 0.1s linear;
+  background-color: #242627;
+  border-radius: 5px;
+  height: 100%;
+  width: 0;
+  transition: width 0.1s linear;
 }
 
 .svgColor {
-    filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg)
+    brightness(106%) contrast(103%);
 }
 
 @media (max-width: 1200px) {
-    .current-music {
-        display: block;
-    }
+  .current-music {
+    display: block;
+  }
 }

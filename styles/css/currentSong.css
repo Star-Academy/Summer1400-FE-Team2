@@ -30,11 +30,11 @@
   flex-flow: column;
 }
 .current-music .current-music_img {
-  width: 30%;
-  margin-left: 1rem;
+  width: 20%;
+  margin-right: 2rem;
 }
 .current-music .current-music_img img {
-  width: 100%;
+  width: 50%;
   display: block;
 }
 .current-music .current-music_controls {

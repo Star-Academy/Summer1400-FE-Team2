@@ -19,8 +19,8 @@ const API = {
   },
 };
 
-const GetData = (url) => {
-  return fetch(API.baseUrl + API.routes[url], {
+const GetData = (url, id = "") => {
+  return fetch(API.baseUrl + API.routes[url] + id, {
     method: "GET",
     headers: {
       Authorization: "Bearer ",
@@ -40,7 +40,7 @@ const PostData = async (url, body) => {
 
   const json = await data.json();
 
-  if (data.status < 300) return json;
+  if (data.status < 400) return json;
   throw json;
 };
 

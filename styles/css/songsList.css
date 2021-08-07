@@ -283,7 +283,7 @@ header .controlBtn {
 
   main {
     width: 95%;
-    margin-top: 10%;
+    margin-top: 8%;
     margin-bottom: 10%;
   }
 
@@ -297,7 +297,7 @@ header .controlBtn {
 }
 @media (max-width: 900px) {
   main {
-    margin-top: 20%;
+    margin-top: 15%;
     margin-bottom: 20%;
   }
 
@@ -345,7 +345,7 @@ header .controlBtn {
 }
 @media (max-width: 500px) {
   main {
-    margin-top: 20%;
+    margin-top: 25%;
     margin-bottom: 30%;
   }
 
@@ -383,6 +383,10 @@ body {
 
 .playlist-table {
   width: 100%;
+}
+
+.playlist-controls__container {
+  margin-bottom: 10rem;
 }
 
 .playlist-details {

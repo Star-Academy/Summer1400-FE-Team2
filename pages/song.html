@@ -3,14 +3,17 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="shortcut icon" href="../assets/images/logo.png" />
     <link rel="stylesheet" href="../styles/css/song_player.css" />
     <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
-    <script src="../scripts/song.js" defer></script>
+    <script src="../scripts/toast.js" defer></script>
+    <link rel="stylesheet" href="../styles/css/toast.css" />
     <script src="../service/APIConfig.js" defer></script>
     <script src="../service/Authentication.js" defer></script>
+    <script src="../scripts/song.js" defer></script>
     <title>player</title>
 </head>
 
@@ -18,34 +21,35 @@
     <main>
         <svg id="gradient-rotate" preserveAspectRatio="none" viewBox="0 0 500 500">
             <defs>
-              <linearGradient x1="0%" y1="0%" y2="100%" id="a">
-                <stop id="color-stop-1" stop-color="#22C8F6" offset="0%"></stop>
-                <stop id="color-stop-2" stop-color="#20C498" offset="65%"></stop>
-                <stop id="color-stop-3" stop-color="#189932" offset="100%"></stop>
-              </linearGradient>
+                <linearGradient x1="0%" y1="0%" y2="100%" id="a">
+                    <stop id="color-stop-1" stop-color="#22C8F6" offset="0%"></stop>
+                    <stop id="color-stop-2" stop-color="#20C498" offset="65%"></stop>
+                    <stop id="color-stop-3" stop-color="#189932" offset="100%"></stop>
+                </linearGradient>
             </defs>
             <path fill="url(#a)" d="M0 0h500v500H0z"></path>
-          </svg>
+        </svg>
         <div class="music__container">
             <!-- <div class="img--back"></div> -->
             <div class="music__content">
                 <div class="playlist__container">
                     <button id="dropdown">
-                        <img src="../assets/Icons/menu_white_24dp.svg" alt="" class="replay">
+                        <a href="../index.html"> <img src="../assets/Icons/home_black_24dp.svg" alt=""
+                                class="replay"></a>
                     </button>
-                    <h5>اسم لیست آهنگ</h5>
+                    <h5>شنیدن آهنگ</h5>
                     <button id="more">
                         <img src="../assets/Icons/expand_more_white_24dp.svg" alt="" class="replay">
                     </button>
                 </div>
                 <div class="img--music">
-                    <img src="../assets/images/songs-cover/Rainy City.jpg" alt="" class="music__img" id="cover" />
+                    <img src="" alt="" class="music__img" id="cover" />
                 </div>
                 <div class="info__music">
-                    <audio src="../assets/songs/hope.mp3" id="audio" preload="none"></audio>
+                    <audio src="../assets/songs/hope.mp3" id="audio" ></audio>
                     <div class="title__artist">
-                        <h2 class="music__name" id="title">اسم آهنگ</h2>
-                        <h4 class="singer">نام خواننده</h4>
+                        <h2 class="music__name" id="title"></h2>
+                        <h4 class="singer" id="artist"></h4>
                     </div>
                     <button class="btn--like"><img src="../assets/Icons/favorite_border_white_24dp.svg" alt=""></button>
                 </div>
@@ -79,6 +83,7 @@
             </div>
         </div>
     </main>
+    <div id="snackbar"></div>
 </body>
 
 </html>
