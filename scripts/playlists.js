@@ -42,7 +42,7 @@ const fillData = (data, cardsNumber) => {
 function createCardsList(cardsNumber) {
   GetData("getAllSongs")
     .then((res) => {
-      showToast("درحال بارگزاری");
+      showToast("درحال بارگزاری آهنگ ها");
       playlists.innerHTML = fillData(res.songs, cardsNumber).join("\n");
     })
     .catch(() => {

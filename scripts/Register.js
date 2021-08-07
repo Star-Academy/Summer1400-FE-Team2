@@ -15,7 +15,8 @@ const checkData = (e) => {
       .then((res) => {
         localStorage.setItem("userId", res.id);
         localStorage.setItem("token", res.token);
-        window.location.href = "/";
+        localStorage.setItem("username", postBody.username);
+        window.location.href = "../index.html";
       })
       .catch((err) => {
         showToast(err.message);
