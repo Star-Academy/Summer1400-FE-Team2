@@ -7,6 +7,7 @@ const namePlaylists = [
 ];
 
 const fillData = (data, cardsNumber) => {
+  let random = Math.random()*80;
   return namePlaylists.map(
     (item, i) => `
     <section class="playlists__container">
@@ -16,7 +17,7 @@ const fillData = (data, cardsNumber) => {
       </div>
       <div class="cards__container">
           ${data
-            .slice(i * 15, i * 15 + cardsNumber)
+            .slice(i * random, i * random + cardsNumber)
             .map(
               (song) =>
                 ` 
