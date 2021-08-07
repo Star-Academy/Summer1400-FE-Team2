@@ -1,5 +1,3 @@
-/** @format */
-
 const playlists_section = document.getElementById("playlists");
 let explain = "توضیحات..";
 let title = "ژانر اهنگ ها در این گروه";
@@ -61,16 +59,6 @@ document.querySelectorAll(".music-link").forEach((item,index) => {
   item.addEventListener("mouseout",()=>{
     item.querySelector(`${item} .play-playlists-button`).style.display ="none";
   })
-  // **********fix this***********
-  // const playBtn = item.querySelector(`.play-playlists-button`);
-  // playBtn.addEventListener('click',()=>{
-  //   if (localStorage.getItem("token") === null) {
-  //     permission();
-  //   } else {
-  //     window.location.href ='./pages/songsList.html';
-  //     // item.href = `./pages/song.html?id=${2}`;
-  //   }
-  // })
 
   item.addEventListener('click',()=>{
     item.href = './pages/songsList.html';
@@ -79,7 +67,6 @@ document.querySelectorAll(".music-link").forEach((item,index) => {
 });
 
 function getCardsNumber(){
-
   let cardNumbers =1;
   if(document.body.clientWidth >601 && document.body.clientWidth <=768){
     cardNumbers =2;

@@ -1,5 +1,3 @@
-/** @format */
-
 const modal = document.getElementById("modal");
 const span = document.getElementById("modal-close");
 const text = document.getElementById("modal-text");

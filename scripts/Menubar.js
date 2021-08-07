@@ -1,5 +1,3 @@
-/** @format */
-
 const goBack = document.getElementById("goBack");
 
 function fgoBack() {
@@ -89,7 +87,7 @@ const libraryMenuMobile = document.getElementById("libraryMenuMobile");
 function gotoLibrary() {
     if (localStorage.getItem("token") !== null) {
         libraryMenu.href =
-            path === "index.html" ? "./pages/songsList.html" : "./songsList.html";
+            path === "index.html" || path === "" ? "./pages/songsList.html" : "./songsList.html";
     } else {
         showToast("ابتدا وارد شوید");
     }

@@ -1,5 +1,3 @@
-/** @format */
-
 const user_data = [{
         password: "1234@ha",
         userName: "Hadis",

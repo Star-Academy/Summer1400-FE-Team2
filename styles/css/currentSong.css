@@ -11,7 +11,7 @@
   border-bottom: 2px solid #252525;
   color: white;
   padding: 0.5rem 0.4rem;
-  padding-bottom: 0.7rem;
+  padding-bottom: 1rem;
 }
 .current-music .song-details {
   width: 70%;
@@ -25,13 +25,13 @@
   align-items: center;
 }
 .current-music .current-music_info {
-  font-size: 1rem;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
   flex-flow: column;
 }
 .current-music .current-music_img {
-  width: 25%;
+  width: 30%;
   margin-left: 1rem;
 }
 .current-music .current-music_img img {
@@ -41,14 +41,15 @@
 .current-music .current-music_controls {
   width: 30%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 .current-music .current-music_controls button {
+  display: block;
   background-color: transparent;
   border: 0;
   outline: 0;
   color: white;
-  margin-top: 2.3rem;
   margin-left: 0.7rem;
   font-size: 0.9rem;
   cursor: pointer;
@@ -56,6 +57,13 @@
 }
 .current-music .current-music_controls button img {
   width: 1.5rem;
+}
+.current-music .progress-container {
+  width: 100%;
+  background-color: gray;
+}
+.current-music .progress {
+  background-color: white;
 }
 
 .progress-container {
@@ -76,10 +84,13 @@
   transition: width 0.1s linear;
 }
 
+.svgColor {
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+}
+
 @media (max-width: 1200px) {
   .current-music {
     display: block;
-    bottom: 85px;
   }
 }
 
