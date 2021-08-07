@@ -70,14 +70,6 @@ const songsList = [...Array(10)].map((row, i) =>
 
 playlist_body.innerHTML = songsList;
 
-// let details_buttons = document.querySelectorAll('.details_sign_button');
-// let likes_buttons = document.querySelectorAll('.like_sign_button');
-
-// details_buttons.forEach((item) => {
-//     item.addEventListener('click', () => { song_modal_container.style.display = 'block' });
-// })
-
-
 let row_arr = document.querySelectorAll(`tbody tr`);
 
 row_arr.forEach((item) => {
@@ -119,4 +111,15 @@ row_arr.forEach((item) => {
     detailsBtn.addEventListener('click', () => {
         song_modal_container.style.display = 'block'
     });
+})
+
+let mobile_nav_height;
+const mobile_nav = document.querySelector('.aside-mobile__links');
+const current_music_div = document.querySelector('.current-music');
+mobile_nav_height = mobile_nav.clientHeight;
+console.log(mobile_nav_height);
+current_music_div.style.bottom = `${mobile_nav_height+3}px`;
+window.addEventListener('resize', () => {
+    mobile_nav_height = mobile_nav.clientHeight;
+    current_music_div.style.bottom = `${mobile_nav_height}px`;
 })
