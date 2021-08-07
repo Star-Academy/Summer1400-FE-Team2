@@ -118,7 +118,7 @@ const mobile_nav = document.querySelector('.aside-mobile__links');
 const current_music_div = document.querySelector('.current-music');
 mobile_nav_height = mobile_nav.clientHeight;
 console.log(mobile_nav_height);
-current_music_div.style.bottom = `${mobile_nav_height+3}px`;
+current_music_div.style.bottom = `${mobile_nav_height+1}px`;
 window.addEventListener('resize', () => {
     mobile_nav_height = mobile_nav.clientHeight;
     current_music_div.style.bottom = `${mobile_nav_height}px`;
