@@ -38,7 +38,7 @@ const song_modal_like = document.querySelector('#likeSong_modal');
 const song_modal_add = document.querySelector('#addToPlaylist');
 
 window.addEventListener('click', (event) => {
-    if (event.target == song_modal_container) {
+    if (event.target === song_modal_container) {
         song_modal_container.style.display = 'none';
     }
 })
