@@ -1,0 +1,26 @@
+{
+    "baseUrl":"http://130.185.120.192:5000/",
+    "routes":{
+        "user":{
+            "getUser":"user/one/",
+            "postToken":"user/auth",
+            "postRegister":"user/register",
+            "postLogin":"user/login",
+            "postAlter":"user/alter"
+        },
+        "song":{
+            "getAllSongs":"song/all",
+            "getOneSong":"song/one/",
+            "postFilterSongs":"song/page",
+            "postSearch":"song/find"
+        },
+        "playList":{
+            "getPlaylist":"playlist/one/",
+            "postAllPlaylists":"playlist/all",
+            "postCreatePlaylist":"playlist/create",
+            "postRemovePlaylist":"playlist/remove",
+            "postAddSong":"playlist/add-song",
+            "postRemoveSong":"playlist/remove-song"
+        }
+    }
+}
