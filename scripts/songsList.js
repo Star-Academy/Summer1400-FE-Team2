@@ -48,7 +48,7 @@ const songsList = [...Array(10)].map((row, i) =>
     `<tr>
     <td class="hide-column">
        <span> ${i + 1} </span>
-        <i class='fas fa-play play_sign_button hide'></i>
+        <i class='hide fas fa-play play_sign_button'></i>
     </td>
     <td class="song-details__container">
         <div class="song-details">
@@ -70,33 +70,31 @@ const songsList = [...Array(10)].map((row, i) =>
 
 playlist_body.innerHTML = songsList;
 
-let details_buttons = document.querySelectorAll('.details_sign_button');
-let likes_buttons = document.querySelectorAll('.like_sign_button');
+// let details_buttons = document.querySelectorAll('.details_sign_button');
+// let likes_buttons = document.querySelectorAll('.like_sign_button');
 
-details_buttons.forEach((item) => {
-    item.addEventListener('click', () => { song_modal_container.style.display = 'block' });
-})
+// details_buttons.forEach((item) => {
+//     item.addEventListener('click', () => { song_modal_container.style.display = 'block' });
+// })
 
 
 let row_arr = document.querySelectorAll(`tbody tr`);
 
 row_arr.forEach((item) => {
-    let playSongBtn = item.querySelector('td i');
+    let playSongBtn = item.querySelector('td .play_sign_button');
     let number = item.querySelector('td span');
     let likeBtn = item.querySelector('.like_sign_button');
+    let detailsBtn = item.querySelector('.details_sign_button');
+    item.addEventListener('mouseover', () => {
+        number.style.display = 'none';
+        playSongBtn.style.display = 'block';
+        playSongBtn.classList.remove('hide');
+    });
 
-    item.addEventListener('mouseover',
-        () => {
-            playSongBtn.classList.remove('hide');
-            number.style.display = 'none';
-            likeBtn.style.display = 'block';
-        });
-
-    item.addEventListener('mouseout',
-        () => {
-            playSongBtn.classList.add('hide');
-            number.style.display = 'block';
-        });
+    item.addEventListener('mouseout', () => {
+        number.style.display = 'block';
+        playSongBtn.style.display = 'none';
+    });
 
     likeBtn.addEventListener('click', () => {
         if (localStorage.getItem("token") === null) {
@@ -112,5 +110,13 @@ row_arr.forEach((item) => {
                 showToast('به اهنگ های مورد علاقه اضافه شد.');
             }
         }
+    });
+
+    playSongBtn.addEventListener('click', () => {
+        window.location = './song.html';
+    });
+
+    detailsBtn.addEventListener('click', () => {
+        song_modal_container.style.display = 'block'
     });
 })

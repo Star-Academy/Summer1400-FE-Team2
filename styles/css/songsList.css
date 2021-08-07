@@ -483,7 +483,7 @@ table tbody tr:hover {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .songsList-details {
