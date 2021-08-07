@@ -8,7 +8,8 @@ const like_songsList = document.getElementById("like-songs");
 
 let mobile_nav_height;
 const mobile_nav = document.querySelector('.aside-mobile__links');
-const current_music_div = document.querySelector('.current-music');
+// const current_music_div = document.querySelector('.current-music');
+const current_music_div = document.querySelector('.desktop_container');
 
 let playlist_title = 'عنوان لیست اهنگ';
 let playlist_description = 'توضیحات..';

@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-.music-current-desktop {
+.desktop_container {
   display: flex;
   justify-content: space-evenly;
   position: fixed;
@@ -111,7 +111,7 @@
 }
 
 .current-music {
-  display: none;
+  display: block;
   position: fixed;
   width: 100%;
   background-color: #313131;
@@ -199,11 +199,60 @@
 }
 
 @media (max-width: 1200px) {
-  .current-music {
+  .desktop_container .btns {
+    width: 80%;
+  }
+  .desktop_container .song_container {
+    width: 60%;
+  }
+  .desktop_container .current-music_details {
+    width: 40%;
+  }
+}
+@media (max-width: 900px) {
+  .music-current-desktop {
+    width: 100%;
     display: block;
   }
 
-  .music-current-desktop {
+  .desktop_container .btns {
+    width: 80%;
+    margin-right: auto;
+    margin-left: 0;
+  }
+  .desktop_container .controls {
+    width: 30%;
+  }
+  .desktop_container .song_container {
+    width: 40%;
+    display: flex;
+    flex-flow: column;
+  }
+  .desktop_container .current__time {
+    order: 1;
+  }
+  .desktop_container .button-controls {
+    order: 2;
+  }
+  .desktop_container .current-music_details {
+    width: 60%;
+    margin-left: 0.2rem;
+  }
+  .desktop_container .progress-container:nth-child(2) {
+    display: none;
+  }
+  .desktop_container .hidden-progress {
+    width: 100%;
+    display: block;
+    color: white;
+    background-color: white;
+  }
+  .desktop_container #shuffle,
+.desktop_container #repeat,
+.desktop_container #next,
+.desktop_container #prev,
+.desktop_container #curtime,
+.desktop_container #durtime {
     display: none;
   }
 }

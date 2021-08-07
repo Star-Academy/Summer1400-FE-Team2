@@ -14,7 +14,7 @@
     width: 100%;
 }
 
-.music-current-desktop {
+.desktop_container {
     display: flex;
     justify-content: space-evenly;
     position: fixed;
@@ -119,7 +119,8 @@
 }
 
 .current-music {
-    display: none;
+    // display: none;
+    display: block;
     position: fixed;
     // bottom: 0;
     width: 100%;
@@ -205,11 +206,74 @@
     filter: invert(41%) sepia(2%) saturate(17%) hue-rotate(31deg) brightness(88%) contrast(95%);
 }
 
-@media (max-width: 1200px) {
-    .current-music {
+// @media (max-width: 1200px) {
+//     .current-music {
+//         display: block;
+//     }
+//     .music-current-desktop {
+//         display: none;
+//     }
+// }
+@media (max-width:1200px) {
+    .desktop_container {
+        // bottom: 60px;
+        .btns {
+            width: 80%;
+        }
+        .song_container {
+            width: 60%;
+        }
+        .current-music_details {
+            width: 40%;
+        }
+    }
+}
+
+@media (max-width:900px) {
+    .music-current-desktop {
+        width: 100%;
         display: block;
     }
-    .music-current-desktop {
-        display: none;
+    .desktop_container {
+        .btns {
+            width: 80%;
+            margin-right: auto;
+            margin-left: 0;
+        }
+        .controls {
+            width: 30%;
+        }
+        .song_container {
+            width: 40%;
+            display: flex;
+            flex-flow: column;
+        }
+        .current__time {
+            order: 1;
+        }
+        .button-controls {
+            order: 2;
+        }
+        .current-music_details {
+            width: 60%;
+            margin-left: 0.2rem;
+        }
+        .progress-container:nth-child(2) {
+            display: none;
+        }
+        .hidden-progress {
+            width: 100%;
+            display: block;
+            color: white;
+            background-color: white;
+        }
+        #shuffle,
+        #repeat,
+        #next,
+        #prev,
+        #curtime,
+        #durtime {
+            display: none;
+        }
     }
 }
