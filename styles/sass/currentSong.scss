@@ -4,6 +4,12 @@
     align-items: center;
 }
 
+@mixin flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 #current-music__container {
     width: 100%;
 }
@@ -44,7 +50,7 @@
     }
     .current-music_controls {
         width: 30%;
-        @include flex-center();
+        @include flex-end();
         button {
             display: block;
             background-color: transparent;

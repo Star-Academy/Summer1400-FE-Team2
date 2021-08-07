@@ -40,7 +40,7 @@
 .current-music .current-music_controls {
   width: 30%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 .current-music .current-music_controls button {

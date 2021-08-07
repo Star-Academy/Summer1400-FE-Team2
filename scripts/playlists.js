@@ -52,7 +52,6 @@ window.addEventListener('resize',()=>{
 
 
 document.querySelectorAll(".music-link").forEach((item,index) => {
-  console.log(item,index);
   item.addEventListener("mouseover",()=>{
     item.querySelector(`${item} .play-playlists-button`).style.display ="block";
   })
@@ -79,6 +78,5 @@ function getCardsNumber(){
   }else if(document.body.clientWidth >1450){
     cardNumbers =7;
   }
-  console.log(document.body.clientWidth);
   return cardNumbers;
 }
