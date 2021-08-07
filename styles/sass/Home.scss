@@ -1,7 +1,7 @@
 @use './header.scss';
 // *********************//
 .playlists__container {
-    width: 90%;
+    width: 95%;
     margin-bottom: 1.4rem;
     padding: 0 0.5rem;
     .playlists__title {
@@ -25,6 +25,32 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     column-gap: 0.5rem;
+}
+
+.music-link__image {
+    position: relative;
+    button {
+        display: none;
+        z-index: 5;
+        cursor: pointer;
+        position: absolute;
+        bottom: -0.2rem;
+        left: 0.2rem;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        i {
+            color: #1ab34f;
+            background-color: white;
+            border-radius: 50%;
+        }
+    }
+    img {
+        display: block;
+        height: 100%;
+    }
 }
 
 @media (max-width: 1450px) {

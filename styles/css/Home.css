@@ -16,7 +16,7 @@ body {
 
 main {
   width: 80%;
-  margin: 7% auto 5rem 0;
+  margin: 9% auto 5rem 0;
 }
 
 a {
@@ -34,7 +34,7 @@ header {
   padding: 1rem 0.9rem;
   z-index: 10;
   display: grid;
-  grid-template-columns: 30% 55% 15%;
+  grid-template-columns: 35% 50% 15%;
   grid-gap: 10px;
   grid-template-areas: "column-1 column-2 column-3";
 }
@@ -82,16 +82,23 @@ header .controlBtn {
   color: white;
 }
 
-#user-account__link {
+#user-account__link,
+#logoutBtn {
   border-radius: 999px;
   background-color: #282828;
   padding: 0.3rem 0.7rem;
 }
-#user-account__link span {
+#user-account__link span,
+#logoutBtn span {
   color: white;
 }
-#user-account__link i {
+#user-account__link i,
+#logoutBtn i {
   color: gray;
+}
+
+#logoutBtn:hover {
+  background-color: #333333;
 }
 
 .searchBox {
@@ -185,6 +192,7 @@ header .controlBtn {
 
 .aside-mobile__links {
   display: none;
+  z-index: 40;
   background-color: #282828;
   width: 100%;
   position: fixed;
@@ -232,6 +240,7 @@ header .controlBtn {
   padding: 0.8rem 0.4rem;
   border-radius: 8px;
   font-size: 0.8rem;
+  margin-bottom: 1rem;
 }
 .card-playlist a {
   color: #fefefe;
@@ -274,6 +283,7 @@ header .controlBtn {
 
   main {
     width: 95%;
+    margin: auto;
     margin-top: 13%;
   }
 
@@ -311,7 +321,7 @@ header .controlBtn {
   }
 
   header {
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 75% 25%;
     grid-template-areas: " column-1 column-3 " " column-2 column-2 ";
   }
 
@@ -339,6 +349,7 @@ header .controlBtn {
 @media (max-width: 500px) {
   main {
     margin-top: 35%;
+    margin-bottom: 5rem;
   }
 
   header {
@@ -370,7 +381,7 @@ header .controlBtn {
   }
 }
 .playlists__container {
-  width: 90%;
+  width: 95%;
   margin-bottom: 1.4rem;
   padding: 0 0.5rem;
 }
@@ -394,6 +405,32 @@ header .controlBtn {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   column-gap: 0.5rem;
+}
+
+.music-link__image {
+  position: relative;
+}
+.music-link__image button {
+  display: none;
+  z-index: 5;
+  cursor: pointer;
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0.2rem;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+.music-link__image button i {
+  color: #1ab34f;
+  background-color: white;
+  border-radius: 50%;
+}
+.music-link__image img {
+  display: block;
+  height: 100%;
 }
 
 @media (max-width: 1450px) {

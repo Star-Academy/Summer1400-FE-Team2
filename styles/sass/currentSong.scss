@@ -1,0 +1,84 @@
+#current-music__container {
+    width: 100%;
+}
+
+.current-music {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #313131;
+    border-bottom: 2px solid #252525;
+    color: white;
+    padding: 0.5rem 0.4rem;
+    padding-bottom: 0.7rem;
+    .song-details {
+        width: 70%;
+    }
+    .current-music_content {
+        display: flex;
+    }
+    .current-music_details {
+        width: 90%;
+        display: flex;
+        align-items: center;
+    }
+    .current-music_info {
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+    }
+    .current-music_img {
+        width: 25%;
+        margin-left: 1rem;
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+    .current-music_controls {
+        width: 30%;
+        display: flex;
+        justify-content: flex-end;
+        button {
+            background-color: transparent;
+            border: 0;
+            outline: 0;
+            color: white;
+            margin-top:2.3rem;
+            margin-left: 0.7rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            height: 1.5rem;
+            img{
+                width: 1.5rem;
+            }
+        }
+    }
+}
+
+.progress-container {
+    direction: ltr !important;
+    background-color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 6px;
+    width: 100%;
+}
+
+.progress {
+    background-color: #242627;
+    border-radius: 5px;
+    height: 100%;
+    width: 0;
+    transition: width 0.1s linear;
+}
+
+@media (max-width: 1200px) {
+    .current-music {
+        display: block;
+        bottom: 85px;
+    }
+}

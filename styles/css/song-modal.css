@@ -1,0 +1,60 @@
+.song-modal__container {
+  display: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+}
+.song-modal__container .song-modal {
+  width: 100%;
+  position: fixed;
+  top: 20%;
+  right: 0;
+  margin: auto;
+}
+.song-modal__container #songModal-close {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.song-modal__container .song-modal__content {
+  margin: auto;
+}
+.song-modal__container .song-modal_image {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 2.5rem;
+}
+.song-modal__container .song-modal_image img {
+  width: 100%;
+}
+.song-modal__container .song-modal_links {
+  font-size: 0.9rem;
+  width: 90%;
+}
+.song-modal__container .song-modal_links div {
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem 0.8rem;
+  color: #d1d1d1;
+}
+.song-modal__container .song-modal_links div button {
+  background-color: transparent;
+  border: 0;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.song-modal__container i {
+  color: gray;
+}
+
+/*# sourceMappingURL=song-modal.css.map */

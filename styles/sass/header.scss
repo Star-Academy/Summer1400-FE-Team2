@@ -29,7 +29,7 @@ body {
 
 main {
     width: 80%;
-    margin: 7% auto 5rem 0;
+    margin: 9% auto 5rem 0;
 }
 
 a {
@@ -47,7 +47,7 @@ header {
     padding: 1rem 0.9rem;
     z-index: 10;
     display: grid;
-    grid-template-columns: 30% 55% 15%;
+    grid-template-columns: 35% 50% 15%;
     grid-gap: 10px;
     grid-template-areas: "column-1 column-2 column-3";
     a {
@@ -95,7 +95,8 @@ header {
     color: white;
 }
 
-#user-account__link {
+#user-account__link,
+#logoutBtn {
     span {
         color: white;
     }
@@ -105,6 +106,10 @@ header {
     border-radius: 999px;
     background-color: #282828;
     padding: 0.3rem 0.7rem;
+}
+
+#logoutBtn:hover {
+    background-color: #333333;
 }
 
 .searchBox {
@@ -190,8 +195,8 @@ header {
 #navigation__links a {
     font-size: 1rem;
     background-color: transparent;
-    color:#fff;
-    border:none;
+    color: #fff;
+    border: none;
     cursor: pointer;
     &:hover,
     &:active {
@@ -201,6 +206,7 @@ header {
 
 .aside-mobile__links {
     display: none;
+    z-index: 40;
     background-color: #282828;
     width: 100%;
     position: fixed;
@@ -235,6 +241,7 @@ header {
         background: #444444;
     }
 }
+
 .card-playlist {
     background-color: #181818;
     a {
@@ -248,11 +255,11 @@ header {
     padding: 0.8rem 0.4rem;
     border-radius: 8px;
     font-size: 0.8rem;
+    margin-bottom: 1rem;
     img {
         width: 100%;
         margin-bottom: 0.5rem;
         border-radius: 8px;
-
     }
     &:hover {
         background-color: #282828;
@@ -284,6 +291,7 @@ header {
     }
     main {
         width: 95%;
+        margin: auto;
         margin-top: 13%;
     }
     .header-left {
@@ -321,7 +329,7 @@ header {
         }
     }
     header {
-        grid-template-columns: 70% 30%;
+        grid-template-columns: 75% 25%;
         grid-template-areas: " column-1 column-3 " " column-2 column-2 ";
     }
     .grid-item__header:nth-child(2) {
@@ -349,6 +357,7 @@ header {
 @media (max-width: 500px) {
     main {
         margin-top: 35%;
+        margin-bottom: 5rem;
     }
     header {
         padding: 1rem 0.6rem 0.5rem 0.6rem;

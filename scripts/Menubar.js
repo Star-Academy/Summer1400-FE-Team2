@@ -1,53 +1,79 @@
 /** @format */
 
 const goBack = document.getElementById("goBack");
+
 function fgoBack() {
-  window.history.forward();
+    window.history.forward();
 }
 goBack.addEventListener("click", fgoBack);
 
 const goForward = document.getElementById("goForward");
+
 function fgoForward() {
-  window.history.back();
+    window.history.back();
 }
 goForward.addEventListener("click", fgoForward);
 
 const userStatusMenu = document.getElementById("userStatusMenu");
 
+function welcomeUser() {
+    let name = localStorage.getItem("username");
+    if (
+        localStorage.getItem("token") !== null &&
+        sessionStorage.getItem("welcome") === "false"
+    ) {
+        showToast(`${name} عزیز با موفقیت وارد شدید .`);
+        sessionStorage.setItem("welcome", "true");
+    }
+}
+
 function setStatus() {
-  if (localStorage.getItem("token") !== null) {
-    userStatusMenu.innerHTML = `
+    if (localStorage.getItem("token") !== null) {
+        userStatusMenu.innerHTML = `
         <a href="#" id="user-account__link">
         <i class="far fa-user"></i> <span>${localStorage.getItem(
           "username"
         )}</span>
         </a>
+        <a href="#" id="logoutBtn">
+        <i class="fas fa-sign-out-alt"></i> <span>خروج</span>
+        </a>
         `;
-  } else {
-    userStatusMenu.innerHTML = `
-    <a href="./Register.html" class="controlBtn">
+    } else {
+        let path = window.location.pathname.split("/").pop();
+        let href_register =
+            path === "index.html" || path === "" ?
+            "./pages/Register.html" :
+            "./Register.html";
+        let href_login =
+            path === "index.html" || path === "" ?
+            "./pages/Login.html" :
+            "./Login.html";
+        userStatusMenu.innerHTML = `
+    <a href=${href_register} class="controlBtn">
     <span>ثبت نام</span>
     </a>
-    <a href="./Login.html" class="controlBtn">
+    <a href=${href_login} class="controlBtn">
     <i class="fas fa-sign-in-alt vertical-middle"></i>
     <span>ورود</span>
     </a>
     `;
-  }
+    }
 }
 
 setStatus();
-
+welcomeUser();
 const searchBtn = document.getElementById("btnSearchMenu");
-function SearchItem() {
-  let searchBox = document.getElementById("boxSearchMenu");
-  if (searchBox.style.display !== "none") {
-    searchBox.style.display = "none";
-  } else {
-    searchBox.style.display = "flex";
-  }
-}
+const searchBox = document.getElementById("boxSearchMenu");
+searchBox.style.display = "none";
 
+function SearchItem() {
+    if (searchBox.style.display === "none") {
+        searchBox.style.display = "flex";
+    } else {
+        searchBox.style.display = "none";
+    }
+}
 searchBtn.addEventListener("click", SearchItem);
 
 const btnSearchMenuMobile = document.getElementById("btnSearchMenuMobile");
@@ -61,18 +87,17 @@ const libraryMenu = document.getElementById("libraryMenu");
 const libraryMenuMobile = document.getElementById("libraryMenuMobile");
 
 function gotoLibrary() {
-  if (localStorage.getItem("token") !== null) {
-    libraryMenu.href =
-      path === "index.html" ? "./pages/songsList.html" : "./songsList.html";
-  } else {
-    showToast("ابتدا وارد شوید");
-  }
+    if (localStorage.getItem("token") !== null) {
+        libraryMenu.href =
+            path === "index.html" ? "./pages/songsList.html" : "./songsList.html";
+    } else {
+        showToast("ابتدا وارد شوید");
+    }
 }
 
 //show library
 libraryMenu.addEventListener("click", gotoLibrary);
 libraryMenuMobile.addEventListener("click", gotoLibrary);
-
 
 //create playlist
 const createListMenu = document.getElementById("createListMenu");
@@ -87,3 +112,13 @@ const ArchivedMenuMobile = document.getElementById("ArchivedMenuMobile");
 
 ArchivedMenu.addEventListener("click", gotoLibrary);
 ArchivedMenuMobile.addEventListener("click", gotoLibrary);
+
+if (localStorage.getItem("token") !== null) {
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", () => {
+        let path = window.location.pathname.split("/").pop();
+        localStorage.clear();
+        window.location =
+            path === "index.html" ? "./pages/Login.html" : "./Login.html";
+    });
+}
