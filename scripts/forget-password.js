@@ -1,5 +1,3 @@
-/** @format */
-
 const user_data = [
   {
     email: "hadis@gmail.com",
