@@ -1,84 +1,82 @@
-const playlists_section = document.getElementById("playlists");
-let explain = "توضیحات..";
-let title = "ژانر اهنگ ها در این گروه";
-let img = "./assets/images/sample.jpg";
-let id = 1;
+const playlists = document.getElementById("playlists");
+const namePlaylists = [
+  "آهنگ های جدید",
+  "آلبوم جدید",
+  "آهنگ های پیشنهادی",
+  "محبوب ها",
+];
 
-
-let cards;
-
-function createCardsList(cardsNumber) {
-    cards = [...Array(3)].map(
-            (item, i) =>
-            `
+const fillData = (data, cardsNumber) => {
+  return namePlaylists.map(
+    (item, i) => `
     <section class="playlists__container">
       <div class="playlists__title">
-          <h3><a href="./pages/playlist.html?id=${id}">لیست اهنگ ${i + 1}</a></h3>
-          <a href="./pages/playlist.html?id=${id}">مشاهده همه</a>
+          <h3><a href="./pages/playlist.html?id=${i + 1}"> ${item} </a></h3>
+          <a href="./pages/playlist.html?id=${i + 1}">مشاهده همه</a>
       </div>
       <div class="cards__container">
-          ${[...Array(getCardsNumber())]
-        .map(
-          (item) =>
-            ` 
+          ${data
+            .slice(i * 15, i * 15 + cardsNumber)
+            .map(
+              (song) =>
+                ` 
               <div class="card-playlist" >
-                  <a class="music-link">
+                  <a class="music-link" href="./pages/song.html?id=${song.id}">
                       <div class="music-link__image">
-                      <img src="${img}" alt="cover" />
+                      <img src="${song.cover}" alt="cover" />
                       <button class="play-playlists-button"><i class="fas fa-play-circle"></i></button>
                       </div>
-                      <h4 class="card-playlist__title">${title}</h4>
-                      <p>${explain}</p>
+                      <h4 class="card-playlist__title">${song.name}</h4>
+                      <p>${song.artist}</p>
                   </a>
               </div>
           `
-        )
-        .join("")}
+            )
+            .join("")}
       </div>
     </section>
     `
   );
+};
 
+function createCardsList(cardsNumber) {
+  GetData("getAllSongs")
+    .then((res) => {
+      showToast("درحال بارگزاری");
+      playlists.innerHTML = fillData(res.songs, cardsNumber).join("\n");
+    })
+    .catch(() => {
+      showToast("خطا در ارتباط با سرور");
+    });
 }
 
 createCardsList(getCardsNumber());
-playlists_section.innerHTML = cards.join("\n");
 
-
-window.addEventListener('resize',()=>{
+window.addEventListener("resize", () => {
   createCardsList(getCardsNumber());
-  playlists_section.innerHTML = cards.join("\n");
-})
-
-
-document.querySelectorAll(".music-link").forEach((item,index) => {
-  console.log(item,index);
-  item.addEventListener("mouseover",()=>{
-    item.querySelector(`${item} .play-playlists-button`).style.display ="block";
-  })
-  item.addEventListener("mouseout",()=>{
-    item.querySelector(`${item} .play-playlists-button`).style.display ="none";
-  })
-
-  item.addEventListener('click',()=>{
-    item.href = './pages/songsList.html';
-  })
-
 });
 
-function getCardsNumber(){
-  let cardNumbers =1;
-  if(document.body.clientWidth >601 && document.body.clientWidth <=768){
-    cardNumbers =2;
-  }else if(document.body.clientWidth >768  && document.body.clientWidth <=900){
-    cardNumbers =3;
-  }else if(document.body.clientWidth >900  && document.body.clientWidth <=1200){
-    cardNumbers =4;
-  }else if(document.body.clientWidth >1200  && document.body.clientWidth <=1450){
-    cardNumbers =6;
-  }else if(document.body.clientWidth >1450){
-    cardNumbers =7;
+function getCardsNumber() {
+  let cardNumbers = 1;
+  if (document.body.clientWidth > 601 && document.body.clientWidth <= 768) {
+    cardNumbers = 2;
+  } else if (
+    document.body.clientWidth > 768 &&
+    document.body.clientWidth <= 900
+  ) {
+    cardNumbers = 3;
+  } else if (
+    document.body.clientWidth > 900 &&
+    document.body.clientWidth <= 1200
+  ) {
+    cardNumbers = 4;
+  } else if (
+    document.body.clientWidth > 1200 &&
+    document.body.clientWidth <= 1450
+  ) {
+    cardNumbers = 6;
+  } else if (document.body.clientWidth > 1450) {
+    cardNumbers = 7;
   }
-  console.log(document.body.clientWidth);
   return cardNumbers;
 }

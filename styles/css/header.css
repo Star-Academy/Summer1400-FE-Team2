@@ -16,7 +16,7 @@ body {
 
 main {
   width: 80%;
-  margin: 9% auto 5rem 0;
+  margin: 7% auto 5rem 0;
 }
 
 a {
@@ -283,8 +283,8 @@ header .controlBtn {
 
   main {
     width: 95%;
-    margin: auto;
-    margin-top: 13%;
+    margin-top: 10%;
+    margin-bottom: 10%;
   }
 
   .header-left {
@@ -296,6 +296,11 @@ header .controlBtn {
   }
 }
 @media (max-width: 900px) {
+  main {
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+
   .aside-mobile__links li:nth-child(1) {
     margin-right: 0rem;
   }
@@ -309,10 +314,6 @@ header .controlBtn {
   }
 }
 @media (max-width: 768px) {
-  main {
-    margin-top: 25%;
-  }
-
   .aside-mobile__links li:nth-child(1) {
     margin-right: 3rem;
   }
@@ -338,18 +339,14 @@ header .controlBtn {
   }
 }
 @media (max-width: 600px) {
-  main {
-    margin-top: 30%;
-  }
-
   .aside-mobile__links li:nth-child(1) {
     margin-right: 8rem;
   }
 }
 @media (max-width: 500px) {
   main {
-    margin-top: 35%;
-    margin-bottom: 5rem;
+    margin-top: 20%;
+    margin-bottom: 30%;
   }
 
   header {
