@@ -32,7 +32,6 @@ playMusic_button.addEventListener('click', () => {
     if (localStorage.getItem("token") === null) {
         permission();
     } else {
-        // window.href = `. / pages / song.html ? id = $ { 2 }`;
         window.location.href = './song.html';
     }
 })
@@ -116,9 +115,10 @@ row_arr.forEach((item) => {
 let mobile_nav_height;
 const mobile_nav = document.querySelector('.aside-mobile__links');
 const current_music_div = document.querySelector('.current-music');
+
 mobile_nav_height = mobile_nav.clientHeight;
-console.log(mobile_nav_height);
-current_music_div.style.bottom = `${mobile_nav_height+1}px`;
+current_music_div.style.bottom = `${mobile_nav_height}px`;
+
 window.addEventListener('resize', () => {
     mobile_nav_height = mobile_nav.clientHeight;
     current_music_div.style.bottom = `${mobile_nav_height}px`;
