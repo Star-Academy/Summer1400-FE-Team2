@@ -116,12 +116,12 @@ row_arr.forEach((item) => {
     });
 })
 
-
-
-mobile_nav_height = mobile_nav.clientHeight;
-current_music_div.style.bottom = `${mobile_nav_height}px`;
-
-window.addEventListener('resize', () => {
+if (current_music_div) {
     mobile_nav_height = mobile_nav.clientHeight;
     current_music_div.style.bottom = `${mobile_nav_height}px`;
-})
+
+    window.addEventListener('resize', () => {
+        mobile_nav_height = mobile_nav.clientHeight;
+        current_music_div.style.bottom = `${mobile_nav_height}px`;
+    })
+}

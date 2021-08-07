@@ -2,10 +2,117 @@
   width: 100%;
 }
 
+.music-current-desktop {
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #181818;
+  color: white;
+  padding: 0.9rem 0.4rem 0.9rem 0.5rem;
+}
+
+.current-music_details {
+  width: 20%;
+  display: flex;
+}
+.current-music_details div {
+  margin-left: 1rem;
+}
+
+.title__artist {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: space-evenly;
+}
+
+.current__time {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+.current__time .progress-container {
+  width: 70%;
+}
+.current__time .progress-container .progress {
+  background-color: #504f4f;
+}
+
+.song_container {
+  width: 70%;
+}
+
+.button-controls {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.desktop_img {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.desktop_img img {
+  width: 100%;
+  display: block;
+}
+
+.btns {
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  z-index: 3;
+}
+.btns .controls {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.btns .controls button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.btns .controls button img {
+  width: 1.5rem;
+}
+@media (max-width: 425px) {
+  .btns .controls button img {
+    width: 2.5rem;
+  }
+}
+
+.btn--like,
+#repeat,
+#more,
+#dropdown,
+#shuffle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.btn--like img,
+#repeat img,
+#more img,
+#dropdown img,
+#shuffle img {
+  width: 1.5rem;
+}
+
 .current-music {
   display: none;
   position: fixed;
-  bottom: 0;
   width: 100%;
   background-color: #313131;
   border-bottom: 2px solid #252525;
@@ -87,9 +194,17 @@
   filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
 }
 
+.svgColor-gray {
+  filter: invert(41%) sepia(2%) saturate(17%) hue-rotate(31deg) brightness(88%) contrast(95%);
+}
+
 @media (max-width: 1200px) {
   .current-music {
     display: block;
+  }
+
+  .music-current-desktop {
+    display: none;
   }
 }
 
