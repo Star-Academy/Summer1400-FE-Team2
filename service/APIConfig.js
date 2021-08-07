@@ -1,4 +1,4 @@
-const routes = {
+const API = {
   baseUrl: "http://130.185.120.192:5000/",
   routes: {
     getUser: "user/one/",
@@ -20,7 +20,7 @@ const routes = {
 };
 
 const GetData = (url) => {
-  return fetch(routes.baseUrl + routes.routes[url], {
+  return fetch(API.baseUrl + API.routes[url], {
     method: "GET",
     headers: {
       Authorization: "Bearer ",
@@ -29,7 +29,7 @@ const GetData = (url) => {
 };
 
 const PostData = async (url, body) => {
-  const data = await fetch(routes.baseUrl + routes.routes[url], {
+  const data = await fetch(API.baseUrl + API.routes[url], {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -42,4 +42,14 @@ const PostData = async (url, body) => {
 
   if (data.status < 300) return json;
   throw json;
+};
+
+const CheckObj = (obj) => {
+  let allFilled = true;
+  Object.keys(obj).forEach(function (key) {
+    if (obj[key] === "") {
+      allFilled = false;
+    }
+  });
+  return allFilled;
 };

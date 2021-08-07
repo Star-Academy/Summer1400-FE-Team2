@@ -1,10 +1,6 @@
-const register_btn = document.getElementById("registerBtn");
-const register_email = document.getElementById("register-email");
-const register_password = document.getElementById("register-password");
-const register_username = document.getElementById("register-username");
 const registerForm = document.getElementById("registerForm");
-
 const inputs = registerForm.getElementsByTagName("input");
+
 const checkData = (e) => {
   e.preventDefault();
   const postBody = {
@@ -14,11 +10,7 @@ const checkData = (e) => {
     firstName: inputs[1].value,
     lastName: inputs[2].value,
   };
-  if (
-    postBody.username !== "" &&
-    postBody.email !== "" &&
-    postBody.password !== ""
-  ) {
+  if (CheckObj(postBody)) {
     PostData("postRegister", postBody)
       .then((res) => {
         localStorage.setItem("userId", res.id);
@@ -30,4 +22,4 @@ const checkData = (e) => {
       });
   } else showToast("لطفا تمام اطلاعات را وارد کنید");
 };
-register_btn.addEventListener("click", checkData);
+inputs[5].addEventListener("click", checkData);

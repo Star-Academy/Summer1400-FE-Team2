@@ -1,75 +1,33 @@
-const user_data = [{
-        password: "1234@ha",
-        userName: "Hadis",
-        email: "hadis@gmail.com",
-    },
-    {
-        password: "4567@pa",
-        userName: "Perriex",
-        email: "parna@gmail.com",
-    },
-];
+const loginBtn = document.getElementById("loginBtn");
+const loginForm = document.getElementById("loginForm");
+const inputs = loginForm.getElementsByTagName("input");
 
-let login_btn = document.getElementById("loginBtn");
-let input_email = document.getElementById("login-email");
-let input_pass = document.getElementById("login-password");
-let rmCheck = document.getElementById("login-checkbox");
+function Welcome(res, username) {
+  localStorage.setItem("userId", res.id);
+  localStorage.setItem("token", res.token);
+  localStorage.setItem("username", username);
+  sessionStorage.setItem("welcome", "false");
+  window.location.href = "../index.html";
+}
 
 const checkData = (e) => {
-    e.preventDefault();
-    let result;
-    let result_username;
-    let isUser = 0;
-    let hasAccount = 0;
-    if (input_email.value === "" || input_pass.value === "") {
-        result = "اطلاعات را کامل وارد کنید";
-    } else {
-        for (let i = 0; i < user_data.length; i++) {
-            if (
-                user_data[i].userName === input_email.value ||
-                user_data[i].email === input_email.value
-            ) {
-                hasAccount = 1;
-                if (user_data[i].password === input_pass.value) {
-                    result_username = user_data[i].userName;
-                    result = `${user_data[i].userName} عزیز با موفقیت وارد شدید .`;
-                    lsRememberMe();
-                    isUser = 1;
-                    break;
-                } else {
-                    result = "رمز عبور اشتباه است.";
-                }
-            }
-        }
-        if (!hasAccount) {
-            result = "کاربری با این اطلاعات یافت نشد.";
-        }
-    }
-    showToast(result);
-    if (isUser) {
-        localStorage.setItem('token', 'true');
-        localStorage.setItem('username', result_username);
-        sessionStorage.setItem('welcome', 'false');
-        window.location.href = '../index.html';
-    }
+  e.preventDefault();
+  const postBody = {
+    username: inputs[1].value,
+    email: inputs[0].value,
+    password: inputs[2].value,
+  };
+  if (CheckObj(postBody)) {
+    PostData("postLogin", postBody)
+      .then((res) => {
+        Welcome(res, postBody.username);
+      })
+      .catch((err) => {
+        showToast(err.message);
+      });
+  } else {
+    showToast("اطلاعات را کامل وارد کنید");
+  }
 };
 
-login_btn.addEventListener("click", checkData);
-
-if (localStorage.checkbox && localStorage.checkbox !== "") {
-    rmCheck.setAttribute("checked", "checked");
-    input_email.value = localStorage.username;
-} else {
-    rmCheck.removeAttribute("checked");
-    input_email.value = "";
-}
-
-function lsRememberMe() {
-    if (rmCheck.checked && input_email.value !== "") {
-        localStorage.username = input_email.value;
-        localStorage.checkbox = rmCheck.value;
-    } else {
-        localStorage.username = "";
-        localStorage.checkbox = "";
-    }
-}
+loginBtn.addEventListener("click", checkData);

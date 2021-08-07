@@ -117,6 +117,6 @@ if (localStorage.getItem("token") !== null) {
         let path = window.location.pathname.split("/").pop();
         localStorage.clear();
         window.location =
-            path === "index.html" ? "./pages/Login.html" : "./Login.html";
+            path === "index.html" ||  path === ""  ? "./pages/Login.html" : "./Login.html";
     });
 }

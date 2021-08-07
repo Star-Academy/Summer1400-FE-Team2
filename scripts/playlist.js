@@ -1,3 +1,6 @@
+
+
+
 const playlist_section = document.getElementById("playlist-section");
 let explain = "توضیحات..";
 let title = "ژانر اهنگ ها در این گروه";
