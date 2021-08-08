@@ -15,8 +15,11 @@ let durTime = document.querySelector('#durtime');
 
 
 const songs = ['hope', 'La-Vie-En-Rose', 'Rainy City', 'When She Flows'];
-const progress = document.getElementById('progress');
-const progressContainer = document.getElementById('progress-container');
+// const progress = document.getElementById('progress');
+// const progressContainer = document.getElementById('progress-container');
+
+const progress_arr = document.querySelectorAll('.progress');
+const progressContainer_arr = document.querySelectorAll('.progress-container');
 
 // keep track of song
 let musicId = sessionStorage.getItem("id");
@@ -98,7 +101,11 @@ playBtn.addEventListener('click', () => {
 function updateProgress(e) {
     const { duration, currentTime } = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
-    if (progress) progress.style.width = `${progressPercent}%`;
+    // if (progress) progress.style.width = `${progressPercent}%`;
+    progress_arr.forEach((item) => {
+        item.style.width = `${progressPercent}%`;
+    })
+
 }
 
 // set progress bar
@@ -202,7 +209,10 @@ function likeSongHandler() {
 audio.addEventListener('timeupdate', updateProgress);
 
 //click on progress bar
-if (progressContainer) progressContainer.addEventListener('click', setProgress);
+progressContainer_arr.forEach((item) => {
+        item.addEventListener('click', setProgress);
+    })
+    // if (progressContainer) progressContainer.addEventListener('click', setProgress);
 
 // song ends
 audio.addEventListener('ended', nextSong);

@@ -178,6 +178,10 @@ header {
 
 #signIn-header {
     margin-top: 1rem;
+    a {
+        display: block;
+        text-align: center;
+    }
 }
 
 @media (min-width:480px) {
@@ -233,5 +237,10 @@ header {
 @media (min-width:1200px) {
     .container {
         width: 30%;
+    }
+    #signIn-header {
+        a {
+            display: inline !important;
+        }
     }
 }

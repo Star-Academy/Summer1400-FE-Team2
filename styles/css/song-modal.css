@@ -39,9 +39,12 @@
 .song-modal__container .song-modal_links {
   font-size: 0.9rem;
   width: 90%;
+  margin: auto;
 }
 .song-modal__container .song-modal_links div {
+  text-align: center;
   display: flex;
+  justify-content: center;
   margin-bottom: 0.5rem;
   padding: 0.2rem 0.8rem;
   color: #d1d1d1;
