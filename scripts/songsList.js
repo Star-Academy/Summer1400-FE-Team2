@@ -8,7 +8,8 @@ const like_songsList = document.getElementById("like-songs");
 
 let mobile_nav_height;
 const mobile_nav = document.querySelector('.aside-mobile__links');
-const current_music_div = document.querySelector('.current-music');
+// const current_music_div = document.querySelector('.current-music');
+const current_music_div = document.querySelector('.music-current-desktop');
 
 let playlist_title = 'عنوان لیست اهنگ';
 let playlist_description = 'توضیحات..';
@@ -118,7 +119,7 @@ row_arr.forEach((item) => {
 
 if (current_music_div) {
     mobile_nav_height = mobile_nav.clientHeight;
-    current_music_div.style.bottom = `${mobile_nav_height}px`;
+    current_music_div.style.bottom = `${mobile_nav_height+3}px`;
 
     window.addEventListener('resize', () => {
         mobile_nav_height = mobile_nav.clientHeight;
