@@ -255,6 +255,124 @@ header .controlBtn {
   cursor: pointer;
 }
 
+/*************** playlist modal ***************/
+.box-shadow {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+#modal-playlist_container {
+  display: none;
+  max-width: 550px;
+  max-height: 550px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -275px;
+  margin-left: -275px;
+  border-radius: 6px;
+  z-index: 110;
+  background-color: #282828;
+  padding: 1rem;
+}
+#modal-playlist_container .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-bottom: 0.7rem;
+}
+#modal-playlist_container .modal-header .close-modal {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#modal-playlist_container .modal-header button {
+  cursor: pointer;
+  font-size: 2rem;
+  background-color: transparent;
+  color: white;
+}
+#modal-playlist_container .modal-header .close-modal:hover {
+  background-color: #444444;
+}
+#modal-playlist_container .modal-header h1 {
+  font-size: 1rem;
+}
+#modal-playlist_container .modal-playlist {
+  width: 100%;
+}
+#modal-playlist_container .modal-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+}
+#modal-playlist_container .modal-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  background-color: #282828;
+}
+#modal-playlist_container .modal-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+#modal-playlist_container .modal-getInfo {
+  color: white;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
+}
+#modal-playlist_container .modal-getInfo div {
+  margin-bottom: 1rem;
+}
+#modal-playlist_container .modal-getInfo label {
+  font-size: 0.9rem;
+}
+#modal-playlist_container .modal-getInfo input,
+#modal-playlist_container .modal-getInfo textarea {
+  display: block;
+  width: 100%;
+  outline: 0;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.2rem 0.5rem;
+  resize: none;
+}
+#modal-playlist_container .modal-getInfo input:focus,
+#modal-playlist_container .modal-getInfo textarea:focus {
+  outline: 0;
+  border: 0;
+}
+#modal-playlist_container #save-playlist {
+  border-radius: 999px;
+  padding: 0 24px;
+  font-size: 0.9rem;
+  background-color: white;
+  color: #181818;
+}
+#modal-playlist_container button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+#modal-playlist_container #save-playlist:hover {
+  transform: scale(1.1);
+}
+
 @media (max-width: 1450px) {
   .aside-box {
     width: 23%;
