@@ -210,9 +210,9 @@ audio.addEventListener('timeupdate', updateProgress);
 
 //click on progress bar
 progressContainer_arr.forEach((item) => {
-        item.addEventListener('click', setProgress);
-    })
-    // if (progressContainer) progressContainer.addEventListener('click', setProgress);
+    item.addEventListener('click', setProgress);
+})
+
 
 // song ends
 audio.addEventListener('ended', nextSong);
