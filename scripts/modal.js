@@ -75,32 +75,32 @@ function addPlaylist() {
   let path = calculatePath();
   text.innerHTML = `
   <div id="modal-playlist_container">
-  <div class="modal-playlist">
-  <div class="modal-header">
-      <h1>افزودن پلی لیست</h1>
-  </div>
-  <div class="modal-content">
-      <div class="modal-getInfo">
-          <div>
-              <input type="text" placeholder="یک نام اضافه کن" id="playlist-name">
+    <div class="modal-playlist">
+      <div class="modal-header">
+          <h1>افزودن پلی لیست</h1>
+      </div>
+      <div class="modal-content">
+          <div class="modal-getInfo">
+              <div>
+                  <input type="text" placeholder="یک نام اضافه کن" id="playlist-name">
+              </div>
+              <div>
+                  <textarea name="playlist-description" id="playlist-description" rows="5" placeholder="توضیحات (اختیاری)" spellcheck="false"></textarea>
+              </div>
           </div>
-          <div>
-              <textarea name="playlist-description" id="playlist-description" rows="5" placeholder="توضیحات (اختیاری)" spellcheck="false"></textarea>
+          <div class="modal-image">
+              <!-- <input type="file"> -->
+              <img src="${
+                path === "" || path === "index.html"
+                  ? "./assets/images/box-modal.jpg"
+                  : "../assets/images/box-modal.jpg"
+              }" alt="">
           </div>
       </div>
-      <div class="modal-image">
-          <!-- <input type="file"> -->
-          <img src="${
-            path === "" || path === "index.html"
-              ? "./assets/images/box-modal.jpg"
-              : "../assets/images/box-modal.jpg"
-          }" alt="">
+      <div class="modal-footer">
+          <button id="save-playlist">ذخیره</button>
       </div>
+    </div>
   </div>
-  <div class="modal-footer">
-      <button id="save-playlist">ذخیره</button>
-  </div>
-</div>
-</div>
   `;
 }

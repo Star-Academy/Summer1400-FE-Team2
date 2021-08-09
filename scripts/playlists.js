@@ -1,13 +1,13 @@
 const playlists = document.getElementById("playlists");
 const namePlaylists = [
   "آهنگ های جدید",
-  "آلبوم جدید",
+  "برتر های امروز",
   "آهنگ های پیشنهادی",
   "محبوب ها",
 ];
 
 const fillData = (data, cardsNumber) => {
-  let random = Math.random()*80;
+  let random = Math.random() * 40;
   return namePlaylists.map(
     (item, i) => `
     <section class="playlists__container">

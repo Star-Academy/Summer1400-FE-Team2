@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../assets/images/logo.png" />
     <link rel="stylesheet" href="../styles/css/Playlist.css">
+    <script src="../service/APIConfig.js" defer></script>
+    <script src="../service/Authentication.js" defer></script>
     <script src="../scripts/modal.js" defer></script>
     <script src="../scripts/playlist.js" defer></script>
     <script src="../scripts/Menubar.js" defer></script>
@@ -14,8 +16,6 @@
     <link rel="stylesheet" href="../styles/css/toast.css" />
     <link rel="stylesheet" href="../styles/css/box-modal.css" />
     <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
-    <script src="../service/APIConfig.js" defer></script>
-    <script src="../service/Authentication.js" defer></script>
     <title>لیست آهنگ</title>
 </head>
 
@@ -23,7 +23,7 @@
     <!-------------- Sidebar -------------->
     <aside class="aside-box" id="aside-desktop">
         <nav id="nav-links">
-            <a href="../index.html" id="spotify-logo"> Spotify <i class="fab fa-spotify"></i>  </a>
+            <a href="../index.html" id="spotify-logo"> Spotify <i class="fab fa-spotify"></i> </a>
             <ul>
                 <li>
                     <a href="../index.html"> <i class="fas fa-home"></i>خانه </a>
@@ -93,7 +93,26 @@
     <!--------------- main --------------->
     <main>
         <section>
-            <h3 class="playlist-title">عنوان لیست اهنگ</h3>
+            <h3 class="playlist-title">آهنگ ها</h3>
+            <div class="filters">
+                <div class="sorter">
+                    <p>مرتب سازی بر اساس</p>
+                    <select id="song-sort">
+                        <option value="name" selected>نام آهنگ</option>
+                        <option value="artist">نام خواننده</option>
+                        <option value="name">تاریخ انتشار</option>
+                    </select>
+                </div>
+                <div class="count">
+                    <label for="cars">تعداد آهنگ</label>
+                    <select id="song-numbers">
+                        <option value="10">10</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="1200" selected>همه</option>
+                    </select>
+                </div>
+            </div>
             <div class="playlists__container" id="playlist-section">
             </div>
         </section>

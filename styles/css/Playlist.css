@@ -510,6 +510,46 @@ section {
   color: white;
 }
 
+.filters {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+.filters .sorter {
+  width: 80%;
+  display: flex;
+}
+.filters .sorter * {
+  margin: 5px;
+}
+.filters .sorter p {
+  color: #fff;
+}
+.filters .sorter button {
+  background-color: #282828;
+  border: none;
+  padding: 5px;
+  color: #fff;
+  border-radius: 12px;
+}
+.filters .count {
+  color: #fff;
+  width: 20%;
+  display: flex;
+}
+.filters .count * {
+  margin: 5px;
+}
+
+@media (max-width: 800px) {
+  .filters {
+    flex-direction: column;
+  }
+  .filters .count,
+.filters .sorter {
+    width: 100%;
+  }
+}
 @media (max-width: 1200px) {
   .playlists__container {
     grid-template-columns: repeat(4, 1fr);

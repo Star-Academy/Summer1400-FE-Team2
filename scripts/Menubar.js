@@ -29,8 +29,8 @@ function fgoForward() {
   window.history.forward();
 }
 
+let name = localStorage.getItem("username");
 function welcomeUser() {
-  let name = localStorage.getItem("username");
   if (
     localStorage.getItem("token") !== null &&
     sessionStorage.getItem("welcome") === "false"
@@ -44,7 +44,7 @@ function setUserStatus(container) {
   container.innerHTML = `
         <a href="#" id="user-account__link">
             <i class="far fa-user"></i> 
-             <span>${localStorage.getItem("username")}</span>
+             <span>${name}</span>
         </a>
         <a href="#" id="logoutBtn">
             <i class="fas fa-sign-out-alt"></i> 
@@ -148,6 +148,11 @@ libraryMenu.addEventListener("click", gotoLibrary);
 libraryMenuMobile.addEventListener("click", gotoLibrary);
 
 //create playlist
+
+function createPlaylist() {
+  
+}
+
 createListMenu.addEventListener("click", addPlaylist);
 createListMenuMobile.addEventListener("click", addPlaylist);
 
