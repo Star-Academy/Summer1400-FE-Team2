@@ -26,7 +26,6 @@ function fillData(data) {
         </div>
     </div>
 `;
-  console.log(data);
   const songsList = data.songs
     .map(
       (song, i) =>
@@ -54,7 +53,9 @@ function fillData(data) {
             ).getFullYear()}/${new Date(
           song.publish_date
         ).getMonth()}/${new Date(song.publish_date).getDay()}</td>
-            <td class="songsList-details"><i class="fas fa-ellipsis-v details_sign_button"></i></td>
+            <td class="remove-column" ><img  id="${
+              song.id
+            }" class="remove" src="../assets/Icons/remove_circle_white_24dp.svg"/></td>
         </tr>`
     )
     .join("\n");
@@ -90,3 +91,26 @@ window.addEventListener("resize", () => {
   mobile_nav_height = mobile_nav.clientHeight;
   current_music_div.style.bottom = `${mobile_nav_height}px`;
 });
+
+const removeSong = (id) => {
+  PostData("postRemoveSong", {
+    token: getToken(),
+    playlistId: +localStorage.getItem("favoriteId"),
+    songId: id,
+  })
+    .then((res) => {
+      showToast("آهنگ حذف شد");
+    })
+    .catch((err) => {
+    });
+};
+document.addEventListener(
+  "click",
+  function (e) {
+    if (e.target.className === "remove") {
+      removeSong(+e.target.id);
+      getPlaylistSongs();
+    }
+  },
+  false
+);

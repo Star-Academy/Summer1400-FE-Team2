@@ -494,7 +494,7 @@ header .controlBtn {
 }
 
 body {
-  background-color: #0F1317;
+  background-color: #0f1317;
 }
 
 .playlist-table {
@@ -548,7 +548,7 @@ body {
 }
 
 #playMusicBtn {
-  color: #3BB954;
+  color: #3bb954;
   font-size: 2rem;
 }
 #playMusicBtn:hover {
@@ -577,11 +577,18 @@ table tr {
   display: block;
   margin-bottom: 1.5rem;
   display: grid;
-  grid-template-columns: 5% 50% 35% 5% 5%;
+  grid-template-columns: 5% 40% 35% 15% 5%;
 }
 table tbody tr:hover {
   background-color: rgba(82, 82, 82, 0.5);
   color: white;
+}
+table tbody tr:hover .remove-column {
+  display: flex;
+}
+table .remove-column {
+  display: none;
+  cursor: pointer;
 }
 
 .details_sign_button {
@@ -590,7 +597,7 @@ table tbody tr:hover {
 
 .likeBtn,
 .like_sign_button {
-  color: #3BB954;
+  color: #3bb954;
   cursor: pointer;
   font-weight: bold;
 }

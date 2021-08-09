@@ -2,7 +2,10 @@ const playlist_section = document.getElementById("playlist-section");
 const song_numbers = document.getElementById("song-numbers");
 const song_sort = document.getElementById("song-sort");
 
-function createCardsList(num = 1200, sort = "name") {
+let num = 1200;
+let sort = "name";
+
+function createCardsList() {
   PostData("postFilterSongs", {
     size: num,
     current: 1,
@@ -31,6 +34,7 @@ function createCardsList(num = 1200, sort = "name") {
 createCardsList();
 
 song_numbers.addEventListener("change", () => {
+  num = +song_numbers.options[song_numbers.selectedIndex].value;
   createCardsList(
     +song_numbers.options[song_numbers.selectedIndex].value,
     "name"
@@ -38,6 +42,7 @@ song_numbers.addEventListener("change", () => {
 });
 
 song_sort.addEventListener("change", () => {
+  sort = song_sort.options[song_sort.selectedIndex].value;
   console.log(song_sort.options);
   createCardsList(1200, song_sort.options[song_sort.selectedIndex].value);
 });

@@ -86,7 +86,9 @@ function prevSong() {
   window.history.pushState(
     "nextSong",
     "song",
-    `/Summer1400-FE-Team2/pages/song.html?id=${songIndex}&playlist=${localStorage.getItem("favoriteId")}`
+    `/Summer1400-FE-Team2/pages/song.html?id=${songIndex}&playlist=${localStorage.getItem(
+      "favoriteId"
+    )}`
   );
   loadSong(songIndex);
 }
@@ -108,7 +110,9 @@ function nextSong() {
   window.history.pushState(
     "nextSong",
     "Title",
-    `/Summer1400-FE-Team2/pages/song.html?id=${songIndex}&playlist=${localStorage.getItem("favoriteId")}`
+    `/Summer1400-FE-Team2/pages/song.html?id=${songIndex}&playlist=${localStorage.getItem(
+      "favoriteId"
+    )}`
   );
   loadSong(songIndex);
 }
@@ -220,16 +224,21 @@ function shuffleSongHandler() {
 function likeSongHandler() {
   if (!isLiked) {
     let id = localStorage.getItem("favoriteId");
-    isLiked = true;
-    likeBtn.querySelector("img").src = "../assets/Icons/like.svg";
-    const postBody = {
-      token: getToken(),
-      playlistId: +id,
-      songId: songIndex,
-    };
-    PostData("postAddSong", postBody)
-      .then(() => showToast("به آهنگ های مورد علاقه اضافه شد"))
-      .catch((err) => "");
+    if (id) {
+      isLiked = true;
+      likeBtn.querySelector("img").src = "../assets/Icons/like.svg";
+      const postBody = {
+        token: getToken(),
+        playlistId: +id,
+        songId: songIndex,
+      };
+      PostData("postAddSong", postBody)
+        .then(() => {})
+        .catch((err) => {});
+        showToast("به آهنگ های مورد علاقه اضافه شد")
+    } else {
+      showToast("لطفا لیست آهنگ های مورد علاقه را ایجاد کنید");
+    }
   } else {
     isLiked = false;
     likeBtn.querySelector("img").src =
@@ -258,8 +267,12 @@ if (moreBtn)
     let path = window.location.pathname.split("/").pop();
     window.location =
       path === "index.html" || path === ""
-        ? `./pages/songsList.html?id=${songIndex}&playlist=${localStorage.getItem("favoriteId")}`
-        : `./songsList.html?id=${songIndex}&playlist=${localStorage.getItem("favoriteId")}`;
+        ? `./pages/songsList.html?id=${songIndex}&playlist=${localStorage.getItem(
+            "favoriteId"
+          )}`
+        : `./songsList.html?id=${songIndex}&playlist=${localStorage.getItem(
+            "favoriteId"
+          )}`;
   });
 
 // change Song
