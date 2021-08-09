@@ -7,7 +7,7 @@ function Welcome(res, username) {
   localStorage.setItem("token", res.token);
   localStorage.setItem("username", username);
   sessionStorage.setItem("welcome", "false");
-  window.location.href = "../index.html";
+  window.location.replace("../index.html");
 }
 
 const checkData = (e) => {
