@@ -1,5 +1,5 @@
 const API = {
-  baseUrl: "http://130.185.120.192:5000/",
+  baseUrl: "https://songs.code-star.ir/",
   routes: {
     getUser: "user/one/",
     postToken: "user/auth",
