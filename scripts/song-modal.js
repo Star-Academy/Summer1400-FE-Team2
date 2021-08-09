@@ -17,13 +17,17 @@ song_modal_container.innerHTML = `
         <div class="song-modal_links">
             <div>
                 <button id="likeSong_modal">
-                <i class="far fa-heart"></i>
+                <img
+                src="../assets/Icons/like-button-empty.svg"
+                alt=""
+                class="svgColor"
+              />
                 </button>
                 <span>اضافه به علاقه مندی</span>
             </div>
             <div>
                 <button id="addToPlaylist">
-                <i class="fas fa-plus-circle"></i>
+                <img src="../assets/Icons/music-folder.svg"alt=""class="svgColor"/>
                 </button>
                 <span>اضافه به لیست پخش</span>
             </div>

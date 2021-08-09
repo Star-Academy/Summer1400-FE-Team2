@@ -41,25 +41,29 @@ function welcomeUser() {
 }
 
 function setUserStatus(container) {
+    let path = calculatePath();
+    let address = path === 'index.html' || path === '' ? '.' : '..';
     container.innerHTML = `
         <a href="#" id="user-account__link">
-            <i class="far fa-user"></i> 
+        <img src="${address}/assets/Icons/user-button.svg" alt="">
              <span>${localStorage.getItem("username")}</span>
         </a>
         <a href="#" id="logoutBtn">
-            <i class="fas fa-sign-out-alt"></i> 
+        <img src="${address}/assets/Icons/exit-button.svg" alt="">
             <span>خروج</span>
         </a>
 `;
 }
 
 function setMenuStatus(container, login_link, register_link) {
+    let path = calculatePath();
+    let address = path === 'index.html' || path === '' ? '.' : '..';
     container.innerHTML = `
     <a href=${register_link} class="controlBtn">
         <span>ثبت نام</span>
     </a>
     <a href=${login_link} class="controlBtn">
-        <i class="fas fa-sign-in-alt vertical-middle"></i>
+        <img  src="${address}/assets/Icons/login-button.svg" alt="">
         <span>ورود</span>
     </a>
 `;
@@ -77,8 +81,10 @@ function calculatePath() {
 
 function setStatus() {
     if (isLogedin()) {
+        console.log(' logedin');
         setUserStatus(userStatusMenu);
     } else {
+        console.log('not logedin');
         let path = calculatePath();
         let href_register = getNavLink(path, 'Register');
         let href_login = getNavLink(path, 'Login');
@@ -120,21 +126,36 @@ function logoutBtnHandler() {
 goBack.addEventListener("click", fgoBack);
 goForward.addEventListener("click", fgoForward);
 
-
-searchBtn.addEventListener("click", SearchItem);
-searchMenuMobileBtn.addEventListener("click", SearchItem);
+if (searchBox) {
+    searchBtn.addEventListener("click", SearchItem);
+}
+if (searchMenuMobileBtn) {
+    searchMenuMobileBtn.addEventListener("click", SearchItem);
+}
 
 //show library
-libraryMenu.addEventListener("click", gotoLibrary);
-libraryMenuMobile.addEventListener("click", gotoLibrary);
+if (libraryMenu) {
+    libraryMenu.addEventListener("click", gotoLibrary);
+}
+if (libraryMenuMobile) {
+    libraryMenuMobile.addEventListener("click", gotoLibrary);
+}
 
 //create playlist
-createListMenu.addEventListener("click", gotoLibrary);
-createListMenuMobile.addEventListener("click", gotoLibrary);
+if (createListMenu) {
+    createListMenu.addEventListener("click", gotoLibrary);
+}
+if (createListMenuMobile) {
+    createListMenuMobile.addEventListener("click", gotoLibrary);
+}
 
 //show playlist
-archivedMenu.addEventListener("click", gotoLibrary);
-archivedMenuMobile.addEventListener("click", gotoLibrary);
+if (archivedMenu) {
+    archivedMenu.addEventListener("click", gotoLibrary);
+}
+if (archivedMenuMobile) {
+    archivedMenuMobile.addEventListener("click", gotoLibrary);
+}
 
 
 setStatus();

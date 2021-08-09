@@ -50,6 +50,12 @@ header .controlBtn {
   color: black;
   padding: 0.3rem 0.7rem;
 }
+header .controlBtn img {
+  width: 1rem;
+}
+header .controlBtn:hover img {
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+}
 
 .grid-item__header:nth-child(1) {
   grid-area: column-1;
@@ -72,9 +78,17 @@ header .controlBtn {
   vertical-align: middle;
 }
 
+.user-controls__links {
+  display: flex;
+}
+
 .user-controls__links a {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   max-width: 7rem;
+}
+.user-controls__links a img {
+  margin-left: 0.5rem;
 }
 
 .user-controls__links a:hover {
@@ -92,9 +106,10 @@ header .controlBtn {
 #logoutBtn span {
   color: white;
 }
-#user-account__link i,
-#logoutBtn i {
-  color: gray;
+#user-account__link img,
+#logoutBtn img {
+  filter: invert(78%) sepia(0%) saturate(1209%) hue-rotate(140deg) brightness(85%) contrast(96%);
+  width: 1rem;
 }
 
 #logoutBtn:hover {
@@ -127,15 +142,14 @@ header .controlBtn {
   background-color: white;
   cursor: pointer;
 }
-.searchBox #searchBtn i {
-  font-size: 1rem;
-  color: #444444;
+.searchBox #searchBtn img {
+  width: 1rem;
+  filter: invert(25%) sepia(6%) saturate(11%) hue-rotate(349deg) brightness(90%) contrast(85%);
   vertical-align: middle;
 }
-.searchBox #searchBtn:hover i,
-.searchBox #searchBtn:active i {
+.searchBox #searchBtn img:hover {
   transform: scale(1.1);
-  color: #7c7c7c;
+  filter: invert(47%) sepia(2%) saturate(318%) hue-rotate(317deg) brightness(102%) contrast(87%);
 }
 
 .aside-box {
@@ -154,29 +168,41 @@ header .controlBtn {
   margin-bottom: 2rem;
 }
 #nav-links a {
-  color: #a8a8a8;
+  color: #A8A8A8;
   display: block;
   padding: 0.4rem 1rem;
+  display: flex;
+  align-items: center;
   font-size: 0.9rem;
 }
 #nav-links a:hover {
   color: white;
 }
+#nav-links a:hover img {
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+}
 #nav-links a:focus {
   background-color: #282828;
   color: white;
 }
-#nav-links i {
-  margin-left: 0.8rem;
+#nav-links img {
+  width: 1.2rem;
+  margin-left: 0.5rem;
+  filter: invert(78%) sepia(0%) saturate(1209%) hue-rotate(140deg) brightness(85%) contrast(96%);
 }
 #nav-links #spotify-logo {
   color: white;
   font-size: 1.4rem;
   margin-bottom: 2rem;
   text-align: center;
+  justify-content: center;
 }
-#nav-links #spotify-logo i {
-  margin: 0;
+#nav-links #spotify-logo span {
+  margin-left: 0.5rem;
+}
+#nav-links #spotify-logo img {
+  width: 2rem;
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
 }
 
 #navigation__links a {
@@ -186,8 +212,15 @@ header .controlBtn {
   border: none;
   cursor: pointer;
 }
+#navigation__links a img {
+  width: 1rem;
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+}
 #navigation__links a:hover, #navigation__links a:active {
   color: #9e9e9e;
+}
+#navigation__links a:hover img, #navigation__links a:active img {
+  filter: invert(78%) sepia(0%) saturate(1209%) hue-rotate(140deg) brightness(85%) contrast(96%);
 }
 
 .aside-mobile__links {
@@ -221,6 +254,7 @@ header .controlBtn {
   color: white;
   text-align: center;
   display: flex;
+  align-items: center;
   flex-flow: column;
   padding: 0.7rem 0.5rem;
   min-width: 5rem;
@@ -228,6 +262,10 @@ header .controlBtn {
 .aside-mobile__links a:hover,
 .aside-mobile__links a:focus {
   background: #444444;
+}
+.aside-mobile__links img {
+  width: 1.1rem;
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
 }
 
 .card-playlist {
@@ -245,7 +283,7 @@ header .controlBtn {
 .card-playlist a {
   color: #fefefe;
 }
-.card-playlist img {
+.card-playlist img:nth-child(1) {
   width: 100%;
   margin-bottom: 0.5rem;
   border-radius: 8px;
@@ -541,14 +579,9 @@ header .controlBtn {
   border-radius: 10px;
   font-size: 1.5rem;
 }
-.music-link__image button i {
-  color: #1ab34f;
-  background-color: white;
-  border-radius: 50%;
-}
-.music-link__image img {
-  display: block;
-  height: 100%;
+.music-link__image .play_sign_button {
+  width: 1.5rem !important;
+  filter: invert(56%) sepia(99%) saturate(317%) hue-rotate(80deg) brightness(89%) contrast(90%);
 }
 
 @media (max-width: 1450px) {

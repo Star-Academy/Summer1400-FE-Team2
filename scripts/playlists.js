@@ -25,7 +25,9 @@ function createCardsList(cardsNumber) {
                   <a class="music-link">
                       <div class="music-link__image">
                       <img src="${img}" alt="cover" />
-                      <button class="play-playlists-button"><i class="fas fa-play-circle"></i></button>
+                      <button class="play-playlists-button">
+                      <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                      </button>
                       </div>
                       <h4 class="card-playlist__title">${title}</h4>
                       <p>${explain}</p>

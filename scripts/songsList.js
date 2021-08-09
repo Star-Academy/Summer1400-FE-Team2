@@ -44,15 +44,15 @@ playMusic_button.addEventListener('click', () => {
 
 let playMode = 0;
 let song_image_src = "../assets/images/song.jpg";
-let song_name_list = 'نام اهنگ';
+let song_name_list = 'نام آهنگ';
 let singer_name_list = 'نام خواننده';
-let album_name_list = 'نام البوم';
+let album_name_list = 'نام آلبوم';
 let song_time_list = '1:50';
 const songsList = [...Array(10)].map((row, i) =>
     `<tr>
     <td class="hide-column">
        <span> ${i + 1} </span>
-        <i class='hide fas fa-play play_sign_button'></i>
+       <img src="../assets/Icons/play-triangle-button.svg" class="play_sign_button svgColor" alt="">
     </td>
     <td class="song-details__container">
         <div class="song-details">
@@ -66,9 +66,13 @@ const songsList = [...Array(10)].map((row, i) =>
         </div>
     </td>
     <td class="hide-column">${album_name_list}</td>
-    <td><i class="like_sign_button far fa-heart"></i></td>
+    <td>
+        <img class="like_sign_button"  src="../assets/Icons/like-button-empty.svg" alt="">
+    </td>
     <td class="hide-column">${song_time_list}</td>
-    <td class="songsList-details"><i class="fas fa-ellipsis-v details_sign_button"></i></td>
+    <td class="songsList-details">
+    <img src="../assets/Icons/vertical-dots-button.svg" class="details_sign_button svgColor" alt="">
+    </td>
     </tr>`
 ).join('\n');
 
@@ -97,11 +101,11 @@ row_arr.forEach((item) => {
             permission();
         } else {
             if (likeBtn.classList.contains('likedMode')) {
-                likeBtn.classList.replace('fas', 'far');
+                likeBtn.src = '../assets/Icons/like-button-empty.svg';
                 likeBtn.classList.remove('likedMode');
                 showToast('از اهنگ های مورد علاقه حذف شد.');
             } else {
-                likeBtn.classList.replace('far', 'fas');
+                likeBtn.src = '../assets/Icons/like.svg';
                 likeBtn.classList.add('likedMode');
                 showToast('به اهنگ های مورد علاقه اضافه شد.');
             }
@@ -126,3 +130,23 @@ if (current_music_div) {
         current_music_div.style.bottom = `${mobile_nav_height}px`;
     })
 }
+
+
+/* When the user clicks on the button, 
+                                        toggle between hiding and showing the dropdown content */
+function dropbtnHandler() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+const dropbtn = document.querySelector('.dropbtn');
+const dropbtn_icon = document.querySelector('.dropbtn img');
+dropbtn.addEventListener('click', dropbtnHandler);
+
+window.addEventListener('click', (e) => {
+    if (e.target !== dropbtn_icon) {
+        const myDropdown = document.getElementById("myDropdown");
+        if (myDropdown.classList.contains('show')) {
+            myDropdown.classList.remove('show');
+        }
+    }
+})

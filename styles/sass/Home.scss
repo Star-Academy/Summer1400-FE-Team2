@@ -41,15 +41,10 @@
         background-color: transparent;
         border-radius: 10px;
         font-size: 1.5rem;
-        i {
-            color: #1ab34f;
-            background-color: white;
-            border-radius: 50%;
-        }
     }
-    img {
-        display: block;
-        height: 100%;
+    .play_sign_button {
+        width: 1.5rem !important;
+        filter: invert(56%) sepia(99%) saturate(317%) hue-rotate( 80deg) brightness(89%) contrast(90%);
     }
 }
 

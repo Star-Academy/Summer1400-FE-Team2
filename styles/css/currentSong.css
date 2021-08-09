@@ -10,7 +10,8 @@
   background-color: #181818;
   color: white;
   right: 0;
-  padding: 0.9rem 0.5rem 1.3rem 0.5rem;
+  bottom: 0;
+  padding: 0.9rem 0.5rem 0.3rem 0.5rem;
 }
 
 .hidden-progress {
@@ -96,7 +97,7 @@
   cursor: pointer;
 }
 .btns .controls button img {
-  width: 1.5rem;
+  width: 1.2rem;
 }
 @media (max-width: 425px) {
   .btns .controls button img {
@@ -118,7 +119,7 @@
 #more img,
 #dropdown img,
 #shuffle img {
-  width: 1.5rem;
+  width: 1.2rem;
 }
 
 .progress-container {
@@ -212,6 +213,10 @@
 
   .controls button img {
     width: 1.2rem;
+  }
+
+  .music-current-desktop {
+    padding-bottom: 1rem;
   }
 }
 

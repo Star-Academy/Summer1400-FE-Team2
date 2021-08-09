@@ -55,9 +55,14 @@ header {
     display: flex;
     justify-content: center;
     a {
+        display: flex;
+        align-items: center;
         color: black;
         font-size: 1.5rem;
         padding: 0.9rem;
+        img {
+            width: 2rem;
+        }
     }
 }
 

@@ -33,7 +33,7 @@ let current_music_mobile = `
     <div class="current-music_controls">
         <button class="btn--like">
   <img
-    src="../assets/Icons/favorite_border_white_24dp.svg"
+    src="../assets/Icons/like-button-empty.svg"
     alt=""
     class="svgColor"
   />

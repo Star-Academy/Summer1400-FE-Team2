@@ -200,7 +200,7 @@ function likeSongHandler() {
         likeBtn.querySelector('img').src = '../assets/Icons/like.svg';
     } else {
         isLiked = 0;
-        likeBtn.querySelector('img').src = '../assets/Icons/favorite_border_white_24dp.svg';
+        likeBtn.querySelector('img').src = '../assets/Icons/like-button-empty.svg';
     }
 }
 

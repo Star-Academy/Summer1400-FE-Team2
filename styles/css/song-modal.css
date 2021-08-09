@@ -56,8 +56,8 @@
   font-size: 1rem;
   cursor: pointer;
 }
-.song-modal__container i {
-  color: gray;
+.song-modal__container .song-modal_links div button img {
+  width: 1rem;
 }
 
 /*# sourceMappingURL=song-modal.css.map */

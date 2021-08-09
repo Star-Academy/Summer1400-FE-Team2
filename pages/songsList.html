@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../styles/css/song-modal.css" />
     <link rel="stylesheet" href="../styles/css/currentSong.css" />
     <link rel="stylesheet" href="../styles/css/toast.css" />
-    <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
     <script src="../scripts/toast.js" defer></script>
     <script src="../scripts/song-modal.js" defer></script>
     <script src="../scripts/songsList.js" defer></script>
@@ -27,30 +26,40 @@
     <aside class="aside-box" id="aside-desktop">
         <nav id="nav-links">
             <a href="../index.html" id="spotify-logo">
-          Spotify <i class="fab fa-spotify"></i>
-        </a>
+                <span>Spotify</span>
+                <img src="../assets/Icons/spotify-button.svg" alt="">
+            </a>
             <ul>
                 <li>
-                    <a href="../index.html"> <i class="fas fa-home"></i>خانه </a>
-                </li>
-                <li>
-                    <a href="#" id="btnSearchMenu">
-                        <i class="fas fa-search"></i>جست و جو
+                    <a href="../index.html">
+                        <img src="../assets/Icons/home-button.svg" alt="">
+                        <span>خانه </span>
                     </a>
                 </li>
                 <li>
-                    <a id="libraryMenu"> <i class="fas fa-book"></i>کتابخانه شما </a>
+                    <a href="#" id="btnSearchMenu">
+                        <img src="../assets/Icons/search-button.svg" alt="">
+                        <span>جست و جو</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="libraryMenu">
+                        <img src="../assets/Icons/library-button.svg" alt="">
+                        <span>کتابخانه شما </span>
+                    </a>
                 </li>
             </ul>
             <ul>
                 <li>
                     <a id="createListMenu">
-                        <i class="fas fa-plus-square"></i>ساخت لیست اهنگ
+                        <img class="" src="../assets/Icons/music-playlist-button.svg" alt="">
+                        <span>ساخت لیست اهنگ</span>
                     </a>
                 </li>
                 <li>
                     <a id="archived-menu">
-                        <i class="fas fa-heart"></i>اهنگ های موردعلاقه
+                        <img src="../assets/Icons/like.svg" alt="">
+                        <span>آهنگ های موردعلاقه</span>
                     </a>
                 </li>
             </ul>
@@ -60,24 +69,33 @@
         <nav class="aside-mobile__links">
             <ul>
                 <li>
-                    <a href="../index.html"> <i class="fas fa-home"></i>خانه</a>
-                </li>
-                <li>
-                    <a id="btnSearchMenuMobile">
-                        <i class="fas fa-search"></i>جست و جو
+                    <a href="../index.html">
+                        <img src="../assets/Icons/home-button.svg" alt="">
+                        <span>خانه </span>
                     </a>
                 </li>
                 <li>
-                    <a id="libraryMenuMobile"> <i class="fas fa-book"></i>کتابخانه </a>
-                </li>
-                <li>
-                    <a id="createListMenuMobile">
-                        <i class="fas fa-plus-square"></i>ساخت لیست اهنگ
+                    <a href="#" id="btnSearchMenu">
+                        <img src="../assets/Icons/search-button.svg" alt="">
+                        <span>جست و جو</span>
                     </a>
                 </li>
                 <li>
-                    <a id="archived-menu-mobile">
-                        <i class="fas fa-heart"></i>اهنگ های موردعلاقه
+                    <a id="libraryMenu">
+                        <img src="../assets/Icons/library-button.svg" alt="">
+                        <span>کتابخانه شما </span>
+                    </a>
+                </li>
+                <li>
+                    <a id="createListMenu">
+                        <img class="" src="../assets/Icons/music-playlist-button.svg" alt="">
+                        <span>ساخت لیست اهنگ</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="archived-menu">
+                        <img src="../assets/Icons/like.svg" alt="">
+                        <span>اهنگ های موردعلاقه</span>
                     </a>
                 </li>
             </ul>
@@ -91,17 +109,21 @@
         <div class="grid-item__header" id="boxSearchMenu">
             <div class="searchBox">
                 <form action="#">
-                    <input type="text" placeholder="خواننده ها , اهنگ ها....." />
+                    <input type="text" placeholder="خواننده ها , آهنگ ها....." />
                     <button class="searchBox__button" id="searchBtn">
-              <i class="fa fa-search"></i>
+              <img src="../assets/Icons/search-button.svg" alt="">
             </button>
                 </form>
             </div>
         </div>
         <div class="grid-item__header">
             <div id="navigation__links">
-                <a id="goForward"><i class="fas fa-chevron-circle-right"></i></a>
-                <a id="goBack"><i class="fas fa-chevron-circle-left"></i></a>
+                <a id="goForward">
+                    <img src="../assets/Icons/next-history-button.svg" alt="">
+                </a>
+                <a id="goBack">
+                    <img src="../assets/Icons/back-history-button.svg" alt="">
+                </a>
             </div>
         </div>
     </header>
@@ -112,14 +134,20 @@
         <section class="playlist-controls__container">
             <div class="playlist-controls">
                 <button id="playMusicBtn">
-            <i class="fas fa-play-circle"></i>
+                    <img src="../assets/Icons/play-button.svg" alt="">
           </button>
                 <button id="like-songs">
-            <i class="far fa-heart"></i>
+            <img class="svg-button" id="likeEmpty-svg" src="../assets/Icons/like-button-empty.svg" alt="">
           </button>
-                <button>
-            <i class="fas fa-ellipsis-h"></i>
+                <div class="dropdown">
+                    <button class="dropbtn">
+            <img class="svg-button" id="details-svg" src="../assets/Icons/dots-button.svg" alt="">
           </button>
+                    <div class="dropdown-content" id="myDropdown">
+                        <a href="#">افزودن به پلی لیست</a>
+                        <a href="#"> حذف پلی لیست</a>
+                    </div>
+                </div>
             </div>
             <div class="playlist-table">
                 <table>
@@ -127,14 +155,17 @@
                         <tr>
                             <th>#</th>
                             <th>عنوان</th>
-                            <th>البوم</th>
+                            <th>آلبوم</th>
                             <th></th>
-                            <th><i class="far fa-clock"></i></th>
+                            <th> <img class="clock-sign svgColor" src="../assets/Icons/clock-button.svg" alt=""> </th>
                         </tr>
                     </thead>
                     <tbody id="playlist-table__body"></tbody>
                 </table>
             </div>
+        </section>
+        <section>
+
         </section>
 
         <!-------------- signUp modal -------------->
@@ -176,7 +207,7 @@
                             </button>
                             <button class="btn--like">
                                 <img
-                                  src="../assets/Icons/favorite_border_white_24dp.svg"
+                                  src="../assets/Icons/like-button-empty.svg"
                                   alt=""
                                   class="svgColor"
                                 />
@@ -209,6 +240,7 @@
             </div>
         </div>
     </section>
+
 
 </body>
 
