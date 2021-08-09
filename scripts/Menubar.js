@@ -148,8 +148,8 @@ libraryMenu.addEventListener("click", gotoLibrary);
 libraryMenuMobile.addEventListener("click", gotoLibrary);
 
 //create playlist
-createListMenu.addEventListener("click", gotoLibrary);
-createListMenuMobile.addEventListener("click", gotoLibrary);
+createListMenu.addEventListener("click", addPlaylist);
+createListMenuMobile.addEventListener("click", addPlaylist);
 
 //show playlist
 function gotoArchivedSongs() {
