@@ -1,90 +1,8 @@
-const goBack = document.getElementById("goBack");
-const goForward = document.getElementById("goForward");
-const userStatusMenu = document.getElementById("userStatusMenu");
-
+//Searchbox
 const searchBtn = document.getElementById("btnSearchMenu");
 const searchBox = document.getElementById("boxSearchMenu");
 const search = document.getElementById("searchBtn");
-
-const libraryMenu = document.getElementById("libraryMenu");
-const libraryMenuMobile = document.getElementById("libraryMenuMobile");
-
-const createListMenu = document.getElementById("createListMenu");
-const createListMenuMobile = document.getElementById("createListMenuMobile");
-
 const searchMenuMobileBtn = document.getElementById("btnSearchMenuMobile");
-
-const archivedMenu = document.getElementById("archived-menu");
-const archivedMenuMobile = document.getElementById("archived-menu-mobile");
-
-function isLogedin() {
-  return localStorage.getItem("token") !== null;
-}
-
-function fgoBack() {
-  window.history.back();
-}
-
-function fgoForward() {
-  window.history.forward();
-}
-
-let name = localStorage.getItem("username");
-function welcomeUser() {
-  if (
-    localStorage.getItem("token") !== null &&
-    sessionStorage.getItem("welcome") === "false"
-  ) {
-    showToast(`${name} عزیز با موفقیت وارد شدید .`);
-    sessionStorage.setItem("welcome", "true");
-  }
-}
-
-function setUserStatus(container) {
-  container.innerHTML = `
-        <a href="#" id="user-account__link">
-            <i class="far fa-user"></i> 
-             <span>${name}</span>
-        </a>
-        <a href="#" id="logoutBtn">
-            <i class="fas fa-sign-out-alt"></i> 
-            <span>خروج</span>
-        </a>
-`;
-}
-
-function setMenuStatus(container, login_link, register_link) {
-  container.innerHTML = `
-    <a href=${register_link} class="controlBtn">
-        <span>ثبت نام</span>
-    </a>
-    <a href=${login_link} class="controlBtn">
-        <i class="fas fa-sign-in-alt vertical-middle"></i>
-        <span>ورود</span>
-    </a>
-`;
-}
-
-function getNavLink(path, link) {
-  return path === "index.html" || path === ""
-    ? `./pages/${link}.html`
-    : `./${link}.html`;
-}
-
-function calculatePath() {
-  return window.location.pathname.split("/").pop();
-}
-
-function setStatus() {
-  if (isLogedin()) {
-    setUserStatus(userStatusMenu);
-  } else {
-    let path = calculatePath();
-    let href_register = getNavLink(path, "Register");
-    let href_login = getNavLink(path, "Login");
-    setMenuStatus(userStatusMenu, href_login, href_register);
-  }
-}
 
 searchBox.style.display = "none";
 
@@ -101,34 +19,112 @@ function Search() {
   if (text !== "") {
     PostData("postSearch", {
       phrase: text,
-      count: 50,
-      sorter: "name",
+      count: 200,
+      sorter: "",
       desc: true,
     })
       .then((res) => {
         showSearchResults(res.songs);
-        console.log(res.songs);
       })
       .catch((e) => {
         showToast(e.message);
       });
   }
 }
+
 search.addEventListener("click", Search);
+searchBtn.addEventListener("click", SearchItem);
+searchMenuMobileBtn.addEventListener("click", SearchItem);
+
+//History control
+const goBack = document.getElementById("goBack");
+const goForward = document.getElementById("goForward");
+
+function fgoBack() {
+  window.history.back();
+}
+function fgoForward() {
+  window.history.forward();
+}
+
+goBack.addEventListener("click", fgoBack);
+goForward.addEventListener("click", fgoForward);
+
+//Handy
+function isLogedin() {
+  return localStorage.getItem("token") !== null;
+}
+
+function calculatePath() {
+  return window.location.pathname.split("/").pop();
+}
 
 let path = calculatePath();
 
-function gotoLibrary() {
+function getNavLink(path, link) {
+  return path === "index.html" || path === ""
+    ? `./pages/${link}.html`
+    : `./${link}.html`;
+}
+
+//Status
+const userStatusMenu = document.getElementById("userStatusMenu");
+
+function setMenuStatus(container, login_link, register_link) {
+  container.innerHTML = `
+    <a href=${register_link} class="controlBtn">
+        <span>ثبت نام</span>
+    </a>
+    <a href=${login_link} class="controlBtn">
+        <i class="fas fa-sign-in-alt vertical-middle"></i>
+        <span>ورود</span>
+    </a>
+`;
+}
+
+function setStatus() {
   if (isLogedin()) {
-    libraryMenu.href = getNavLink(path, "songsList");
+    setUserStatus(userStatusMenu);
   } else {
-    showToast("ابتدا وارد شوید");
+    let path = calculatePath();
+    let href_register = getNavLink(path, "Register");
+    let href_login = getNavLink(path, "Login");
+    setMenuStatus(userStatusMenu, href_login, href_register);
   }
 }
 
+setStatus();
+
+function welcomeUser() {
+  if (
+    localStorage.getItem("token") !== null &&
+    sessionStorage.getItem("welcome") === "false"
+  ) {
+    showToast(`${localStorage.getItem("username")} عزیز با موفقیت وارد شدید .`);
+    sessionStorage.setItem("welcome", "true");
+  }
+}
+
+function setUserStatus(container) {
+  container.innerHTML = `
+        <a href="#" id="user-account__link">
+            <i class="far fa-user"></i> 
+             <span>${localStorage.getItem("username")}</span>
+        </a>
+        <a href="#" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> 
+            <span>خروج</span>
+        </a>
+`;
+}
+
+welcomeUser();
+
+//Logout
+const logoutBtn = document.getElementById("logoutBtn");
+
 function logoutBtnHandler() {
   if (isLogedin()) {
-    const logoutBtn = document.getElementById("logoutBtn");
     logoutBtn.addEventListener("click", () => {
       let path = calculatePath();
       localStorage.clear();
@@ -137,26 +133,41 @@ function logoutBtnHandler() {
   }
 }
 
-goBack.addEventListener("click", fgoBack);
-goForward.addEventListener("click", fgoForward);
+logoutBtnHandler();
 
-searchBtn.addEventListener("click", SearchItem);
-searchMenuMobileBtn.addEventListener("click", SearchItem);
+//Auth Handle  =? Hadis add profile here!  /library?userId={localstorage}
+const libraryMenu = document.getElementById("libraryMenu");
+const libraryMenuMobile = document.getElementById("libraryMenuMobile");
 
-//show library
+function gotoLibrary() {
+  if (isLogedin()) {
+    libraryMenu.href = getNavLink(path, "#");
+  } else {
+    showToast("ابتدا وارد شوید");
+  }
+}
+
 libraryMenu.addEventListener("click", gotoLibrary);
 libraryMenuMobile.addEventListener("click", gotoLibrary);
 
-//create playlist
-
-function createPlaylist() {
-  
-}
+//Create new playlist
+const createListMenu = document.getElementById("createListMenu");
+const createListMenuMobile = document.getElementById("createListMenuMobile");
 
 createListMenu.addEventListener("click", addPlaylist);
 createListMenuMobile.addEventListener("click", addPlaylist);
 
-//show playlist
+//Favorites
+const archivedMenu = document.getElementById("archived-menu");
+const archivedMenuMobile = document.getElementById("archived-menu-mobile");
+
+//set for Favorite songs
+const getFirstPlaylist = () =>
+  PostData("postAllPlaylists", { token: getToken() }).then((res) =>
+    localStorage.setItem("favoriteId", res[0].id)
+  );
+getFirstPlaylist();
+
 function gotoArchivedSongs() {
   let id = localStorage.getItem("favoriteId");
   if (id) {
@@ -180,7 +191,3 @@ function gotoArchivedSongs() {
 
 archivedMenu.addEventListener("click", gotoArchivedSongs);
 archivedMenuMobile.addEventListener("click", gotoArchivedSongs);
-
-setStatus();
-welcomeUser();
-logoutBtnHandler();

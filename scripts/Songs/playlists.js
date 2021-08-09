@@ -1,10 +1,23 @@
 const playlists = document.getElementById("playlists");
 const namePlaylists = [
-  "آهنگ های جدید",
-  "برتر های امروز",
-  "آهنگ های پیشنهادی",
-  "محبوب ها",
+{
+  key:"all",
+  label:"آهنگ های جدید",
+},
+{
+  key:"pop",
+  label: "آهنگ های پیشنهادی",
+},
+{
+  key:"hiphop",
+  label: "برتر های امروز",
+},
+{
+  key:"rock",
+  label:"محبوب ها",
+}
 ];
+
 
 const fillData = (data, cardsNumber) => {
   let random = Math.random() * 40;
@@ -12,8 +25,8 @@ const fillData = (data, cardsNumber) => {
     (item, i) => `
     <section class="playlists__container">
       <div class="playlists__title">
-          <h3><a href="./pages/playlist.html?id=${i + 1}"> ${item} </a></h3>
-          <a href="./pages/playlist.html?id=${i + 1}">مشاهده همه</a>
+          <h3><a href="./pages/playlist.html?${item.key}"> ${item.label} </a></h3>
+          <a href="./pages/playlist.html?${item.key}">مشاهده همه</a>
       </div>
       <div class="cards__container">
           ${data
@@ -41,9 +54,9 @@ const fillData = (data, cardsNumber) => {
 };
 
 function createCardsList(cardsNumber) {
+  showToast("درحال بارگزاری آهنگ ها");
   GetData("getAllSongs")
     .then((res) => {
-      showToast("درحال بارگزاری آهنگ ها");
       playlists.innerHTML = fillData(res.songs, cardsNumber).join("\n");
     })
     .catch(() => {

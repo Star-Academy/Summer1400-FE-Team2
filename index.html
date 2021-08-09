@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="./styles/css/box-modal.css" />
     <!--scripts-->
     <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
-    <script src="./scripts/toast.js" defer></script>
+    <script src="./scripts/Common/toast.js" defer></script>
     <script src="./service/APIConfig.js" defer></script>
     <script src="./service/Authentication.js" defer></script>
-    <script src="./scripts/modal.js" defer></script>
+    <script src="./scripts/Common/modal.js" defer></script>
     <script src="./scripts/Menubar.js" defer></script>
-    <script src="./scripts/playlists.js" defer></script>
+    <script src="./scripts/Songs/playlists.js" defer></script>
     <title>Spotify</title>
 </head>
 
@@ -26,14 +26,14 @@
     <aside class="aside-box" id="aside-desktop">
         <nav id="nav-links">
             <a href="./index.html" id="spotify-logo">
-          Spotify <i class="fab fa-spotify"></i>
+                Spotify <i class="fab fa-spotify"></i>
             </a>
             <ul>
                 <li>
                     <a href="./index.html"> <i class="fas fa-home"></i>خانه </a>
                 </li>
                 <li>
-                    <a href="#" id="btnSearchMenu">
+                    <a id="btnSearchMenu">
                         <i class="fas fa-search"></i>جست و جو
                     </a>
                 </li>
@@ -89,12 +89,10 @@
         </div>
         <div class="grid-item__header" id="boxSearchMenu">
             <div class="searchBox">
-                <form action="#">
-                    <input type="text" placeholder="خواننده ها , اهنگ ها....." />
-                    <button class="searchBox__button" id="searchBtn">
-              <i class="fa fa-search"></i>
-            </button>
-                </form>
+                <input type="text" placeholder="خواننده ها , آهنگ ها....." />
+                <button class="searchBox__button" id="searchBtn">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
         </div>
         <div class="grid-item__header">

@@ -1,16 +1,7 @@
-const playlistTable = document.querySelector(".playlist-table");
+//Fill playlist
 const playlist_body = document.getElementById("playlist-table__body");
 const playlist_details = document.querySelector(".playlist-details");
-const playlist_controls_container = document.querySelector(
-  ".playlist-controls__container"
-);
-
 const playMusic_button = document.getElementById("playMusicBtn");
-const like_songsList = document.getElementById("like-songs");
-
-let mobile_nav_height;
-const mobile_nav = document.querySelector(".aside-mobile__links");
-const current_music_div = document.querySelector(".current-music");
 
 function fillData(data) {
   playlist_details.innerHTML = `
@@ -60,7 +51,6 @@ function fillData(data) {
     )
     .join("\n");
   playlist_body.innerHTML = songsList;
-
   playMusic_button.addEventListener("click", () => {
     if (getToken()) {
       window.location.href = `./song.html?id=${data.songs[0].id}`;
@@ -84,6 +74,11 @@ function getPlaylistSongs() {
 
 getPlaylistSongs();
 
+//handle size
+let mobile_nav_height;
+const mobile_nav = document.querySelector(".aside-mobile__links");
+const current_music_div = document.querySelector(".current-music");
+
 mobile_nav_height = mobile_nav.clientHeight;
 current_music_div.style.bottom = `${mobile_nav_height}px`;
 
@@ -92,18 +87,18 @@ window.addEventListener("resize", () => {
   current_music_div.style.bottom = `${mobile_nav_height}px`;
 });
 
+//Remove a song
 const removeSong = (id) => {
   PostData("postRemoveSong", {
     token: getToken(),
     playlistId: +localStorage.getItem("favoriteId"),
     songId: id,
   })
-    .then((res) => {
-      showToast("آهنگ حذف شد");
-    })
-    .catch((err) => {
-    });
+    .then((res) => {})
+    .catch((err) => {});
+  showToast("آهنگ حذف شد");
 };
+
 document.addEventListener(
   "click",
   function (e) {

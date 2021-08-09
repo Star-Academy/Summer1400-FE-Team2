@@ -82,7 +82,7 @@ function addPlaylist() {
       <div class="modal-content">
           <div class="modal-getInfo">
               <div>
-                  <input type="text" placeholder="یک نام اضافه کن" id="playlist-name">
+                  <input type="text" id="create-playlist" name="name" onchange="saveName( event )" placeholder="یک نام اضافه کن" id="playlist-name">
               </div>
               <div>
                   <textarea name="playlist-description" id="playlist-description" rows="5" placeholder="توضیحات (اختیاری)" spellcheck="false"></textarea>
@@ -98,9 +98,28 @@ function addPlaylist() {
           </div>
       </div>
       <div class="modal-footer">
-          <button id="save-playlist">ذخیره</button>
+          <button id="save-playlist" onclick="createNewPlaylist()">ذخیره</button>
       </div>
     </div>
   </div>
   `;
 }
+
+let nameNewPlaylist = ""
+
+const createNewPlaylist = () => {
+  if(nameNewPlaylist !== ""){
+    PostData("postCreatePlaylist",{
+      token:getToken(),
+      name:nameNewPlaylist
+    }).then((res)=>{}).catch((err) => {});
+    modal.style.display = "none";
+    showToast("پلی لیست ساخته شد");
+  }else{
+    showToast("نام لیست را وارد کنید")
+  }
+};
+
+const saveName = (event) => {
+  nameNewPlaylist = event.target.value;
+};

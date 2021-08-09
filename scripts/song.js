@@ -235,7 +235,7 @@ function likeSongHandler() {
       PostData("postAddSong", postBody)
         .then(() => {})
         .catch((err) => {});
-        showToast("به آهنگ های مورد علاقه اضافه شد")
+      showToast("به آهنگ های مورد علاقه اضافه شد");
     } else {
       showToast("لطفا لیست آهنگ های مورد علاقه را ایجاد کنید");
     }
