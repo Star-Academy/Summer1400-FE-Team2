@@ -6,19 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../assets/images/logo.png" />
-    <!--styles-->
-    <link rel="stylesheet" href="../styles/css/Playlist.css">
-    <link rel="stylesheet" href="../styles/css/toast.css" />
+    <link rel="stylesheet" href="../styles/css/songsList.css" />
     <link rel="stylesheet" href="../styles/css/box-modal.css" />
-    <!--scripts-->
+    <link rel="stylesheet" href="../styles/css/song-modal.css" />
+    <link rel="stylesheet" href="../styles/css/toast.css" />
+    <link rel="stylesheet" href="../styles/css/library.css">
     <script src="../service/APIConfig.js" defer></script>
     <script src="../service/Authentication.js" defer></script>
-    <script src="../scripts/Common/modal.js" defer></script>
-    <script src="../scripts/Songs/playlist.js" defer></script>
-    <script src="../scripts/Menubar.js" defer></script>
     <script src="../scripts/Common/toast.js" defer></script>
-    <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
-    <title>لیست آهنگ</title>
+    <script src="../scripts/Menubar.js" defer></script>
+    <title>songs</title>
 </head>
 
 <body>
@@ -37,13 +34,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="btnSearchMenu">
+                    <a href="#" id="btnSearchMenu">
                         <img src="../assets/Icons/search-button.svg" alt="">
                         <span>جست و جو</span>
                     </a>
                 </li>
                 <li>
-                    <a href="./library.html" id="libraryMenu">
+                    <a id="libraryMenu">
                         <img src="../assets/Icons/library-button.svg" alt="">
                         <span>کتابخانه شما </span>
                     </a>
@@ -51,13 +48,13 @@
             </ul>
             <ul>
                 <li>
-                    <a class="createListMenu">
+                    <a id="createListMenu">
                         <img class="" src="../assets/Icons/music-playlist-button.svg" alt="">
                         <span>ساخت لیست اهنگ</span>
                     </a>
                 </li>
                 <li>
-                    <a class="archived-menu">
+                    <a id="archived-menu">
                         <img src="../assets/Icons/like.svg" alt="">
                         <span>آهنگ های موردعلاقه</span>
                     </a>
@@ -75,25 +72,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="btnSearchMenu">
+                    <a href="#" id="btnSearchMenu">
                         <img src="../assets/Icons/search-button.svg" alt="">
                         <span>جست و جو</span>
                     </a>
                 </li>
                 <li>
-                    <a href="./library.html" id="libraryMenu">
+                    <a id="libraryMenu">
                         <img src="../assets/Icons/library-button.svg" alt="">
                         <span>کتابخانه شما </span>
                     </a>
                 </li>
                 <li>
-                    <a class="createListMenu">
+                    <a id="createListMenu">
                         <img class="" src="../assets/Icons/music-playlist-button.svg" alt="">
                         <span>ساخت لیست اهنگ</span>
                     </a>
                 </li>
                 <li>
-                    <a class="archived-menu">
+                    <a id="archived-menu">
                         <img src="../assets/Icons/like.svg" alt="">
                         <span>اهنگ های موردعلاقه</span>
                     </a>
@@ -129,38 +126,22 @@
     </header>
     <!--------------- main --------------->
     <main>
-        <section>
-            <h3 class="playlist-title">آهنگ ها</h3>
-            <div class="filters">
-                <div class="sorter">
-                    <p>مرتب سازی بر اساس</p>
-                    <select id="song-sort">
-                        <option value="name" selected>نام آهنگ</option>
-                        <option value="artist">نام خواننده</option>
-                        <option value="name">تاریخ انتشار</option>
-                    </select>
+        <section id="profile_container">
+            <div class="profile">
+                <div class="profile-photo_container">
+                    <div class="profile-photo">
+                        <img src="../assets/Icons/user-profile.svg" alt="">
+                    </div>
                 </div>
-                <div class="count">
-                    <label for="cars">تعداد آهنگ</label>
-                    <select id="song-numbers">
-                        <option value="10">10</option>
-                        <option value="30">30</option>
-                        <option value="50">50</option>
-                        <option value="1200" selected>همه</option>
-                    </select>
+                <div class="profile-info">
+                    <h6>پروفایل</h6>
+                    <h1 id="profile-name">نام کاربری</h1>
                 </div>
-            </div>
-            <div class="playlists__container" id="playlist-section">
             </div>
         </section>
     </main>
-    <div id="snackbar"></div>
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span id="modal-close">&times;</span>
-            <div id="modal-text"></div>
-        </div>
-    </div>
+
+
 </body>
 
 </html>

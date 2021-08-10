@@ -144,13 +144,15 @@ function setStatus() {
 }
 
 function setUserStatus(container) {
+    let path = calculatePath();
+    let address = path === 'index.html' || path === '' ? '.' : '..';
     container.innerHTML = `
         <a href="#" id="user-account__link">
-            <i class="far fa-user"></i> 
+        <img src="${address}/assets/Icons/user-button.svg" alt="">
              <span>${localStorage.getItem("username")}</span>
         </a>
         <a href="#" id="logoutBtn">
-            <i class="fas fa-sign-out-alt"></i> 
+        <img src="${address}/assets/Icons/exit-button.svg" alt="">
             <span>خروج</span>
         </a>
 `;
@@ -179,7 +181,7 @@ const libraryMenu = document.getElementById("libraryMenu");
 function gotoLibrary() {
     if (isLogedin()) {
         console.log('clicked on create playlist');
-        libraryMenu.href = getNavLink(path, "#");
+        libraryMenu.href = getNavLink(path, "library");
     } else {
         showToast("ابتدا وارد شوید");
     }

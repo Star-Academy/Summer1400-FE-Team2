@@ -1,28 +1,27 @@
 const playlists = document.getElementById("playlists");
-const namePlaylists = [
-{
-  key:"all",
-  label:"آهنگ های جدید",
-},
-{
-  key:"pop",
-  label: "آهنگ های پیشنهادی",
-},
-{
-  key:"hiphop",
-  label: "برتر های امروز",
-},
-{
-  key:"rock",
-  label:"محبوب ها",
-}
+const namePlaylists = [{
+        key: "all",
+        label: "آهنگ های جدید",
+    },
+    {
+        key: "pop",
+        label: "آهنگ های پیشنهادی",
+    },
+    {
+        key: "hiphop",
+        label: "برتر های امروز",
+    },
+    {
+        key: "rock",
+        label: "محبوب ها",
+    }
 ];
 
 
 const fillData = (data, cardsNumber) => {
-  let random = Math.random() * 40;
-  return namePlaylists.map(
-    (item, i) => `
+        let random = Math.random() * 40;
+        return namePlaylists.map(
+                (item, i) => `
     <section class="playlists__container">
       <div class="playlists__title">
           <h3><a href="./pages/playlist.html?${item.key}"> ${item.label} </a></h3>
@@ -38,7 +37,9 @@ const fillData = (data, cardsNumber) => {
                   <a class="music-link" href="./pages/song.html?id=${song.id}">
                       <div class="music-link__image">
                       <img src="${song.cover}" alt="cover" />
-                      <button class="play-playlists-button"><i class="fas fa-play-circle"></i></button>
+                      <button class="play-playlists-button">
+                      <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                      </button>
                       </div>
                       <h4 class="card-playlist__title">${song.name}</h4>
                       <p>${song.artist}</p>

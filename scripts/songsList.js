@@ -29,7 +29,7 @@ function fillData(data) {
             `<tr>
             <td class="hide-column">
             <span> ${i + 1} </span>
-                <i class='hide fas fa-play play_sign_button'></i>
+            <img src="../assets/Icons/play-triangle-button.svg" class="play_sign_button svgColor" alt="">
             </td>
             <td class="song-details__container">
                 <div class="song-details">

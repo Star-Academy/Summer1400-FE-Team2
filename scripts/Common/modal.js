@@ -53,7 +53,9 @@ function showSearchResults(data) {
                                 <a class="music-link" href="./pages/song.html?id=${song.id}">
                                     <div class="music-link__image">
                                     <img src="${song.cover}" alt="cover" />
-                                    <button class="play-playlists-button"><i class="fas fa-play-circle"></i></button>
+                                    <button class="play-playlists-button">
+                                    <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                                    </button>
                                     </div>
                                     <div class="music-info">
                                         <h3>${song.name}</h3>
