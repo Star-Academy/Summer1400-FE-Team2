@@ -7,10 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../assets/images/logo.png" />
     <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet" />
+    <!--styles-->
     <link rel="stylesheet" href="../styles/css/Register.css" />
-    <script src="../scripts/Register.js" defer></script>
     <link rel="stylesheet" href="../styles/css/toast.css" />
-    <script src="../scripts/toast.js" defer></script>
+    <!--scripts-->
+    <script src="../service/APIConfig.js" defer></script>
+    <script src="../scripts/Common/toast.js" defer></script>
+    <script src="../scripts/Auth/Register.js" defer></script>
     <title>ثبت نام</title>
 </head>
 
@@ -23,15 +26,19 @@
     <main>
 
         <div class="container">
-            <h3 id="container__header">ثبت نام با ادرس ایمیل</h3>
-            <form action="">
+            <h3 id="container__header">ثبت نام با آدرس ایمیل</h3>
+            <form action="" id="registerForm">
                 <div class="register-control">
-                    <label for="register-email">آدرس ایمیل</label>
-                    <input id="register-email" type="email" placeholder="ایمیل خود را وارد کن" required spellcheck="false" />
+                    <label for="register-email">ایمیل و نامت رو وارد کن</label>
+                    <input name="email" id="register-email" type="email" placeholder="ایمیل" required spellcheck="false" />
+                </div>
+                <div class="register-control" style="display:block">
+                    <input type="text" class="register-name" name="firstName" placeholder="نام" required />
+                    <input type="text" class="register-name" name="lastName" placeholder="نام خانوادگی" required />
                 </div>
                 <div class="register-control">
                     <label for="register-password">کلمه عبور بساز</label>
-                    <input id="register-password" type="password" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
+                    <input name="password" id="register-password" type="password" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
                     <p id="password-description">
                         کلمه عبور باید شامل <u> حداقل </u> یک عدد و<b> یک حرف بزرگ و کوچک </b> و <u> حداقل </u>به تعداد
                         <b>۸ کاراکتر یا بیشتر </b> باشد.
@@ -39,50 +46,8 @@
                 </div>
                 <div class="register-control">
                     <label for="register-username">نام کاربری </label>
-                    <input id="register-username" type="text" placeholder="یک نام کاربری وارد کن" required />
+                    <input name="username" id="register-username" type="text" placeholder="یک نام کاربری وارد کن" required />
                     <small>این نام کاربری روی پروفایلت نمایش داده میشه</small>
-                </div>
-                <p>تاریخ تولد</p>
-                <div class="register-control" id="signUp-birth">
-                    <div>
-                        <label for="">روز</label>
-                        <input type="number" maxlength="2" max="31" min="1" placeholder="XX" />
-                    </div>
-                    <div>
-                        <label for="">ماه</label>
-                        <select name="month" id="register-month">
-                            <option value="Month" selected disabled hidden>ماه</option>
-                            <option value="Farvardin">فروردین</option>
-                            <option value="Ordibehesht">اردیبهشت</option>
-                            <option value="Khordad">خرداد</option>
-                            <option value="Tir">تیر</option>
-                            <option value="Mordad">مرداد</option>
-                            <option value="Shahrivar">شهریور</option>
-                            <option value="Mehr">مهر</option>
-                            <option value="Aban">ابان</option>
-                            <option value="Azar">اذر</option>
-                            <option value="Dey">دی</option>
-                            <option value="Bahman">بهمن</option>
-                            <option value="Esfand">اسفند</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="">سال</label>
-                        <input type="text" maxlength="4" placeholder="XXXX" />
-                    </div>
-                </div>
-                <div class="register-control" id="signUp-gender">
-                    <p>جنسیت خود را وارد کن</p>
-                    <div class="signUp-gender__items">
-                        <div>
-                            <input type="radio" name="gender" value="gender-male" id="gender-male" />
-                            <label for="gender-male">مرد</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="gender" value="gender-female" id="gender-female" />
-                            <label for="gender-female">زن</label>
-                        </div>
-                    </div>
                 </div>
                 <input type="submit" value="ثبت نام" id="registerBtn" />
             </form>

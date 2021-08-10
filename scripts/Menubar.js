@@ -1,25 +1,51 @@
+//Searchbox
+const searchBtns = document.querySelectorAll(".btnSearchMenu");
+const searchBox = document.getElementById("boxSearchMenu");
+const search = document.getElementById("searchBtn");
+
+searchBox.style.display = "none";
+
+function SearchItem() {
+    console.log('hello');
+    if (searchBox.style.display === "none") {
+        searchBox.style.display = "flex";
+    } else {
+        searchBox.style.display = "none";
+    }
+}
+
+function Search() {
+    const text = searchBox.getElementsByTagName("input")[0].value;
+    if (text !== "") {
+        PostData("postSearch", {
+                phrase: text,
+                count: 200,
+                sorter: "",
+                desc: true,
+            })
+            .then((res) => {
+                showSearchResults(res.songs);
+            })
+            .catch((e) => {
+                showToast(e.message);
+            });
+    }
+}
+
+
+if (search) {
+    search.addEventListener("click", Search);
+}
+if (searchBtns) {
+    searchBtns.forEach(item => {
+        item.addEventListener("click", SearchItem);
+    })
+}
+
+
+//History control
 const goBack = document.getElementById("goBack");
 const goForward = document.getElementById("goForward");
-const userStatusMenu = document.getElementById("userStatusMenu");
-
-const searchBtn = document.getElementById("btnSearchMenu");
-const searchBox = document.getElementById("boxSearchMenu");
-
-const libraryMenu = document.getElementById("libraryMenu");
-const libraryMenuMobile = document.getElementById("libraryMenuMobile");
-
-const createListMenu = document.getElementById("createListMenu");
-const createListMenuMobile = document.getElementById("createListMenuMobile");
-
-const searchMenuMobileBtn = document.getElementById("btnSearchMenuMobile");
-
-const archivedMenu = document.getElementById("archived-menu");
-const archivedMenuMobile = document.getElementById("archived-menu-mobile");
-
-
-function isLogedin() {
-    return localStorage.getItem("token") !== null;
-}
 
 function fgoBack() {
     window.history.back();
@@ -29,15 +55,16 @@ function fgoForward() {
     window.history.forward();
 }
 
-function welcomeUser() {
-    let name = localStorage.getItem("username");
-    if (
-        localStorage.getItem("token") !== null &&
-        sessionStorage.getItem("welcome") === "false"
-    ) {
-        showToast(`${name} عزیز با موفقیت وارد شدید .`);
-        sessionStorage.setItem("welcome", "true");
-    }
+goBack.addEventListener("click", fgoBack);
+goForward.addEventListener("click", fgoForward);
+
+//Handy
+function isLogedin() {
+    return localStorage.getItem("token") !== null;
+}
+
+function calculatePath() {
+    return window.location.pathname.split("/").pop();
 }
 
 function setUserStatus(container) {
@@ -55,6 +82,17 @@ function setUserStatus(container) {
 `;
 }
 
+let path = calculatePath();
+
+function getNavLink(path, link) {
+    return path === "index.html" || path === "" ?
+        `./pages/${link}.html` :
+        `./${link}.html`;
+}
+
+//Status
+const userStatusMenu = document.getElementById("userStatusMenu");
+
 function setMenuStatus(container, login_link, register_link) {
     let path = calculatePath();
     let address = path === 'index.html' || path === '' ? '.' : '..';
@@ -69,14 +107,27 @@ function setMenuStatus(container, login_link, register_link) {
 `;
 }
 
-function getNavLink(path, link) {
-    return (path === "index.html" || path === "") ?
-        `./pages/${link}.html` :
-        `./${link}.html`;
+function setStatus() {
+    if (isLogedin()) {
+        setUserStatus(userStatusMenu);
+    } else {
+        let path = calculatePath();
+        let href_register = getNavLink(path, "Register");
+        let href_login = getNavLink(path, "Login");
+        setMenuStatus(userStatusMenu, href_login, href_register);
+    }
 }
 
-function calculatePath() {
-    return window.location.pathname.split("/").pop();
+
+
+function welcomeUser() {
+    if (
+        localStorage.getItem("token") !== null &&
+        sessionStorage.getItem("welcome") === "false"
+    ) {
+        showToast(`${localStorage.getItem("username")} عزیز با موفقیت وارد شدید .`);
+        sessionStorage.setItem("welcome", "true");
+    }
 }
 
 function setStatus() {
@@ -92,72 +143,106 @@ function setStatus() {
     }
 }
 
-searchBox.style.display = "none";
+function setUserStatus(container) {
+    container.innerHTML = `
+        <a href="#" id="user-account__link">
+            <i class="far fa-user"></i> 
+             <span>${localStorage.getItem("username")}</span>
+        </a>
+        <a href="#" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> 
+            <span>خروج</span>
+        </a>
+`;
+}
 
-function SearchItem() {
-    if (searchBox.style.display === "none") {
-        searchBox.style.display = "flex";
-    } else {
-        searchBox.style.display = "none";
+setStatus();
+
+//Logout
+const logoutBtn = document.getElementById("logoutBtn");
+
+function logoutBtnHandler() {
+    if (isLogedin()) {
+        logoutBtn.addEventListener("click", () => {
+            let path = calculatePath();
+            localStorage.clear();
+            window.location = getNavLink(path, "Login");
+        });
     }
 }
 
-let path = calculatePath();
+
+
+//Auth Handle  =? Hadis add profile here!  /library?userId={localstorage}
+const libraryMenu = document.getElementById("libraryMenu");
 
 function gotoLibrary() {
     if (isLogedin()) {
-        libraryMenu.href = getNavLink(path, 'songsList');
+        console.log('clicked on create playlist');
+        libraryMenu.href = getNavLink(path, "#");
     } else {
         showToast("ابتدا وارد شوید");
     }
 }
 
-function logoutBtnHandler() {
-    if (isLogedin()) {
-        const logoutBtn = document.getElementById("logoutBtn");
-        logoutBtn.addEventListener("click", () => {
-            let path = calculatePath();
-            localStorage.clear();
-            window.location = getNavLink(path, 'Login');
-        });
-    }
-}
+//Create new playlist
+const createListMenu_arr = document.querySelectorAll(".createListMenu");
 
-goBack.addEventListener("click", fgoBack);
-goForward.addEventListener("click", fgoForward);
-
-if (searchBox) {
-    searchBtn.addEventListener("click", SearchItem);
-}
-if (searchMenuMobileBtn) {
-    searchMenuMobileBtn.addEventListener("click", SearchItem);
-}
+//Favorites
+const archivedMenu_arr = document.querySelectorAll(".archived-menu");
 
 //show library
 if (libraryMenu) {
     libraryMenu.addEventListener("click", gotoLibrary);
 }
-if (libraryMenuMobile) {
-    libraryMenuMobile.addEventListener("click", gotoLibrary);
-}
 
 //create playlist
-if (createListMenu) {
-    createListMenu.addEventListener("click", gotoLibrary);
+if (createListMenu_arr) {
+    createListMenu_arr.forEach(item => {
+        item.addEventListener("click", addPlaylist);
+    })
 }
-if (createListMenuMobile) {
-    createListMenuMobile.addEventListener("click", gotoLibrary);
-}
+
 
 //show playlist
-if (archivedMenu) {
-    archivedMenu.addEventListener("click", gotoLibrary);
-}
-if (archivedMenuMobile) {
-    archivedMenuMobile.addEventListener("click", gotoLibrary);
+if (archivedMenu_arr) {
+    archivedMenu_arr.forEach(item => {
+        item.addEventListener("click", gotoArchivedSongs);
+    });
 }
 
+//set for Favorite songs
+const getFirstPlaylist = () =>
+    PostData("postAllPlaylists", { token: getToken() })
+    .then((res) =>
+        localStorage.setItem("favoriteId", res[0].id)
+    );
 
-setStatus();
+
+function gotoArchivedSongs() {
+    let id = localStorage.getItem("favoriteId");
+    if (id) {
+        let path = window.location.pathname.split("/").pop();
+        window.location =
+            path === "index.html" || path === "" ?
+            `./pages/songsList.html?id&playlist=${id}` :
+            `./songsList.html?id&playlist=${id}`;
+    } else {
+        showToast("لیست آهنگ های مورد علاقه شما ساخته شد");
+        PostData("postCreatePlaylist", {
+                token: getToken(),
+                name: "مورد علاقه ها",
+            })
+            .then((res) => {
+                localStorage.setItem("favoriteId", res.id);
+            })
+            .catch((err) => showToast(err.message));
+    }
+}
+
 welcomeUser();
-logoutBtnHandler();
+
+if (logoutBtn) {
+    logoutBtnHandler();
+}
+getFirstPlaylist();

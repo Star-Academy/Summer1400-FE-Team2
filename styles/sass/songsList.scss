@@ -1,10 +1,14 @@
 @use './header.scss';
 body {
-    background-color: #0F1317;
+    background-color: #0f1317;
 }
 
 .playlist-table {
     width: 100%;
+}
+
+.playlist-controls__container {
+    margin-bottom: 10rem;
 }
 
 .playlist-details {
@@ -83,11 +87,18 @@ table {
         display: block;
         margin-bottom: 1.5rem;
         display: grid;
-        grid-template-columns: 5% 50% 35% 5% 5%;
+        grid-template-columns: 5% 40% 35% 15% 5%;
     }
     tbody tr:hover {
         background-color: rgba($color: #525252, $alpha: 0.5);
         color: white;
+        .remove-column {
+            display: flex;
+        }
+    }
+    .remove-column {
+        display: none;
+        cursor: pointer;
     }
 }
 

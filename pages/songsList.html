@@ -11,11 +11,14 @@
     <link rel="stylesheet" href="../styles/css/song-modal.css" />
     <link rel="stylesheet" href="../styles/css/currentSong.css" />
     <link rel="stylesheet" href="../styles/css/toast.css" />
-    <script src="../scripts/toast.js" defer></script>
+    <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
+    <script src="../scripts/Common/toast.js" defer></script>
+    <script src="../scripts/Common/modal.js" defer></script>
+    <script src="../service/APIConfig.js" defer></script>
+    <script src="../service/Authentication.js" defer></script>
     <script src="../scripts/song-modal.js" defer></script>
     <script src="../scripts/songsList.js" defer></script>
     <script src="../scripts/Menubar.js" defer></script>
-    <script src="../scripts/modal.js" defer></script>
     <script src="../scripts/song.js" defer></script>
     <script src="../scripts/current_song.js" defer></script>
     <title>songs</title>
@@ -37,13 +40,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="btnSearchMenu">
+                    <a href="#" class="btnSearchMenu">
                         <img src="../assets/Icons/search-button.svg" alt="">
                         <span>جست و جو</span>
                     </a>
                 </li>
                 <li>
-                    <a href="./library.html" id="libraryMenu">
+                    <a id="libraryMenu">
                         <img src="../assets/Icons/library-button.svg" alt="">
                         <span>کتابخانه شما </span>
                     </a>
@@ -51,13 +54,13 @@
             </ul>
             <ul>
                 <li>
-                    <a id="createListMenu">
+                    <a class="createListMenu">
                         <img class="" src="../assets/Icons/music-playlist-button.svg" alt="">
                         <span>ساخت لیست اهنگ</span>
                     </a>
                 </li>
                 <li>
-                    <a id="archived-menu">
+                    <a class="archived-menu">
                         <img src="../assets/Icons/like.svg" alt="">
                         <span>آهنگ های موردعلاقه</span>
                     </a>
@@ -75,25 +78,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="btnSearchMenu">
+                    <a href="#" class="btnSearchMenu">
                         <img src="../assets/Icons/search-button.svg" alt="">
                         <span>جست و جو</span>
                     </a>
                 </li>
                 <li>
-                    <a href="./library.html" id="libraryMenu">
+                    <a id="libraryMenu">
                         <img src="../assets/Icons/library-button.svg" alt="">
                         <span>کتابخانه شما </span>
                     </a>
                 </li>
                 <li>
-                    <a id="createListMenu">
+                    <a class="createListMenu">
                         <img class="" src="../assets/Icons/music-playlist-button.svg" alt="">
                         <span>ساخت لیست اهنگ</span>
                     </a>
                 </li>
                 <li>
-                    <a id="archived-menu">
+                    <a class="archived-menu">
                         <img src="../assets/Icons/like.svg" alt="">
                         <span>اهنگ های موردعلاقه</span>
                     </a>
@@ -156,8 +159,8 @@
                             <th>#</th>
                             <th>عنوان</th>
                             <th>آلبوم</th>
+                            <th>تاریخ </th>
                             <th></th>
-                            <th> <img class="clock-sign svgColor" src="../assets/Icons/clock-button.svg" alt=""> </th>
                         </tr>
                     </thead>
                     <tbody id="playlist-table__body"></tbody>
@@ -169,7 +172,6 @@
         </section>
 
         <!-------------- signUp modal -------------->
-        <!-- <section class="box-modal"></section> -->
         <div id="modal" class="modal">
             <div class="modal-content">
                 <span id="modal-close">&times;</span>
@@ -192,13 +194,20 @@
                 <div class="current-music_details">
                     <audio src="" id="audio"></audio>
                     <div class="desktop_img">
-                        <a href="./song.html"><img src="../assets/images/song.jpg" alt="" class="music__img" id="cover" /></a>
+                        <a href="./song.html" id="linkReturn"><img src="" alt="" class="music__img" id="cover" /></a>
                     </div>
                     <div class="title__artist">
                         <h5 class="music__name" id="title">اسم آهنگ</h5>
-                        <h5 class="singer">نام خواننده</h5>
+                        <h5 class="singer" id="artist">نام خواننده</h5>
                     </div>
                 </div>
+                <!-- <div class="current-music_controls"> -->
+                <!-- <button class="btn--like">
+                        <img src="../assets/Icons/favorite_border_white_24dp.svg" alt="" class="svgColor" />
+                    </button>
+                    <button id="playpause">
+                        <img src="../assets/Icons/play-button.svg" alt="" class="controls-button svgColor" />
+                    </button> -->
                 <div class="song_container music__container">
                     <div class="button-controls">
                         <div class="btns">

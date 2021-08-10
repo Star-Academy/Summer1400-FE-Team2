@@ -123,6 +123,15 @@
 }
 
 .progress-container {
+  width: 100%;
+  background-color: gray;
+}
+
+.progress {
+  background-color: white;
+}
+
+.progress-container {
   direction: ltr !important;
   background-color: #fff;
   border-radius: 6px;

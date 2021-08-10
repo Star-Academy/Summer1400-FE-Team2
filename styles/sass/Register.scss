@@ -24,13 +24,13 @@
     align-items: center;
 }
 
-$paragraph-color:rgb(73,
+$paragraph-color: rgb(73,
 194,
 73);
 html,
 body {
-    font-family: 'Cabin', sans-serif;
-    background-color: #FDF0E2;
+    font-family: "Cabin", sans-serif;
+    background-color: #fdf0e2;
 }
 
 main {
@@ -157,7 +157,7 @@ header {
     &:hover {
         text-decoration: underline;
     }
-    color:#E66946;
+    color: #e66946;
 }
 
 #registerBtn {
@@ -168,7 +168,7 @@ header {
     margin: auto;
     border: 0;
     border-radius: 999px;
-    background-color: #FF5024;
+    background-color: #ff5024;
     color: white;
     padding: 0.4rem 1rem;
     cursor: pointer;
@@ -181,6 +181,10 @@ header {
     }
 }
 
+.register-name {
+    width: 48%;
+}
+
 #signIn-header {
     margin-top: 1rem;
     a {
@@ -189,7 +193,7 @@ header {
     }
 }
 
-@media (min-width:480px) {
+@media (min-width: 480px) {
     .container {
         width: 80%;
     }
@@ -202,7 +206,7 @@ header {
     }
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
     .container {
         width: 80%;
     }
@@ -212,16 +216,16 @@ header {
     }
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
     .img-background {
         display: none;
     }
-    body {
-        background-color: #fce0c3;
+    .register-name {
+        width: 100%;
     }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
     .container {
         width: 50%;
     }
@@ -233,7 +237,7 @@ header {
     }
 }
 
-@media (min-width:900px) {
+@media (min-width: 900px) {
     .container {
         width: 40%;
     }

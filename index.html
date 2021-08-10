@@ -6,13 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assets/images/logo.png" />
+    <!--styles-->
     <link rel="stylesheet" href="./styles/css/Home.css" />
     <link rel="stylesheet" href="./styles/css/toast.css" />
     <link rel="stylesheet" href="./styles/css/box-modal.css" />
-    <script src="./scripts/toast.js" defer></script>
-    <script src="./scripts/modal.js" defer></script>
+    <!--scripts-->
+    <script src="https://kit.fontawesome.com/d8428dc404.js" crossorigin="anonymous"></script>
+    <script src="./scripts/Common/toast.js" defer></script>
+    <script src="./service/APIConfig.js" defer></script>
+    <script src="./service/Authentication.js" defer></script>
+    <script src="./scripts/Common/modal.js" defer></script>
     <script src="./scripts/Menubar.js" defer></script>
-    <script src="./scripts/playlists.js" defer></script>
+    <script src="./scripts/Songs/playlists.js" defer></script>
     <title>Spotify</title>
 </head>
 
@@ -32,13 +37,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="btnSearchMenu">
+                    <a href="#" class="btnSearchMenu">
                         <img src="./assets/Icons/search-button.svg" alt="">
                         <span>جست و جو</span>
                     </a>
                 </li>
                 <li>
-                    <a href="./pages/library.html" id="libraryMenu">
+                    <a id="libraryMenu">
                         <img src="./assets/Icons/library-button.svg" alt="">
                         <span>کتابخانه شما </span>
                     </a>
@@ -46,13 +51,13 @@
             </ul>
             <ul>
                 <li>
-                    <a id="createListMenu">
+                    <a class="createListMenu">
                         <img class="" src="./assets/Icons/music-playlist-button.svg" alt="">
                         <span>ساخت لیست اهنگ</span>
                     </a>
                 </li>
                 <li>
-                    <a id="archived-menu">
+                    <a class="archived-menu">
                         <img src="./assets/Icons/like.svg" alt="">
                         <span>آهنگ های موردعلاقه</span>
                     </a>
@@ -70,25 +75,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="btnSearchMenu">
+                    <a href="#" class="btnSearchMenu">
                         <img src="./assets/Icons/search-button.svg" alt="">
                         <span>جست و جو</span>
                     </a>
                 </li>
                 <li>
-                    <a href="./pages/library.html" id="libraryMenu">
+                    <a id="libraryMenu">
                         <img src="./assets/Icons/library-button.svg" alt="">
                         <span>کتابخانه شما </span>
                     </a>
                 </li>
                 <li>
-                    <a id="createListMenu">
+                    <a class="createListMenu">
                         <img class="" src="./assets/Icons/music-playlist-button.svg" alt="">
                         <span>ساخت لیست اهنگ</span>
                     </a>
                 </li>
                 <li>
-                    <a id="archived-menu">
+                    <a class="archived-menu">
                         <img src="./assets/Icons/like.svg" alt="">
                         <span>اهنگ های موردعلاقه</span>
                     </a>
@@ -103,12 +108,10 @@
         </div>
         <div class="grid-item__header" id="boxSearchMenu">
             <div class="searchBox">
-                <form action="#">
-                    <input type="text" placeholder="خواننده ها , آهنگ ها....." />
-                    <button class="searchBox__button" id="searchBtn">
-              <img src="./assets/Icons/search-button.svg" alt="">
-            </button>
-                </form>
+                <input type="text" placeholder="خواننده ها , آهنگ ها....." />
+                <button class="searchBox__button" id="searchBtn">
+                    <img src="./assets/Icons/search-button.svg" alt="">
+                </button>
             </div>
         </div>
         <div class="grid-item__header">
@@ -133,7 +136,7 @@
         </div>
     </div>
     <!-- playlist modal -->
-    <div class="box-shadow"></div>
+    <!-- <div class="box-shadow"></div>
     <div id="modal-playlist_container">
         <div class="modal-playlist">
             <div class="modal-header">
@@ -152,7 +155,6 @@
                     </div>
                 </div>
                 <div class="modal-image">
-                    <!-- <input type="file"> -->
                     <img src="./assets/images/box-modal.jpg" alt="">
                 </div>
             </div>
@@ -160,7 +162,7 @@
                 <button id="save-playlist">ذخیره</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </body>
 

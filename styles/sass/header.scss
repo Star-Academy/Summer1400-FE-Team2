@@ -29,7 +29,7 @@ body {
 
 main {
     width: 80%;
-    margin: 9% auto 5rem 0;
+    margin: 7% auto 5rem 0;
 }
 
 a {
@@ -451,8 +451,8 @@ header {
     }
     main {
         width: 95%;
-        margin: auto;
-        margin-top: 13%;
+        margin-top: 11%;
+        margin-bottom: 10%;
     }
     .header-left {
         width: 45%
@@ -463,6 +463,10 @@ header {
 }
 
 @media (max-width: 900px) {
+    main {
+        margin-top: 17%;
+        margin-bottom: 20%;
+    }
     .aside-mobile__links {
         li:nth-child(1) {
             margin-right: 0rem;
@@ -477,9 +481,6 @@ header {
 }
 
 @media (max-width: 768px) {
-    main {
-        margin-top: 25%;
-    }
     .aside-mobile__links {
         li:nth-child(1) {
             margin-right: 3rem;
@@ -504,9 +505,6 @@ header {
 }
 
 @media (max-width: 600px) {
-    main {
-        margin-top: 30%;
-    }
     .aside-mobile__links {
         li:nth-child(1) {
             margin-right: 8rem;
@@ -516,8 +514,8 @@ header {
 
 @media (max-width: 500px) {
     main {
-        margin-top: 35%;
-        margin-bottom: 5rem;
+        margin-top: 28%;
+        margin-bottom: 30%;
     }
     header {
         padding: 1rem 0.6rem 0.5rem 0.6rem;
@@ -546,5 +544,122 @@ header {
     }
     header a {
         font-size: 0.8rem;
+    }
+}
+
+//modal create play list
+.box-shadow {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: 100;
+}
+
+#modal-playlist_container {
+    max-width: 550px;
+    max-height: 550px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -275px;
+    margin-left: -275px;
+    border-radius: 6px;
+    z-index: 110;
+    background-color: #282828;
+    padding: 1rem;
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        .close-modal {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            cursor: pointer;
+            font-size: 2rem;
+            background-color: transparent;
+            color: white;
+        }
+        .close-modal:hover {
+            background-color: #444444;
+        }
+        h1 {
+            font-size: 1rem;
+        }
+        margin-bottom: 0.7rem;
+    }
+    .modal-playlist {
+        width: 100%;
+    }
+    .modal-content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0;
+    }
+    .modal-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45%;
+        background-color: #282828;
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+    .modal-getInfo {
+        color: white;
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: column;
+        div {
+            margin-bottom: 1rem;
+        }
+        label {
+            font-size: 0.9rem;
+        }
+        input,
+        textarea {
+            display: block;
+            width: 100%;
+            outline: 0;
+            border: 0;
+            border-radius: 10px;
+            padding: 0.2rem 0.5rem;
+            resize: none;
+        }
+        input:focus,
+        textarea:focus {
+            outline: 0;
+            border: 0;
+        }
+    }
+    #save-playlist {
+        border-radius: 999px;
+        padding: 0 24px;
+        font-size: 0.9rem;
+        background-color: white;
+        color: #181818;
+    }
+    button {
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+    }
+    #save-playlist:hover {
+        transform: scale(1.1);
     }
 }

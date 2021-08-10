@@ -13,7 +13,7 @@
 html,
 body {
   font-family: "Cabin", sans-serif;
-  background-color: #FDF0E2;
+  background-color: #fdf0e2;
 }
 
 main {
@@ -142,7 +142,7 @@ header a img {
 
 #signInBtn {
   font-size: 0.9rem;
-  color: #E66946;
+  color: #e66946;
 }
 #signInBtn:hover {
   text-decoration: underline;
@@ -156,7 +156,7 @@ header a img {
   margin: auto;
   border: 0;
   border-radius: 999px;
-  background-color: #FF5024;
+  background-color: #ff5024;
   color: white;
   padding: 0.4rem 1rem;
   cursor: pointer;
@@ -167,6 +167,10 @@ header a img {
 }
 #registerBtn:hover {
   background-color: #3f3f3f;
+}
+
+.register-name {
+  width: 48%;
 }
 
 #signIn-header {
@@ -205,8 +209,8 @@ header a img {
     display: none;
   }
 
-  body {
-    background-color: #fce0c3;
+  .register-name {
+    width: 100%;
   }
 }
 @media (min-width: 768px) {
