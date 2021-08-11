@@ -1,5 +1,4 @@
 let current_music_container = document.getElementById('current-music__container');
-console.log(current_music_container);
 const current_music = document.querySelector('.current-music');
 const current_music_details = document.querySelector('.current-music_details');
 const like_button = document.querySelector('#like-button');
@@ -95,65 +94,3 @@ let current_music_desktop = `
 </div>
 </div>
 `
-
-
-// if (document.body.clientWidth > 1200) {
-//     current_music_container.innerHTML = current_music_desktop;
-// } else {
-//     current_music_container.innerHTML = current_music_mobile;
-// }
-
-// window.addEventListener('resize', () => {
-//     if (document.body.clientWidth > 1200) {
-//         current_music_container.innerHTML = current_music_desktop;
-//     } else {
-//         current_music_container.innerHTML = current_music_mobile;
-//     }
-// })
-
-// if (document.body.clientWidth > 1200) {
-//     // current_music_container.innerHTML = current_music_desktop;
-//     current_music_container.removeChild(current_music);
-// } else {
-//     current_music_container.removeChild(music_current_desktop);
-// }
-
-// window.addEventListener('resize', () => {
-//     if (document.body.clientWidth > 1200) {
-//         current_music_container.removeChild(current_music);
-//     } else {
-//         current_music_container.removeChild(music_current_desktop);
-//     }
-// })
-
-// current_music_container.innerHTML =
-
-
-// current_music_details.addEventListener('click', () => {
-//     window.location = './song.html';
-// });
-
-// like_button.addEventListener('click', () => {
-//     const likeTag = like_button.querySelector('i');
-//     likeSongHandler(likeTag);
-// })
-
-// play_button.addEventListener('click', () => {
-//     const playTag = play_button.querySelector('i');
-//     playSongHandler(playTag);
-// })
-
-
-// function playSongHandler(playTag) {
-//     if (localStorage.getItem("token") === null) {
-//         permission();
-//     } else {
-//         if (playMode) {
-//             playTag.classList.replace('fa-pause', 'fa-play');
-//             playMode = 0;
-//         } else {
-//             playTag.classList.replace('fa-play', 'fa-pause');
-//             playMode = 1;
-//         }
-//     }
-// }

@@ -132,10 +132,8 @@ function welcomeUser() {
 
 function setStatus() {
     if (isLogedin()) {
-        console.log(' logedin');
         setUserStatus(userStatusMenu);
     } else {
-        console.log('not logedin');
         let path = calculatePath();
         let href_register = getNavLink(path, 'Register');
         let href_login = getNavLink(path, 'Login');
