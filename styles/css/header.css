@@ -305,112 +305,6 @@ header .controlBtn:hover img {
   z-index: 100;
 }
 
-#modal-playlist_container {
-  display: none;
-  max-width: 550px;
-  max-height: 550px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -275px;
-  margin-left: -275px;
-  border-radius: 6px;
-  z-index: 110;
-  background-color: #282828;
-  padding: 1rem;
-}
-#modal-playlist_container .modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  margin-bottom: 0.7rem;
-}
-#modal-playlist_container .modal-header .close-modal {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#modal-playlist_container .modal-header button {
-  cursor: pointer;
-  font-size: 2rem;
-  background-color: transparent;
-  color: white;
-}
-#modal-playlist_container .modal-header .close-modal:hover {
-  background-color: #444444;
-}
-#modal-playlist_container .modal-header h1 {
-  font-size: 1rem;
-}
-#modal-playlist_container .modal-playlist {
-  width: 100%;
-}
-#modal-playlist_container .modal-content {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0;
-}
-#modal-playlist_container .modal-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45%;
-  background-color: #282828;
-}
-#modal-playlist_container .modal-image img {
-  width: 100%;
-  border-radius: 10px;
-}
-#modal-playlist_container .modal-getInfo {
-  color: white;
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  flex-flow: column;
-}
-#modal-playlist_container .modal-getInfo div {
-  margin-bottom: 1rem;
-}
-#modal-playlist_container .modal-getInfo label {
-  font-size: 0.9rem;
-}
-#modal-playlist_container .modal-getInfo input,
-#modal-playlist_container .modal-getInfo textarea {
-  display: block;
-  width: 100%;
-  outline: 0;
-  border: 0;
-  border-radius: 10px;
-  padding: 0.2rem 0.5rem;
-  resize: none;
-}
-#modal-playlist_container .modal-getInfo input:focus,
-#modal-playlist_container .modal-getInfo textarea:focus {
-  outline: 0;
-  border: 0;
-}
-#modal-playlist_container #save-playlist {
-  border-radius: 999px;
-  padding: 0 24px;
-  font-size: 0.9rem;
-  background-color: white;
-  color: #181818;
-}
-#modal-playlist_container button {
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-}
-#modal-playlist_container #save-playlist:hover {
-  transform: scale(1.1);
-}
-
 @media (max-width: 1450px) {
   .aside-box {
     width: 23%;
@@ -590,6 +484,7 @@ header .controlBtn:hover img {
 #modal-playlist_container .modal-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: 0;
 }
@@ -597,12 +492,36 @@ header .controlBtn:hover img {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: column;
   width: 45%;
-  background-color: #282828;
+  background-color: #333333;
+  border-radius: 50%;
+  height: 200px;
+  min-width: 200px;
+  width: 200px;
+  background-image: url("../../assets/Icons/user-profile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#modal-playlist_container .modal-image label,
+#modal-playlist_container .modal-image input,
+#modal-playlist_container .modal-image span,
+#modal-playlist_container .modal-image img {
+  display: none;
+}
+#modal-playlist_container .modal-image:hover img {
+  display: block;
+}
+#modal-playlist_container .modal-image:hover label,
+#modal-playlist_container .modal-image:hover span {
+  display: block;
+  cursor: pointer;
+  color: white;
 }
 #modal-playlist_container .modal-image img {
-  width: 100%;
-  border-radius: 10px;
+  width: 2rem;
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
 }
 #modal-playlist_container .modal-getInfo {
   color: white;
@@ -633,20 +552,20 @@ header .controlBtn:hover img {
   outline: 0;
   border: 0;
 }
-#modal-playlist_container #save-playlist {
+#modal-playlist_container .save-modal-button {
   border-radius: 999px;
   padding: 0 24px;
   font-size: 0.9rem;
   background-color: white;
   color: #181818;
 }
+#modal-playlist_container .save-modal-button:hover {
+  transform: scale(1.1);
+}
 #modal-playlist_container button {
   border: 0;
   outline: 0;
   cursor: pointer;
-}
-#modal-playlist_container #save-playlist:hover {
-  transform: scale(1.1);
 }
 
 /*# sourceMappingURL=header.css.map */

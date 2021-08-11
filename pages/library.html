@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="../styles/css/box-modal.css" />
     <link rel="stylesheet" href="../styles/css/song-modal.css" />
     <link rel="stylesheet" href="../styles/css/toast.css" />
+    <link rel="stylesheet" href="../styles/css/Home.css">
     <link rel="stylesheet" href="../styles/css/library.css">
     <script src="../service/APIConfig.js" defer></script>
     <script src="../service/Authentication.js" defer></script>
     <script src="../scripts/Common/toast.js" defer></script>
     <script src="../scripts/Menubar.js" defer></script>
+    <script src="../scripts/Common/modal.js" defer></script>
+    <script src="../scripts/library.js" defer></script>
     <title>songs</title>
 </head>
 
@@ -128,17 +131,335 @@
     <main>
         <section id="profile_container">
             <div class="profile">
-                <div class="profile-photo_container">
-                    <div class="profile-photo">
-                        <img src="../assets/Icons/user-profile.svg" alt="">
-                    </div>
-                </div>
                 <div class="profile-info">
                     <h6>پروفایل</h6>
                     <h1 id="profile-name">نام کاربری</h1>
                 </div>
+                <div class="profile-photo_container">
+                    <div class="profile-photo">
+                        <label for="myfile">  <img src="../assets/Icons/edit-button.svg" alt=""> انتخاب عکس </label>
+                        <input type="file" id="myfile" name="myfile" class="custom-file-input">
+                    </div>
+                </div>
             </div>
         </section>
+        <!-- <section class="library-cards_container">
+            <div class="library-cards">
+
+            </div>
+        </section> -->
+        <section class="playlists__container">
+            <div class="cards__container">
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="playlists__container">
+            <div class="cards__container">
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="playlists__container">
+            <div class="cards__container">
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+                <div class="card-playlist">
+                    <a class="music-link" href="./pages/song.html?id=${song.id}">
+                        <div class="music-link__image">
+                            <div class="playlist-cover">
+                                <img src="../assets/Icons/musical-note.svg" alt="cover" />
+                            </div>
+                            <!-- <button class="play-playlists-button">
+                            <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                            </button> -->
+                        </div>
+                        <h4 class="card-playlist__title">نام پلی لیست</h4>
+                        <p>توسط یوزر</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span id="modal-close">&times;</span>
+                <div id="modal-text"></div>
+            </div>
+        </div>
     </main>
 
 

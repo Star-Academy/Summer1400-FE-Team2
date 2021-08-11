@@ -242,6 +242,14 @@ function gotoArchivedSongs() {
     }
 }
 
+function getUserName() {
+    return localStorage.getItem('username');
+}
+
+function setUserName(name) {
+    localStorage.setItem('username', name);
+}
+
 welcomeUser();
 
 if (logoutBtn) {

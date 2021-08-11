@@ -80,6 +80,9 @@ function addPlaylist() {
     <div class="modal-playlist">
       <div class="modal-header">
           <h1>افزودن پلی لیست</h1>
+          <div class="close-modal">
+          <button id="close-modal-button">&times;</button>
+      </div>
       </div>
       <div class="modal-content">
           <div class="modal-getInfo">
@@ -100,7 +103,41 @@ function addPlaylist() {
           </div>
       </div>
       <div class="modal-footer">
-          <button id="save-playlist" onclick="createNewPlaylist()">ذخیره</button>
+          <button id="save-playlist" class='save-modal-button' onclick="createNewPlaylist()">ذخیره</button>
+      </div>
+    </div>
+  </div>
+  `;
+  document.getElementById('modal-playlist_container').style.display ='block';
+}
+
+
+function editProfile() {
+  modal.style.display = "block";
+  let path = calculatePath();
+  text.innerHTML = `
+  <div id="modal-playlist_container">
+    <div class="modal-playlist">
+      <div class="modal-header">
+          <h1>ویرایش پروفایل</h1>
+          <div class="close-modal">
+          <button id="close-modal-button">&times;</button>
+      </div>
+      </div>
+      <div class="modal-content">
+          <div class="modal-getInfo">
+              <div>
+                  <input type="text" id="create-playlist" name="name" onchange="saveName( event )" placeholder="یک نام اضافه کن" id="playlist-name">
+              </div>
+          </div>
+          <div class="modal-image">
+          <span id='delete-modalImg'>حذف عکس</span>  <img src="../assets/Icons/edit-button.svg" alt="">
+              <label for="myfile" id='edit-modalImg'>انتخاب عکس</label>
+              <input type="file" id="myfile" name="myfile">
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button id="save-photo" class='save-modal-button' onclick="createNewPlaylist()">ذخیره</button>
       </div>
     </div>
   </div>
