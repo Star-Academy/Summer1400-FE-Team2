@@ -40,6 +40,7 @@ console.log(data.songs[id].id,songIndex,data.songs[id])
   artist.innerHTML = data.songs[id].artist;
   audio.src = data.songs[id].file;
   cover.src = data.songs[id].cover;
+  playSong();
 }
 
 // play song
