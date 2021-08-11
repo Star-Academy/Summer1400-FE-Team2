@@ -37,7 +37,6 @@ const PostData = async(url, body) => {
         },
         body: JSON.stringify(body),
     });
-    console.log(data, data.json);
     const json = await data.json();
     if (data.status < 400) return json;
     throw json;

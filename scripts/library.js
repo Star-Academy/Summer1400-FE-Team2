@@ -24,19 +24,6 @@ const postBody = {
 //         })
 // }
 
-// let playlists_id = [];
-// PostData("postAllPlaylists", {
-//     token: localStorage.getItem("token")
-// }).then(res => {
-//     res.forEach(item => {
-//         playlists_id.push(item);
-//     });
-// });
-// console.log(playlists_id);
-
-
-
-
 function setProfileName() {
     profile_name.innerText = getUserName();
 }
@@ -108,3 +95,13 @@ profile_input.addEventListener("change", function(event) {
 }, false);
 
 profile_label.addEventListener('click', editProfile);
+
+const user_playlists = [];
+PostData("postAllPlaylists", {
+    token: localStorage.getItem("token")
+}).then(res => {
+    res.forEach(item => {
+        user_playlists.push(item);
+    });
+});
+console.log(user_playlists);
