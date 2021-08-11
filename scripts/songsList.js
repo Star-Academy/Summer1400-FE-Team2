@@ -118,7 +118,6 @@ document.addEventListener(
 
 if (current_music_div) {
     mobile_nav_height = mobile_nav.clientHeight;
-    console.log(mobile_nav_height);
     current_music_div.style.bottom = `${mobile_nav_height+3}px`;
 
     window.addEventListener('resize', () => {
