@@ -10,6 +10,8 @@
         margin-bottom: 1rem;
         a {
             color: #ffffff;
+            display: flex;
+            align-items: center;
         }
         a:hover {
             transform: scale(1.1);
@@ -83,10 +85,23 @@
     .cards__container {
         grid-template-columns: repeat(1, 1fr);
     }
+    .playlists__container {
+        .playlists__title a {
+            font-size: 1rem;
+        }
+    }
+    .card-playlist {
+        text-align: center;
+    }
 }
 
 @media (max-width: 500px) {
     header {
         padding: 0.8rem 0.5rem 0.6rem 0.5rem;
+    }
+    .playlists__container {
+        .playlists__title a {
+            font-size: 0.8rem;
+        }
     }
 }

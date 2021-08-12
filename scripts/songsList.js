@@ -4,10 +4,6 @@ const playlist_details = document.querySelector(".playlist-details");
 const playMusic_button = document.getElementById("playMusicBtn");
 const like_songsList = document.getElementById("like-songs");
 
-let mobile_nav_height;
-const mobile_nav = document.querySelector('.aside-mobile__links');
-// const current_music_div = document.querySelector('.current-music');
-const current_music_div = document.querySelector('.music-current-desktop');
 
 function fillData(data) {
     console.log(data, data.song);
@@ -93,18 +89,6 @@ if (playlist_id) {
     getPlaylistSongs(playlist_id);
 }
 
-// //handle size
-// let mobile_nav_height;
-// const mobile_nav = document.querySelector(".aside-mobile__links");
-// const current_music_div = document.querySelector(".current-music");
-
-// mobile_nav_height = mobile_nav.clientHeight;
-// current_music_div.style.bottom = `${mobile_nav_height}px`;
-
-// window.addEventListener("resize", () => {
-//   mobile_nav_height = mobile_nav.clientHeight;
-//   current_music_div.style.bottom = `${mobile_nav_height}px`;
-// });
 
 //Remove a song
 const removeSong = (id) => {
@@ -134,15 +118,6 @@ document.addEventListener(
     false
 );
 
-if (current_music_div) {
-    mobile_nav_height = mobile_nav.clientHeight;
-    current_music_div.style.bottom = `${mobile_nav_height+3}px`;
-
-    window.addEventListener('resize', () => {
-        mobile_nav_height = mobile_nav.clientHeight;
-        current_music_div.style.bottom = `${mobile_nav_height}px`;
-    })
-}
 
 /* When the user clicks on the button, 
                                         toggle between hiding and showing the dropdown content */

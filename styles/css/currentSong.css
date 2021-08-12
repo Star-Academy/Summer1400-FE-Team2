@@ -56,6 +56,9 @@
 
 .song_container {
   width: 70%;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
 }
 
 .button-controls {
@@ -158,6 +161,10 @@
 }
 
 @media (max-width: 1200px) {
+  .music-current-desktop {
+    bottom: 86px;
+  }
+
   .desktop_container .btns {
     width: 80%;
   }
@@ -165,7 +172,15 @@
     width: 60%;
   }
   .desktop_container .current-music_details {
-    width: 40%;
+    width: 50%;
+  }
+  .desktop_container .current-music_details .desktop_img {
+    width: 35%;
+  }
+
+  .current__time {
+    display: flex;
+    order: 1;
   }
 }
 @media (max-width: 900px) {
@@ -185,17 +200,11 @@
     width: 40%;
     display: flex;
     flex-flow: column;
-  }
-  .desktop_container .current__time {
-    order: 1;
+    align-items: center;
+    justify-content: center;
   }
   .desktop_container .button-controls {
-    order: 2;
-    margin-bottom: 0;
-  }
-  .desktop_container .current-music_details {
-    width: 60%;
-    margin-left: 0.2rem;
+    margin-top: 1rem;
   }
   .desktop_container .progress-container:nth-child(2) {
     display: none;
@@ -224,8 +233,8 @@
     width: 1.2rem;
   }
 
-  .music-current-desktop {
-    padding-bottom: 1rem;
+  .current__time {
+    display: none;
   }
 }
 

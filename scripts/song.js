@@ -43,22 +43,27 @@ function loadSong(id) {
     artist.innerHTML = data.songs[id].artist;
     audio.src = data.songs[id].file;
     cover.src = data.songs[id].cover;
-    lyrics.innerText = data.songs[id].lyrics;
+    if (lyrics) lyrics.innerText = data.songs[id].lyrics;
     playSong();
 }
-lyricsBtn.addEventListener('click', () => {
-    cover.style.display = 'none';
-    lyrics_container.style.display = 'block';
-    lyrics.style.display = 'block';
-    lyricsBtn.style.display = 'none';
-})
+if (lyricsBtn) {
+    lyricsBtn.addEventListener('click', () => {
+        cover.style.display = 'none';
+        lyrics_container.style.display = 'block';
+        lyrics.style.display = 'block';
+        lyricsBtn.style.display = 'none';
+    })
+}
 
-back_lyricsBtn.addEventListener('click', () => {
-    cover.style.display = 'block';
-    lyrics_container.style.display = 'none';
-    lyrics.style.display = 'none';
-    lyricsBtn.style.display = 'block';
-})
+if (back_lyricsBtn) {
+    back_lyricsBtn.addEventListener('click', () => {
+        cover.style.display = 'block';
+        lyrics_container.style.display = 'none';
+        lyrics.style.display = 'none';
+        lyricsBtn.style.display = 'block';
+    })
+}
+
 
 // play song
 

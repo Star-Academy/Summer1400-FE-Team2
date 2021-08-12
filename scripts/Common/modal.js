@@ -58,8 +58,8 @@ function showSearchResults(data) {
                                     </button>
                                     </div>
                                     <div class="music-info">
-                                        <h3>${song.name}</h3>
-                                        <h5>${song.artist}</h5>
+                                        <h4>${song.name}</h4>
+                                        <h6>${song.artist}</h6>
                                     </div>
                                 </a>
                             </div>`
@@ -109,6 +109,10 @@ function addPlaylist() {
   </div>
   `;
   document.getElementById('modal-playlist_container').style.display ='block';
+  document.getElementById('close-modal-button').addEventListener('click',()=>{
+    document.getElementById('modal-playlist_container').style.display ='none';
+    document.getElementById('modal').style.display ='none';
+  })
 }
 
 
@@ -143,6 +147,10 @@ function editProfile() {
   </div>
   `;
   document.getElementById('modal-playlist_container').style.display ='block';
+  document.getElementById('close-modal-button').addEventListener('click',()=>{
+    document.getElementById('modal-playlist_container').style.display ='none';
+    document.getElementById('modal').style.display ='none';
+  })
 }
 
 let nameNewPlaylist = ""
