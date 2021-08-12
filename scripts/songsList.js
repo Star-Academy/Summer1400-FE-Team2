@@ -81,15 +81,17 @@ function getPlaylistSongs(id) {
             showToast("درحال بارگزاری آهنگ ها");
         })
         .catch(() => {
-            showToast("خطا در ارتباط با سرور");
+            // showToast("خطا در ارتباط با سرور");
         });
 }
 
 // let id = localStorage.getItem("favoriteId");
 let url = new URL(window.location.href);
 let search_params = url.searchParams;
-let id = search_params.get("playlist");
-getPlaylistSongs(id);
+let playlist_id = search_params.get("playlist");
+if (playlist_id) {
+    getPlaylistSongs(playlist_id);
+}
 
 // //handle size
 // let mobile_nav_height;
@@ -106,9 +108,12 @@ getPlaylistSongs(id);
 
 //Remove a song
 const removeSong = (id) => {
+    let url = new URL(window.location.href);
+    let search_params = url.searchParams;
+    let playlist_id = search_params.get("playlist");
     PostData("postRemoveSong", {
             token: getToken(),
-            playlistId: +localStorage.getItem("favoriteId"),
+            playlistId: +playlist_id,
             songId: id,
         })
         .then((res) => {})
@@ -157,3 +162,50 @@ window.addEventListener('click', (e) => {
         }
     }
 })
+
+const remove_playlist_button = document.getElementById('removePlaylistBtn');
+
+// remove playlist
+function removePlaylist() {
+    let url = new URL(window.location.href);
+    let search_params = url.searchParams;
+    let playlist_id = search_params.get("playlist");
+    console.log(playlist_id);
+    let playlist_name;
+    PostData("postRemovePlaylist", {
+        token: getToken(),
+        id: +playlist_id
+    }).then(res => {
+        showToast(`playlist removed successfully`);
+        console.log('after removing playlist : message :', res);
+        window.location = '../index.html';
+    }).catch(error => {
+        showToast(error);
+    })
+}
+if (remove_playlist_button)
+    remove_playlist_button.addEventListener('click', removePlaylist);
+
+function getPlaylistName(id) {
+    const playlists = [];
+    let name = '';
+    PostData("postAllPlaylists", {
+        token: localStorage.getItem("token")
+    }).then(res => {
+        res.forEach(item => {
+            playlists.push(item);
+        });
+
+    }).catch(error => {
+        showToast(error);
+    })
+
+    playlists.forEach(item => {
+            if (item['id'] == id) {
+                console.log('hello');
+                name = item['name'];
+                console.log('name: ', name);
+            }
+        })
+        // return name;
+}

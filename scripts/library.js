@@ -15,14 +15,7 @@ const postBody = {
     email: "hadis@gmail.com",
 };
 
-// if (CheckObj(postBody)) {
-//     PostData("postAlter", postBody)
-//         .then(res => {
-//             console.log(res);
-//         }, error => {
-//             console.log(error);
-//         })
-// }
+
 
 function setProfileName() {
     profile_name.innerText = getUserName();
@@ -75,18 +68,19 @@ profile_input.addEventListener("change", function(event) {
         setUserName(username_target);
         console.log(photo_target, console.log(username_target));
 
-         let result_photo_link = `${photo_target}`;
-
-         PostData("postAlter", {
-                 token: localStorage.getItem("token"),
-                 username: 'Perriex1991',
-                 avatar:result_photo_link,
-             })
-             .then(res => {
-                 console.log(res);
-             }, error => {
-                 console.log(error);
-             })
+        let result_photo_link = `${photo_target}`;
+        console.log(username_target);
+        console.log(result_photo_link);
+        PostData("postAlter", {
+                token: localStorage.getItem("token"),
+                username: username_target,
+                avatar: result_photo_link,
+            })
+            .then(res => {
+                console.log(res);
+            }, error => {
+                console.log(error);
+            })
 
         setProfileName();
         document.getElementById('modal').style.display = 'none';
@@ -129,29 +123,22 @@ const fillData_library = (playlists) => {
 
 
 /***************** work with playlists ******************** */
-const user_playlists = [];
 
-PostData("postAllPlaylists", {
-    token: localStorage.getItem("token")
-}).then(res => {
-    res.forEach(item => {
-        user_playlists.push(item);
-        getPlaylistSongs(item['id']);
+
+function getAllPlaylists(){
+    const user_playlists = [];
+    PostData("postAllPlaylists", {
+        token: localStorage.getItem("token")
+    }).then(res => {
+        res.forEach(item => {
+            user_playlists.push(item);
+            getPlaylistSongs(item['id']);
+        });
+        library_playlists.innerHTML = fillData_library(user_playlists);
+    }).catch(error=>{
+       showToast(error);
     });
-    library_playlists.innerHTML = fillData_library(user_playlists);
-    // let allPlaylists = document.querySelectorAll('.card-playlist a');
-    // allPlaylists.forEach(item=>{
-    //     item.addEventListener('click',()=>{
-    //         console.log(item);
-    //         let path = calculatePath();
-    //         window.location =
-    //             path === "index.html" || path === "" ?
-    //             `./pages/songsList.html?id&playlist=${item.id}` :
-    //             `./songsList.html?id&playlist=${item.id}`;
-    //     })
-    // })
-    
-},error=>{
-    console.log(error);
-});
-console.log(user_playlists);
+    console.log(user_playlists);
+}
+
+getAllPlaylists();

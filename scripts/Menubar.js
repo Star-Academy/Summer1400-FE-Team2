@@ -214,11 +214,11 @@ if (archivedMenu_arr) {
 }
 
 //set for Favorite songs
-const getFirstPlaylist = () =>
-    PostData("postAllPlaylists", { token: getToken() })
-    .then((res) =>
-        localStorage.setItem("favoriteId", res[0].id)
-    );
+// const getFirstPlaylist = () =>
+//     PostData("postAllPlaylists", { token: getToken() })
+//     .then((res) =>
+//         localStorage.setItem("favoriteId", res[0].id)
+//     );
 
 
 function gotoArchivedSongs() {
@@ -255,4 +255,4 @@ welcomeUser();
 if (logoutBtn) {
     logoutBtnHandler();
 }
-getFirstPlaylist();
+// getFirstPlaylist();
