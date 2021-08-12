@@ -3,19 +3,7 @@ const profile_input = document.querySelector('.profile-photo input');
 const profile_label = document.querySelector('.profile-photo label');
 const profile_name = document.getElementById('profile-name');
 
-
-GetData("getUser", localStorage.getItem('userId')).then(res => {
-    avatar = res['user']['avatar'];
-    profile_img.style.backgroundImage = avatar;
-})
-
-const postBody = {
-    token: localStorage.getItem("token"),
-    username: "hadis18",
-    email: "hadis@gmail.com",
-};
-
-
+updateProfile();
 
 function setProfileName() {
     profile_name.innerText = getUserName();
@@ -78,6 +66,7 @@ profile_input.addEventListener("change", function(event) {
             })
             .then(res => {
                 console.log(res);
+                updateProfile();
             }, error => {
                 console.log(error);
             })
@@ -137,8 +126,37 @@ function getAllPlaylists(){
         library_playlists.innerHTML = fillData_library(user_playlists);
     }).catch(error=>{
        showToast(error);
+       console.log(error);
     });
     console.log(user_playlists);
 }
 
 getAllPlaylists();
+
+let avatar_img;
+
+function updateProfile(){
+    GetData("getUser", parseInt(localStorage.getItem('userId')) )
+    .then(res => {
+        console.log(res);
+        avatar_img = res['user']['avatar'];
+        let image_url = document.querySelector('.profile-photo_container').style.backgroundImage;
+        console.log(document.querySelector('.profile-photo_container').style.backgroundImage);
+        console.log(image_url);
+        document.querySelector('.profile-photo_container').style.backgroundImage = `url(${avatar_img})`;
+        // profile_img.style.backgroundImage = avatar;
+    })
+}
+
+// function getUserData(){
+//     const data;
+//     GetData("getUser", parseInt(localStorage.getItem('userId')) )
+//     .then(res => {
+//         console.log(res);
+//         data = res;
+//         avatar = res['user']['avatar'];
+//         profile_img.style.backgroundImage = `url(${avatar})`;
+//         // profile_img.style.backgroundImage = avatar;
+//     })
+//     return data;
+// }

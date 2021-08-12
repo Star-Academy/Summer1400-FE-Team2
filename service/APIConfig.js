@@ -37,9 +37,20 @@ const PostData = async(url, body) => {
         },
         body: JSON.stringify(body),
     });
-    const json = await data.json();
-    if (data.status < 400) return json;
-    throw json;
+    console.log(data);
+    // if (data.status == 200 && data.statusText == "") {
+    //     return "successful";
+    // }
+    const text_data = await data.text();
+    if (data.status == 200 && text_data == "") {
+        console.log('heeeeeeeeeeeeello');
+        return "successfully";
+    } else {
+        // const json = await data.json();
+        console.log(JSON.parse(text_data));
+        if (data.status < 400) return JSON.parse(text_data);
+        throw JSON.parse(text_data);
+    }
 };
 
 const CheckObj = (obj) => {
