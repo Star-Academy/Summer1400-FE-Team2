@@ -96,12 +96,61 @@ profile_input.addEventListener("change", function(event) {
 
 profile_label.addEventListener('click', editProfile);
 
+const library_playlists = document.getElementById('library_playlists');
+
+const fillData_library = (playlists) => {
+        return `
+  <div class="cards__container">
+      ${playlists.map(
+          (playlist) =>
+            ` 
+          <div class="card-playlist" >
+              <a id=${playlist.id} class="music-link" href="./songsList.html?id&playlist=${playlist.id}" >
+                  <div class="music-link__image">
+                  <img src="${playlist.cover?playlist.cover:'../assets/Icons/musical-note.svg'}" alt="cover" />
+                  <button class="play-playlists-button">
+                  <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
+                  </button>
+                  </div>
+                  <h4 class="card-playlist__title">${playlist.name}</h4>
+                  <p>${localStorage.getItem('username')}</p>
+              </a>
+          </div>
+      `
+        )
+        .join("")}
+  </div>
+
+`
+
+};
+
+
+
+/***************** work with playlists ******************** */
 const user_playlists = [];
+
 PostData("postAllPlaylists", {
     token: localStorage.getItem("token")
 }).then(res => {
     res.forEach(item => {
         user_playlists.push(item);
+        getPlaylistSongs(item['id']);
     });
+    library_playlists.innerHTML = fillData_library(user_playlists);
+    // let allPlaylists = document.querySelectorAll('.card-playlist a');
+    // allPlaylists.forEach(item=>{
+    //     item.addEventListener('click',()=>{
+    //         console.log(item);
+    //         let path = calculatePath();
+    //         window.location =
+    //             path === "index.html" || path === "" ?
+    //             `./pages/songsList.html?id&playlist=${item.id}` :
+    //             `./songsList.html?id&playlist=${item.id}`;
+    //     })
+    // })
+    
+},error=>{
+    console.log(error);
 });
 console.log(user_playlists);

@@ -10,15 +10,15 @@ const mobile_nav = document.querySelector('.aside-mobile__links');
 const current_music_div = document.querySelector('.music-current-desktop');
 
 function fillData(data) {
+    console.log(data, data.song);
     playlist_details.innerHTML = `
     <div class="playlist-details__image">
-        <img src="../assets/images/sample.jpg" alt="playlist-image" />
+        <img id='playlist-img' src="../assets/images/sample.jpg" alt="playlist-image" />
     </div>
     <div class="playlist-details__content">
         <p>لیست اهنگ</p>
         <h1>${data.name}</h1>
         <div class="flex songsListDetails">
-            <span><b>Spotify</b></span>
             <span>${data.songs.length} آهنگ </span>
         </div>
     </div>
@@ -66,11 +66,18 @@ function fillData(data) {
     });
 }
 
-function getPlaylistSongs() {
-    let id = localStorage.getItem("favoriteId");
+
+function getPlaylistSongs(id) {
     GetData("getPlaylist", id)
         .then((res) => {
+            console.log(res['songs'][0]['cover']);
             fillData(res);
+            const playlist_image = document.getElementById('playlist-img');
+            console.log(playlist_image)
+            if (res['songs'][0]['cover'])
+                playlist_image.src = res['songs'][0]['cover'];
+            else
+                console.log(playlist_image.src);
             showToast("درحال بارگزاری آهنگ ها");
         })
         .catch(() => {
@@ -78,7 +85,11 @@ function getPlaylistSongs() {
         });
 }
 
-getPlaylistSongs();
+// let id = localStorage.getItem("favoriteId");
+let url = new URL(window.location.href);
+let search_params = url.searchParams;
+let id = search_params.get("playlist");
+getPlaylistSongs(id);
 
 // //handle size
 // let mobile_nav_height;
@@ -134,13 +145,15 @@ function dropbtnHandler() {
 
 const dropbtn = document.querySelector('.dropbtn');
 const dropbtn_icon = document.querySelector('.dropbtn img');
-dropbtn.addEventListener('click', dropbtnHandler);
+if (dropbtn) dropbtn.addEventListener('click', dropbtnHandler);
 
 window.addEventListener('click', (e) => {
     if (e.target !== dropbtn_icon) {
         const myDropdown = document.getElementById("myDropdown");
-        if (myDropdown.classList.contains('show')) {
-            myDropdown.classList.remove('show');
+        if (myDropdown) {
+            if (myDropdown.classList.contains('show')) {
+                myDropdown.classList.remove('show');
+            }
         }
     }
 })

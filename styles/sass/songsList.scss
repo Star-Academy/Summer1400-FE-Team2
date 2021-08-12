@@ -15,7 +15,8 @@ body {
     width: 95%;
     margin: auto;
     border: 8px;
-    background-color: rgb(255, 255, 207);
+    color: white;
+    // background-color: rgb(255, 255, 207);
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
@@ -209,6 +210,10 @@ table {
 
 .show {
     display: block;
+}
+
+#modal-close {
+    display: none;
 }
 
 @media (max-width: 1200px) {

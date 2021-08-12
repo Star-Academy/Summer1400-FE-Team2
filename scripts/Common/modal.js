@@ -93,9 +93,9 @@ function addPlaylist() {
                   <textarea name="playlist-description" id="playlist-description" rows="5" placeholder="توضیحات (اختیاری)" spellcheck="false"></textarea>
               </div>
           </div>
-          <div class="modal-image">
+          <div class="modal-image" id='playlist-image_container'>
               <!-- <input type="file"> -->
-              <img src="${
+              <img id='playlist-img' src="${
                 path === "" || path === "index.html"
                   ? "./assets/images/box-modal.jpg"
                   : "../assets/images/box-modal.jpg"
@@ -130,8 +130,8 @@ function editProfile() {
                   <input type="text" id="create-playlist" name="name" onchange="saveName( event )" placeholder="یک نام اضافه کن" id="playlist-name">
               </div>
           </div>
-          <div class="modal-image">
-          <span id='delete-modalImg'>حذف عکس</span>  <img src="../assets/Icons/edit-button.svg" alt="">
+          <div class="modal-image" id='profile-image_container'>
+          <span id='delete-modalImg'>حذف عکس</span>  <img id='profile-img' src="../assets/Icons/edit-button.svg" alt="">
               <label for="myfile" id='edit-modalImg'>انتخاب عکس</label>
               <input type="file" id="myfile" name="myfile">
           </div>

@@ -187,7 +187,7 @@ function gotoLibrary() {
 
 //Create new playlist
 const createListMenu_arr = document.querySelectorAll(".createListMenu");
-
+console.log(createListMenu_arr);
 //Favorites
 const archivedMenu_arr = document.querySelectorAll(".archived-menu");
 
@@ -195,6 +195,8 @@ const archivedMenu_arr = document.querySelectorAll(".archived-menu");
 if (libraryMenu) {
     libraryMenu.addEventListener("click", gotoLibrary);
 }
+
+
 
 //create playlist
 if (createListMenu_arr) {
@@ -222,7 +224,7 @@ const getFirstPlaylist = () =>
 function gotoArchivedSongs() {
     let id = localStorage.getItem("favoriteId");
     if (id) {
-        let path = window.location.pathname.split("/").pop();
+        let path = calculatePath();
         window.location =
             path === "index.html" || path === "" ?
             `./pages/songsList.html?id&playlist=${id}` :

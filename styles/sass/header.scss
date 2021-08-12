@@ -17,6 +17,12 @@
     align-items: center;
 }
 
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @mixin ul-setup {
     padding: 0;
     margin: 0;
@@ -310,6 +316,7 @@ header {
 
 /*************** playlist modal ***************/
 
+//modal create play list
 .box-shadow {
     display: none;
     position: fixed;
@@ -321,111 +328,145 @@ header {
     z-index: 100;
 }
 
-// #modal-playlist_container {
-//     display: none;
-//     max-width: 550px;
-//     max-height: 550px;
-//     position: fixed;
-//     top: 50%;
-//     left: 50%;
-//     margin-top: -275px;
-//     margin-left: -275px;
-//     border-radius: 6px;
-//     z-index: 110;
-//     background-color: #282828;
-//     padding: 1rem;
-//     .modal-header {
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         color: white;
-//         .close-modal {
-//             width: 50px;
-//             height: 50px;
-//             border-radius: 50%;
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-//         }
-//         button {
-//             cursor: pointer;
-//             font-size: 2rem;
-//             background-color: transparent;
-//             color: white;
-//         }
-//         .close-modal:hover {
-//             background-color: #444444;
-//         }
-//         h1 {
-//             font-size: 1rem;
-//         }
-//         margin-bottom: 0.7rem;
-//     }
-//     .modal-playlist {
-//         width: 100%;
-//     }
-//     .modal-content {
-//         display: flex;
-//         justify-content: space-between;
-//         width: 100%;
-//         padding: 0;
-//     }
-//     .modal-image {
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         width: 45%;
-//         background-color: #282828;
-//         img {
-//             width: 100%;
-//             border-radius: 10px;
-//         }
-//     }
-//     .modal-getInfo {
-//         color: white;
-//         height: 100%;
-//         width: 50%;
-//         display: flex;
-//         justify-content: space-between;
-//         flex-flow: column;
-//         div {
-//             margin-bottom: 1rem;
-//         }
-//         label {
-//             font-size: 0.9rem;
-//         }
-//         input,
-//         textarea {
-//             display: block;
-//             width: 100%;
-//             outline: 0;
-//             border: 0;
-//             border-radius: 10px;
-//             padding: 0.2rem 0.5rem;
-//             resize: none;
-//         }
-//         input:focus,
-//         textarea:focus {
-//             outline: 0;
-//             border: 0;
-//         }
-//     }
-//     .save-modal-button {
-//         border-radius: 999px;
-//         padding: 0 24px;
-//         font-size: 0.9rem;
-//         background-color: white;
-//         color: #181818;
-//         &:hover {
-//             transform: scale(1.1);
-//         }
-//     }
-//     button {
-//         border: 0;
-//         outline: 0;
-//         cursor: pointer;
-//     }
-// }
+#modal-playlist_container {
+    max-width: 550px;
+    max-height: 550px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -275px;
+    margin-left: -275px;
+    border-radius: 6px;
+    z-index: 110;
+    background-color: #282828;
+    padding: 1rem;
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        .close-modal {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            @include flex-center();
+        }
+        button {
+            cursor: pointer;
+            font-size: 2rem;
+            background-color: transparent;
+            color: white;
+        }
+        .close-modal:hover {
+            background-color: #444444;
+        }
+        h1 {
+            font-size: 1rem;
+        }
+        margin-bottom: 0.7rem;
+    }
+    .modal-playlist {
+        width: 100%;
+    }
+    .modal-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+    }
+    #playlist-image_container {
+        width: 45%;
+        img {
+            width: 100%;
+            border-radius: 6px;
+        }
+    }
+    #profile-image_container {
+        background-image: url('../../assets/Icons/user-profile.svg');
+        border-radius: 50%;
+        height: 200px;
+        min-width: 200px;
+        width: 200px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        img {
+            width: 2rem;
+            filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+        }
+    }
+    .modal-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        background-color: #333333;
+        label,
+        input,
+        span,
+        #profile-img {
+            display: none;
+        }
+        &:hover {
+            background-image: none !important;
+            #profile-img {
+                display: block;
+            }
+            label,
+            span {
+                display: block;
+                cursor: pointer;
+                color: white;
+            }
+        }
+    }
+    .modal-getInfo {
+        color: white;
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: column;
+        div {
+            margin-bottom: 1rem;
+        }
+        label {
+            font-size: 0.9rem;
+        }
+        input,
+        textarea {
+            display: block;
+            width: 100%;
+            outline: 0;
+            border: 0;
+            border-radius: 10px;
+            padding: 0.2rem 0.5rem;
+            resize: none;
+        }
+        input:focus,
+        textarea:focus {
+            outline: 0;
+            border: 0;
+        }
+    }
+    .save-modal-button {
+        border-radius: 999px;
+        padding: 0 24px;
+        font-size: 0.9rem;
+        background-color: white;
+        color: #181818;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    button {
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+    }
+}
+
 @media (max-width: 1450px) {
     .aside-box {
         width: 23%;
@@ -501,6 +542,20 @@ header {
     .searchBox {
         width: 55%;
     }
+    #modal-playlist_container {
+        width: 400px;
+        margin-left: -200px;
+        // left: -138px;
+        #playlist-image_container {
+            display: none;
+        }
+        .modal-getInfo {
+            width: 100%;
+        }
+        .modal-footer {
+            text-align: center;
+        }
+    }
 }
 
 @media (max-width: 600px) {
@@ -530,6 +585,10 @@ header {
     .searchBox {
         width: 70%;
     }
+    #modal-playlist_container {
+        width: 300px;
+        margin-left: -150px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -543,149 +602,5 @@ header {
     }
     header a {
         font-size: 0.8rem;
-    }
-}
-
-//modal create play list
-.box-shadow {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba($color: #000000, $alpha: 0.5);
-    z-index: 100;
-}
-
-#modal-playlist_container {
-    max-width: 550px;
-    max-height: 550px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -275px;
-    margin-left: -275px;
-    border-radius: 6px;
-    z-index: 110;
-    background-color: #282828;
-    padding: 1rem;
-    .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: white;
-        .close-modal {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        button {
-            cursor: pointer;
-            font-size: 2rem;
-            background-color: transparent;
-            color: white;
-        }
-        .close-modal:hover {
-            background-color: #444444;
-        }
-        h1 {
-            font-size: 1rem;
-        }
-        margin-bottom: 0.7rem;
-    }
-    .modal-playlist {
-        width: 100%;
-    }
-    .modal-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        padding: 0;
-    }
-    .modal-image {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: column;
-        width: 45%;
-        background-color: #333333;
-        border-radius: 50%;
-        height: 200px;
-        min-width: 200px;
-        width: 200px;
-        background-image: url('../../assets/Icons/user-profile.svg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        label,
-        input,
-        span,
-        img {
-            display: none;
-        }
-        &:hover {
-            img {
-                display: block;
-            }
-            label,
-            span {
-                display: block;
-                cursor: pointer;
-                color: white;
-            }
-        }
-        img {
-            width: 2rem;
-            filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
-        }
-    }
-    .modal-getInfo {
-        color: white;
-        height: 100%;
-        width: 50%;
-        display: flex;
-        justify-content: space-between;
-        flex-flow: column;
-        div {
-            margin-bottom: 1rem;
-        }
-        label {
-            font-size: 0.9rem;
-        }
-        input,
-        textarea {
-            display: block;
-            width: 100%;
-            outline: 0;
-            border: 0;
-            border-radius: 10px;
-            padding: 0.2rem 0.5rem;
-            resize: none;
-        }
-        input:focus,
-        textarea:focus {
-            outline: 0;
-            border: 0;
-        }
-    }
-    .save-modal-button {
-        border-radius: 999px;
-        padding: 0 24px;
-        font-size: 0.9rem;
-        background-color: white;
-        color: #181818;
-        &:hover {
-            transform: scale(1.1);
-        }
-    }
-    button {
-        border: 0;
-        outline: 0;
-        cursor: pointer;
     }
 }

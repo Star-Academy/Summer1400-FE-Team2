@@ -66,6 +66,8 @@ main {
             display: none;
         }
         &:hover {
+            // opacity: 0.5;
+            background-image: url('') !important;
             label {
                 display: flex;
                 flex-flow: column;
@@ -80,7 +82,7 @@ main {
     }
 }
 
-.playlists__container {
+#library_playlists {
     width: 90%;
     margin: auto;
     margin-top: 2rem;
@@ -119,5 +121,36 @@ main {
 @media (max-width:1200px) {
     .playlists__container {
         margin: auto;
+    }
+    main {
+        width: 100%;
+    }
+}
+
+@media (max-width:768px) {
+    #profile_container {
+        min-height: 600px;
+    }
+    .card-playlist {
+        width: 70%;
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+    .profile {
+        flex-flow: column;
+        align-items: center;
+        width: 70%;
+        margin: auto;
+        .profile-info {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            margin-left: 0;
+        }
+        .profile-info #profile-name {
+            font-size: 2rem;
+            min-width: 100px;
+            // max-width: 100px;
+        }
     }
 }

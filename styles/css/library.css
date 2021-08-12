@@ -63,6 +63,9 @@ main {
 .profile .profile-photo_container input {
   display: none;
 }
+.profile .profile-photo_container:hover {
+  background-image: url("") !important;
+}
 .profile .profile-photo_container:hover label {
   display: flex;
   flex-flow: column;
@@ -74,24 +77,24 @@ main {
   filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
 }
 
-.playlists__container {
+#library_playlists {
   width: 90%;
   margin: auto;
   margin-top: 2rem;
 }
-.playlists__container .music-link {
+#library_playlists .music-link {
   width: 90%;
   margin: auto;
 }
-.playlists__container .music-link__image {
+#library_playlists .music-link__image {
   background-color: #333333;
   border-radius: 6px;
   margin-bottom: 0.5rem;
 }
-.playlists__container .music-link__image .playlist-cover {
+#library_playlists .music-link__image .playlist-cover {
   padding: 0.3rem;
 }
-.playlists__container .music-link__image img {
+#library_playlists .music-link__image img {
   width: 80%;
   display: block;
   margin: auto;
@@ -111,6 +114,38 @@ main {
 @media (max-width: 1200px) {
   .playlists__container {
     margin: auto;
+  }
+
+  main {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  #profile_container {
+    min-height: 600px;
+  }
+
+  .card-playlist {
+    width: 70%;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+
+  .profile {
+    flex-flow: column;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+  }
+  .profile .profile-info {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+  .profile .profile-info #profile-name {
+    font-size: 2rem;
+    min-width: 100px;
   }
 }
 
