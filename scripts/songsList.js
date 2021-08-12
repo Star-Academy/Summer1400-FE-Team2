@@ -116,7 +116,9 @@ const removeSong = (id) => {
             playlistId: +playlist_id,
             songId: id,
         })
-        .then((res) => {})
+        .then((res) => {
+            getPlaylistSongs();
+        })
         .catch((err) => {});
     showToast("آهنگ حذف شد");
 };
@@ -126,7 +128,7 @@ document.addEventListener(
     function(e) {
         if (e.target.className === "remove") {
             removeSong(+e.target.id);
-            getPlaylistSongs();
+            // getPlaylistSongs();
         }
     },
     false

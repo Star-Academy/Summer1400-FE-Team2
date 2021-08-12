@@ -152,7 +152,9 @@ const createNewPlaylist = () => {
     PostData("postCreatePlaylist",{
       token:getToken(),
       name:nameNewPlaylist
-    }).then((res)=>{}).catch((err) => {});
+    }).then((res)=>{
+      getAllPlaylists();
+    }).catch((err) => {});
     modal.style.display = "none";
     showToast("پلی لیست ساخته شد");
   }else{
