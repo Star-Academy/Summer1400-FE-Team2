@@ -75,17 +75,18 @@ profile_input.addEventListener("change", function(event) {
         setUserName(username_target);
         console.log(photo_target, console.log(username_target));
 
-        // let result_photo_link = `url('${photo_target}')`;
+         let result_photo_link = `${photo_target}`;
 
-        // PostData("postAlter", {
-        //         token: localStorage.getItem("token"),
-        //         username: 'test'
-        //     })
-        //     .then(res => {
-        //         console.log(res);
-        //     }, error => {
-        //         console.log(error);
-        //     })
+         PostData("postAlter", {
+                 token: localStorage.getItem("token"),
+                 username: 'Perriex1991',
+                 avatar:result_photo_link,
+             })
+             .then(res => {
+                 console.log(res);
+             }, error => {
+                 console.log(error);
+             })
 
         setProfileName();
         document.getElementById('modal').style.display = 'none';
