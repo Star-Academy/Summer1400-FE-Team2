@@ -10,7 +10,10 @@ const artist = document.getElementById("artist");
 const cover = document.getElementById("cover");
 const likeBtn = document.querySelector(".btn--like");
 const moreBtn = document.getElementById("more");
-
+const lyricsBtn = document.getElementById('song-lyrics-button');
+const lyrics_container = document.getElementById('music-lyrics_container');
+const lyrics = document.getElementById('music-lyrics');
+const back_lyricsBtn = document.getElementById('back-lyrics-button')
 let currTime = document.querySelector("#curtime");
 let durTime = document.querySelector("#durtime");
 
@@ -40,8 +43,22 @@ function loadSong(id) {
     artist.innerHTML = data.songs[id].artist;
     audio.src = data.songs[id].file;
     cover.src = data.songs[id].cover;
+    lyrics.innerText = data.songs[id].lyrics;
     playSong();
 }
+lyricsBtn.addEventListener('click', () => {
+    cover.style.display = 'none';
+    lyrics_container.style.display = 'block';
+    lyrics.style.display = 'block';
+    lyricsBtn.style.display = 'none';
+})
+
+back_lyricsBtn.addEventListener('click', () => {
+    cover.style.display = 'block';
+    lyrics_container.style.display = 'none';
+    lyrics.style.display = 'none';
+    lyricsBtn.style.display = 'block';
+})
 
 // play song
 
