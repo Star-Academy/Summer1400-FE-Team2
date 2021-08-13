@@ -166,11 +166,11 @@ function logoutBtnHandler() {
   }
 }
 
-//Auth Handle  =? Hadis add profile here!  /library?userId={localstorage}
+//Auth Handle
 const libraryMenu = document.getElementById("libraryMenu");
-
+console;
 function gotoLibrary() {
-  if (isLogedin()) {
+  if (getToken()) {
     libraryMenu.href = getNavLink(path, "library");
   } else {
     showToast("ابتدا وارد شوید");
@@ -190,7 +190,8 @@ if (libraryMenu) {
 //create playlist
 if (createListMenu_arr) {
   createListMenu_arr.forEach((item) => {
-    item.addEventListener("click", addPlaylist);
+    if (getToken()) item.addEventListener("click", addPlaylist);
+    else item.addEventListener("click", permission);
   });
 }
 
@@ -203,6 +204,7 @@ if (archivedMenu_arr) {
 
 //set for Favorite songs
 const getFirstPlaylist = () =>
+  getToken() &&
   PostData("postAllPlaylists", { token: getToken() }).then((res) =>
     localStorage.setItem("favoriteId", res[0].id)
   );
@@ -217,15 +219,7 @@ function gotoArchivedSongs() {
         ? `./pages/songsList.html?id&playlist=${id}`
         : `./songsList.html?id&playlist=${id}`;
   } else {
-    showToast("لیست آهنگ های مورد علاقه شما ساخته شد");
-    PostData("postCreatePlaylist", {
-      token: getToken(),
-      name: "مورد علاقه ها",
-    })
-      .then((res) => {
-        localStorage.setItem("favoriteId", res.id);
-      })
-      .catch((err) => showToast(err.message));
+    showToast("ابتدا وارد شوید");
   }
 }
 

@@ -37,14 +37,10 @@ const PostData = async(url, body) => {
         },
         body: JSON.stringify(body),
     });
-    // if (data.status == 200 && data.statusText == "") {
-    //     return "successful";
-    // }
     const text_data = await data.text();
     if (data.status == 200 && text_data == "") {
         return "successfully";
     } else {
-        // const json = await data.json();
         if (data.status < 400) return JSON.parse(text_data);
         throw JSON.parse(text_data);
     }
@@ -59,3 +55,12 @@ const CheckObj = (obj) => {
     });
     return allFilled;
 };
+
+
+const CheckIfLoggedIn = (body) => {
+    if(getToken()){
+        body
+    }else{
+        showToast("ابتدا وارد شوید")
+    }
+}

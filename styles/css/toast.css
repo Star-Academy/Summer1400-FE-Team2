@@ -10,13 +10,13 @@
   position: fixed;
   z-index: 1;
   left: 50%;
-  bottom: 2rem;
+  bottom: 4rem;
   font-size: 17px;
 }
 
 @media (max-width: 1200px) {
   #snackbar {
-    bottom: 5rem;
+    bottom: 7rem;
   }
 }
 #snackbar.show {
@@ -31,7 +31,7 @@
     opacity: 0;
   }
   to {
-    bottom: 30px;
+    bottom: 4rem;
     opacity: 1;
   }
 }
@@ -41,13 +41,13 @@
     opacity: 0;
   }
   to {
-    bottom: 30px;
+    bottom: 4rem;
     opacity: 1;
   }
 }
 @-webkit-keyframes fadeout {
   from {
-    bottom: 30px;
+    bottom: 4rem;
     opacity: 1;
   }
   to {
@@ -57,7 +57,7 @@
 }
 @keyframes fadeout {
   from {
-    bottom: 30px;
+    bottom: 4rem;
     opacity: 1;
   }
   to {

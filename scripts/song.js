@@ -244,7 +244,7 @@ function likeSongHandler() {
       showToast("به آهنگ های مورد علاقه اضافه شد");
       getPlaylistSongs(id);
     } else {
-      showToast("لطفا لیست آهنگ های مورد علاقه را ایجاد کنید");
+      showToast("لطفا وارد شوید");
       // isLiked = 0;
       likeBtn.querySelector("img").src =
         "../assets/Icons/like-button-empty.svg";
@@ -274,18 +274,23 @@ audio.addEventListener("timeupdate", DurTime);
 if (replayBtn) replayBtn.addEventListener("click", replaySongHandler);
 if (shuffleBtn) shuffleBtn.addEventListener("click", shuffleSongHandler);
 likeBtn.addEventListener("click", likeSongHandler);
-if (moreBtn)
+if (moreBtn) {
   moreBtn.addEventListener("click", () => {
-    let path = window.location.pathname.split("/").pop();
-    window.location =
-      path === "index.html" || path === ""
-        ? `./pages/songsList.html?id=${
-            data.songs[songIndex].id
-          }&playlist=${localStorage.getItem("favoriteId")}`
-        : `./songsList.html?id=${
-            data.songs[songIndex].id
-          }&playlist=${localStorage.getItem("favoriteId")}`;
+    if (getToken()) {
+      let path = window.location.pathname.split("/").pop();
+      window.location =
+        path === "index.html" || path === ""
+          ? `./pages/songsList.html?id=${
+              data.songs[songIndex].id
+            }&playlist=${localStorage.getItem("favoriteId")}`
+          : `./songsList.html?id=${
+              data.songs[songIndex].id
+            }&playlist=${localStorage.getItem("favoriteId")}`;
+    } else {
+      showToast("ابتدا وارد شوید");
+    }
   });
+}
 
 // change Song
 if (prevBtn) prevBtn.addEventListener("click", prevSong);
@@ -297,11 +302,13 @@ if (linkReturn) linkReturn.href = `./song.html?id=${data.songs[songIndex].id}`;
 //add to playlists
 
 function addToPlaylist() {
-  PostData("postAllPlaylists", {
-    token: getToken(),
-  }).then((res) => {
-    AddPlaylistModal(res,data.songs[songIndex]);
-  });
+  CheckIfLoggedIn(
+    PostData("postAllPlaylists", {
+      token: getToken(),
+    }).then((res) => {
+      AddPlaylistModal(res, data.songs[songIndex]);
+    })
+  );
 }
 
 addBtn.addEventListener("click", addToPlaylist);

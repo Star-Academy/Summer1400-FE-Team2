@@ -67,7 +67,7 @@ function getPlaylistSongs(id) {
       const playlist_image = document.getElementById("playlist-img");
       if (res["songs"][0]["cover"])
         playlist_image.src = res["songs"][0]["cover"];
-      
+
       showToast("درحال بارگزاری آهنگ ها");
     })
     .catch(() => {
@@ -163,17 +163,18 @@ if (remove_playlist_button)
 function getPlaylistName(id) {
   const playlists = [];
   let name = "";
-  PostData("postAllPlaylists", {
-    token: localStorage.getItem("token"),
-  })
-    .then((res) => {
-      res.forEach((item) => {
-        playlists.push(item);
-      });
+  getToken() &&
+    PostData("postAllPlaylists", {
+      token: localStorage.getItem("token"),
     })
-    .catch((error) => {
-      showToast(error);
-    });
+      .then((res) => {
+        res.forEach((item) => {
+          playlists.push(item);
+        });
+      })
+      .catch((error) => {
+        showToast(error);
+      });
 
   playlists.forEach((item) => {
     if (item["id"] == id) {
