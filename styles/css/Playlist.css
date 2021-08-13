@@ -466,6 +466,7 @@ header .controlBtn:hover img {
 }
 @media (max-width: 900px) {
   main {
+    margin: auto;
     margin-top: 20%;
     margin-bottom: 20%;
   }
@@ -512,6 +513,21 @@ header .controlBtn:hover img {
   }
   #modal-playlist_container .modal-content {
     flex-flow: column;
+  }
+}
+@media (max-width: 600px) {
+  .card-playlist {
+    padding: 0 0 0 0.4rem;
+  }
+  .card-playlist a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-playlist img:nth-child(1) {
+    display: block;
+    width: 30%;
+    margin-bottom: auto;
   }
 }
 @media (max-width: 500px) {
@@ -563,8 +579,10 @@ section {
 
 .filters {
   display: flex;
+  align-items: center;
   flex-direction: row;
   padding: 10px;
+  margin-bottom: 1rem;
 }
 .filters .sorter {
   width: 80%;
@@ -587,9 +605,29 @@ section {
   color: #fff;
   width: 20%;
   display: flex;
+  align-items: center;
 }
 .filters .count * {
   margin: 5px;
+}
+
+#song-sort,
+#song-numbers {
+  font-size: 0.7rem;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+}
+#song-sort option:hover,
+#song-numbers option:hover {
+  cursor: pointer;
+}
+#song-sort:hover,
+#song-numbers:hover {
+  border: 0;
+  outline: 0;
 }
 
 @media (max-width: 800px) {

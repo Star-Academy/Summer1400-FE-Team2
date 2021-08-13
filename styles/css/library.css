@@ -8,6 +8,10 @@ main {
   background-color: #1d1d1d;
 }
 
+#logoutBtn:hover {
+  background-color: #1d1d1d;
+}
+
 .user-controls__links a:hover {
   background-color: black;
 }
@@ -126,6 +130,20 @@ main {
   main {
     width: 100%;
   }
+
+  .profile {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .profile #profile-name {
+    min-width: 200px;
+  }
+}
+@media (max-width: 900px) {
+  .profile #profile-name {
+    font-size: 3rem;
+  }
 }
 @media (max-width: 768px) {
   #profile_container {
@@ -145,6 +163,9 @@ main {
     flex-flow: column;
     align-items: center;
   }
+  .profile .profile-photo_container {
+    margin-bottom: 0.6rem;
+  }
   .profile .profile-info {
     width: 100%;
     align-items: center;
@@ -154,6 +175,16 @@ main {
   .profile .profile-info #profile-name {
     font-size: 2rem;
     min-width: 100px;
+  }
+}
+@media (max-width: 600px) {
+  .card-playlist a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-playlist .music-link__image {
+    width: 30%;
   }
 }
 

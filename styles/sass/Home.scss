@@ -90,7 +90,19 @@
         }
     }
     .card-playlist {
-        text-align: center;
+        padding: 0 0 0 0.4rem;
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .music-link__image {
+            width: 30%;
+            display: flex;
+            img {
+                margin: auto;
+            }
+        }
     }
 }
 

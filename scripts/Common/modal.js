@@ -45,17 +45,15 @@ function showSearchResults(data) {
           <div class="modal-search">
                 <p>نتایج جست و جوی شما</p>
                 <div class="search-container">
-                ${
-                  data.length > 0
-                    ? data
-                        .map(
-                          (song) =>
-                            `<div class="card" >
-                                <a class="music-link" href="${
-                                  path === "index.html" || path === ""
-                                    ? `./pages/song.html?id=${song.id}`
-                                    : `../pages/song.html?id=${song.id}`
-                                }">
+                ${data.length > 0
+      ? data
+        .map(
+          (song) =>
+            `<div class="card" >
+                                <a class="music-link" href="${path === "index.html" || path === ""
+              ? `./pages/song.html?id=${song.id}`
+              : `../pages/song.html?id=${song.id}`
+            }">
                                     <div class="music-link__image">
                                     <img src="${song.cover}" alt="cover" />
                                     </div>
@@ -65,10 +63,10 @@ function showSearchResults(data) {
                                     </div>
                                 </a>
                             </div>`
-                        )
-                        .join("")
-                    : "<a>نتیجه ای یافت نشد</a>"
-                }
+        )
+        .join("")
+      : "<a>نتیجه ای یافت نشد</a>"
+    }
                 </div>
           </div>
         </div>`;
@@ -83,7 +81,7 @@ function addPlaylist() {
       <div class="modal-header">
           <h1>افزودن پلی لیست</h1>
           <div class="close-modal">
-          <button id="close-modal-button">&times;</button>
+          <button id="close-playlist-button">&times;</button>
       </div>
       </div>
       <div class="modal-content">
@@ -96,12 +94,10 @@ function addPlaylist() {
               </div>
           </div>
           <div class="modal-image" id='playlist-image_container'>
-              <!-- <input type="file"> -->
-              <img id='playlist-img' src="${
-                path === "" || path === "index.html"
-                  ? "./assets/images/box-modal.jpg"
-                  : "../assets/images/box-modal.jpg"
-              }" alt="">
+              <img id='playlist-img' src="${path === "" || path === "index.html"
+      ? "./assets/images/box-modal.jpg"
+      : "../assets/images/box-modal.jpg"
+    }" alt="">
           </div>
       </div>
       <div class="modal-footer">
@@ -112,7 +108,7 @@ function addPlaylist() {
   `;
   document.getElementById("modal-playlist_container").style.display = "block";
   document
-    .getElementById("close-modal-button")
+    .getElementById("close-playlist-button")
     .addEventListener("click", () => {
       document.getElementById("modal-playlist_container").style.display =
         "none";
@@ -131,11 +127,11 @@ const createNewPlaylist = () => {
       .then((res) => {
         getAllPlaylists();
       })
-      .catch((err) => {});
+      .catch((err) => { });
     modal.style.display = "none";
     showToast("پلی لیست ساخته شد");
   } else {
-    showToast("نام لیست را وارد کنید");
+    showToast(" را وارد کنید");
   }
 };
 
@@ -157,16 +153,16 @@ function AddPlaylistModal(playlists, song) {
         </div>
         <div class="song-modal_links">  
             ${playlists
-              .map(
-                (item) =>
-                  `<div>
+      .map(
+        (item) =>
+          `<div>
                     <button id="${item.id}">
                       <img src="../assets/Icons/music-folder.svg"alt=""class="svgColor"/>
                       <span> اضافه به  ${item.name}</span>
                     </button>
                 </div>`
-              )
-              .join("\n")}
+      )
+      .join("\n")}
         </div>
     </div>
   </div>
@@ -190,4 +186,35 @@ function AddPlaylistModal(playlists, song) {
       modal.style.display = "none";
     });
   }
+}
+
+function getEditModal(){
+  return `
+  <div id="modal-playlist_container">
+    <div class="modal-playlist">
+      <div class="modal-header">
+          <h1>ویرایش پروفایل</h1>
+          <div class="close-modal">
+          <button id="close-profile-button">&times;</button>
+      </div>
+      </div>
+      <div class="modal-content">
+          <div class="modal-getInfo">
+              <div>
+                  <input type="text" id="modal-username" name="name" >
+              </div>
+          </div>
+          <div class="modal-image" id='profile-image_container'>
+          <span id='delete-modalImg'>حذف عکس</span>
+          <img id='profile-img' src="../assets/Icons/edit-button.svg" alt="">
+              <label for="modal-file" id='edit-modalImg'>انتخاب عکس</label>
+              <input type="file" id="modal-file" name="myfile">
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button id="save-photo" class='save-modal-button'>ذخیره</button>
+      </div>
+    </div>
+  </div>
+  `
 }

@@ -198,6 +198,9 @@
     width: 70%;
   }
 
+  .card .music-info {
+    align-items: center;
+  }
   .card .music-info h4 {
     font-size: 1rem;
   }

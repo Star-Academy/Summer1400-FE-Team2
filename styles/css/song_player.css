@@ -152,6 +152,9 @@ main {
   width: 2rem;
   filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
 }
+.img--music #back-lyrics-button:hover {
+  transform: scale(1.1);
+}
 
 .info__music {
   display: flex;
@@ -367,7 +370,7 @@ main {
   #music-lyrics_container #music-lyrics {
     width: 80%;
     margin: auto;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     max-height: 300px;
   }
 }
