@@ -27,6 +27,12 @@ main {
   color: white;
   padding: 0 2rem;
 }
+.profile button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
 .profile div {
   display: flex;
   align-items: center;

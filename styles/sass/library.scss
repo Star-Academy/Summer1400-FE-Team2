@@ -32,6 +32,12 @@ main {
   width: 90%;
   color: white;
   padding: 0 2rem;
+  button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
   div {
     display: flex;
     align-items: center;

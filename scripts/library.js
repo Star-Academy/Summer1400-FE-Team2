@@ -35,7 +35,7 @@ const fillData_library = (playlists, user_playlistsPics) => {
 `;
 };
 
-// work with playlists 
+// work with playlists
 
 async function getAllPlaylists() {
   const user_playlists = [];
@@ -86,20 +86,22 @@ profile_input.addEventListener(
     let file = profile_input.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
-    if(file.size/1000 < 85){
-    reader.onload = function () {
-      PostData("postAlter", {
-        token: localStorage.getItem("token"),
-        avatar: reader.result,
-      }).then(
-        (res) => {
-          getUserData()},
-        (error) => {}
-      );
-    };
-  }else{
-    showToast("حجم فایل زیاد است")
-  }
+    if (file.size / 1000 < 85) {
+      showToast("درحال آپلود");
+      reader.onload = function () {
+        PostData("postAlter", {
+          token: localStorage.getItem("token"),
+          avatar: reader.result,
+        }).then(
+          (res) => {
+            getUserData();
+          },
+          (error) => {}
+        );
+      };
+    } else {
+      showToast("حجم فایل زیاد است");
+    }
   },
   false
 );
