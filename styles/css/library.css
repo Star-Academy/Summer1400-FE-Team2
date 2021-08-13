@@ -110,7 +110,6 @@ main {
   width: 100%;
   display: block;
   margin: auto;
-  margin: auto;
 }
 
 .modal-image span:hover,
@@ -183,8 +182,18 @@ main {
     align-items: center;
     justify-content: space-between;
   }
-  .card-playlist .music-link__image {
+
+  #library_playlists .music-link {
+    align-items: center;
+    width: 100%;
+  }
+  #library_playlists .music-link__image {
+    margin-bottom: 0;
     width: 30%;
+  }
+  #library_playlists .music-link__image img {
+    display: flex;
+    margin-bottom: auto;
   }
 }
 

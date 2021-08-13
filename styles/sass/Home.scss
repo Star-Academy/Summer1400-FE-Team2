@@ -97,10 +97,11 @@
             justify-content: space-between;
         }
         .music-link__image {
-            width: 30%;
-            display: flex;
+            width: 40%;
             img {
-                margin: auto;
+                display: flex;
+                width: 70%;
+                margin-bottom: auto;
             }
         }
     }

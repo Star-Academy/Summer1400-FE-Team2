@@ -542,6 +542,10 @@ header {
             margin-bottom: auto;
         }
     }
+    .aside-mobile__links a {
+        min-width: 140px;
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 500px) {
