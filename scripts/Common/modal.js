@@ -36,7 +36,6 @@ function permission() {
         </div>`;
 }
 
-
 function showSearchResults(data) {
   modal.style.display = "block";
   let path = calculatePath();
@@ -52,7 +51,11 @@ function showSearchResults(data) {
                         .map(
                           (song) =>
                             `<div class="card" >
-                                <a class="music-link" href="./pages/song.html?id=${song.id}">
+                                <a class="music-link" href="${
+                                  path === "index.html" || path === ""
+                                    ? `./pages/song.html?id=${song.id}`
+                                    : `../pages/song.html?id=${song.id}`
+                                }">
                                     <div class="music-link__image">
                                     <img src="${song.cover}" alt="cover" />
                                     </div>
@@ -70,7 +73,6 @@ function showSearchResults(data) {
           </div>
         </div>`;
 }
-
 
 function addPlaylist() {
   modal.style.display = "block";
@@ -185,7 +187,7 @@ function AddPlaylistModal(playlists, song) {
       })
         .then((res) => "")
         .catch((err) => showToast(err.message));
-        modal.style.display = "none";
+      modal.style.display = "none";
     });
   }
 }
