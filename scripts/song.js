@@ -132,7 +132,6 @@ playBtn.addEventListener("click", () => {
 function updateProgress(e) {
   const { duration, currentTime } = e.srcElement;
   const progressPercent = (currentTime / duration) * 100;
-  // if (progress) progress.style.width = `${progressPercent}%`;
   progress_arr.forEach((item) => {
     item.style.width = `${progressPercent}%`;
   });
@@ -245,7 +244,6 @@ function likeSongHandler() {
       getPlaylistSongs(id);
     } else {
       showToast("لطفا وارد شوید");
-      // isLiked = 0;
       likeBtn.querySelector("img").src =
         "../assets/Icons/like-button-empty.svg";
     }
@@ -260,7 +258,6 @@ function likeSongHandler() {
 audio.addEventListener("timeupdate", updateProgress);
 
 //click on progress bar
-// if (progressContainer) progressContainer.addEventListener("click", setProgress);
 progressContainer_arr.forEach((item) => {
   item.addEventListener("click", setProgress);
 });

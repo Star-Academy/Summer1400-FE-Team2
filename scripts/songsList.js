@@ -71,11 +71,9 @@ function getPlaylistSongs(id) {
       showToast("درحال بارگزاری آهنگ ها");
     })
     .catch(() => {
-      // showToast("خطا در ارتباط با سرور");
     });
 }
 
-// let id = localStorage.getItem("favoriteId");
 let url = new URL(window.location.href);
 let search_params = url.searchParams;
 let playlist_id = search_params.get("playlist");
@@ -181,5 +179,4 @@ function getPlaylistName(id) {
       name = item["name"];
     }
   });
-  // return name;
 }

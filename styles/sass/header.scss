@@ -105,7 +105,6 @@ header {
 }
 
 .user-controls__links a {
-  // display: inline-block;
   display: flex;
   align-items: center;
   max-width: 7rem;
@@ -164,7 +163,6 @@ header {
     cursor: pointer;
     img {
       width: 1rem;
-      // color: #444444;
       filter: invert(25%) sepia(6%) saturate(11%) hue-rotate(349deg)
         brightness(90%) contrast(85%);
       vertical-align: middle;
