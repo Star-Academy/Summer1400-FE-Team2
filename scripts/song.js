@@ -29,12 +29,12 @@ let id = search_params.get("id");
 let playlistId = search_params.get("playlist");
 var isLiked = false;
 let autoPlay = false;
-
+console.log(id);
 let data;
-if (playlistId) {
+if (playlistId && playlistId !== "null") {
   const js = await GetData("getPlaylist", playlistId);
   data = js;
-  id = data.songs[0].id;
+  id = id ? id: data.songs[0].id;
 } else data = await GetData("getAllSongs");
 
 let firstSong = id ? data.songs.filter((song) => song.id === +id)[0] : null;
@@ -99,6 +99,7 @@ function addIdToURl() {
 }
 
 function prevSong() {
+
   if (isShuffle) {
     let random = Math.floor(Math.random() * data.songs.length - 1);
     while (songIndex === random) {
@@ -189,6 +190,7 @@ function DurTime(e) {
 
   get_sec(currentTime, sec);
   if (currTime) currTime.innerHTML = min + ":" + sec;
+
   // define minutes duration
   let min_d = isNaN(duration) === true ? "0" : Math.floor(duration / 60);
   min_d = min_d < 10 ? "0" + min_d : min_d;
