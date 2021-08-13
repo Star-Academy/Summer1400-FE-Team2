@@ -1,6 +1,7 @@
 const library_playlists = document.getElementById("library_playlists");
+const edit_profileBtn = document.getElementById('edit-profile-button');
 const fillData_library = (playlists, user_playlistsPics) => {
-  return `
+        return `
   <div class="cards__container">
       ${playlists
         .map(
@@ -105,3 +106,7 @@ profile_input.addEventListener(
   },
   false
 );
+
+edit_profileBtn.addEventListener('click',()=>{
+  console.log('edit profile');
+})
