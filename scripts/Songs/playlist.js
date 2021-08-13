@@ -43,6 +43,5 @@ song_numbers.addEventListener("change", () => {
 
 song_sort.addEventListener("change", () => {
   sort = song_sort.options[song_sort.selectedIndex].value;
-  console.log(song_sort.options);
   createCardsList(1200, song_sort.options[song_sort.selectedIndex].value);
 });

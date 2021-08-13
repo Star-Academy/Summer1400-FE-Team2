@@ -4,10 +4,8 @@ const playlist_details = document.querySelector(".playlist-details");
 const playMusic_button = document.getElementById("playMusicBtn");
 const like_songsList = document.getElementById("like-songs");
 
-
 function fillData(data) {
-    console.log(data, data.song);
-    playlist_details.innerHTML = `
+  playlist_details.innerHTML = `
     <div class="playlist-details__image">
         <img id='playlist-img' src="../assets/images/sample.jpg" alt="playlist-image" />
     </div>
@@ -19,10 +17,10 @@ function fillData(data) {
         </div>
     </div>
 `;
-    const songsList = data.songs
-        .map(
-            (song, i) =>
-            `<tr>
+  const songsList = data.songs
+    .map(
+      (song, i) =>
+        `<tr>
             <td class="hide-column">
             <span> ${i + 1} </span>
             <img src="../assets/Icons/play-triangle-button.svg" class="play_sign_button svgColor" alt="">
@@ -50,35 +48,31 @@ function fillData(data) {
               song.id
             }" class="remove" src="../assets/Icons/remove_circle_white_24dp.svg"/></td>
         </tr>`
-        )
-        .join("\n");
-    playlist_body.innerHTML = songsList;
-    playMusic_button.addEventListener("click", () => {
-        if (getToken()) {
-            window.location.href = `./song.html?id=${data.songs[0].id}`;
-        } else {
-            permission();
-        }
-    });
+    )
+    .join("\n");
+  playlist_body.innerHTML = songsList;
+  playMusic_button.addEventListener("click", () => {
+    if (getToken()) {
+      window.location.href = `./song.html?id=${data.songs[0].id}`;
+    } else {
+      permission();
+    }
+  });
 }
 
-
 function getPlaylistSongs(id) {
-    GetData("getPlaylist", id)
-        .then((res) => {
-            console.log(res['songs'][0]['cover']);
-            fillData(res);
-            const playlist_image = document.getElementById('playlist-img');
-            console.log(playlist_image)
-            if (res['songs'][0]['cover'])
-                playlist_image.src = res['songs'][0]['cover'];
-            else
-                console.log(playlist_image.src);
-            showToast("درحال بارگزاری آهنگ ها");
-        })
-        .catch(() => {
-            // showToast("خطا در ارتباط با سرور");
-        });
+  GetData("getPlaylist", id)
+    .then((res) => {
+      fillData(res);
+      const playlist_image = document.getElementById("playlist-img");
+      if (res["songs"][0]["cover"])
+        playlist_image.src = res["songs"][0]["cover"];
+      
+      showToast("درحال بارگزاری آهنگ ها");
+    })
+    .catch(() => {
+      // showToast("خطا در ارتباط با سرور");
+    });
 }
 
 // let id = localStorage.getItem("favoriteId");
@@ -86,103 +80,105 @@ let url = new URL(window.location.href);
 let search_params = url.searchParams;
 let playlist_id = search_params.get("playlist");
 if (playlist_id) {
-    getPlaylistSongs(playlist_id);
+  getPlaylistSongs(playlist_id);
 }
-
 
 //Remove a song
 const removeSong = (id) => {
-    let url = new URL(window.location.href);
-    let search_params = url.searchParams;
-    let playlist_id = search_params.get("playlist");
-    PostData("postRemoveSong", {
-            token: getToken(),
-            playlistId: +playlist_id,
-            songId: id,
-        })
-        .then((res) => {
-            getPlaylistSongs();
-        })
-        .catch((err) => {});
-    showToast("آهنگ حذف شد");
+  let url = new URL(window.location.href);
+  let search_params = url.searchParams;
+  let playlist_id = search_params.get("playlist");
+  PostData("postRemoveSong", {
+    token: getToken(),
+    playlistId: +playlist_id,
+    songId: id,
+  })
+    .then((res) => {
+      getPlaylistSongs();
+    })
+    .catch((err) => {});
+  showToast("آهنگ حذف شد");
 };
 
 document.addEventListener(
-    "click",
-    function(e) {
-        if (e.target.className === "remove") {
-            removeSong(+e.target.id);
-            // getPlaylistSongs();
-        }
-    },
-    false
+  "click",
+  function (e) {
+    if (e.target.className === "remove") {
+      removeSong(+e.target.id);
+    }
+  },
+  false
 );
-
 
 /* When the user clicks on the button, 
                                         toggle between hiding and showing the dropdown content */
 function dropbtnHandler() {
-    document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
-const dropbtn = document.querySelector('.dropbtn');
-const dropbtn_icon = document.querySelector('.dropbtn img');
-if (dropbtn) dropbtn.addEventListener('click', dropbtnHandler);
+const dropbtn = document.querySelector(".dropbtn");
+const dropbtn_icon = document.querySelector(".dropbtn img");
+if (dropbtn) dropbtn.addEventListener("click", dropbtnHandler);
 
-window.addEventListener('click', (e) => {
-    if (e.target !== dropbtn_icon) {
-        const myDropdown = document.getElementById("myDropdown");
-        if (myDropdown) {
-            if (myDropdown.classList.contains('show')) {
-                myDropdown.classList.remove('show');
-            }
-        }
+window.addEventListener("click", (e) => {
+  if (e.target !== dropbtn_icon) {
+    const myDropdown = document.getElementById("myDropdown");
+    if (myDropdown) {
+      if (myDropdown.classList.contains("show")) {
+        myDropdown.classList.remove("show");
+      }
     }
-})
+  }
+});
 
-const remove_playlist_button = document.getElementById('removePlaylistBtn');
+const remove_playlist_button = document.getElementById("removePlaylistBtn");
 
 // remove playlist
+let id = localStorage.getItem("favoriteId");
+
 function removePlaylist() {
-    let url = new URL(window.location.href);
-    let search_params = url.searchParams;
-    let playlist_id = search_params.get("playlist");
-    console.log(playlist_id);
-    let playlist_name;
+  let url = new URL(window.location.href);
+  let search_params = url.searchParams;
+  let playlist_id = search_params.get("playlist");
+  let playlist_name;
+  if (id !== playlist_id)
     PostData("postRemovePlaylist", {
-        token: getToken(),
-        id: +playlist_id
-    }).then(res => {
-        showToast(`playlist removed successfully`);
-        console.log('after removing playlist : message :', res);
-        window.location = '../index.html';
-    }).catch(error => {
-        showToast(error);
+      token: getToken(),
+      id: +playlist_id,
     })
+      .then((res) => {
+        showToast(`playlist removed successfully`);
+        window.location = "../index.html";
+      })
+      .catch((error) => {
+        showToast(error);
+      });
+  else {
+    showToast("لیست آهنگ های مورد علاقه قابل حذف کردن نمیباشد.");
+  }
 }
 if (remove_playlist_button)
-    remove_playlist_button.addEventListener('click', removePlaylist);
+  remove_playlist_button.addEventListener("click", removePlaylist);
 
 function getPlaylistName(id) {
-    const playlists = [];
-    let name = '';
-    PostData("postAllPlaylists", {
-        token: localStorage.getItem("token")
-    }).then(res => {
-        res.forEach(item => {
-            playlists.push(item);
-        });
-
-    }).catch(error => {
-        showToast(error);
+  const playlists = [];
+  let name = "";
+  PostData("postAllPlaylists", {
+    token: localStorage.getItem("token"),
+  })
+    .then((res) => {
+      res.forEach((item) => {
+        playlists.push(item);
+      });
     })
+    .catch((error) => {
+      showToast(error);
+    });
 
-    playlists.forEach(item => {
-            if (item['id'] == id) {
-                console.log('hello');
-                name = item['name'];
-                console.log('name: ', name);
-            }
-        })
-        // return name;
+  playlists.forEach((item) => {
+    if (item["id"] == id) {
+      name = item["name"];
+    }
+  });
+  // return name;
 }

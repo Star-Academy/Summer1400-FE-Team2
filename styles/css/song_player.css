@@ -2,8 +2,8 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  font-size: 62.5%;
   font-family: Dirooz;
+  font-size: 62.5%;
 }
 
 @font-face {
@@ -237,6 +237,7 @@ main {
 }
 
 .btn--like,
+.btn--add,
 #repeat,
 #more,
 #dropdown,
@@ -246,6 +247,7 @@ main {
   cursor: pointer;
 }
 .btn--like img,
+.btn--add img,
 #repeat img,
 #more img,
 #dropdown img,

@@ -23,7 +23,6 @@ profile_input.addEventListener("change", function(event) {
     modal_username.value = getUserName();
 
     modal_username.addEventListener('change', () => {
-        console.log(modal_username.value);
         username_target = modal_username.value;
     })
     if (file) {
@@ -54,21 +53,16 @@ profile_input.addEventListener("change", function(event) {
     save_modal.addEventListener('click', () => {
         profile_img.style.backgroundImage = `url('${photo_target}')`;
         setUserName(username_target);
-        console.log(photo_target, console.log(username_target));
 
         let result_photo_link = `${photo_target}`;
-        console.log(username_target);
-        console.log(result_photo_link);
         PostData("postAlter", {
                 token: localStorage.getItem("token"),
                 username: username_target,
                 avatar: result_photo_link,
             })
             .then(res => {
-                console.log(res);
                 updateProfile();
             }, error => {
-                console.log(error);
             })
 
         setProfileName();
@@ -126,9 +120,7 @@ function getAllPlaylists(){
         library_playlists.innerHTML = fillData_library(user_playlists);
     }).catch(error=>{
        showToast(error);
-       console.log(error);
     });
-    console.log(user_playlists);
 }
 
 getAllPlaylists();
@@ -138,11 +130,8 @@ let avatar_img;
 function updateProfile(){
     GetData("getUser", parseInt(localStorage.getItem('userId')) )
     .then(res => {
-        console.log(res);
         avatar_img = res['user']['avatar'];
         let image_url = document.querySelector('.profile-photo_container').style.backgroundImage;
-        console.log(document.querySelector('.profile-photo_container').style.backgroundImage);
-        console.log(image_url);
         document.querySelector('.profile-photo_container').style.backgroundImage = `url(${avatar_img})`;
         // profile_img.style.backgroundImage = avatar;
     })
@@ -152,7 +141,6 @@ function updateProfile(){
 //     const data;
 //     GetData("getUser", parseInt(localStorage.getItem('userId')) )
 //     .then(res => {
-//         console.log(res);
 //         data = res;
 //         avatar = res['user']['avatar'];
 //         profile_img.style.backgroundImage = `url(${avatar})`;

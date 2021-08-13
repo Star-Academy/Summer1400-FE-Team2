@@ -1,61 +1,56 @@
-.song-modal__container {
-    display: none;
-    .song-modal {
-        width: 100%;
-        position: fixed;
-        top: 20%;
-        right: 0;
-        margin: auto;
+.song-modal {
+  *{
+    font-size: 16px;
+  }
+  font-size: 100%;
+  background-color: #000;
+  border-radius: 1rem;
+  padding: 1rem;
+  color: white;
+  width: 100%;
+  max-width: 60rem;
+  display: grid;
+  place-items: center;
+  .song-modal__content {
+    margin: auto;
+  }
+  .song-modal_image {
+    display: flex;
+    text-align: center;
+    margin: auto;
+    img {
+      width: 100%;
+      max-width: 8rem;
+      height: auto;
+      border-radius: .6rem;
     }
-    #songModal-close {
-        position: absolute;
-        right: 5%;
-        top: 5%;
-        font-size: 2rem;
-        cursor: pointer;
-        font-weight: bold;
+    .song-modal__text {
+      margin: 1rem;
     }
-    color: white;
-    background-color: rgba($color: #000000, $alpha: 0.9);
+  }
+  .song-modal_links {
+    margin-top: 2rem;
+    font-size: 0.9rem;
     width: 100%;
-    height: 100vh;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    z-index: 100;
-    .song-modal__content {
-        margin: auto;
-    }
-    .song-modal_image {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    div {
+      padding: 0.2rem 0.8rem;
+      button {
         text-align: center;
-        width: 50%;
-        margin: auto;
-        margin-bottom: 2.5rem;
+        display: flex;
+        justify-content: center;
+        background-color: transparent;
+        border: 0;
+        font-size: 1rem;
+        cursor: pointer;
+        color: rgb(209, 209, 209);
         img {
-            width: 100%;
+          width: 1rem;
+          margin: 0.2rem;
         }
+      }
     }
-    .song-modal_links {
-        font-size: 0.9rem;
-        width: 90%;
-        margin: auto;
-        div {
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 0.5rem;
-            padding: 0.2rem 0.8rem;
-            color: rgb(209, 209, 209);
-            button {
-                background-color: transparent;
-                border: 0;
-                margin-left: 0.5rem;
-                font-size: 1rem;
-                cursor: pointer;
-                img {
-                    width: 1rem;
-                }
-            }
-        }
-    }
+  }
 }

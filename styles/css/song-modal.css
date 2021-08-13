@@ -1,63 +1,58 @@
-.song-modal__container {
-  display: none;
+.song-modal {
+  font-size: 100%;
+  background-color: #000;
+  border-radius: 1rem;
+  padding: 1rem;
   color: white;
-  background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
-  height: 100vh;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 100;
+  max-width: 60rem;
+  display: grid;
+  place-items: center;
 }
-.song-modal__container .song-modal {
-  width: 100%;
-  position: fixed;
-  top: 20%;
-  right: 0;
+.song-modal * {
+  font-size: 16px;
+}
+.song-modal .song-modal__content {
   margin: auto;
 }
-.song-modal__container #songModal-close {
-  position: absolute;
-  right: 5%;
-  top: 5%;
-  font-size: 2rem;
-  cursor: pointer;
-  font-weight: bold;
-}
-.song-modal__container .song-modal__content {
-  margin: auto;
-}
-.song-modal__container .song-modal_image {
+.song-modal .song-modal_image {
+  display: flex;
   text-align: center;
-  width: 50%;
   margin: auto;
-  margin-bottom: 2.5rem;
 }
-.song-modal__container .song-modal_image img {
+.song-modal .song-modal_image img {
   width: 100%;
+  max-width: 8rem;
+  height: auto;
+  border-radius: 0.6rem;
 }
-.song-modal__container .song-modal_links {
+.song-modal .song-modal_image .song-modal__text {
+  margin: 1rem;
+}
+.song-modal .song-modal_links {
+  margin-top: 2rem;
   font-size: 0.9rem;
-  width: 90%;
+  width: 100%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
-.song-modal__container .song-modal_links div {
+.song-modal .song-modal_links div {
+  padding: 0.2rem 0.8rem;
+}
+.song-modal .song-modal_links div button {
   text-align: center;
   display: flex;
   justify-content: center;
-  margin-bottom: 0.5rem;
-  padding: 0.2rem 0.8rem;
-  color: #d1d1d1;
-}
-.song-modal__container .song-modal_links div button {
   background-color: transparent;
   border: 0;
-  margin-left: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
+  color: #d1d1d1;
 }
-.song-modal__container .song-modal_links div button img {
+.song-modal .song-modal_links div button img {
   width: 1rem;
+  margin: 0.2rem;
 }
 
 /*# sourceMappingURL=song-modal.css.map */

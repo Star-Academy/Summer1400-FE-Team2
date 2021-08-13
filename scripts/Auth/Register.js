@@ -16,7 +16,15 @@ const checkData = (e) => {
         localStorage.setItem("userId", res.id);
         localStorage.setItem("token", res.token);
         localStorage.setItem("username", postBody.username);
-        window.location.href = "../index.html";
+        PostData("postCreatePlaylist", {
+          token: localStorage.getItem("token"),
+          name: "مورد علاقه ها",
+        })
+          .then((res) => {
+            localStorage.setItem("favoriteId", res.id);
+            window.location.href = "../index.html";
+          })
+          .catch((err) => showToast(err.message));
       })
       .catch((err) => {
         showToast(err.message);

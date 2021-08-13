@@ -99,12 +99,10 @@
         </div>
         <div class="grid-item__header" id="boxSearchMenu">
             <div class="searchBox">
-                <form action="#">
-                    <input type="text" placeholder="خواننده ها , آهنگ ها....." />
-                    <button class="searchBox__button" id="searchBtn">
-              <img src="../assets/Icons/search-button.svg" alt="">
-            </button>
-                </form>
+                <input type="text" placeholder="خواننده ها , آهنگ ها....." />
+                <button class="searchBox__button" id="searchBtn">
+                    <img src="../assets/Icons/search-button.svg" alt="" />
+                </button>
             </div>
         </div>
         <div class="grid-item__header">
@@ -126,19 +124,17 @@
             <div class="playlist-controls">
                 <button id="playMusicBtn">
                     <img src="../assets/Icons/play-button.svg" alt="">
-          </button>
+                </button>
                 <button id="like-songs">
-            <img class="svg-button" id="likeEmpty-svg" src="../assets/Icons/like-button-empty.svg" alt="">
-          </button>
+                    <img class="svg-button" id="likeEmpty-svg" src="../assets/Icons/like-button-empty.svg" alt="">
+                </button>
                 <div class="dropdown">
                     <button class="dropbtn">
-            <img class="svg-button" id="details-svg" src="../assets/Icons/dots-button.svg" alt="">
-          </button>
+                        <img class="svg-button" id="details-svg" src="../assets/Icons/dots-button.svg" alt="">
+                    </button>
                     <div class="dropdown-content" id="myDropdown">
-                        <button id="addToplaylistBtn">افزودن به پلی لیست</button>
+                        <a id="addToplaylistBtn" href="./playlist.html">افزودن به پلی لیست</a>
                         <button id="removePlaylistBtn">حذف پلی لیست</button>
-                        <!-- <a href="#">افزودن به پلی لیست</a>
-                        <a href="#"> حذف پلی لیست</a> -->
                     </div>
                 </div>
             </div>
@@ -168,8 +164,6 @@
                 <div id="modal-text"></div>
             </div>
         </div>
-        <!------------ song modal ------------>
-        <div class="song-modal__container"></div>
     </main>
     <div id="snackbar"></div>
     <!-----------------play current music  ----------------->
@@ -191,13 +185,6 @@
                         <h5 class="singer" id="artist">نام خواننده</h5>
                     </div>
                 </div>
-                <!-- <div class="current-music_controls"> -->
-                <!-- <button class="btn--like">
-                        <img src="../assets/Icons/favorite_border_white_24dp.svg" alt="" class="svgColor" />
-                    </button>
-                    <button id="playpause">
-                        <img src="../assets/Icons/play-button.svg" alt="" class="controls-button svgColor" />
-                    </button> -->
                 <div class="song_container music__container">
                     <div class="button-controls">
                         <div class="btns">
@@ -205,12 +192,8 @@
                                 <img src="../assets/Icons/loop-button.svg" alt="" class="replay">
                             </button>
                             <button class="btn--like">
-                                <img
-                                  src="../assets/Icons/like-button-empty.svg"
-                                  alt=""
-                                  class="svgColor"
-                                />
-                              </button>
+                                <img src="../assets/Icons/like-button-empty.svg" alt="" class="svgColor" />
+                            </button>
                             <div class="controls">
                                 <button id="next" class="svgColor">
                                     <img src="../assets/Icons/next-button.svg" alt="" class="controls-button">
@@ -222,6 +205,9 @@
                                     <img src="../assets/Icons/back-button.svg" alt="" class="controls-button">
                                 </button>
                             </div>
+                            <button class="btn--add"><img src="../assets/Icons/add_circle_white_24dp.svg"
+                                    alt=""></button>
+                                    <div id="select-playlists"></div>
                             <button id="shuffle" class="svgColor">
                                 <img src="../assets/Icons/shuffle-disabled-button.svg" alt="" class="replay">
                             </button>

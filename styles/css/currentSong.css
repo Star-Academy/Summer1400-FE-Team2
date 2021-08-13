@@ -109,6 +109,7 @@
 }
 
 .btn--like,
+.btn--add,
 #repeat,
 #more,
 #dropdown,
@@ -118,6 +119,7 @@
   cursor: pointer;
 }
 .btn--like img,
+.btn--add img,
 #repeat img,
 #more img,
 #dropdown img,

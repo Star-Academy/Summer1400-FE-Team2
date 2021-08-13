@@ -612,7 +612,7 @@ body {
 }
 
 #playMusicBtn {
-  color: #3BB954;
+  color: #3bb954;
   background-color: transparent;
   font-size: 2rem;
 }
@@ -670,7 +670,7 @@ table .remove-column {
 
 .likeBtn,
 .like_sign_button {
-  color: #3BB954;
+  color: #3bb954;
   width: 1rem;
   filter: invert(56%) sepia(99%) saturate(317%) hue-rotate(80deg) brightness(89%) contrast(90%);
   cursor: pointer;
@@ -751,7 +751,8 @@ table .remove-column {
   z-index: 1;
 }
 
-.dropdown-content button {
+.dropdown-content button,
+.dropdown-content a {
   color: white;
   padding: 0.3rem 0.5rem;
   text-decoration: none;
@@ -762,7 +763,7 @@ table .remove-column {
 }
 
 .dropdown-content a:hover {
-  background-color: #3E3E3E;
+  background-color: transparent;
 }
 
 .show {
