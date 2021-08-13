@@ -18,7 +18,7 @@
     <script src="../scripts/Common/modal.js" defer></script>
     <script src="../scripts/Menubar.js" defer></script>
     <script src="../scripts/songsList.js" defer></script>
-    <script src="../scripts/library.js" defer></script>
+    <script type="module" src="../scripts/library.js" defer></script>
     <title>songs</title>
 </head>
 
@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="btnSearchMenu">
+                    <a href="#" class="btnSearchMenu">
                         <img src="../assets/Icons/search-button.svg" alt="">
                         <span>جست و جو</span>
                     </a>
@@ -72,7 +72,7 @@
                 <img src="../assets/Icons/home-button.svg" alt="">
                 <span>خانه </span>
             </a>
-            <a href="#" id="btnSearchMenu">
+            <a href="#" class="btnSearchMenu">
                 <img src="../assets/Icons/search-button.svg" alt="">
                 <span>جست و جو</span>
             </a>
@@ -99,8 +99,8 @@
             <div class="searchBox">
                 <input type="text" placeholder="خواننده ها , آهنگ ها....." />
                 <button class="searchBox__button" id="searchBtn">
-            <img src="../assets/Icons/search-button.svg" alt="" />
-          </button>
+                    <img src="../assets/Icons/search-button.svg" alt="" />
+                </button>
             </div>
         </div>
         <div class="grid-item__header">
@@ -118,14 +118,16 @@
     <main>
         <section id="profile_container">
             <div class="profile">
-                <div class="profile-info">
-                    <h6>پروفایل</h6>
-                    <h1 id="profile-name">نام کاربری</h1>
-                </div>
-                <div class="profile-photo_container">
-                    <div class="profile-photo">
-                        <label for="myfile">  <img src="../assets/Icons/edit-button.svg" alt=""> انتخاب عکس </label>
-                        <input type="file" id="myfile" name="myfile" class="custom-file-input">
+                <div>
+                    <div class="profile-photo_container">
+                        <div class="profile-photo">
+                            <label for="myfile"> <img src="../assets/Icons/edit-button.svg" alt=""> انتخاب عکس </label>
+                            <input type="file" id="myfile" name="myfile" class="custom-file-input">
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h5 id="profile-username">نام کاربری</h5>
+                        <h1 id="profile-name">نام کاربری</h1>
                     </div>
                 </div>
             </div>
@@ -140,7 +142,6 @@
         </div>
     </main>
     <div id="snackbar"></div>
-
 </body>
 
 </html>

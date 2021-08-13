@@ -1,156 +1,158 @@
 header {
-    background-color: #333333;
+  background-color: #333333;
 }
 
 main {
-    width: 85%;
-    margin-top: 0;
-    background-color: #1D1D1D;
+  width: 85%;
+  margin-top: 0;
+  background-color: #1d1d1d;
 }
 
 .user-controls__links a:hover {
-    background-color: black;
+  background-color: black;
 }
 
 @mixin flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #profile_container {
-    background-color: #333333;
-    height: 30vh;
-    max-height: 500px;
-    min-height: 440px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
+  background-color: #333333;
+  height: 30vh;
+  max-height: 500px;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 .profile {
-    width: 80%;
-    margin-left: 5%;
-    margin-right: auto;
+  width: 90%;
+  color: white;
+  padding: 0 2rem;
+  div {
     display: flex;
-    justify-content: flex-end;
-    color: white;
-    #profile-name {
-        display: block;
-        min-width: 600px;
-        overflow: auto;
-        font-size: 4rem;
-        text-align: left;
+    align-items: center;
+  }
+  #profile-name {
+    display: block;
+    min-width: 600px;
+    overflow: auto;
+    font-size: 4rem;
+    text-align: right;
+  }
+  .profile-info {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column;
+    justify-content: flex-start;
+    margin-right: 3rem;
+  }
+  .profile-photo_container {
+    height: 232px;
+    min-width: 232px;
+    width: 232px;
+    background-color: #282828;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 0.2);
+    border-radius: 50%;
+    background-image: url("../../assets/Icons/user-profile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @include flex-center();
+    label,
+    input {
+      display: none;
     }
-    .profile-info {
+    &:hover {
+      background-image: url("") !important;
+      cursor: pointer;
+      label {
         display: flex;
-        align-items: flex-end;
         flex-flow: column;
-        justify-content: flex-end;
-        margin-left: 3rem;
+        align-items: center;
+        cursor: pointer;
+      }
     }
-    .profile-photo_container {
-        height: 232px;
-        min-width: 232px;
-        width: 232px;
-        background-color: #282828;
-        box-shadow: 0 4px 15px rgb(0 0 0 / 0.2);
-        border-radius: 50%;
-        background-image: url('../../assets/Icons/user-profile.svg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        @include flex-center();
-        label,
-        input {
-            display: none;
-        }
-        &:hover {
-            // opacity: 0.5;
-            background-image: url('') !important;
-            label {
-                display: flex;
-                flex-flow: column;
-                align-items: center;
-                cursor: pointer;
-            }
-        }
-        .profile-photo img {
-            width: 2rem;
-            filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
-        }
+    .profile-photo img {
+      width: 2rem;
+      filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg)
+        brightness(106%) contrast(103%);
     }
+  }
 }
 
 #library_playlists {
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+  .music-link {
     width: 90%;
     margin: auto;
-    margin-top: 2rem;
-    .music-link {
-        width: 90%;
-        margin: auto;
+  }
+  .music-link__image {
+    background-color: #333333;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    .playlist-cover {
+      padding: 0.3rem;
     }
-    .music-link__image {
-        background-color: #333333;
-        border-radius: 6px;
-        margin-bottom: 0.5rem;
-        .playlist-cover {
-            padding: 0.3rem;
-        }
-        img {
-            width: 80%;
-            display: block;
-            margin: auto;
-            margin: auto;
-            filter: invert(75%) sepia(27%) saturate(20%) hue-rotate(45deg) brightness(95%) contrast(82%);
-        }
+    img {
+      width: 100%;
+      display: block;
+      margin: auto;
+      margin: auto;
     }
+  }
 }
 
 .modal-image {
-    span:hover,
-    label:hover {
-        text-decoration: underline;
-    }
+  span:hover,
+  label:hover {
+    text-decoration: underline;
+  }
 }
 
 #modal-close {
-    display: none;
+  display: none;
 }
 
-@media (max-width:1200px) {
-    .playlists__container {
-        margin: auto;
-    }
-    main {
-        width: 100%;
-    }
+@media (max-width: 1200px) {
+  .playlists__container {
+    margin: auto;
+  }
+  main {
+    width: 100%;
+  }
 }
 
-@media (max-width:768px) {
-    #profile_container {
-        min-height: 600px;
+@media (max-width: 768px) {
+  #profile_container {
+    min-height: 600px;
+  }
+  .card-playlist {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+  .profile {
+    margin: auto;
+    div {
+      flex-flow: column;
+      align-items: center;
     }
-    .card-playlist {
-        width: 90%;
-        margin: auto;
-        margin-bottom: 1rem;
+    .profile-info {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      margin-right: 0;
     }
-    .profile {
-        flex-flow: column;
-        align-items: center;
-        width: 70%;
-        margin: auto;
-        .profile-info {
-            width: 100%;
-            align-items: center;
-            text-align: center;
-            margin-left: 0;
-        }
-        .profile-info #profile-name {
-            font-size: 2rem;
-            min-width: 100px;
-            // max-width: 100px;
-        }
+    .profile-info #profile-name {
+      font-size: 2rem;
+      min-width: 100px;
+      // max-width: 100px;
     }
+  }
 }

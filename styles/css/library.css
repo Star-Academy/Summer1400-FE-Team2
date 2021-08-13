@@ -5,7 +5,7 @@ header {
 main {
   width: 85%;
   margin-top: 0;
-  background-color: #1D1D1D;
+  background-color: #1d1d1d;
 }
 
 .user-controls__links a:hover {
@@ -23,26 +23,27 @@ main {
 }
 
 .profile {
-  width: 80%;
-  margin-left: 5%;
-  margin-right: auto;
-  display: flex;
-  justify-content: flex-end;
+  width: 90%;
   color: white;
+  padding: 0 2rem;
+}
+.profile div {
+  display: flex;
+  align-items: center;
 }
 .profile #profile-name {
   display: block;
   min-width: 600px;
   overflow: auto;
   font-size: 4rem;
-  text-align: left;
+  text-align: right;
 }
 .profile .profile-info {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-flow: column;
-  justify-content: flex-end;
-  margin-left: 3rem;
+  justify-content: flex-start;
+  margin-right: 3rem;
 }
 .profile .profile-photo_container {
   height: 232px;
@@ -65,6 +66,7 @@ main {
 }
 .profile .profile-photo_container:hover {
   background-image: url("") !important;
+  cursor: pointer;
 }
 .profile .profile-photo_container:hover label {
   display: flex;
@@ -95,11 +97,10 @@ main {
   padding: 0.3rem;
 }
 #library_playlists .music-link__image img {
-  width: 80%;
+  width: 100%;
   display: block;
   margin: auto;
   margin: auto;
-  filter: invert(75%) sepia(27%) saturate(20%) hue-rotate(45deg) brightness(95%) contrast(82%);
 }
 
 .modal-image span:hover,
@@ -132,16 +133,17 @@ main {
   }
 
   .profile {
+    margin: auto;
+  }
+  .profile div {
     flex-flow: column;
     align-items: center;
-    width: 70%;
-    margin: auto;
   }
   .profile .profile-info {
     width: 100%;
     align-items: center;
     text-align: center;
-    margin-left: 0;
+    margin-right: 0;
   }
   .profile .profile-info #profile-name {
     font-size: 2rem;
