@@ -155,16 +155,10 @@ setStatus();
 
 //Logout
 const logoutBtn = document.getElementById("logoutBtn");
-
-function logoutBtnHandler() {
-  if (isLogedin()) {
-    logoutBtn.addEventListener("click", () => {
-      let path = calculatePath();
-      localStorage.clear();
-      window.location = getNavLink(path, "Login");
-    });
-  }
+if (logoutBtn) {
+  logoutBtnHandler();
 }
+
 
 //Auth Handle
 const libraryMenu = document.getElementById("libraryMenu");
@@ -223,16 +217,4 @@ function gotoArchivedSongs() {
   }
 }
 
-function getUserName() {
-  return localStorage.getItem("username");
-}
-
-function setUserName(name) {
-  localStorage.setItem("username", name);
-}
-
 welcomeUser();
-
-if (logoutBtn) {
-  logoutBtnHandler();
-}

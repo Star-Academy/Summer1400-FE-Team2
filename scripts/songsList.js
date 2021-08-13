@@ -2,7 +2,6 @@
 const playlist_body = document.getElementById("playlist-table__body");
 const playlist_details = document.querySelector(".playlist-details");
 const playMusic_button = document.getElementById("playMusicBtn");
-const like_songsList = document.getElementById("like-songs");
 
 function fillData(data) {
   playlist_details.innerHTML = `
@@ -70,8 +69,7 @@ function getPlaylistSongs(id) {
 
       showToast("درحال بارگزاری آهنگ ها");
     })
-    .catch(() => {
-    });
+    .catch(() => {});
 }
 
 let url = new URL(window.location.href);

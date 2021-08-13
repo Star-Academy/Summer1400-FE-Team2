@@ -4,5 +4,5 @@ function showToast(content) {
     snackbar.className = "show";
     setTimeout(function() {
         snackbar.className = snackbar.className.replace("show", "");
-    }, 3000);
+    }, 3500);
 }

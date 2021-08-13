@@ -14,7 +14,11 @@ const namePlaylists = [{
     {
         key: "rock",
         label: "محبوب ها",
-    }
+    },
+    {
+      key: "rock",
+      label: "پربازدید های هفته",
+  }
 ];
 
 

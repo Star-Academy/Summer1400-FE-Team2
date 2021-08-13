@@ -13,6 +13,7 @@ window.onclick = function (event) {
 };
 
 //modals of the site
+
 function permission() {
   modal.style.display = "block";
   let path = calculatePath();
@@ -34,6 +35,7 @@ function permission() {
           </div>
         </div>`;
 }
+
 
 function showSearchResults(data) {
   modal.style.display = "block";
@@ -69,6 +71,7 @@ function showSearchResults(data) {
         </div>`;
 }
 
+
 function addPlaylist() {
   modal.style.display = "block";
   let path = calculatePath();
@@ -101,46 +104,6 @@ function addPlaylist() {
       </div>
       <div class="modal-footer">
           <button id="save-playlist" class='save-modal-button' onclick="createNewPlaylist()">ذخیره</button>
-      </div>
-    </div>
-  </div>
-  `;
-  document.getElementById("modal-playlist_container").style.display = "block";
-  document
-    .getElementById("close-modal-button")
-    .addEventListener("click", () => {
-      document.getElementById("modal-playlist_container").style.display =
-        "none";
-      document.getElementById("modal").style.display = "none";
-    });
-}
-
-function editProfile() {
-  modal.style.display = "block";
-  let path = calculatePath();
-  text.innerHTML = `
-  <div id="modal-playlist_container">
-    <div class="modal-playlist">
-      <div class="modal-header">
-          <h1>ویرایش پروفایل</h1>
-          <div class="close-modal">
-          <button id="close-modal-button">&times;</button>
-      </div>
-      </div>
-      <div class="modal-content">
-          <div class="modal-getInfo">
-              <div>
-                  <input type="text" id="create-playlist" name="name" onchange="saveName( event )" placeholder="یک نام اضافه کن" id="playlist-name">
-              </div>
-          </div>
-          <div class="modal-image" id='profile-image_container'>
-          <span id='delete-modalImg'>حذف عکس</span>  <img id='profile-img' src="../assets/Icons/edit-button.svg" alt="">
-              <label for="myfile" id='edit-modalImg'>انتخاب عکس</label>
-              <input type="file" id="myfile" name="myfile">
-          </div>
-      </div>
-      <div class="modal-footer">
-          <button id="save-photo" class='save-modal-button' onclick="createNewPlaylist()">ذخیره</button>
       </div>
     </div>
   </div>

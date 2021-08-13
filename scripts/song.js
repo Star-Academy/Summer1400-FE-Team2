@@ -198,29 +198,29 @@ function DurTime(e) {
   if (durTime) durTime.innerHTML = min_d + ":" + sec_d;
 }
 
-let isLoop = 0;
+let isLoop = false;
 
 function replaySongHandler() {
   if (!isLoop) {
     audio.loop = true;
     replayBtn.querySelector("img").src =
       "../assets/Icons/right-arrow-button.svg";
-    isLoop = 1;
+    isLoop = true;
   } else {
     audio.loop = false;
     replayBtn.querySelector("img").src = "../assets/Icons/loop-button.svg";
-    isLoop = 0;
+    isLoop = false;
   }
 }
 
-let isShuffle = 0;
+let isShuffle = false;
 
 function shuffleSongHandler() {
   if (!isShuffle) {
-    isShuffle = 1;
+    isShuffle = true;
     shuffleBtn.querySelector("img").src = "../assets/Icons/shuffle-button.svg";
   } else {
-    isShuffle = 0;
+    isShuffle = false;
     shuffleBtn.querySelector("img").src =
       "../assets/Icons/shuffle-disabled-button.svg";
   }

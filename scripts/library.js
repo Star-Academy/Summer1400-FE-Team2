@@ -35,7 +35,7 @@ const fillData_library = (playlists, user_playlistsPics) => {
 `;
 };
 
-/***************** work with playlists ******************** */
+// work with playlists 
 
 async function getAllPlaylists() {
   const user_playlists = [];
