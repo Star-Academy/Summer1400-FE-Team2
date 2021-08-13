@@ -17,6 +17,7 @@ const lyrics = document.getElementById("music-lyrics");
 const back_lyricsBtn = document.getElementById("back-lyrics-button");
 let currTime = document.querySelector("#curtime");
 let durTime = document.querySelector("#durtime");
+const playMusicBtn = document.getElementById("playMusicBtn");
 
 const progress_arr = document.querySelectorAll(".progress");
 const progressContainer_arr = document.querySelectorAll(".progress-container");
@@ -25,13 +26,20 @@ const progressContainer_arr = document.querySelectorAll(".progress-container");
 let url = new URL(window.location.href);
 let search_params = url.searchParams;
 let id = search_params.get("id");
+let playlistId = search_params.get("playlist");
 var isLiked = false;
+let autoPlay = false;
 
-const data = await GetData("getAllSongs");
+let data;
+if (playlistId) {
+  const js = await GetData("getPlaylist", playlistId);
+  data = js;
+  id = data.songs[0].id;
+} else data = await GetData("getAllSongs");
 
 let firstSong = id ? data.songs.filter((song) => song.id === +id)[0] : null;
 let songIndex =
-  data.songs.indexOf(firstSong) > 0 ? data.songs.indexOf(firstSong) : 1;
+  data.songs.indexOf(firstSong) >= 0 ? data.songs.indexOf(firstSong) : 1;
 
 loadSong(songIndex);
 
@@ -44,7 +52,7 @@ function loadSong(id) {
   audio.src = data.songs[id].file;
   cover.src = data.songs[id].cover;
   if (lyrics) lyrics.innerText = data.songs[id].lyrics;
-  playSong();
+  if (autoPlay) playSong();
 }
 if (lyricsBtn) {
   lyricsBtn.addEventListener("click", () => {
@@ -67,12 +75,16 @@ if (back_lyricsBtn) {
 // play song
 
 function playSong() {
+  autoPlay = true;
   musicContainer.classList.add("play");
   playBtn.querySelector("img").src = "../assets/Icons/pause-button.svg";
   audio.play();
 }
 
+if (playMusicBtn) playMusicBtn.addEventListener("click", playSong);
+
 function pauseSong() {
+  autoPlay = false;
   musicContainer.classList.remove("play");
   playBtn.querySelector("img").src = "../assets/Icons/play-button.svg";
   audio.pause();
@@ -82,22 +94,22 @@ function addIdToURl() {
   window.history.pushState(
     "nextSong",
     "Title",
-    `${window.location.pathname}?id=${data.songs[songIndex].id}`
+    `${window.location.pathname}?id=${data.songs[songIndex].id}&playlist=${playlistId}`
   );
 }
 
 function prevSong() {
   if (isShuffle) {
-    let random = Math.floor(Math.random() * 200);
+    let random = Math.floor(Math.random() * data.songs.length - 1);
     while (songIndex === random) {
-      random = Math.floor(Math.random() * 200);
+      random = Math.floor(Math.random() * data.songs.length - 1);
     }
     songIndex = random;
   } else {
     songIndex--;
   }
   if (songIndex < 0) {
-    songIndex = Math.abs(songIndex);
+    songIndex = data.songs.length - 1;
   }
   addIdToURl();
   loadSong(songIndex);
@@ -105,15 +117,15 @@ function prevSong() {
 
 function nextSong() {
   if (isShuffle) {
-    let random = Math.floor(Math.random() * 200);
+    let random = Math.floor(Math.random() * data.songs.length - 1);
     while (songIndex === random) {
-      random = Math.floor(Math.random() * 200);
+      random = Math.floor(Math.random() * data.songs.length - 1);
     }
     songIndex = random;
   } else {
     songIndex++;
   }
-  if (songIndex > 300) {
+  if (songIndex > data.songs.length - 1) {
     songIndex = 0;
   }
   addIdToURl();
@@ -274,15 +286,15 @@ likeBtn.addEventListener("click", likeSongHandler);
 if (moreBtn) {
   moreBtn.addEventListener("click", () => {
     if (getToken()) {
-      let path = window.location.pathname.split("/").pop();
-      window.location =
-        path === "index.html" || path === ""
-          ? `./pages/songsList.html?id=${
-              data.songs[songIndex].id
-            }&playlist=${localStorage.getItem("favoriteId")}`
-          : `./songsList.html?id=${
-              data.songs[songIndex].id
-            }&playlist=${localStorage.getItem("favoriteId")}`;
+      if (playlistId) {
+        let path = window.location.pathname.split("/").pop();
+        window.location =
+          path === "index.html" || path === ""
+            ? `./pages/songsList.html?id=${data.songs[songIndex].id}&playlist=${playlistId}`
+            : `./songsList.html?id=${data.songs[songIndex].id}&playlist=${playlistId}`;
+      } else {
+        window.location = "../index.html";
+      }
     } else {
       showToast("ابتدا وارد شوید");
     }
@@ -294,7 +306,8 @@ if (prevBtn) prevBtn.addEventListener("click", prevSong);
 if (nextBtn) nextBtn.addEventListener("click", nextSong);
 
 const linkReturn = document.getElementById("linkReturn");
-if (linkReturn) linkReturn.href = `./song.html?id=${data.songs[songIndex].id}`;
+if (linkReturn)
+  linkReturn.href = `./song.html?id=${data.songs[songIndex].id}&playlist=${playlistId}`;
 
 //add to playlists
 

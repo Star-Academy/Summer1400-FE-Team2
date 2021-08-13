@@ -7,9 +7,9 @@ const like_button = document.querySelector("#like-button");
 const play_button = document.querySelector("#play-button");
 const music_current_desktop = document.querySelector(".music-current-desktop");
 
-let song_name = "نام اهنگ";
-let singer_name = "نام خواننده";
-let image_src = "../assets/images/song.jpg";
+let url = new URL(window.location.href);
+let search_params = url.searchParams;
+let playlist_id = search_params.get("playlist");
 
 let current_music_mobile = `
 <div class="current-music">

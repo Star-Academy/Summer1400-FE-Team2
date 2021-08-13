@@ -159,17 +159,7 @@ if (logoutBtn) {
   logoutBtnHandler();
 }
 
-
 //Auth Handle
-const libraryMenu = document.getElementById("libraryMenu");
-console;
-function gotoLibrary() {
-  if (getToken()) {
-    libraryMenu.href = getNavLink(path, "library");
-  } else {
-    showToast("ابتدا وارد شوید");
-  }
-}
 
 //Create new playlist
 const createListMenu_arr = document.querySelectorAll(".createListMenu");
@@ -177,9 +167,17 @@ const createListMenu_arr = document.querySelectorAll(".createListMenu");
 const archivedMenu_arr = document.querySelectorAll(".archived-menu");
 
 //show library
-if (libraryMenu) {
-  libraryMenu.addEventListener("click", gotoLibrary);
+const libraryMenu_arr = document.querySelectorAll("#libraryMenu");
+if (libraryMenu_arr) {
+  libraryMenu_arr.forEach((item) => {
+    if (getToken()) {
+      item.href = getNavLink(path, "library");
+    } else {
+      showToast("ابتدا وارد شوید");
+    }
+  });
 }
+
 
 //create playlist
 if (createListMenu_arr) {

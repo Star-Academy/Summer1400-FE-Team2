@@ -2,7 +2,9 @@
 const playlist_body = document.getElementById("playlist-table__body");
 const playlist_details = document.querySelector(".playlist-details");
 const playMusic_button = document.getElementById("playMusicBtn");
-
+let url = new URL(window.location.href);
+let search_params = url.searchParams;
+let playlist_id = search_params.get("playlist");
 function fillData(data) {
   playlist_details.innerHTML = `
     <div class="playlist-details__image">
@@ -16,6 +18,7 @@ function fillData(data) {
         </div>
     </div>
 `;
+console.log(data)
   const songsList = data.songs
     .map(
       (song, i) =>
@@ -27,7 +30,7 @@ function fillData(data) {
             <td class="song-details__container">
                 <div class="song-details">
                     <div>
-                        <a href="./song.html?id=${song.id}">
+                        <a href="./song.html?id=${song.id}&playlist=${playlist_id}">
                             <img src=${song.cover} />
                         </a>
                     </div>
@@ -50,13 +53,6 @@ function fillData(data) {
     )
     .join("\n");
   playlist_body.innerHTML = songsList;
-  playMusic_button.addEventListener("click", () => {
-    if (getToken()) {
-      window.location.href = `./song.html?id=${data.songs[0].id}`;
-    } else {
-      permission();
-    }
-  });
 }
 
 function getPlaylistSongs(id) {
@@ -72,9 +68,7 @@ function getPlaylistSongs(id) {
     .catch(() => {});
 }
 
-let url = new URL(window.location.href);
-let search_params = url.searchParams;
-let playlist_id = search_params.get("playlist");
+
 if (playlist_id) {
   getPlaylistSongs(playlist_id);
 }
