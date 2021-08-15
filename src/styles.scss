@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: Dirooz;
+    src: url("/assets/fonts/Dirooz.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Dirooz;
+    direction: rtl;
+    box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin ul-setup {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+body {
+    background-color: #202020;
+}

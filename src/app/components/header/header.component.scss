@@ -1,0 +1,200 @@
+header {
+    background-color: #070707;
+    width: 83%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 1rem 0.9rem;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 35% 50% 15%;
+    grid-gap: 10px;
+    grid-template-areas: "column-1 column-2 column-3";
+    a {
+        text-align: center;
+        color: white;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+    }
+    .controlBtn {
+        border-radius: 999px;
+        background-color: white;
+        color: black;
+        padding: 0.3rem 0.7rem;
+        img {
+            width: 1rem;
+        }
+        &:hover {
+            img {
+                filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+            }
+        }
+    }
+}
+
+.grid-item__header:nth-child(1) {
+    grid-area: column-1;
+}
+
+.grid-item__header:nth-child(2) {
+    grid-area: column-2;
+    display: none;
+    justify-content: flex-end;
+    margin-left: 1rem;
+}
+
+.grid-item__header:nth-child(3) {
+    grid-area: column-3;
+    display: flex;
+    align-items: center;
+}
+
+.vertical-middle {
+    vertical-align: middle;
+}
+
+.user-controls__links {
+    display: flex;
+}
+
+.user-controls__links a {
+    display: flex;
+    align-items: center;
+    max-width: 7rem;
+    img {
+        margin-left: 0.5rem;
+    }
+}
+
+.user-controls__links a:hover {
+    background-color: #333333;
+    color: white;
+}
+
+#user-account__link,
+#logoutBtn {
+    span {
+        color: white;
+    }
+    img {
+        filter: invert(78%) sepia(0%) saturate(1209%) hue-rotate(140deg) brightness(85%) contrast(96%);
+        width: 1rem;
+    }
+    border-radius: 999px;
+    background-color: #282828;
+    padding: 0.3rem 0.7rem;
+}
+
+#logoutBtn:hover {
+    background-color: #333333;
+}
+
+#navigation__links a {
+    font-size: 1rem;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    img {
+        width: 1rem;
+        filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+    }
+    &:hover,
+    &:active {
+        color: #9e9e9e;
+        img {
+            filter: invert(78%) sepia(0%) saturate(1209%) hue-rotate(140deg) brightness(85%) contrast(96%);
+        }
+    }
+}
+
+.searchBox {
+    background-color: white;
+    width: 45%;
+    border-radius: 999px;
+    form {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    input {
+        width: 80%;
+        border: 0;
+        outline: 0;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+        border-top-right-radius: 999px;
+        border-bottom-right-radius: 999px;
+    }
+    #searchBtn {
+        width: 10%;
+        border-top-left-radius: 999px;
+        border-bottom-left-radius: 999px;
+        border: 0;
+        background-color: white;
+        cursor: pointer;
+        img {
+            width: 1rem;
+            filter: invert(25%) sepia(6%) saturate(11%) hue-rotate(349deg) brightness(90%) contrast(85%);
+            vertical-align: middle;
+            &:hover {
+                transform: scale(1.1);
+                filter: invert(47%) sepia(2%) saturate(318%) hue-rotate(317deg) brightness(102%) contrast(87%);
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    header {
+        width: 100%;
+    }
+    .header-left {
+        width: 45%;
+    }
+    .searchBox {
+        width: 60%;
+    }
+}
+
+@media (max-width: 900px) {
+    .header-left {
+        width: 55%;
+    }
+    .searchBox {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 75% 25%;
+        grid-template-areas: " column-1 column-3 " " column-2 column-2 ";
+    }
+    .grid-item__header:nth-child(2) {
+        justify-content: flex-end;
+    }
+    .grid-item__header:nth-child(3) {
+        justify-content: flex-end;
+    }
+    .searchBox {
+        width: 55%;
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        padding: 1rem 0.6rem 0.5rem 0.6rem;
+    }
+    .searchBox {
+        width: 70%;
+    }
+}
+
+@media (max-width: 400px) {
+    .searchBox {
+        width: 80%;
+    }
+    header a {
+        font-size: 0.8rem;
+    }
+}
