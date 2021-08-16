@@ -8,6 +8,13 @@ import { CardComponent } from './components/card/card.component';
 import { DesktopNavigationComponent } from './components/desktop-navigation/desktop-navigation.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CurrentMusicComponent } from './components/current-music/current-music.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { AllSongsComponent } from './pages/all-songs/all-songs.component';
+import { MusicPlayerComponent } from './pages/music-player/music-player.component';
+import { PlaylistComponent } from './pages/playlist/playlist.component';
+import { LibraryComponent } from './pages/library/library.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +23,14 @@ import { CurrentMusicComponent } from './components/current-music/current-music.
     CardComponent,
     DesktopNavigationComponent,
     HeaderComponent,
-    CurrentMusicComponent
+    CurrentMusicComponent,
+    LandingPageComponent,
+    AllSongsComponent,
+    MusicPlayerComponent,
+    PlaylistComponent,
+    LibraryComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
