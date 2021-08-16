@@ -136,6 +136,8 @@ function editProfile() {
         (res) => {
           localStorage.setItem("username", changed_name);
           getUserData();
+          setStatus();
+          getAllPlaylists();
           showToast('ویرایش اطلاعات با موفقیت انجام شد.')
           closeEditModal();
         },

@@ -22,6 +22,7 @@ const API = {
 const GetData = (url, id = "") => {
     return fetch(API.baseUrl + API.routes[url] + id, {
         method: "GET",
+        cache: "reload",
         headers: {
             Authorization: "Bearer ",
         },
@@ -31,6 +32,7 @@ const GetData = (url, id = "") => {
 const PostData = async(url, body) => {
     const data = await fetch(API.baseUrl + API.routes[url], {
         method: "POST",
+        cache: "reload",
         headers: {
             "content-type": "application/json",
             Authorization: "Bearer "
@@ -58,9 +60,9 @@ const CheckObj = (obj) => {
 
 
 const CheckIfLoggedIn = (body) => {
-    if(getToken()){
+    if (getToken()) {
         body
-    }else{
+    } else {
         showToast("ابتدا وارد شوید")
     }
 }
