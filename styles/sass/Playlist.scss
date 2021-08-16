@@ -16,6 +16,67 @@ section {
     color: white;
 }
 
+.filters {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    margin-bottom: 1rem;
+    .sorter {
+        width: 80%;
+        display: flex;
+        * {
+            margin: 5px;
+        }
+        p {
+            color: #fff;
+        }
+        button {
+            background-color: #282828;
+            border: none;
+            padding: 5px;
+            color: #fff;
+            border-radius: 12px;
+        }
+    }
+    .count {
+        color: #fff;
+        width: 20%;
+        display: flex;
+        align-items: center;
+        * {
+            margin: 5px;
+        }
+    }
+}
+
+#song-sort,
+#song-numbers {
+    font-size: 0.7rem;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 0.3rem 0.6rem;
+    option:hover {
+        cursor: pointer;
+    }
+    &:hover {
+        border: 0;
+        outline: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .filters {
+        flex-direction: column;
+        .count,
+        .sorter {
+            width: 100%;
+        }
+    }
+}
+
 @media (max-width: 1200px) {
     .playlists__container {
         grid-template-columns: repeat(4, 1fr);

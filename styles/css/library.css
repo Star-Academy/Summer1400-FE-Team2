@@ -1,0 +1,200 @@
+header {
+  background-color: #333333;
+}
+
+main {
+  width: 85%;
+  margin-top: 0;
+  background-color: #1d1d1d;
+}
+
+#logoutBtn:hover {
+  background-color: #1d1d1d;
+}
+
+.user-controls__links a:hover {
+  background-color: black;
+}
+
+#profile_container {
+  background-color: #333333;
+  height: 30vh;
+  max-height: 500px;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile {
+  width: 90%;
+  color: white;
+  padding: 0 2rem;
+}
+.profile button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.profile div {
+  display: flex;
+  align-items: center;
+}
+.profile #profile-name {
+  display: block;
+  min-width: 600px;
+  overflow: auto;
+  font-size: 4rem;
+  text-align: right;
+}
+.profile .profile-info {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column;
+  justify-content: flex-start;
+  margin-right: 3rem;
+}
+.profile .profile-photo_container {
+  height: 232px;
+  min-width: 232px;
+  width: 232px;
+  background-color: #282828;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  background-image: url("../../assets/Icons/user-profile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile .profile-photo_container label,
+.profile .profile-photo_container input {
+  display: none;
+}
+.profile .profile-photo_container:hover {
+  background-image: url("") !important;
+  cursor: pointer;
+}
+.profile .profile-photo_container:hover label {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  cursor: pointer;
+}
+.profile .profile-photo_container .profile-photo img {
+  width: 2rem;
+  filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+}
+
+#library_playlists {
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+}
+#library_playlists .music-link {
+  width: 90%;
+  margin: auto;
+}
+#library_playlists .music-link__image {
+  background-color: #333333;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+#library_playlists .music-link__image .playlist-cover {
+  padding: 0.3rem;
+}
+#library_playlists .music-link__image img {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.modal-image span:hover,
+.modal-image label:hover {
+  text-decoration: underline;
+}
+
+#modal-close {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .playlists__container {
+    margin: auto;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .profile {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .profile #profile-name {
+    min-width: 200px;
+  }
+}
+@media (max-width: 900px) {
+  .profile #profile-name {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  #profile_container {
+    min-height: 600px;
+  }
+
+  .card-playlist {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+
+  .profile {
+    margin: auto;
+  }
+  .profile div {
+    flex-flow: column;
+    align-items: center;
+  }
+  .profile .profile-photo_container {
+    margin-bottom: 0.6rem;
+  }
+  .profile .profile-info {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-right: 0;
+  }
+  .profile .profile-info #profile-name {
+    font-size: 2rem;
+    min-width: 100px;
+  }
+}
+@media (max-width: 600px) {
+  .card-playlist a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #library_playlists .music-link {
+    align-items: center;
+    width: 100%;
+  }
+  #library_playlists .music-link__image {
+    margin-bottom: 0;
+    width: 30%;
+  }
+  #library_playlists .music-link__image img {
+    display: flex;
+    margin-bottom: auto;
+  }
+}
+
+/*# sourceMappingURL=library.css.map */

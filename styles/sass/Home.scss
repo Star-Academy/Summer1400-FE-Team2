@@ -1,7 +1,6 @@
 @use './header.scss';
-// *********************//
 .playlists__container {
-    width: 90%;
+    width: 95%;
     margin-bottom: 1.4rem;
     padding: 0 0.5rem;
     .playlists__title {
@@ -10,6 +9,8 @@
         margin-bottom: 1rem;
         a {
             color: #ffffff;
+            display: flex;
+            align-items: center;
         }
         a:hover {
             transform: scale(1.1);
@@ -25,6 +26,31 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     column-gap: 0.5rem;
+}
+
+.music-link__image {
+    position: relative;
+    button {
+        display: none;
+        z-index: 5;
+        cursor: pointer;
+        position: absolute;
+        bottom: -0.2rem;
+        left: 0.2rem;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        border-radius: 10px;
+        font-size: 1.5rem;
+    }
+    .play_sign_button {
+        width: 1.5rem !important;
+        filter: invert(56%) sepia(99%) saturate(317%) hue-rotate( 80deg) brightness(89%) contrast(90%);
+    }
+}
+
+#modal-close {
+    display: none;
 }
 
 @media (max-width: 1450px) {
@@ -58,10 +84,36 @@
     .cards__container {
         grid-template-columns: repeat(1, 1fr);
     }
+    .playlists__container {
+        .playlists__title a {
+            font-size: 1rem;
+        }
+    }
+    .card-playlist {
+        padding: 0 0 0 0.4rem;
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .music-link__image {
+            width: 40%;
+            img {
+                display: flex;
+                width: 70%;
+                margin-bottom: auto;
+            }
+        }
+    }
 }
 
 @media (max-width: 500px) {
     header {
-        padding: 0.3rem 0.5rem;
+        padding: 0.8rem 0.5rem 0.6rem 0.5rem;
+    }
+    .playlists__container {
+        .playlists__title a {
+            font-size: 0.8rem;
+        }
     }
 }

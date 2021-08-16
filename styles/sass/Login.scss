@@ -1,6 +1,6 @@
 @font-face {
     font-family: Dirooz;
-    src: url('../../fonts/Dirooz.ttf');
+    src: url("../../assets/fonts/Dirooz.ttf");
 }
 
 * {
@@ -17,9 +17,6 @@ body {
 
 $login-font:'Cabin',
 sans-serif;
-$dark-green:rgb(13,82,82);
-$light-green:rgb(113,223,181);
-
 @mixin flex-center {
     display: flex;
     justify-content: center;
@@ -54,9 +51,14 @@ a {
 header {
     @include flex-center();
     a {
+        display: flex;
+        align-items: center;
         color: black;
         font-size: 1.5rem;
         padding: 0.9rem;
+        img {
+            width: 2rem;
+        }
     }
     font-family:$login-font !important;
 }
@@ -102,7 +104,9 @@ header {
     a {
         color: white;
         width: 100%;
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 0.3rem 0.7rem;
         font-size: 0.8rem;
         margin: auto;
@@ -119,9 +123,20 @@ header {
     color: white;
     background-color: black;
     padding: 0.3rem 0.7rem;
+    margin: 0 1rem;
     display: block;
     text-align: center;
     border: 0;
+    img {
+        width: 1rem;
+        margin-left: 0.5rem;
+    }
+}
+
+#apple-login-button {
+    img {
+        filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+    }
 }
 
 .login-form {
@@ -188,7 +203,7 @@ header {
 
 @media (min-width:480px) {
     .container {
-        width: 70%;
+        width: 85%;
     }
 }
 

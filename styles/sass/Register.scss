@@ -1,6 +1,6 @@
 @font-face {
     font-family: Dirooz;
-    src: url('../../fonts/Dirooz.ttf');
+    src: url("../../assets/fonts/Dirooz.ttf");
 }
 
 * {
@@ -24,13 +24,13 @@
     align-items: center;
 }
 
-$paragraph-color:rgb(73,
+$paragraph-color: rgb(73,
 194,
 73);
 html,
 body {
-    font-family: 'Cabin', sans-serif;
-    background-color: #FDF0E2;
+    font-family: "Cabin", sans-serif;
+    background-color: #fdf0e2;
 }
 
 main {
@@ -55,9 +55,14 @@ header {
     display: flex;
     justify-content: center;
     a {
+        display: flex;
+        align-items: center;
         color: black;
         font-size: 1.5rem;
         padding: 0.9rem;
+        img {
+            width: 2rem;
+        }
     }
 }
 
@@ -152,7 +157,7 @@ header {
     &:hover {
         text-decoration: underline;
     }
-    color:#E66946;
+    color: #e66946;
 }
 
 #registerBtn {
@@ -163,7 +168,7 @@ header {
     margin: auto;
     border: 0;
     border-radius: 999px;
-    background-color: #FF5024;
+    background-color: #ff5024;
     color: white;
     padding: 0.4rem 1rem;
     cursor: pointer;
@@ -176,11 +181,19 @@ header {
     }
 }
 
-#signIn-header {
-    margin-top: 1rem;
+.register-name {
+    width: 48%;
 }
 
-@media (min-width:480px) {
+#signIn-header {
+    margin-top: 1rem;
+    a {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media (min-width: 480px) {
     .container {
         width: 80%;
     }
@@ -193,7 +206,7 @@ header {
     }
 }
 
-@media (min-width:600px) {
+@media (min-width: 600px) {
     .container {
         width: 80%;
     }
@@ -203,16 +216,16 @@ header {
     }
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
     .img-background {
         display: none;
     }
-    body {
-        background-color: #fce0c3;
+    .register-name {
+        width: 100%;
     }
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
     .container {
         width: 50%;
     }
@@ -224,7 +237,7 @@ header {
     }
 }
 
-@media (min-width:900px) {
+@media (min-width: 900px) {
     .container {
         width: 40%;
     }
@@ -233,5 +246,10 @@ header {
 @media (min-width:1200px) {
     .container {
         width: 30%;
+    }
+    #signIn-header {
+        a {
+            display: inline !important;
+        }
     }
 }

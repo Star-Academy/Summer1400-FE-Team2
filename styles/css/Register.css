@@ -1,6 +1,6 @@
 @font-face {
   font-family: Dirooz;
-  src: url("../../fonts/Dirooz.ttf");
+  src: url("../../assets/fonts/Dirooz.ttf");
 }
 * {
   box-sizing: border-box;
@@ -13,7 +13,7 @@
 html,
 body {
   font-family: "Cabin", sans-serif;
-  background-color: #FDF0E2;
+  background-color: #fdf0e2;
 }
 
 main {
@@ -41,9 +41,14 @@ header {
   justify-content: center;
 }
 header a {
+  display: flex;
+  align-items: center;
   color: black;
   font-size: 1.5rem;
   padding: 0.9rem;
+}
+header a img {
+  width: 2rem;
 }
 
 .container {
@@ -137,7 +142,7 @@ header a {
 
 #signInBtn {
   font-size: 0.9rem;
-  color: #E66946;
+  color: #e66946;
 }
 #signInBtn:hover {
   text-decoration: underline;
@@ -151,7 +156,7 @@ header a {
   margin: auto;
   border: 0;
   border-radius: 999px;
-  background-color: #FF5024;
+  background-color: #ff5024;
   color: white;
   padding: 0.4rem 1rem;
   cursor: pointer;
@@ -164,8 +169,16 @@ header a {
   background-color: #3f3f3f;
 }
 
+.register-name {
+  width: 48%;
+}
+
 #signIn-header {
   margin-top: 1rem;
+}
+#signIn-header a {
+  display: block;
+  text-align: center;
 }
 
 @media (min-width: 480px) {
@@ -196,8 +209,8 @@ header a {
     display: none;
   }
 
-  body {
-    background-color: #fce0c3;
+  .register-name {
+    width: 100%;
   }
 }
 @media (min-width: 768px) {
@@ -218,6 +231,10 @@ header a {
 @media (min-width: 1200px) {
   .container {
     width: 30%;
+  }
+
+  #signIn-header a {
+    display: inline !important;
   }
 }
 
