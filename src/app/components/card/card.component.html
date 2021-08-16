@@ -1,12 +1,9 @@
 <div class="card-playlist">
     <a class="music-link" href="./pages/song.html?id=${song.id}">
         <div class="music-link__image">
-            <img src="../assets/images/song.jpg" alt="cover" />
-            <!-- <button class="play-playlists-button">
-        <img src="../assets/Icons/play-button.svg"  class="play_sign_button svgColor" alt="">
-        </button> -->
+            <img [src]="song?.cover" alt="cover" />
         </div>
-        <h4 class="card-playlist__title">song.name</h4>
-        <p>song.artist</p>
+        <h4 class="card-playlist__title">{{ song?.name }}</h4>
+        <p>{{ song?.artist }}</p>
     </a>
 </div>

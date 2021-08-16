@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Song from 'src/app/models/SongModal';
+import { EngineService } from 'src/app/service/engine.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+public songs : Song[] = [];
+  
+public constructor(private engineService: EngineService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+public async ngOnInit() {
+    this.songs = await this.engineService.getAllSongs();
+}
+  
 }
