@@ -1,9 +1,7 @@
 <main>
     <div class="cards__container">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+        <div *ngFor="let song of songs">
+            <app-card [song]="song"></app-card>
+        </div>
     </div>
 </main>
