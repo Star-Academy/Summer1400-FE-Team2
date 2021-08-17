@@ -1,12 +1,10 @@
 <main>
-    <div class="cards__container">
-        <div *ngFor="let song of songs">
-            <app-card [song]="song"></app-card>
-        </div>
+    <div *ngFor="let playlist of namePlaylists">
+        <section class="playlists__container">
+            <div class="playlists__title">
+                <h3><a href="./pages/playlist.html?{{playlist.key}}"> {{playlist.label}} </a></h3>
+                <a href="./pages/playlist.html?${{playlist.key}}">مشاهده همه</a>
+            </div>
+        </section>
     </div>
 </main>
-
-<app-header></app-header>
-<app-current-music></app-current-music>
-<app-desktop-navigation></app-desktop-navigation>
-<app-mobile-navigation></app-mobile-navigation>

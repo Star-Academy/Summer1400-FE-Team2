@@ -9,6 +9,29 @@ import { EngineService } from "src/app/service/engine.service";
 })
 export class LandingPageComponent implements OnInit {
   public songs: Song[] = [];
+
+  public namePlaylists = [
+    {
+      key: "all",
+      label: "آهنگ های جدید",
+    },
+    {
+      key: "pop",
+      label: "آهنگ های پیشنهادی",
+    },
+    {
+      key: "hiphop",
+      label: "برتر های امروز",
+    },
+    {
+      key: "rock",
+      label: "محبوب ها",
+    },
+    {
+      key: "rock",
+      label: "پربازدید های هفته",
+    },
+  ];
   public constructor(private engineService: EngineService) {}
 
   public async ngOnInit() {

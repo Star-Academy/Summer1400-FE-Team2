@@ -16,6 +16,7 @@ import { LibraryComponent } from './pages/library/library.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ToastComponent } from './components/toast/toast.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ToastComponent } from './components/toast/toast.component';
     LibraryComponent,
     LoginComponent,
     RegisterComponent,
-    ToastComponent
+    ToastComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
