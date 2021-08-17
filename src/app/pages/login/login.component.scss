@@ -1,0 +1,224 @@
+@import '../../../styles.scss';
+$login-font:'Cabin',
+sans-serif;
+main {
+    @include flex-center;
+    height: 100%;
+}
+
+.img-background {
+    display: none;
+    width: 60%;
+    img {
+        width: 100%;
+    }
+}
+
+body {
+    background-color: #F69D69;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    @include flex-center;
+    a {
+        display: flex;
+        align-items: center;
+        color: black;
+        font-size: 1.5rem;
+        padding: 0.9rem;
+        img {
+            width: 2rem;
+        }
+    }
+    font-family:$login-font !important;
+}
+
+#login-header {
+    margin: 1rem 0;
+}
+
+.container {
+    @include flex-space-evenly;
+    width: 90%;
+    height: 60%;
+    margin: auto;
+    border-radius: 7px;
+    padding: 1rem;
+    background-color: #fffbf6;
+    border-radius: 7px;
+    box-shadow: 0px 0px 3px 5px rgba($color: #fffbf6, $alpha: 0.2);
+}
+
+#seperator {
+    span {
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+
+.login-items {
+    width: 100%;
+    text-align: center;
+}
+
+.login-items__lists {
+    width: 100%;
+    margin: auto;
+    list-style-type: none;
+    li {
+        margin-bottom: 0.5rem;
+    }
+    a {
+        color: white;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+        margin: auto;
+        &:hover {
+            background-color: rgb(44, 43, 43);
+            border: 0;
+        }
+    }
+}
+
+.login-buttons {
+    cursor: pointer;
+    border-radius: 999px;
+    color: white;
+    background-color: black;
+    padding: 0.3rem 0.7rem;
+    margin: 0 1rem;
+    display: block;
+    text-align: center;
+    border: 0;
+    img {
+        width: 1rem;
+        margin-left: 0.5rem;
+    }
+}
+
+#apple-login-button {
+    img {
+        filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+    }
+}
+
+.login-form {
+    font-size: 0.9rem;
+    width: 100%;
+    margin-top: 1rem;
+    input {
+        outline: 0;
+        padding: 0.3rem;
+        font-size: 0.7rem;
+        margin-top: 0.5rem;
+        border-radius: 5px;
+        border: 0;
+        border-bottom: 1px solid #000;
+    }
+}
+
+.login__group {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 0.7rem;
+}
+
+.signUp {
+    text-align: center;
+    margin: 1rem 0;
+    p {
+        margin-bottom: 0.6rem;
+    }
+    a {
+        color: #E66946;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.login-controls {
+    margin-top: 0.6rem;
+    div {
+        margin: 0.7rem 0;
+    }
+    #loginBtn {
+        font-size: 0.8rem;
+        &:hover {
+            background-color: rgb(44, 43, 43);
+        }
+    }
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
+}
+
+#reset-password-link {
+    text-decoration: underline;
+    color: black;
+    &:hover {
+        color: rgb(88, 88, 88);
+    }
+}
+
+@media (min-width:480px) {
+    .container {
+        width: 85%;
+    }
+}
+
+@media (min-width:600px) {
+    .container {
+        width: 60%;
+    }
+}
+
+@media (min-width:768px) {
+    main {
+        width: 90%;
+        margin: auto;
+    }
+    .container {
+        width: 50%;
+    }
+    .flex-between {
+        flex-flow: row;
+    }
+    .login-controls #loginBtn {
+        width: 40%;
+        font-size: 0.8rem;
+        margin: auto;
+        margin-left: 0;
+    }
+    .img-background {
+        display: block;
+        width: 50%;
+    }
+}
+
+@media (min-width:900px) {
+    .container {
+        width: 40%;
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        width: 30%;
+    }
+}

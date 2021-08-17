@@ -15,6 +15,7 @@ import { PlaylistComponent } from './pages/playlist/playlist.component';
 import { LibraryComponent } from './pages/library/library.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RegisterComponent } from './pages/register/register.component';
     PlaylistComponent,
     LibraryComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
