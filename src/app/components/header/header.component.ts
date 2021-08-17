@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  isLogedIn:Boolean=false;
   fgoBack() {
     console.log('back');
     window.history.back();
