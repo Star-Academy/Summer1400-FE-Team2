@@ -1,31 +1,32 @@
 main {
   width: 80%;
   margin: 7% auto 5rem 0;
-}
-
-.cards__container {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  column-gap: 0.5rem;
-}
-
-.playlist-title {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  a {
-    color: #ffffff;
-    display: flex;
-    align-items: center;
+  .playlists__container {
+    width: 95%;
+    margin-bottom: 1.4rem;
+    padding: 0 0.5rem;
+    .playlists__title {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      a {
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+      }
+      a:hover {
+        transform: scale(1.1);
+      }
+    }
   }
-  a:hover {
-    transform: scale(1.1);
+  .playlists__title h3:hover {
+    text-decoration: underline;
   }
 }
 
 @media (max-width: 1450px) {
-  .cards__container {
-    grid-template-columns: repeat(6, 1fr);
+  .playlists__container {
+    width: 100%;
   }
 }
 
@@ -35,9 +36,6 @@ main {
     margin-top: 11%;
     margin-bottom: 10%;
   }
-  .cards__container {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 @media (max-width: 900px) {
@@ -46,21 +44,6 @@ main {
     margin-top: 20%;
     margin-bottom: 20%;
   }
-  .cards__container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .cards__container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .cards__container {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 
 @media (max-width: 500px) {
@@ -68,5 +51,10 @@ main {
     margin: auto;
     margin-top: 28%;
     margin-bottom: 30%;
+  }
+  .playlists__container {
+    .playlists__title a {
+      font-size: 0.8rem;
+    }
   }
 }
