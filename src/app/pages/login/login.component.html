@@ -11,19 +11,19 @@
             <div class="login-items">
                 <ul class="login-items__lists">
                     <li>
-                        <a href="#" class="login-buttons">
+                        <a class="login-buttons">
                             <img src="../assets/Icons/facebook.svg" alt="">
                             <span> ورود با فیسبوک </span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="login-buttons" id="apple-login-button">
+                        <a class="login-buttons" id="apple-login-button">
                             <img src="../assets/Icons/apple.svg" alt="">
                             <span> ورود با اپل </span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="login-buttons">
+                        <a class="login-buttons">
                             <img src="../assets/Icons/google.svg" alt="">
                             <span> ورود با گوگل </span>
                         </a>
@@ -36,20 +36,20 @@
             <div class="login-form">
                 <form action="#" id="loginForm">
                     <div class="login__group">
-                        <label for="email">ادرس ایمیل</label>
-                        <input type="email" name="email" required placeholder="ادرس ایمیل خود را وارد کنید" />
+                        <label for="login-email">ادرس ایمیل</label>
+                        <input [(ngModel)]="loginEmail" type="email" id="login-email" name="email" required placeholder="ادرس ایمیل خود را وارد کنید" />
                     </div>
                     <div class="login__group">
-                        <label for="username"> نام کاربری</label>
-                        <input type="text" name="username" required placeholder=" نام کاربری خود را وارد کنید" />
+                        <label for="login-username"> نام کاربری</label>
+                        <input [(ngModel)]="loginUsername" type="text" id="login-username" name="username" required placeholder=" نام کاربری خود را وارد کنید" />
                     </div>
                     <div class="login__group">
-                        <label for="password">کلمه عبور</label>
-                        <input type="password" name="password" required placeholder="کلمه عبور را وارد کنید" />
+                        <label for="login-password">کلمه عبور</label>
+                        <input [(ngModel)]="loginPassword" type="password" id="login-password" name="password" required placeholder="کلمه عبور را وارد کنید" />
                     </div>
                     <a href="./forget-password.html" id="reset-password-link">کلمه عبور را فراموش کردی؟</a>
                     <div class="login-controls">
-                        <button id="loginBtn" class="login-buttons">ورود</button>
+                        <button id="loginBtn" class="login-buttons" (click)="loginBtnHandler()">ورود</button>
                     </div>
                     <div class="signUp">
                         <h5 id="signIn-header">
