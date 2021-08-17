@@ -24,6 +24,10 @@ const routes: Routes = [
     children: [{ path: "**", component: AllSongsComponent }],
   },
   { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
+  { path: "home", component: LayoutComponent,
+  children:[{path:"",component:LandingPageComponent}]
+},
 ];
 
 @NgModule({

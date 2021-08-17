@@ -17,6 +17,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { LayoutComponent } from './layout/layout.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { LayoutComponent } from './layout/layout.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

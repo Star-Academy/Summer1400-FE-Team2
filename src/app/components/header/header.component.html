@@ -1,7 +1,27 @@
 <!-------------- Header -------------->
 <header>
     <div class="grid-item__header">
-        <div class="user-controls__links" id="userStatusMenu"></div>
+        <div class="user-controls__links" *ngIf="isLogedIn; else logedinUser">
+            <a href="#" id="user-account__link">
+                <img src="../assets/Icons/user-button.svg" alt="">
+                <span>username</span>
+            </a>
+            <a href="#" id="logoutBtn">
+                <img src="../assets/Icons/exit-button.svg" alt="">
+                <span>خروج</span>
+            </a>
+        </div>
+        <ng-template #logedinUser>
+            <div class="user-controls__links">
+                <a routerLink="/register" class="controlBtn">
+                    <span>ثبت نام</span>
+                </a>
+                <a routerLink="/login" class="controlBtn">
+                    <img src="../assets/Icons/login-button.svg" alt="">
+                    <span>ورود</span>
+                </a>
+            </div>
+        </ng-template>
     </div>
     <div class="grid-item__header" id="boxSearchMenu">
         <div class="searchBox">

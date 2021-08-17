@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import Song from "../models/SongModal";
+import User from "../models/User";
 const TOKEN_KEY = "NCPL";
 
 const API = {
@@ -93,4 +94,50 @@ export class EngineService {
     let playlistSongs = songs.map((x: any) => new Song(x));
     return { name, playlistSongs };
   }
+
+  public async getUser(id: number): Promise<Object> {
+    const {user } = await EngineService.sendRequest(
+      API.routes.getUser + id
+    );
+    
+    return user;
+  }
+  public async isUserLogedin(token:string): Promise<Object> {
+    const {id} = await EngineService.sendRequest(
+      API.routes.postToken,{token}
+    );
+    
+    return id;
+  }
+
+  public async registerUser(user_info:User): Promise<Object> {
+    const {identity } = await EngineService.sendRequest(
+      API.routes.postRegister,user_info
+    );
+    
+    return identity;
+  }
+  
+  public async loginUser(user_info:User): Promise<Object> {
+    const {data} = await EngineService.sendRequest(
+      API.routes.postLogin,user_info
+    );
+    return data;
+  }
+
+  public async alterUserInfo(user_info:User): Promise<Object> {
+    const {user } = await EngineService.sendRequest(
+      API.routes.postAlter ,user_info
+    );
+    
+    return user;
+  }
+
+  // public async isUserAuthorized(token: string): Promise<Object> {
+  //   const {id } = await EngineService.sendRequest(
+  //     API.routes.postToken,{token}
+  //   );
+    
+  //   return id;
+  // }
 }
