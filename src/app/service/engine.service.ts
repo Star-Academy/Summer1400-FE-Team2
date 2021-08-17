@@ -135,6 +135,25 @@ export class EngineService {
 
     return user;
   }
+  public setToken(token: string) {
+    localStorage.setItem("token", token);
+  }
+  public getToken(): string {
+    return localStorage.getItem("token") || "";
+  }
+  public setUserId(id: number) {
+    localStorage.setItem("userId", "" + id);
+  }
+  public getUserId() {
+    return localStorage.getItem("userId");
+  }
+
+  public setUsername(username: string) {
+    localStorage.setItem("username", username);
+  }
+  public getUsername(): string {
+    return localStorage.getItem("username") || "";
+  }
 
   // public async isUserAuthorized(token: string): Promise<Object> {
   //   const {id } = await EngineService.sendRequest(

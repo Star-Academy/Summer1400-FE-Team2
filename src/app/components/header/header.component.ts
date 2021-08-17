@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { EngineService } from 'src/app/service/engine.service';
 
 @Component({
   selector: 'app-header',
@@ -7,17 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private enginService:EngineService,private router:Router) { }
 
   ngOnInit(): void {
   }
-  isLogedIn:Boolean=false;
+  isLogedIn=this.enginService.getToken();
+  username = this.enginService.getUsername();
   fgoBack() {
-    console.log('back');
     window.history.back();
   }
   fgoForward() {
-    console.log('forward');
     window.history.forward();
+  }
+  onLogoutBtn(){
+    localStorage.clear();
+    this.router.navigateByUrl("login");
   }
 }
