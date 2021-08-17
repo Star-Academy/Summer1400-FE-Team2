@@ -1,9 +1,14 @@
 <main>
-    <div *ngFor="let playlist of namePlaylists">
+    <div *ngFor="let playlist of namePlaylists ; index as i">
         <section class="playlists__container">
             <div class="playlists__title">
-                <h3><a href="./pages/playlist.html?{{playlist.key}}"> {{playlist.label}} </a></h3>
-                <a href="./pages/playlist.html?${{playlist.key}}">مشاهده همه</a>
+                <h3><a [routerLink]="['/all-songs', playlist.key]"> {{playlist.label}} </a></h3>
+                <a [routerLink]="['/all-songs', playlist.key]">مشاهده همه</a>
+            </div>
+            <div class="cards__container">
+                <div *ngFor="let song of songs.slice((i*random),(i*random)+7)">
+                    <app-card [song]="song"></app-card>
+                </div>
             </div>
         </section>
     </div>
