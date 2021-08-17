@@ -2,11 +2,11 @@
 <header>
     <div class="grid-item__header">
         <div class="user-controls__links" *ngIf="isLogedIn; else logedinUser">
-            <a href="#" id="user-account__link">
+            <a id="user-account__link">
                 <img src="../assets/Icons/user-button.svg" alt="">
-                <span>username</span>
+                <span>{{username}}</span>
             </a>
-            <a href="#" id="logoutBtn">
+            <a id="logoutBtn" (click)="onLogoutBtn()">
                 <img src="../assets/Icons/exit-button.svg" alt="">
                 <span>خروج</span>
             </a>
