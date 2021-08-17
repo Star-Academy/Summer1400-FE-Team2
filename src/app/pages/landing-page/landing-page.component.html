@@ -6,7 +6,7 @@
                 <a [routerLink]="['/all-songs', playlist.key]">مشاهده همه</a>
             </div>
             <div class="cards__container">
-                <div *ngFor="let song of songs.slice((i*random),(i*random)+7)">
+                <div *ngFor="let song of songs.slice((i*random),(i*random)+6)">
                     <app-card [song]="song"></app-card>
                 </div>
             </div>

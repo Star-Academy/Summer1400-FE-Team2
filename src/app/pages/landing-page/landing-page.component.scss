@@ -25,7 +25,7 @@ main {
 }
 .cards__container {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   column-gap: 0.5rem;
 }
 @media (max-width: 1450px) {
@@ -64,6 +64,16 @@ main {
   .cards__container {
     grid-template-columns: repeat(3, 1fr);
     div:nth-child(n + 4) {
+      display: none;
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .cards__container {
+    grid-template-columns: repeat(2, 1fr);
+    div:nth-child(n + 3) {
       display: none;
     }
   }

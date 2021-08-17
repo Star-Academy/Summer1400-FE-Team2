@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import Song from "../models/SongModal";
 import User from "../models/User";
+
 const TOKEN_KEY = "NCPL";
 
 const API = {
@@ -31,6 +32,7 @@ export class EngineService {
   private static get token(): string {
     return localStorage.getItem(TOKEN_KEY) || "";
   }
+
   private static async sendRequest(url: string, body?: object): Promise<any> {
     const init: RequestInit = {
       headers: {
@@ -42,11 +44,11 @@ export class EngineService {
       init.method = "POST";
       init.body = JSON.stringify(body);
     }
+    const res = await fetch(API.baseUrl + url, init);
 
-    return fetch(API.baseUrl + url, init).then((res) => {
-      if (res.ok) return res.json();
-      throw res.json();
-    });
+    const data = await res.json();
+    if (res.ok) return data;
+    alert(data.message);
   }
 
   public async getAllSongs(): Promise<Song[]> {
@@ -96,40 +98,41 @@ export class EngineService {
   }
 
   public async getUser(id: number): Promise<Object> {
-    const {user } = await EngineService.sendRequest(
-      API.routes.getUser + id
-    );
-    
+    const { user } = await EngineService.sendRequest(API.routes.getUser + id);
+
     return user;
   }
-  public async isUserLogedin(token:string): Promise<Object> {
-    const {id} = await EngineService.sendRequest(
-      API.routes.postToken,{token}
-    );
-    
+  public async isUserLogedin(token: string): Promise<Object> {
+    const { id } = await EngineService.sendRequest(API.routes.postToken, {
+      token,
+    });
+
     return id;
   }
 
-  public async registerUser(user_info:User): Promise<Object> {
-    const {identity } = await EngineService.sendRequest(
-      API.routes.postRegister,user_info
+  public async registerUser(user_info: User): Promise<Object> {
+    const { identity } = await EngineService.sendRequest(
+      API.routes.postRegister,
+      user_info
     );
-    
+
     return identity;
   }
-  
-  public async loginUser(user_info:User): Promise<Object> {
-    const {data} = await EngineService.sendRequest(
-      API.routes.postLogin,user_info
+
+  public async loginUser(user_info: User): Promise<Object> {
+    const { data } = await EngineService.sendRequest(
+      API.routes.postLogin,
+      user_info
     );
     return data;
   }
 
-  public async alterUserInfo(user_info:User): Promise<Object> {
-    const {user } = await EngineService.sendRequest(
-      API.routes.postAlter ,user_info
+  public async alterUserInfo(user_info: User): Promise<Object> {
+    const { user } = await EngineService.sendRequest(
+      API.routes.postAlter,
+      user_info
     );
-    
+
     return user;
   }
 
@@ -137,7 +140,7 @@ export class EngineService {
   //   const {id } = await EngineService.sendRequest(
   //     API.routes.postToken,{token}
   //   );
-    
+
   //   return id;
   // }
 }
