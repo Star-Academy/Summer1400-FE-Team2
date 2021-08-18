@@ -40,6 +40,7 @@ export class EngineService {
       headers: {
         "Content-Type": "application/json",
       },
+      cache:"reload"
     };
 
     if (body) {
@@ -48,14 +49,17 @@ export class EngineService {
       console.log(init.body);
     }
     const res = await fetch(API.baseUrl + url, init);
-
-    const data = await res.json();
-    if (res.ok) return data;
-    throw data;
+    const text_data = await res.text();
+    if (res.ok && text_data == "") {
+      return "successfully";
+    } else {
+      if (res.ok) return JSON.parse(text_data);
+      throw res;
+    }
   }
 
   public async getAllSongs(): Promise<Song[]> {
-    this.toast.openSnackBar("در حال بارگزاری آهنگ", "کمی صبر کنید");
+    // this.toast.openSnackBar("در حال بارگزاری آهنگ", "کمی صبر کنید");
     const { songs } = await EngineService.sendRequest(API.routes.getAllSongs);
     return songs.map((x: any) => new Song(x));
   }
@@ -125,7 +129,7 @@ export class EngineService {
   }
 
   public async registerUser(user_info: User): Promise<Object> {
-    console.log('in service: '+user_info,{...user_info});
+    console.log("in service: " + user_info, { ...user_info });
     const data = await EngineService.sendRequest(
       API.routes.postRegister,
       user_info
@@ -146,15 +150,18 @@ export class EngineService {
     return data;
   }
 
-  public async alterUserInfo(user_info: User): Promise<Object> {
-    const { user } = await EngineService.sendRequest(
+  public async alterUserInfo(user_info: User): Promise<object> {
+     const  answer = await EngineService.sendRequest(
       API.routes.postAlter,
       user_info
     )
-      .then((res) => res)
+      .then((res) =>{
+        console.log(res);
+        return res;
+      } )
       .catch((error) => this.toast.openSnackBar(error.message, ""));
-
-    return user;
+      console.log(answer);
+    return answer;
   }
   public setToken(token: string) {
     localStorage.setItem("token", token);
@@ -166,7 +173,7 @@ export class EngineService {
     localStorage.setItem("userId", "" + id);
   }
   public getUserId() {
-    return localStorage.getItem("userId") || '';
+    return localStorage.getItem("userId") || "";
   }
 
   public setUsername(username: string) {

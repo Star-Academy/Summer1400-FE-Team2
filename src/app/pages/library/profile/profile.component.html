@@ -1,10 +1,10 @@
 <section id="profile_container">
     <div class="profile">
         <div>
-            <div class="profile-photo_container">
+            <div class="profile-photo_container" [ngStyle]="{backgroundImage:avatar}">
                 <div class="profile-photo">
                     <label for="myfile"> <img src="../assets/Icons/edit-button.svg" alt=""> انتخاب عکس </label>
-                    <input type="file" id="myfile" name="myfile" class="custom-file-input">
+                    <input (change)="onChangeAvatar(myfile)" type="file" id="myfile" #myfile name="myfile" class="custom-file-input">
                 </div>
             </div>
             <div class="profile-info">

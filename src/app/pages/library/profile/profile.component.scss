@@ -49,7 +49,6 @@
         background-color: #282828;
         // box-shadow: 0 4px 15px rgb(0 0 0 / 0.2);
         border-radius: 50%;
-        background-image: url("/assets/Icons/user-profile.svg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -59,7 +58,7 @@
             display: none;
         }
         &:hover {
-            background-image: none;
+            background-image: none !important;
             cursor: pointer;
             label {
                 display: flex;
