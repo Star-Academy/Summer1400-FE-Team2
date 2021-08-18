@@ -2,8 +2,8 @@
     <div *ngFor="let playlist of namePlaylists ; index as i">
         <section class="playlists__container">
             <div class="playlists__title">
-                <h3><a [routerLink]="['/all-songs', playlist.key]"> {{playlist.label}} </a></h3>
-                <a [routerLink]="['/all-songs', playlist.key]">مشاهده همه</a>
+                <h3><a [routerLink]="['/all-songs']"> {{playlist.label}} </a></h3>
+                <a [routerLink]="['/all-songs']">مشاهده همه</a>
             </div>
             <div class="cards__container">
                 <div *ngFor="let song of songs.slice((i*random),(i*random)+6)">

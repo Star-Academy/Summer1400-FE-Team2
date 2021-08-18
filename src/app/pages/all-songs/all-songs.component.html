@@ -10,7 +10,8 @@
             </div>
             <div class="search">
                 <div class="searchBox">
-                    <input [(ngModel)]="searchText" (change)="search()" type="text" placeholder="خواننده ها , آهنگ ها..." />
+                    <input [(ngModel)]="searchText" (change)="search()" type="text"
+                        placeholder="خواننده ها , آهنگ ها..." />
                     <button class="searchBtn">
                         <img src="../assets/Icons/search-button.svg" alt="" />
                     </button>
@@ -27,6 +28,7 @@
             <div *ngFor="let song of songs">
                 <app-card [song]="song"></app-card>
             </div>
+            <p class="search-fail">{{songs && songs.length === 0 ? noReasult : ''}}</p>
         </div>
     </section>
 </main>

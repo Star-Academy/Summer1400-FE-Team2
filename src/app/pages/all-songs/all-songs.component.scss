@@ -12,7 +12,10 @@ main {
   .playlist-title {
     color: white;
   }
-
+  .search-fail {
+    color: #fff;
+    font-size: 2rem;
+  }
   .filters {
     display: flex;
     align-items: center;
@@ -109,7 +112,7 @@ main {
       }
       .search {
         justify-content: center;
-        margin:1rem
+        margin: 1rem;
       }
     }
   }

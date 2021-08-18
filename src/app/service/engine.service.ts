@@ -45,7 +45,6 @@ export class EngineService {
     if (body) {
       init.method = "POST";
       init.body = JSON.stringify(body);
-      console.log(init.body);
     }
     const res = await fetch(API.baseUrl + url, init);
 

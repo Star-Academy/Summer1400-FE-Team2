@@ -1,4 +1,6 @@
+import { Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import Song from "src/app/models/SongModal";
 import { EngineService } from "src/app/service/engine.service";
 
@@ -10,6 +12,7 @@ import { EngineService } from "src/app/service/engine.service";
 export class AllSongsComponent implements OnInit {
   public songs: Song[] = [];
   public searchText = "";
+  public noReasult = "";
   public selectedFilter = "name";
   public selectedNumber = 1200;
   public sortFilter = [
@@ -25,14 +28,25 @@ export class AllSongsComponent implements OnInit {
     { id: 60, name: "60" },
     { id: 1200, name: "همه" },
   ];
-  public constructor(private engineService: EngineService) {}
+  public constructor(
+    private engineService: EngineService,
+    private activatedRoute: ActivatedRoute,
+    private location: Location
+  ) {}
 
   public async ngOnInit() {
-    this.songs = await this.engineService.postFilterSongs();
+    this.activatedRoute.queryParams.subscribe((params) => {
+      let data = params["search"];
+      if (data !== "") {
+        this.searchText = data;
+        this.search();
+        this.location.replaceState("/all-songs");
+      } else this.change();
+    });
   }
 
   async change() {
-    if (this.searchText === " ")
+    if (!this.searchText)
       this.songs = await this.engineService.postFilterSongs(
         this.selectedNumber,
         1,
@@ -42,11 +56,14 @@ export class AllSongsComponent implements OnInit {
   }
 
   async search() {
-    this.songs = await this.engineService.postSearch(
-      this.searchText,
-      this.selectedNumber,
-      this.selectedFilter,
-      true
-    );
+    if (this.searchText) {
+      this.songs = await this.engineService.postSearch(
+        this.searchText,
+        this.selectedNumber,
+        this.selectedFilter,
+        true
+      );
+      this.noReasult = "آهنگی یافت نشد";
+    } else this.change();
   }
 }

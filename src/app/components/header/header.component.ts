@@ -9,10 +9,17 @@ import { EngineService } from "src/app/service/engine.service";
 })
 export class HeaderComponent implements OnInit {
   constructor(private enginService: EngineService, private router: Router) {}
-
+  public searchText: string = "";
   ngOnInit(): void {}
   isLogedIn = this.enginService.getToken();
   username = this.enginService.getUsername();
+
+  public sendToSongs() {
+    if (this.searchText !== "") {
+      this.router.navigateByUrl("all-songs?search=" + this.searchText);
+    }
+  }
+
   fgoBack() {
     window.history.back();
   }
