@@ -18,6 +18,7 @@ import { LayoutComponent } from "./layout/layout.component";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { ProfileComponent } from "./pages/library/profile/profile.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     LoginComponent,
     RegisterComponent,
     LayoutComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

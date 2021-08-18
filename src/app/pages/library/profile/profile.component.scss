@@ -1,0 +1,121 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile_container {
+    background-color: #333333;
+    max-height: 550px;
+    min-height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.profile {
+    width: 90%;
+    color: white;
+    padding: 0 2rem;
+    button {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+    div {
+        display: flex;
+        align-items: center;
+    }
+    #profile-name {
+        display: block;
+        min-width: 600px;
+        overflow: auto;
+        font-size: 4rem;
+        text-align: right;
+    }
+    .profile-info {
+        display: flex;
+        align-items: flex-start;
+        flex-flow: column;
+        justify-content: flex-start;
+        margin-right: 3rem;
+    }
+    .profile-photo_container {
+        height: 232px;
+        min-width: 232px;
+        width: 232px;
+        background-color: #282828;
+        // box-shadow: 0 4px 15px rgb(0 0 0 / 0.2);
+        border-radius: 50%;
+        background-image: url("/assets/Icons/user-profile.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        @include flex-center();
+        label,
+        input {
+            display: none;
+        }
+        &:hover {
+            background-image: none;
+            cursor: pointer;
+            label {
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                cursor: pointer;
+            }
+        }
+        .profile-photo img {
+            width: 2rem;
+            filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .playlists__container {
+        margin: auto;
+    }
+    .profile {
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+    .profile #profile-name {
+        min-width: 200px;
+    }
+}
+
+@media (max-width:900px) {
+    .profile #profile-name {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #profile_container {
+        min-height: 600px;
+    }
+    .profile {
+        margin: auto;
+        div {
+            flex-flow: column;
+            align-items: center;
+        }
+        .profile-photo_container {
+            margin-bottom: 0.6rem;
+        }
+        .profile-info {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            margin-right: 0;
+        }
+        .profile-info #profile-name {
+            font-size: 2rem;
+            min-width: 100px;
+        }
+    }
+}

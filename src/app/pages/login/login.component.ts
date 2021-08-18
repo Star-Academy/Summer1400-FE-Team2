@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
     };
 
     const user_identity = await this.engineService.loginUser(new User(user));
+    console.log(user_identity);
     if (user_identity.hasOwnProperty("error")) {
     //  alert(user_identity["message" as keyof object]);
     } else {
