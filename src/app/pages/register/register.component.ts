@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
     const user_identity = await this.engineService.registerUser(new User(user));
     if (user_identity.hasOwnProperty("error")) {
-      alert(user_identity["message" as keyof object]);
+     // alert(user_identity["message" as keyof object]);
     } else {     
       this.engineService.welcomeUser(user_identity, user.username);
     }
