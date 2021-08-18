@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import Song from "src/app/models/SongModal";
 import { EngineService } from "src/app/service/engine.service";
 

@@ -26,15 +26,8 @@ export class RegisterComponent implements OnInit {
       firstName: this.registerFirstName,
       lastName: this.registerLastName,
     };
-    console.log(user);
-    console.log(new User(user));
+
     const user_identity = await this.engineService.registerUser(new User(user));
-    if (user_identity.hasOwnProperty("error")) {
-      alert(user_identity["message" as keyof object]);
-    } else {    
-      const user_data = await this.engineService.getUser(user_identity["id" as keyof object]);
-      console.log(user_data);
-      this.engineService.welcomeUser(user_identity, user.username);
-    }
+    this.engineService.welcomeUser(user_identity, user.username);
   }
 }

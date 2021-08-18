@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: "library",
     component: LayoutComponent,
-    canActivate:[GuardService],
+    canActivate: [GuardService],
     children: [{ path: "", component: LibraryComponent }],
   },
   {
@@ -23,23 +23,27 @@ const routes: Routes = [
   },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "home", component: LayoutComponent,
-  children:[{path:"",component:LandingPageComponent}]
-},
-{
-  path: "favorites",component:PlaylistComponent, canActivate:[GuardService],children: [{ path: "", component: LibraryComponent }]
-},
-// {
-//   path: "createPlaylist",canActivate:[GuardService],
-// },
-{
-  path: "",redirectTo:'home',pathMatch:'full'
-}
+  {
+    path: "home",
+    component: LayoutComponent,
+    children: [{ path: "", component: LandingPageComponent }],
+  },
+  {
+    path: "favorites",
+    component: PlaylistComponent,
+    canActivate: [GuardService],
+    children: [{ path: "", component: LibraryComponent }],
+  },
+  {
+    path: "",
+    redirectTo: "home",
+    pathMatch: "full",
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers:[GuardService]
+  providers: [GuardService],
 })
 export class AppRoutingModule {}

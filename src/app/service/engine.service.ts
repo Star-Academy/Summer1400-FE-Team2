@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { ToastService } from "../components/toast/toast.service";
 import Song from "../models/SongModal";
 import User from "../models/User";
 
@@ -30,11 +31,10 @@ const API = {
   providedIn: "root",
 })
 export class EngineService {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private toast: ToastService) {}
   private static get token(): string {
     return localStorage.getItem(TOKEN_KEY) || "";
   }
-
   private static async sendRequest(url: string, body?: object): Promise<any> {
     const init: RequestInit = {
       headers: {
@@ -51,18 +51,19 @@ export class EngineService {
 
     const data = await res.json();
     if (res.ok) return data;
-    alert(data.message);
+    throw data;
   }
 
   public async getAllSongs(): Promise<Song[]> {
+    this.toast.openSnackBar("در حال بارگزاری آهنگ", "کمی صبر کنید");
     const { songs } = await EngineService.sendRequest(API.routes.getAllSongs);
     return songs.map((x: any) => new Song(x));
   }
 
   public async getOneSong(id: number = 1): Promise<Song> {
-    const { song } = await EngineService.sendRequest(
-      API.routes.getOneSong + id
-    );
+    const { song } = await EngineService.sendRequest(API.routes.getOneSong + id)
+      .then((res) => res)
+      .catch((error) => this.toast.openSnackBar(error.message, ""));
     return new Song(song);
   }
 
@@ -73,7 +74,9 @@ export class EngineService {
     const { songs } = await EngineService.sendRequest(
       API.routes.postFilterSongs,
       { size, current }
-    );
+    )
+      .then((res) => res)
+      .catch((error) => this.toast.openSnackBar(error.message, ""));
     return songs.map((x: any) => new Song(x));
   }
 
@@ -88,27 +91,35 @@ export class EngineService {
       count,
       sorter,
       desc,
-    });
+    })
+      .then((res) => res)
+      .catch((error) => this.toast.openSnackBar(error.message, ""));
     return songs.map((x: any) => new Song(x));
   }
 
   public async getPlaylist(id: number): Promise<Object> {
     const { name, songs } = await EngineService.sendRequest(
       API.routes.getPlaylist + id
-    );
+    )
+      .then((res) => res)
+      .catch((error) => this.toast.openSnackBar(error.message, ""));
     let playlistSongs = songs.map((x: any) => new Song(x));
     return { name, playlistSongs };
   }
 
-  public async getUser(id: number|string): Promise<Object> {
-    const { user } = await EngineService.sendRequest(API.routes.getUser + id);
+  public async getUser(id: number | string): Promise<Object> {
+    const { user } = await EngineService.sendRequest(API.routes.getUser + id)
+      .then((res) => res)
+      .catch((error) => this.toast.openSnackBar(error.message, ""));
     return user;
   }
 
   public async isUserLogedin(token: string): Promise<Object> {
     const { id } = await EngineService.sendRequest(API.routes.postToken, {
       token,
-    });
+    })
+      .then((res) => res)
+      .catch((error) => this.toast.openSnackBar(error.message, ""));
 
     return id;
   }
@@ -120,7 +131,7 @@ export class EngineService {
       user_info
     )
       .then((res) => res)
-      .catch((error) => error);
+      .catch((error) => this.toast.openSnackBar(error.message, ""));
 
     return data;
   }
@@ -131,7 +142,7 @@ export class EngineService {
       user_info
     )
       .then((res) => res)
-      .catch((error) => error);
+      .catch((error) => this.toast.openSnackBar(error.message, ""));
     return data;
   }
 
@@ -139,7 +150,9 @@ export class EngineService {
     const { user } = await EngineService.sendRequest(
       API.routes.postAlter,
       user_info
-    );
+    )
+      .then((res) => res)
+      .catch((error) => this.toast.openSnackBar(error.message, ""));
 
     return user;
   }
@@ -167,7 +180,7 @@ export class EngineService {
     this.setToken(user_data["token" as keyof object]);
     this.setUserId(user_data["id" as keyof object]);
     this.setUsername(username);
-    alert(`welcome ${username}`);
+    // alert(`welcome ${username}`);
     this.router.navigateByUrl("home");
   }
 }
