@@ -15,9 +15,11 @@ import { PlaylistComponent } from './pages/playlist/playlist.component';
 import { LibraryComponent } from './pages/library/library.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ToastComponent } from './components/toast/toast.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ToastComponent } from './components/toast/toast.component';
+
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,14 +35,16 @@ import { FormsModule } from '@angular/forms';
     PlaylistComponent,
     LibraryComponent,
     LoginComponent,
-    RegisterComponent,
-    ToastComponent,
+    RegisterComponent, 
+       ToastComponent,
+
     LayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import Song from "../models/SongModal";
 import User from "../models/User";
+
 const TOKEN_KEY = "NCPL";
 
 const API = {
@@ -33,6 +34,7 @@ export class EngineService {
   private static get token(): string {
     return localStorage.getItem(TOKEN_KEY) || "";
   }
+
   private static async sendRequest(url: string, body?: object): Promise<any> {
     const init: RequestInit = {
       headers: {
@@ -44,11 +46,11 @@ export class EngineService {
       init.method = "POST";
       init.body = JSON.stringify(body);
     }
+    const res = await fetch(API.baseUrl + url, init);
 
-    return fetch(API.baseUrl + url, init).then((res) => {
-      if (res.ok) return res.json();
-      throw res.json();
-    });
+    const data = await res.json();
+    if (res.ok) return data;
+    alert(data.message);
   }
 
   public async getAllSongs(): Promise<Song[]> {
