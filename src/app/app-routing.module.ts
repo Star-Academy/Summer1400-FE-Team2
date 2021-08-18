@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { CreatePlaylistComponent } from "./components/modals/create-playlist/create-playlist.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { AllSongsComponent } from "./pages/all-songs/all-songs.component";
 import { LandingPageComponent } from "./pages/landing-page/landing-page.component";
@@ -30,9 +31,9 @@ const routes: Routes = [
   },
   {
     path: "favorites",
-    component: PlaylistComponent,
+    component: LayoutComponent,
     canActivate: [GuardService],
-    children: [{ path: "", component: LibraryComponent }],
+    children: [{ path: "", component: CreatePlaylistComponent }],
   },
   {
     path: "createPlaylist",
