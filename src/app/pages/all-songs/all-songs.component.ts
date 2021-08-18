@@ -14,7 +14,7 @@ export class AllSongsComponent implements OnInit {
   public searchText = "";
   public noReasult = "";
   public selectedFilter = "name";
-  public selectedNumber = 1200;
+  public selectedNumber = 10;
   public sortFilter = [
     { id: "name", name: "نام آهنگ" },
     { id: "artist", name: "نام خواننده" },

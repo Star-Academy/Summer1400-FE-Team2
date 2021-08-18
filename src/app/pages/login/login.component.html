@@ -37,17 +37,19 @@
                 <form action="#" id="loginForm">
                     <div class="login__group">
                         <label for="login-email">ادرس ایمیل</label>
-                        <input [(ngModel)]="loginEmail" type="email" id="login-email" name="email" required placeholder="ادرس ایمیل خود را وارد کنید" />
+                        <input [(ngModel)]="loginEmail" type="email" id="login-email" name="email" required
+                            placeholder="ادرس ایمیل خود را وارد کنید" />
                     </div>
                     <div class="login__group">
                         <label for="login-username"> نام کاربری</label>
-                        <input [(ngModel)]="loginUsername" type="text" id="login-username" name="username" required placeholder=" نام کاربری خود را وارد کنید" />
+                        <input [(ngModel)]="loginUsername" type="text" id="login-username" name="username" required
+                            placeholder=" نام کاربری خود را وارد کنید" />
                     </div>
                     <div class="login__group">
                         <label for="login-password">کلمه عبور</label>
-                        <input [(ngModel)]="loginPassword" type="password" id="login-password" name="password" required placeholder="کلمه عبور را وارد کنید" />
+                        <input [(ngModel)]="loginPassword" type="password" id="login-password" name="password" required
+                            placeholder="کلمه عبور را وارد کنید" />
                     </div>
-                    <a href="./forget-password.html" id="reset-password-link">کلمه عبور را فراموش کردی؟</a>
                     <div class="login-controls">
                         <button id="loginBtn" class="login-buttons" (click)="loginBtnHandler()">ورود</button>
                     </div>

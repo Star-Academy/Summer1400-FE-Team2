@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { Injectable } from "@angular/core";
+import { CanActivate } from "@angular/router";
+import { EngineService } from "./engine.service";
 
 @Injectable()
 export class GuardService implements CanActivate {
-
-  constructor() { }
-  public canActivate():boolean{
-    if(localStorage.getItem('token')){
+  public constructor(private engineService: EngineService) {}
+  public canActivate(): boolean {
+    if (this.engineService.getToken() !== "") {
       return true;
-    }else{
-     // alert('ابتدا وارد شوید.');
+    } else {
+      this.engineService.shouldLogin();
       return false;
     }
   }
