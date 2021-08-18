@@ -19,6 +19,7 @@ import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { ProfileComponent } from "./pages/library/profile/profile.component";
+import { CreatePlaylistComponent } from './components/modals/create-playlist/create-playlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { ProfileComponent } from "./pages/library/profile/profile.component";
     RegisterComponent,
     LayoutComponent,
     ProfileComponent,
+    CreatePlaylistComponent,
   ],
   imports: [
     BrowserModule,

@@ -105,6 +105,15 @@ export class EngineService {
     return { name, playlistSongs };
   }
 
+  public async postCreatePlaylist(name: string): Promise<Object> {
+    let token = this.getToken();
+    const answer = await EngineService.sendRequest(
+      API.routes.postCreatePlaylist,
+      { name, token }
+    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    return answer;
+  }
+
   public async getUser(id: number | string): Promise<Object> {
     const { user } = await EngineService.sendRequest(
       API.routes.getUser + id
@@ -130,6 +139,9 @@ export class EngineService {
     this.setToken(token);
     this.setUserId(id);
     this.setUsername(user_info.username);
+    if (token) {
+      await this.postCreatePlaylist("مورد علاقه");
+    }
     return true;
   }
 
