@@ -1,1 +1,34 @@
-<p>all-songs works!</p>
+<main>
+    <section>
+        <h3 class="playlist-title">آهنگ ها</h3>
+        <div class="filters">
+            <div class="sorter">
+                <p>مرتب سازی بر اساس</p>
+                <select [(ngModel)]="selectedFilter" (change)="change()" class="song-sort">
+                    <option *ngFor="let item of sortFilter" [ngValue]="item.id">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="search">
+                <div class="searchBox">
+                    <input [(ngModel)]="searchText" (change)="search()" type="text"
+                        placeholder="خواننده ها , آهنگ ها..." />
+                    <button class="searchBtn">
+                        <img src="../assets/Icons/search-button.svg" alt="" />
+                    </button>
+                </div>
+            </div>
+            <div class="count">
+                <label for="songs-number">تعداد آهنگ</label>
+                <select [(ngModel)]="selectedNumber" (change)="change()" class="song-sort">
+                    <option *ngFor="let item of songsNumber" [ngValue]="item.id">{{item.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="playlists__container" id="playlist-section">
+            <div *ngFor="let song of songs">
+                <app-card [song]="song"></app-card>
+            </div>
+            <p class="search-fail">{{songs && songs.length === 0 ? noReasult : ''}}</p>
+        </div>
+    </section>
+</main>

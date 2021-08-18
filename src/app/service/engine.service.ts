@@ -58,7 +58,6 @@ export class EngineService {
   }
 
   public async getAllSongs(): Promise<Song[]> {
-    // this.toast.openSnackBar("در حال بارگزاری آهنگ", "کمی صبر کنید");
     const { songs } = await EngineService.sendRequest(API.routes.getAllSongs);
     return songs.map((x: any) => new Song(x));
   }
@@ -71,12 +70,14 @@ export class EngineService {
   }
 
   public async postFilterSongs(
-    size: number = 20,
-    current: number = 1
+    size: number = 200,
+    current: number = 1,
+    sorter: string = "name"
   ): Promise<Song[]> {
+    this.toast.openSnackBar("در حال بارگزاری آهنگ", "کمی صبر کنید");
     const { songs } = await EngineService.sendRequest(
       API.routes.postFilterSongs,
-      { size, current }
+      { size, current, sorter }
     )
       .then((res) => res)
       .catch((error) => this.toast.openSnackBar(error.message, ""));
@@ -89,6 +90,8 @@ export class EngineService {
     sorter: string = "name",
     desc: boolean = true
   ): Promise<Song[]> {
+    this.toast.openSnackBar("نتایج جست و جو در حال بارگزاری", "کمی صبر کنید");
+
     const { songs } = await EngineService.sendRequest(API.routes.postSearch, {
       phrase,
       count,

@@ -33,9 +33,9 @@ import { ProfileComponent } from "./pages/library/profile/profile.component";
     PlaylistComponent,
     LibraryComponent,
     LoginComponent,
-    RegisterComponent, 
+    RegisterComponent,
     LayoutComponent,
-     ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

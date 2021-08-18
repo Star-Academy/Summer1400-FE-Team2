@@ -42,8 +42,8 @@ header {
 }
 
 .grid-item__header:nth-child(2) {
+    display: flex;
     grid-area: column-2;
-    display: none;
     justify-content: flex-end;
     margin-left: 1rem;
 }
@@ -114,6 +114,9 @@ header {
 }
 
 .searchBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     width: 45%;
     border-radius: 999px;
