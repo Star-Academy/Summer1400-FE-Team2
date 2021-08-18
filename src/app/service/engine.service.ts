@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import Song from "../models/SongModal";
 import User from "../models/User";
 const TOKEN_KEY = "NCPL";
@@ -28,6 +29,7 @@ const API = {
   providedIn: "root",
 })
 export class EngineService {
+  constructor(private router: Router) {}
   private static get token(): string {
     return localStorage.getItem(TOKEN_KEY) || "";
   }
@@ -96,67 +98,70 @@ export class EngineService {
   }
 
   public async getUser(id: number): Promise<Object> {
-    const {user } = await EngineService.sendRequest(
-      API.routes.getUser + id
-    );
-    
+    const { user } = await EngineService.sendRequest(API.routes.getUser + id);
     return user;
   }
-  public async isUserLogedin(token:string): Promise<Object> {
-    const {id} = await EngineService.sendRequest(
-      API.routes.postToken,{token}
-    );
-    
+
+  public async isUserLogedin(token: string): Promise<Object> {
+    const { id } = await EngineService.sendRequest(API.routes.postToken, {
+      token,
+    });
+
     return id;
   }
 
-  public async registerUser(user_info:User): Promise<Object> {
-    const {identity } = await EngineService.sendRequest(
-      API.routes.postRegister,user_info
+  public async registerUser(user_info: User): Promise<Object> {
+    const { identity } = await EngineService.sendRequest(
+      API.routes.postRegister,
+      user_info
     );
-    
+
     return identity;
   }
-  
-  public async loginUser(user_info:User): Promise<object> {
+
+  public async loginUser(user_info: User): Promise<object> {
     const data = await EngineService.sendRequest(
-      API.routes.postLogin,user_info
-    ).then(res=>res).catch(error=>error);
+      API.routes.postLogin,
+      user_info
+    )
+      .then((res) => res)
+      .catch((error) => error);
     return data;
   }
 
-  public async alterUserInfo(user_info:User): Promise<Object> {
-    const {user } = await EngineService.sendRequest(
-      API.routes.postAlter ,user_info
+  public async alterUserInfo(user_info: User): Promise<Object> {
+    const { user } = await EngineService.sendRequest(
+      API.routes.postAlter,
+      user_info
     );
-    
+
     return user;
   }
-  public setToken(token:string){
-    localStorage.setItem('token',token);
+  public setToken(token: string) {
+    localStorage.setItem("token", token);
   }
-  public getToken():string{
-    return localStorage.getItem('token')||'';
+  public getToken(): string {
+    return localStorage.getItem("token") || "";
   }
-  public setUserId(id:number){
-    localStorage.setItem('userId',""+id);
+  public setUserId(id: number) {
+    localStorage.setItem("userId", "" + id);
   }
-  public getUserId(){
-    return localStorage.getItem('userId');
-  }
-
-  public setUsername(username:string){
-    localStorage.setItem('username',username);
-  }
-  public getUsername():string{
-    return localStorage.getItem('username') || '';
+  public getUserId() {
+    return localStorage.getItem("userId");
   }
 
-  // public async isUserAuthorized(token: string): Promise<Object> {
-  //   const {id } = await EngineService.sendRequest(
-  //     API.routes.postToken,{token}
-  //   );
-    
-  //   return id;
-  // }
+  public setUsername(username: string) {
+    localStorage.setItem("username", username);
+  }
+  public getUsername(): string {
+    return localStorage.getItem("username") || "";
+  }
+
+  public welcomeUser(user_data: object, username: string) {
+    this.setToken(user_data["token" as keyof object]);
+    this.setUserId(user_data["id" as keyof object]);
+    this.setUsername(username);
+    alert(`welcome ${username}`);
+    this.router.navigateByUrl("home");
+  }
 }

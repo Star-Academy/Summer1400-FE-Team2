@@ -9,7 +9,7 @@ export class GuardService implements CanActivate {
     if(localStorage.getItem('token')){
       return true;
     }else{
-      console.log('first login');
+      alert('ابتدا وارد شوید.');
       return false;
     }
   }

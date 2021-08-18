@@ -2,7 +2,7 @@
 <header>
     <div class="grid-item__header">
         <div class="user-controls__links" *ngIf="isLogedIn; else logedinUser">
-            <a id="user-account__link">
+            <a id="user-account__link" (click)="onUserProfileBtn()">
                 <img src="../assets/Icons/user-button.svg" alt="">
                 <span>{{username}}</span>
             </a>
