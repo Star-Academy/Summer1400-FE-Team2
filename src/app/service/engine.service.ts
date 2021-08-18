@@ -113,12 +113,14 @@ export class EngineService {
   }
 
   public async registerUser(user_info: User): Promise<Object> {
-    const { identity } = await EngineService.sendRequest(
+    const data = await EngineService.sendRequest(
       API.routes.postRegister,
       user_info
-    );
+    )
+      .then((res) => res)
+      .catch((error) => error);
 
-    return identity;
+    return data;
   }
 
   public async loginUser(user_info: User): Promise<object> {

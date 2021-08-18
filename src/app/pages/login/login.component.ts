@@ -17,19 +17,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  loginBtnHandler() {
+  async loginBtnHandler() {
     let user = {
       email: this.loginEmail,
       password: this.loginPassword,
       username: this.loginUsername,
     };
 
-    const user_identity = this.engineService.loginUser(new User(user));
+    const user_identity = await this.engineService.loginUser(new User(user));
     if (user_identity.hasOwnProperty("error")) {
       alert(user_identity["message" as keyof object]);
     } else {
-      console.log(user_identity["token" as keyof object]);
-      console.log(user_identity["id" as keyof object]);
       this.engineService.welcomeUser(user_identity, user.username);
     }
   }

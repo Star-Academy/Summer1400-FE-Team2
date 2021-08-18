@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   constructor(private engineService: EngineService, private router: Router) {}
 
   ngOnInit(): void {}
-  onRegisterBtn() {
+  async onRegisterBtn() {
     let user = {
       username: this.registerUsername,
       email: this.registerEmail,
@@ -27,13 +27,10 @@ export class RegisterComponent implements OnInit {
       lastName: this.registerLastName,
     };
 
-    const user_identity = this.engineService.registerUser(new User(user));
+    const user_identity = await this.engineService.registerUser(new User(user));
     if (user_identity.hasOwnProperty("error")) {
       alert(user_identity["message" as keyof object]);
-    } else {
-      console.log(user_identity["token" as keyof object]);
-      console.log(user_identity["id" as keyof object]);
-      alert("با موفقیت ثبت نام شد.");
+    } else {     
       this.engineService.welcomeUser(user_identity, user.username);
     }
   }
