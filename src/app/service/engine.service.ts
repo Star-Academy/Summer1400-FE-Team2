@@ -45,8 +45,7 @@ export class EngineService {
 
     if (body) {
       init.method = "POST";
-      init.body = JSON.stringify(body);
-      console.log(init.body);
+      init.body = JSON.stringify(body);      
     }
     const res = await fetch(API.baseUrl + url, init);
     const text_data = await res.text();
@@ -129,7 +128,6 @@ export class EngineService {
   }
 
   public async registerUser(user_info: User): Promise<Object> {
-    console.log("in service: " + user_info, { ...user_info });
     const data = await EngineService.sendRequest(
       API.routes.postRegister,
       user_info
@@ -155,12 +153,8 @@ export class EngineService {
       API.routes.postAlter,
       user_info
     )
-      .then((res) =>{
-        console.log(res);
-        return res;
-      } )
-      .catch((error) => this.toast.openSnackBar(error.message, ""));
-      console.log(answer);
+      .then((res) =>res)
+      .catch((error) => this.toast.openSnackBar(error.message, ""));      
     return answer;
   }
   public setToken(token: string) {
