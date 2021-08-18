@@ -45,6 +45,7 @@ export class EngineService {
     if (body) {
       init.method = "POST";
       init.body = JSON.stringify(body);
+      console.log(init.body);
     }
     const res = await fetch(API.baseUrl + url, init);
 
@@ -99,7 +100,7 @@ export class EngineService {
     return { name, playlistSongs };
   }
 
-  public async getUser(id: number): Promise<Object> {
+  public async getUser(id: number|string): Promise<Object> {
     const { user } = await EngineService.sendRequest(API.routes.getUser + id);
     return user;
   }
@@ -113,6 +114,7 @@ export class EngineService {
   }
 
   public async registerUser(user_info: User): Promise<Object> {
+    console.log('in service: '+user_info,{...user_info});
     const data = await EngineService.sendRequest(
       API.routes.postRegister,
       user_info
@@ -151,7 +153,7 @@ export class EngineService {
     localStorage.setItem("userId", "" + id);
   }
   public getUserId() {
-    return localStorage.getItem("userId");
+    return localStorage.getItem("userId") || '';
   }
 
   public setUsername(username: string) {

@@ -1,0 +1,13 @@
+main {
+    width: 85%;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: auto;
+    background-color: #1d1d1d;
+}
+
+@media (max-width: 1200px) {
+    main {
+        width: 100%;
+    }
+}

@@ -4,8 +4,8 @@ export default class User{
         this.username = user.username;
         this.token = user.token;
         this.email = user.email;
-        this.first_name = user.first_name;
-        this.last_name = user.last_name;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
         this.avatar = user.avatar;
         this.gender = user.gender;
         this.birthDate = user.birthDate;
@@ -13,8 +13,8 @@ export default class User{
     }
     public id:number;
     public username:string;
-    public first_name:string;
-    public last_name:string;
+    public firstName:string;
+    public lastName:string;
     public email:string;
     public token:string;
     public avatar:string;

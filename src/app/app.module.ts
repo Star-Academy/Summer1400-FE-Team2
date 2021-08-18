@@ -20,6 +20,7 @@ import { ToastComponent } from './components/toast/toast.component';
 
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './pages/library/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterComponent, 
        ToastComponent,
 
-    LayoutComponent
+    LayoutComponent,
+     ProfileComponent
   ],
   imports: [
     BrowserModule,
