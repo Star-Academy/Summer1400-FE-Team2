@@ -61,9 +61,9 @@ export class EngineService {
   }
 
   public async getOneSong(id: number = 1): Promise<Song> {
-    const { song } = await EngineService.sendRequest(API.routes.getOneSong + id)
-      .then((res) => res)
-      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    const { song } = await EngineService.sendRequest(
+      API.routes.getOneSong + id
+    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
     return new Song(song);
   }
 
@@ -76,9 +76,7 @@ export class EngineService {
     const { songs } = await EngineService.sendRequest(
       API.routes.postFilterSongs,
       { size, current, sorter }
-    )
-      .then((res) => res)
-      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
     return songs.map((x: any) => new Song(x));
   }
 
@@ -95,26 +93,22 @@ export class EngineService {
       count,
       sorter,
       desc,
-    })
-      .then((res) => res)
-      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    }).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
     return songs.map((x: any) => new Song(x));
   }
 
   public async getPlaylist(id: number): Promise<Object> {
     const { name, songs } = await EngineService.sendRequest(
       API.routes.getPlaylist + id
-    )
-      .then((res) => res)
-      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
     let playlistSongs = songs.map((x: any) => new Song(x));
     return { name, playlistSongs };
   }
 
   public async getUser(id: number | string): Promise<Object> {
-    const { user } = await EngineService.sendRequest(API.routes.getUser + id)
-      .then((res) => res)
-      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    const { user } = await EngineService.sendRequest(
+      API.routes.getUser + id
+    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
     return user;
   }
 
@@ -150,14 +144,13 @@ export class EngineService {
     return true;
   }
 
-  public async alterUserInfo(user_info: User): Promise<object> {
-    const answer = await EngineService.sendRequest(
-      API.routes.postAlter,
-      user_info
-    )
-      .then((res) => res)
+  public async alterUserInfo(user_info: User): Promise<void> {
+    await EngineService.sendRequest(API.routes.postAlter, user_info)
+      .then((res) => {
+        this.toast.openSnackBar("اطلاعات با موفقیت ثبت شد", "پیغام سرور");
+        return res;
+      })
       .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
-    return answer;
   }
   public setToken(token: string) {
     localStorage.setItem(TOKEN_KEY, token);

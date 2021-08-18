@@ -19,9 +19,7 @@ export class ProfileComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.showUserInfo();
   }
-  ngOnChanges() {
-    // this.showUserInfo();
-  }
+  ngOnChanges() {}
 
   first_name = "";
   last_name = "";
@@ -31,7 +29,6 @@ export class ProfileComponent implements OnInit, OnChanges {
   async showUserInfo() {
     let id = this.enginService.getUserId();
     const user_data = await this.enginService.getUser(id);
-    console.log(user_data);
     this.username = user_data["username" as keyof object];
     this.first_name = user_data["first_name" as keyof object];
     this.last_name = user_data["last_name" as keyof object];
@@ -39,17 +36,17 @@ export class ProfileComponent implements OnInit, OnChanges {
       ? `url(${user_data["avatar" as keyof object]})`
       : "url('/assets/Icons/user-profile.svg')";
   }
-  onChangeAvatar(myfile: any) {
+  async onChangeAvatar(myfile: any) {
     let file = myfile.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => {
+    reader.onload = async () => {
       this.avatar = `url(${reader.result})`;
       let user = {
         token: this.enginService.getToken(),
         avatar: reader.result,
       };
-      this.enginService.alterUserInfo(new User(user));
+      await this.enginService.alterUserInfo(new User(user));
     };
   }
 }
