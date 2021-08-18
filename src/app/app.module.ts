@@ -18,7 +18,6 @@ import { LayoutComponent } from "./layout/layout.component";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
-
 @NgModule({
   declarations: [
     AppComponent,

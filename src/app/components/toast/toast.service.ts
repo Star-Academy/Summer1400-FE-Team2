@@ -9,7 +9,7 @@ export class ToastService {
 
   public openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 6000,
+      duration: 5000,
     });
   }
 }
