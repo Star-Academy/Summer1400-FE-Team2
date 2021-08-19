@@ -8,19 +8,27 @@
     <div class="modal-content">
         <div class="modal-getInfo">
             <div>
+                <label for="modal-username">نام کاربری</label>
                 <input type="text" id="modal-username" name="name" [(ngModel)]="username">
+                <label for="modal-firstName">نام</label>
+                <input type="text" id="modal-firstName" name="firstName" [(ngModel)]="firstName">
+                <label for="modal-lastName">نام خانوادگی</label>
+                <input type="text" id="modal-lastName" name="lastName" [(ngModel)]="lastName">
+                <label for="modal-password">تغییر رمز عبور</label>
+                <input type="text" id="modal-password" name="password" [(ngModel)]="password">
             </div>
         </div>
-        <!-- [ngStyle]="{backgroundImage:avatarLink}" -->
-        <div class="modal-image" id='profile-image_container'>
-            <p></p>
-            <span id='delete-modalImg'>حذف عکس</span>
-            <img id='profile-img' src="../assets/Icons/edit-button.svg" alt="">
-            <label for="modal-file" id='edit-modalImg'>انتخاب عکس</label>
-            <input type="file" id="modal-file" name="myfile">
+        <div id="modal-image_container">
+            <div class="modal-image" id='profile-image_container' [ngStyle]="{backgroundImage:avatarLink}">
+                <span id='delete-modalImg' (click)="onDeleteBtn()">حذف عکس</span>
+                <img id='profile-img' src="../assets/Icons/edit-button.svg" alt="">
+                <label for="modal-file" id='edit-modalImg'>انتخاب عکس</label>
+                <input type="file" id="modal-file" name="myfile" (change)="onChangeAvatar(myfile)" #myfile>
+
+            </div>
         </div>
     </div>
     <div class="modal-footer">
-        <button id="save-photo" class='save-modal-button' mat-button [mat-dialog-close]="true" cdkFocusInitial>ذخیره</button>
+        <button id="save-photo" class='save-modal-button' mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="onSaveModal()">ذخیره</button>
     </div>
 </mat-dialog-content>

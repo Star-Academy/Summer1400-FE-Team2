@@ -4,7 +4,7 @@
     .mat-dialog-container {
         background-color: #282828 !important;
         padding: 1rem;
-        overflow: unset;
+        overflow: auto;
     }
 }
 
@@ -155,8 +155,13 @@ button {
 }
 
 @media (max-width: 600px) {
+    #modal-image_container {
+        order: 1;
+    }
     .modal-getInfo {
+        order: 2;
         width: 100%;
+        font-size: 1rem;
     }
     .modal-footer {
         text-align: center;
@@ -164,5 +169,18 @@ button {
     }
     .modal-content {
         flex-flow: column;
+    }
+    #profile-image_container {
+        border-radius: 50%;
+        height: 150px;
+        width: 150px;
+        min-width: 150px;
+        label,
+        span {
+            font-size: 0.9rem;
+        }
+        img {
+            width: 1.5rem;
+        }
     }
 }

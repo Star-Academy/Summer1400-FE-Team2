@@ -12,15 +12,24 @@ import { EditProfileComponent } from "src/app/components/modals/edit-profile/edi
   selector: "app-profile",
   templateUrl: "./profile.component.html",
   styleUrls: ["./profile.component.scss"],
-  providers:[EditProfileComponent]
+  providers: [EditProfileComponent],
 })
 export class ProfileComponent implements OnInit, OnChanges {
-  constructor(private enginService: EngineService,private editModal:EditProfileComponent) {}
+  constructor(
+    private enginService: EngineService,
+    private editModal: EditProfileComponent
+  ) {}
 
   ngOnInit(): void {
     this.showUserInfo();
   }
-  ngOnChanges() {}
+  ngOnChanges() {
+    this.showUserInfo();
+    console.log("in onChange..");
+  }
+  // ngDoCheck(){
+  //   this.showUserInfo();
+  // }
 
   first_name = "";
   last_name = "";
@@ -36,6 +45,7 @@ export class ProfileComponent implements OnInit, OnChanges {
     this.avatar = user_data["avatar" as keyof object]
       ? `url(${user_data["avatar" as keyof object]})`
       : "url('/assets/Icons/user-profile.svg')";
+    console.log(user_data);
   }
   async onChangeAvatar(myfile: any) {
     let file = myfile.files[0];
@@ -50,7 +60,9 @@ export class ProfileComponent implements OnInit, OnChanges {
       await this.enginService.alterUserInfo(new User(user));
     };
   }
-  onEditProfile(){
-    this.editModal.openDialog(this.username,this.avatar);
+  
+  onEditProfile() {
+    this.editModal.openDialog();
+    this.showUserInfo();
   }
 }
