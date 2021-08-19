@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { ToastService } from "../components/toast/toast.service";
+import Playlist from "../models/Playlist";
 import Song from "../models/SongModal";
 import User from "../models/User";
 
@@ -103,6 +104,13 @@ export class EngineService {
     ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
     let playlistSongs = songs.map((x: any) => new Song(x));
     return { name, playlistSongs };
+  }
+
+  public async getAllPlaylist(token:string):Promise<object>{
+    const playlists = await EngineService.sendRequest(API.routes.postAllPlaylists).catch(error=>this.toast.openSnackBar(error.message,"پیغام سرور"));
+    console.log(playlists);
+    let playlists_arr = playlists.map((playlist:any)=>new Playlist(playlist));
+    return playlists_arr;
   }
 
   public async postCreatePlaylist(name: string): Promise<Object> {

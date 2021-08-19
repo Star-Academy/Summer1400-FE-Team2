@@ -8,10 +8,12 @@
     <div class="modal-content">
         <div class="modal-getInfo">
             <div>
-                <input type="text" id="modal-username" name="name">
+                <input type="text" id="modal-username" name="name" [(ngModel)]="username">
             </div>
         </div>
+        <!-- [ngStyle]="{backgroundImage:avatarLink}" -->
         <div class="modal-image" id='profile-image_container'>
+            <p></p>
             <span id='delete-modalImg'>حذف عکس</span>
             <img id='profile-img' src="../assets/Icons/edit-button.svg" alt="">
             <label for="modal-file" id='edit-modalImg'>انتخاب عکس</label>

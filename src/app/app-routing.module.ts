@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { MAT_DIALOG_DEFAULT_OPTIONS } from "@angular/material/dialog";
 import { RouterModule, Routes } from "@angular/router";
 import { CreatePlaylistComponent } from "./components/modals/create-playlist/create-playlist.component";
 import { LayoutComponent } from "./layout/layout.component";
@@ -51,6 +52,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [GuardService],
+  providers: [GuardService,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
 })
 export class AppRoutingModule {}

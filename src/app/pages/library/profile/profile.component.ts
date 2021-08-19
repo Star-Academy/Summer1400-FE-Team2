@@ -51,6 +51,6 @@ export class ProfileComponent implements OnInit, OnChanges {
     };
   }
   onEditProfile(){
-    this.editModal.openDialog();
+    this.editModal.openDialog(this.username,this.avatar);
   }
 }
