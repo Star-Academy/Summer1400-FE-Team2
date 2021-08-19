@@ -1,9 +1,10 @@
 <div class="card-playlist">
-    <a class="music-link" [routerLink]="['/play-songs', song.id]">
+    <!-- [routerLink]="['/play-songs', song.id]" -->
+    <a class="music-link">
         <div class="music-link__image">
-            <img [src]="song?.cover" alt="cover" />
+            <img [src]="song?.cover || playlist.cover || default_img" alt="cover" />
         </div>
-        <h3 class="card-playlist__title">{{ song?.name }}</h3>
-        <p>{{ song?.artist }}</p>
+        <h3 class="card-playlist__title">{{ song?.name || playlist.name }}</h3>
+        <p>{{ song?.artist || playlist.artist || default_artist}}</p>
     </a>
 </div>

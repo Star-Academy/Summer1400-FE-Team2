@@ -8,7 +8,6 @@ import { MAT_DIALOG_DATA } from "@angular/material/dialog";
   styleUrls: ["./edit-profile.component.scss"],
 })
 export class EditProfileComponent implements OnInit {
-  // ,@Inject(MAT_DIALOG_DATA) public data: {name:string,avatar:string}
   constructor(public dialog: MatDialog) {}
   avatarLink = "";
   username = "";

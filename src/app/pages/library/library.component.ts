@@ -13,7 +13,7 @@ export class LibraryComponent implements OnInit {
   public playlists:any=[];
   
   async ngOnInit(){
-    this.playlists= await this.engineService.getAllPlaylist(localStorage.getItem('token')||'');
+    this.playlists= await this.engineService.getAllPlaylist(this.engineService.getToken());
     console.log(this.playlists);
   }
 

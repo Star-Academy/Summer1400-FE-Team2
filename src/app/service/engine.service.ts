@@ -107,8 +107,8 @@ export class EngineService {
   }
 
   public async getAllPlaylist(token:string):Promise<object>{
-    const playlists = await EngineService.sendRequest(API.routes.postAllPlaylists).catch(error=>this.toast.openSnackBar(error.message,"پیغام سرور"));
-    console.log(playlists);
+    const playlists = await EngineService.sendRequest(API.routes.postAllPlaylists,{token:token})
+    .catch(error=>this.toast.openSnackBar(error.message,"پیغام سرور"));
     let playlists_arr = playlists.map((playlist:any)=>new Playlist(playlist));
     return playlists_arr;
   }
