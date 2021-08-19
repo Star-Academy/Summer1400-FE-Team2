@@ -117,28 +117,11 @@
 
 @media (max-width: 768px) {
   .modal-playlist_container {
-    width: 400px;
-    margin-left: -200px;
     .modal-image {
       display: none;
     }
     .modal-getInfo {
-      width: 100%;
+      width: 80%;
     }
-    .modal-footer {
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .modal-content {
-      flex-flow: column;
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  .modal-playlist_container {
-    width: 300px;
-    margin-left: -150px;
-    margin-top: -190px;
   }
 }

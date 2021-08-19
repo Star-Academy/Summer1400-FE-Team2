@@ -33,13 +33,7 @@ const routes: Routes = [
     path: "favorites",
     component: LayoutComponent,
     canActivate: [GuardService],
-    children: [{ path: "", component: CreatePlaylistComponent }],
-  },
-  {
-    path: "createPlaylist",
-    component: PlaylistComponent,
-    canActivate: [GuardService],
-    children: [{ path: "", component: LibraryComponent }],
+    children: [{ path: "", component: PlaylistComponent }],
   },
   {
     path: "",

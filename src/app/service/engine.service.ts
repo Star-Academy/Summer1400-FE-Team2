@@ -105,13 +105,13 @@ export class EngineService {
     return { name, playlistSongs };
   }
 
-  public async postCreatePlaylist(name: string): Promise<Object> {
+  public async postCreatePlaylist(name: string): Promise<Boolean> {
     let token = this.getToken();
     const answer = await EngineService.sendRequest(
       API.routes.postCreatePlaylist,
       { name, token }
     ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
-    return answer;
+    return true;
   }
 
   public async getUser(id: number | string): Promise<Object> {

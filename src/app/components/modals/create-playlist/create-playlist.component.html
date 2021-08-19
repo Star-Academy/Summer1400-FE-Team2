@@ -3,25 +3,23 @@
         <div class="modal-playlist">
             <div class="modal-header">
                 <h1>افزودن پلی لیست</h1>
-                <div class="close-modal">
-                    <button id="close-playlist-button">&times;</button>
+                <div class="close-modal" mat-button [mat-dialog-close]="true" cdkFocusInitial>
+                    <button id="close-profile-button">&times;</button>
                 </div>
             </div>
             <div class="modal-content">
                 <div class="modal-getInfo">
                     <div>
-                        <input type="text" id="create-playlist" name="name" onchange="saveName( event )"
-                            placeholder="یک نام اضافه کن" id="playlist-name">
+                        <input type="text" [(ngModel)]="namePlaylist" placeholder="یک نام اضافه کن">
                     </div>
                     <div>
-                        <textarea name="playlist-description" id="playlist-description" rows="5"
-                            placeholder="توضیحات (اختیاری)" spellcheck="false"></textarea>
+                        <textarea rows="5" placeholder="توضیحات (اختیاری)" spellcheck="false"></textarea>
                     </div>
                 </div>
                 <div class="modal-image"> </div>
             </div>
             <div class="modal-footer">
-                <button id="save-playlist" class='save-modal-button' onclick="createNewPlaylist()">ذخیره</button>
+                <button class='save-modal-button' (click)="createNewPlaylist()">ذخیره</button>
             </div>
         </div>
     </div>
