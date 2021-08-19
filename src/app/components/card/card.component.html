@@ -1,6 +1,5 @@
 <div class="card-playlist">
-    <!-- [routerLink]="['/play-songs', song.id]" -->
-    <a class="music-link">
+    <a class="music-link" [routerLink]="['/song', song.id]">
         <div class="music-link__image">
             <img [src]="song?.cover || playlist.cover || default_img" alt="cover" />
         </div>

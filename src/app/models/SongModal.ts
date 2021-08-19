@@ -1,15 +1,18 @@
-export default class Song {
-    public id: number;
-    public name: string;
-    public artist: string;
-    public lyrics: string;
-    public cover: string;
+import { CloseScrollStrategyConfig } from "@angular/cdk/overlay/scroll/close-scroll-strategy";
 
-    public constructor(song: any) {
-        this.id = song.id;
-        this.name = song.name;
-        this.artist = song.artist;
-        this.lyrics = song.lyrics;
-        this.cover = song.cover;
-    }
+export default class Song {
+  public id: number;
+  public name: string;
+  public artist: string;
+  public lyrics: string;
+  public cover: string;
+  public file: string;
+  public constructor(song: any) {
+    this.id = song.id;
+    this.name = song.name;
+    this.artist = song.artist;
+    this.lyrics = song.lyrics;
+    this.cover = song.cover;
+    this.file = song.file;
+  }
 }
