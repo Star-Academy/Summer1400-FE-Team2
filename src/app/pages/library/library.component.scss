@@ -8,7 +8,7 @@ main {
 
 .cards__container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     column-gap: 0.5rem;
     width: 90%;
     margin: auto;
@@ -22,7 +22,7 @@ main {
         width: 100%;
     }
     .cards__container {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
@@ -33,13 +33,16 @@ main {
         margin-bottom: 20%;
     }
     .cards__container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     main {
         margin-bottom: 15rem;
+    }
+    .cards__container {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 

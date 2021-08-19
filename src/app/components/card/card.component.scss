@@ -20,6 +20,15 @@
         margin-bottom: 0.5rem;
         border-radius: 8px;
     }
+    .playlist-link__image {
+        display: flex;
+        justify-content: center;
+        background-color: #333333;
+        border-radius: 6px;
+    }
+    img.playlist-image {
+        width: 70%;
+    }
     &:hover {
         background-color: #282828;
         cursor: pointer;

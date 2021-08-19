@@ -1,9 +1,19 @@
 <div class="card-playlist">
-    <a class="music-link" [routerLink]="['/song', song.id]">
+    <a class="music-link" *ngIf="song; else playlistCard" [routerLink]="['/song', song.id]">
         <div class="music-link__image">
             <img [src]="song?.cover || playlist.cover || default_img" alt="cover" />
         </div>
         <h3 class="card-playlist__title">{{ song?.name || playlist.name }}</h3>
-        <p>{{ song?.artist || playlist.artist || default_artist}}</p>
+        <p>{{ song?.artist || playlist.artist || default_artist }}</p>
     </a>
+
+    <ng-template #playlistCard>
+        <a class="music-link">
+            <div class="music-link__image playlist-link__image">
+                <img [src]="playlist.cover || default_img" alt="cover" class="playlist-image" />
+            </div>
+            <h3 class="card-playlist__title">{{ playlist.name }}</h3>
+            <p>{{ playlist.artist || default_artist }}</p>
+        </a>
+    </ng-template>
 </div>

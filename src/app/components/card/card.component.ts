@@ -12,6 +12,7 @@ public title:string = `card`;
 @Input() public playlist!: Playlist;
 default_img = '../../../assets/Icons/musical-note.svg';
 default_artist = localStorage.getItem('username');
+// default_link = `['/song', ${this.song.id}]` || 'library';
   constructor() { }
 
   ngOnInit(): void {
