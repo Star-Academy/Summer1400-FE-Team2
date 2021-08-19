@@ -1,0 +1,168 @@
+@import '../../../../styles.scss';
+::ng-deep .my-custom-dialog-class {
+    mat-dialog-container,
+    .mat-dialog-container {
+        background-color: #282828 !important;
+        padding: 1rem;
+        overflow: unset;
+    }
+}
+
+mat-dialog-content,
+.mat-dialog-content {
+    // background-color: #282828;
+    overflow: unset;
+}
+
+.modal-header {
+    background-color: #282828;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    .close-modal {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        @include flex-center;
+    }
+    button {
+        cursor: pointer;
+        font-size: 2rem;
+        background-color: transparent;
+        color: white;
+        border: none;
+    }
+    .close-modal:hover {
+        background-color: #444444;
+    }
+    h1 {
+        font-size: 1rem;
+    }
+    margin-bottom: 0.7rem;
+}
+
+.modal-playlist {
+    width: 100%;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+}
+
+#playlist-image_container {
+    width: 45%;
+    img {
+        width: 100%;
+        border-radius: 6px;
+    }
+}
+
+#profile-image_container {
+    background-image: url("../../../../assets/Icons/user-profile.svg");
+    border-radius: 50%;
+    height: 200px;
+    min-width: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    img {
+        width: 2rem;
+        filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+    }
+}
+
+.modal-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    background-color: #333333;
+    label,
+    input,
+    span,
+    #profile-img {
+        display: none;
+    }
+    &:hover {
+        background-image: none !important;
+        #profile-img {
+            display: block;
+        }
+        label,
+        span {
+            display: block;
+            cursor: pointer;
+            color: white;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.modal-getInfo {
+    color: white;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
+    div {
+        margin-bottom: 1rem;
+    }
+    label {
+        font-size: 0.9rem;
+    }
+    input,
+    textarea {
+        display: block;
+        width: 100%;
+        outline: 0;
+        border: 0;
+        border-radius: 10px;
+        padding: 0.2rem 0.5rem;
+        resize: none;
+    }
+    input:focus,
+    textarea:focus {
+        outline: 0;
+        border: 0;
+    }
+}
+
+.save-modal-button {
+    border-radius: 999px;
+    padding: 0 24px;
+    font-size: 0.9rem;
+    background-color: white;
+    color: #181818;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+button {
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .modal-getInfo {
+        width: 100%;
+    }
+    .modal-footer {
+        text-align: center;
+        margin-top: 1rem;
+    }
+    .modal-content {
+        flex-flow: column;
+    }
+}

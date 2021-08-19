@@ -1,0 +1,24 @@
+<div class="modal-header" mat-dialog-title>
+    <h1>ویرایش پروفایل</h1>
+    <div class="close-modal" mat-button [mat-dialog-close]="true" cdkFocusInitial>
+        <button id="close-profile-button">&times;</button>
+    </div>
+</div>
+<mat-dialog-content>
+    <div class="modal-content">
+        <div class="modal-getInfo">
+            <div>
+                <input type="text" id="modal-username" name="name">
+            </div>
+        </div>
+        <div class="modal-image" id='profile-image_container'>
+            <span id='delete-modalImg'>حذف عکس</span>
+            <img id='profile-img' src="../assets/Icons/edit-button.svg" alt="">
+            <label for="modal-file" id='edit-modalImg'>انتخاب عکس</label>
+            <input type="file" id="modal-file" name="myfile">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button id="save-photo" class='save-modal-button' mat-button [mat-dialog-close]="true" cdkFocusInitial>ذخیره</button>
+    </div>
+</mat-dialog-content>

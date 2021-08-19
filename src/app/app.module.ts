@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { ProfileComponent } from "./pages/library/profile/profile.component";
 import { CreatePlaylistComponent } from './components/modals/create-playlist/create-playlist.component';
+import { EditProfileComponent } from './components/modals/edit-profile/edit-profile.component';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { CreatePlaylistComponent } from './components/modals/create-playlist/cre
     LayoutComponent,
     ProfileComponent,
     CreatePlaylistComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { CreatePlaylistComponent } from './components/modals/create-playlist/cre
     FormsModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

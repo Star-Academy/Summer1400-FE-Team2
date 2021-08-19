@@ -44,7 +44,7 @@
     }
     .profile-photo_container {
         height: 232px;
-        min-width: 232px;
+        // min-width: 232px;
         width: 232px;
         background-color: #282828;
         // box-shadow: 0 4px 15px rgb(0 0 0 / 0.2);
@@ -115,6 +115,19 @@
         .profile-info #profile-name {
             font-size: 2rem;
             min-width: 100px;
+        }
+    }
+}
+
+@media (max-width:600px) {
+    .profile .profile-photo_container {
+        height: 150px;
+        width: 150px;
+        label {
+            font-size: 1rem;
+        }
+        .profile-photo img {
+            width: 1.5rem;
         }
     }
 }

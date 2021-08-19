@@ -7,14 +7,15 @@ import {
 } from "@angular/core";
 import User from "src/app/models/User";
 import { EngineService } from "src/app/service/engine.service";
-
+import { EditProfileComponent } from "src/app/components/modals/edit-profile/edit-profile.component";
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
   styleUrls: ["./profile.component.scss"],
+  providers:[EditProfileComponent]
 })
 export class ProfileComponent implements OnInit, OnChanges {
-  constructor(public enginService: EngineService) {}
+  constructor(private enginService: EngineService,private editModal:EditProfileComponent) {}
 
   ngOnInit(): void {
     this.showUserInfo();
@@ -48,5 +49,8 @@ export class ProfileComponent implements OnInit, OnChanges {
       };
       await this.enginService.alterUserInfo(new User(user));
     };
+  }
+  onEditProfile(){
+    this.editModal.openDialog();
   }
 }
