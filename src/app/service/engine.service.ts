@@ -98,18 +98,21 @@ export class EngineService {
     return songs.map((x: any) => new Song(x));
   }
 
-  public async getPlaylist(id: number): Promise<Object> {
-    const { name, songs } = await EngineService.sendRequest(
+  public async getPlaylist(id: number): Promise<Playlist> {
+    const data = await EngineService.sendRequest(
       API.routes.getPlaylist + id
     ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
-    let playlistSongs = songs.map((x: any) => new Song(x));
-    return { name, playlistSongs };
+    return new Playlist(data);
   }
 
-  public async getAllPlaylist(token:string):Promise<object>{
-    const playlists = await EngineService.sendRequest(API.routes.postAllPlaylists,{token:token})
-    .catch(error=>this.toast.openSnackBar(error.message,"پیغام سرور"));
-    let playlists_arr = playlists.map((playlist:any)=>new Playlist(playlist));
+  public async getAllPlaylist(token: string): Promise<object> {
+    const playlists = await EngineService.sendRequest(
+      API.routes.postAllPlaylists,
+      { token: token }
+    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    let playlists_arr = playlists.map(
+      (playlist: any) => new Playlist(playlist)
+    );
     return playlists_arr;
   }
 

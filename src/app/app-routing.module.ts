@@ -7,9 +7,11 @@ import { AllSongsComponent } from "./pages/all-songs/all-songs.component";
 import { LandingPageComponent } from "./pages/landing-page/landing-page.component";
 import { LibraryComponent } from "./pages/library/library.component";
 import { LoginComponent } from "./pages/login/login.component";
+import { MusicPlayerComponent } from "./pages/music-player/music-player.component";
 import { PlaylistComponent } from "./pages/playlist/playlist.component";
 import { RegisterComponent } from "./pages/register/register.component";
 import { GuardService } from "./service/guard.service";
+import { DatePipe } from "@angular/common";
 
 const routes: Routes = [
   {
@@ -34,7 +36,11 @@ const routes: Routes = [
     path: "favorites",
     component: LayoutComponent,
     canActivate: [GuardService],
-    children: [{ path: "", component: PlaylistComponent }],
+  },
+  {
+    path: "song/:id",
+    component: MusicPlayerComponent,
+    canActivate: [GuardService],
   },
   {
     path: "",
@@ -46,6 +52,10 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [GuardService,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
+  providers: [
+    GuardService,
+    DatePipe,
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
+  ],
 })
 export class AppRoutingModule {}

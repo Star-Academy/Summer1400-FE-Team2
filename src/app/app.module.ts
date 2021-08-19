@@ -22,6 +22,7 @@ import { ProfileComponent } from "./pages/library/profile/profile.component";
 import { CreatePlaylistComponent } from './components/modals/create-playlist/create-playlist.component';
 import { EditProfileComponent } from './components/modals/edit-profile/edit-profile.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CommonModule } from "@angular/common";
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,1 +1,71 @@
-<p>music-player works!</p>
+<main>
+    <svg id="gradient-rotate" preserveAspectRatio="none" viewBox="0 0 500 500">
+        <defs>
+            <linearGradient x1="0%" y1="0%" y2="100%" id="a">
+                <stop id="color-stop-1" stop-color="#22C8F6" offset="0%"></stop>
+                <stop id="color-stop-2" stop-color="#20C498" offset="65%"></stop>
+                <stop id="color-stop-3" stop-color="#189932" offset="100%"></stop>
+            </linearGradient>
+        </defs>
+        <path fill="url(#a)" d="M0 0h500v500H0z"></path>
+    </svg>
+    <div class="music__container">
+        <div class="music__content">
+            <div class="playlist__container">
+                <button id="dropdown">
+                    <a routerLink="/home"> <img src="../assets/Icons/home_black_24dp.svg" alt="" class="replay"></a>
+                </button>
+                <h5>شنیدن آهنگ</h5>
+                <button id="more">
+                    <img src="../assets/Icons/expand_more_white_24dp.svg" alt="" class="replay">
+                </button>
+            </div>
+            <div class="img--music">
+                <div id="music-lyrics_container">
+                    <button id="back-lyrics-button">
+                        <img src="../assets/Icons/back-arrow-button.svg" alt="">
+                    </button>
+                    <div id="music-lyrics"></div>
+                </div>
+                <button id="song-lyrics-button">متن اهنگ</button>
+                <img src={{song?.cover}} alt="" class="music__img" id="cover" />
+            </div>
+            <div class="info__music">
+                <button class="btn--add"><img src="../assets/Icons/add_circle_outline_black_24dp.svg" alt=""></button>
+                <audio src="" id="audio"></audio>
+                <div class="title__artist">
+                    <h2 class="music__name">{{song?.name}}</h2>
+                    <h4 class="singer" id="artist">{{song?.artist}}</h4>
+                </div>
+                <button class="btn--like"><img src="../assets/Icons/like-button-empty.svg" alt=""></button>
+            </div>
+            <div class="current__time">
+                <span id="durtime"></span>
+                <div class="progress-container" id="progress-container">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <span id="curtime"></span>
+            </div>
+
+            <div class="btns">
+                <button id="repeat">
+                    <img src="../assets/Icons/loop-button.svg" alt="" class="replay">
+                </button>
+                <div class="controls">
+                    <button id="next">
+                        <img src="../assets/Icons/next-button.svg" alt="" class="controls-button">
+                    </button>
+                    <button id="playpause">
+                        <img src="../assets/Icons/play-button.svg" alt="" class="controls-button">
+                    </button>
+                    <button id="prev">
+                        <img src="../assets/Icons/back-button.svg" alt="" class="controls-button">
+                    </button>
+                </div>
+                <button id="shuffle">
+                    <img src="../assets/Icons/shuffle-disabled-button.svg" alt="" class="replay">
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
