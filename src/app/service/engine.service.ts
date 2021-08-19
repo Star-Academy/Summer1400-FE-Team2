@@ -119,7 +119,7 @@ export class EngineService {
       API.routes.postCreatePlaylist,
       { name, token }
     ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
-    return answer;
+    return true;
   }
 
   public async getUser(id: number | string): Promise<Object> {
