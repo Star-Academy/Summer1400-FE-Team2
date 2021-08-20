@@ -1,8 +1,16 @@
 .card-playlist {
+    position: relative;
+    min-height: 250px;
+    padding: 1rem;
+    background-color: #181818;
     .music-link {
         width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
-    background-color: #181818;
     a {
         color: #fefefe;
     }
@@ -17,23 +25,45 @@
     border-radius: 8px;
     font-size: 0.8rem;
     margin-bottom: 1rem;
-    img:nth-child(1) {
-        width: 100%;
-        margin-bottom: 0.5rem;
-        border-radius: 8px;
-    }
-    .playlist-link__image {
+    .music-link__image {
+        min-height: 150px;
         display: flex;
         justify-content: center;
         background-color: #333333;
         border-radius: 6px;
-    }
-    img.playlist-image {
-        width: 70%;
+        margin-bottom: 0.5rem;
+        img {
+            width: 50%;
+            filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+            border-radius: 8px;
+        }
     }
     &:hover {
         background-color: #282828;
         cursor: pointer;
+    }
+}
+
+.card-playlist-info_container {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+}
+
+.edit-card-button {
+    position: absolute;
+    top: auto;
+    bottom: 30px;
+    left: 0;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    width: 30%;
+    img {
+        display: block;
+        width: 100%;
+        filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
     }
 }
 
@@ -45,28 +75,41 @@
             align-items: center;
             justify-content: space-between;
         }
-        img:nth-child(1) {
-            display: block;
-            width: 30%;
-            margin-bottom: auto;
+        .music-link__image {
+            min-height: 100px;
+            img {
+                display: block;
+                width: 30%;
+                margin-bottom: auto;
+            }
+        }
+    }
+    .edit-card-button {
+        img {
+            width: 50%;
+            margin-left: 0;
+            margin-right: auto;
         }
     }
 }
 
 @media (max-width: 600px) {
     .card-playlist {
+        min-height: 120px;
         padding: 0 0 0 0.4rem;
         a {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            // justify-content: space-between;
+            justify-content: flex-start;
         }
         .music-link__image {
-            width: 40%;
+            width: 30%;
+            margin-bottom: 0;
             img {
                 display: flex;
-                width: 70%;
-                margin-bottom: auto;
+                width: 50%;
+                margin: auto;
             }
         }
     }
