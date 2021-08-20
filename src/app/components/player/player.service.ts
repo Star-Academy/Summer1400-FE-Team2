@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
 import Song from "src/app/models/SongModal";
 import { EngineService } from "src/app/service/engine.service";
-import { DatePipe } from "@angular/common";
+import { ToastService } from "../toast/toast.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class PlayerService {
-  constructor(private engine: EngineService, private datePipe: DatePipe) {}
+  constructor(private engine: EngineService, private toast: ToastService) {}
 
   public id: number = 1;
   public index: number = 0;
@@ -32,12 +32,19 @@ export class PlayerService {
     return this.songs[this.index];
   };
 
-  public getTimeDuration(): string | null {
-    return this.datePipe.transform(this.audio.duration, "mm:ss");
+  public getTimeDuration(): string {
+    if (!this.audio.duration) return "00:00";
+    var minutes = "0" + Math.floor(this.audio.duration / 60);
+    var seconds = "0" + Math.floor(this.audio.duration % 60);
+    var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
+    return dur;
   }
 
-  public getCurrentTime(): string | null {
-    return this.datePipe.transform(this.audio.currentTime, "mm:ss");
+  public getCurrentTime(): string {
+    var minutes = "0" + Math.floor(this.audio.currentTime / 60);
+    var seconds = "0" + Math.floor(this.audio.currentTime % 60);
+    var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
+    return dur;
   }
 
   async getPlaylistName(playlist: number): Promise<string> {
@@ -54,19 +61,36 @@ export class PlayerService {
     this.id = song.id;
     this.audio.src = song.file;
     this.audio.load();
+    this.toast.openSnackBar("کمی صبر کنید", "Spotify");
+    if (this.autoPlay) this.playSong();
+  }
+  private randomIndex(): number {
+    let random = 1200;
+    while (random >= this.songs.length) {
+      random = Math.ceil(Math.random() * this.songs.length);
+    }
+    return random;
   }
 
   public getNextSong(): Song {
-    if (this.index > this.songs.length) this.index = 0;
-    else this.index++;
+    if (this.isShuffle) {
+      this.index = this.randomIndex();
+    } else {
+      if (this.index > this.songs.length - 2) this.index = 0;
+      else this.index++;
+    }
     let song = this.songs[this.index];
     this.loadSong(song);
     return song;
   }
 
   public getPrevSong(): Song {
-    if (this.index < 0) this.index = this.songs.length - 1;
-    else this.index--;
+    if (this.isShuffle) {
+      this.index = this.randomIndex();
+    } else {
+      if (this.index <= 0) this.index = this.songs.length - 1;
+      else this.index--;
+    }
     let song = this.songs[this.index];
     this.loadSong(song);
     return song;
