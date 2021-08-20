@@ -18,7 +18,6 @@
   display: flex;
   flex-direction: column;
   max-height: 30rem;
-  // overflow: hidden;
   justify-content: space-between;
   align-items: flex-start;
   padding: 0.8rem 0.4rem;
@@ -32,10 +31,9 @@
     background-color: #333333;
     border-radius: 6px;
     margin-bottom: 0.5rem;
+    padding:6px;
     img {
-      width: 50%;
-      filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg)
-        brightness(106%) contrast(103%);
+      width: 100%;
       border-radius: 8px;
     }
   }
@@ -71,8 +69,6 @@
   img {
     display: block;
     width: 100%;
-    filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg)
-      brightness(106%) contrast(103%);
   }
   &:hover {
     transform: scale(1.1);
@@ -151,7 +147,6 @@
     a {
       display: flex;
       align-items: center;
-      // justify-content: space-between;
       justify-content: flex-start;
     }
     .music-link__image {
