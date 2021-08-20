@@ -19,11 +19,13 @@ import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { ProfileComponent } from "./pages/library/profile/profile.component";
-import { CreatePlaylistComponent } from './components/modals/create-playlist/create-playlist.component';
-import { EditProfileComponent } from './components/modals/edit-profile/edit-profile.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { CreatePlaylistComponent } from "./components/modals/create-playlist/create-playlist.component";
+import { EditProfileComponent } from "./components/modals/edit-profile/edit-profile.component";
+import { MatDialogModule, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { CommonModule } from "@angular/common";
-import { PlaylistCardComponent } from './components/cards/playlist-card/playlist-card.component';
+import { PlaylistCardComponent } from "./components/cards/playlist-card/playlist-card.component";
+import { AddPlaylistComponent } from "./components/modals/add-playlist/add-playlist.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,7 @@ import { PlaylistCardComponent } from './components/cards/playlist-card/playlist
     CreatePlaylistComponent,
     EditProfileComponent,
     PlaylistCardComponent,
+    AddPlaylistComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +55,9 @@ import { PlaylistCardComponent } from './components/cards/playlist-card/playlist
     BrowserAnimationsModule,
     MatSnackBarModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
   ],
-  providers: [],
+  providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

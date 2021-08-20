@@ -81,6 +81,21 @@ export class EngineService {
     return songs.map((x: any) => new Song(x));
   }
 
+  public async postAddSong(
+    playlistId: number,
+    songId: number
+  ): Promise<Boolean> {
+    let token = this.getToken();
+    const answer = await EngineService.sendRequest(API.routes.postAddSong, {
+      playlistId,
+      songId,
+      token,
+    })
+      .then(() => this.toast.openSnackBar("با موفقیت اضافه شد","Spotify"))
+      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    return true;
+  }
+
   public async postSearch(
     phrase: string = "عشق",
     count: number = 20,
@@ -105,10 +120,11 @@ export class EngineService {
     return new Playlist(data);
   }
 
-  public async getAllPlaylist(token: string): Promise<Array<Playlist>> {
+  public async getAllPlaylist(token?: string): Promise<Array<Playlist>> {
+    this.toast.openSnackBar("کمی صبر کنید", "Spotify");
     const playlists = await EngineService.sendRequest(
       API.routes.postAllPlaylists,
-      { token: token }
+      { token: this.getToken() }
     ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
     let playlists_arr = playlists.map(
       (playlist: any) => new Playlist(playlist)

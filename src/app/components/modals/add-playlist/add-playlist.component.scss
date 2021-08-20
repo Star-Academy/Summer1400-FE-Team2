@@ -1,0 +1,83 @@
+@import "../../../../styles.scss";
+::ng-deep .my-custom-dialog-class {
+  mat-dialog-container,
+  .mat-dialog-container {
+    background-color: #282828 !important;
+    padding: 1rem;
+    overflow: auto;
+  }
+}
+
+mat-dialog-content,
+.mat-dialog-content {
+  overflow: unset;
+  margin: 2rem;
+}
+
+.modal-header {
+  background-color: #282828;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  .close-modal {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    @include flex-center;
+  }
+  button {
+    cursor: pointer;
+    font-size: 2rem;
+    background-color: transparent;
+    color: white;
+    border: none;
+  }
+  .close-modal:hover {
+    background-color: #444444;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  margin-bottom: 0.7rem;
+}
+
+.modal-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 0;
+  img {
+    width: 200px;
+    height: auto;
+  }
+  .song-modal__text {
+    * {
+      color: #fff;
+    }
+  }
+  .song-modal_links {
+    img {
+      width: 2rem;
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      cursor: pointer;
+      @include flex-center;
+      gap: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .modal-content {
+    justify-content: center;
+    flex-direction: column;
+  }
+}

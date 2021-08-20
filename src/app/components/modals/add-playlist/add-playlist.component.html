@@ -1,0 +1,25 @@
+<div class="modal-header" mat-dialog-title>
+    <h1>افزودن آهنگ به پلی لیست</h1>
+    <div class="close-modal" mat-button [mat-dialog-close]="true" cdkFocusInitial>
+        <button id="close-profile-button">&times;</button>
+    </div>
+</div>
+<mat-dialog-content>
+    <div class="modal-content">
+        <div class="song-modal_image">
+            <img src={{data?.song.cover}} alt="" />
+            <div class="song-modal__text">
+                <h4>{{data?.song.name}}</h4>
+                <h5>{{data?.song.artist}}</h5>
+            </div>
+        </div>
+        <div class="song-modal_links">
+            <div *ngFor="let playlist of playlists">
+                <button (click)="addToSelectedPlaylist(playlist.id)">
+                    <img src="../assets/Icons/music-folder.svg" alt="" class="svgColor" />
+                    <span> اضافه به {{playlist.name}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

@@ -1,6 +1,7 @@
 import { Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { AddPlaylistComponent } from "src/app/components/modals/add-playlist/add-playlist.component";
 import { PlayerService } from "src/app/components/player/player.service";
 import Song from "src/app/models/SongModal";
 
@@ -8,12 +9,14 @@ import Song from "src/app/models/SongModal";
   selector: "app-music-player",
   templateUrl: "./music-player.component.html",
   styleUrls: ["./music-player.component.scss"],
+  providers: [AddPlaylistComponent],
 })
 export class MusicPlayerComponent implements OnInit {
   constructor(
     private _Activatedroute: ActivatedRoute,
     public player: PlayerService,
-    private location: Location
+    private location: Location,
+    private addPlaylist: AddPlaylistComponent
   ) {}
 
   public id: number | null = 1;
@@ -53,6 +56,9 @@ export class MusicPlayerComponent implements OnInit {
         }, 500);
       }
     });
+  }
+  public openModalAddPlalist() {
+    if(this.song)this.addPlaylist.openDialog(this.song);
   }
   public fgoBack() {
     window.history.back();

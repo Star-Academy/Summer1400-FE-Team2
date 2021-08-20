@@ -2,22 +2,23 @@ import { Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import Song from "src/app/models/SongModal";
+import { AddPlaylistComponent } from "../modals/add-playlist/add-playlist.component";
 import { PlayerService } from "../player/player.service";
 
 @Component({
   selector: "app-current-music",
   templateUrl: "./current-music.component.html",
   styleUrls: ["./current-music.component.scss"],
+  providers: [AddPlaylistComponent],
 })
 export class CurrentMusicComponent implements OnInit {
   constructor(
-    private _Activatedroute: ActivatedRoute,
     public player: PlayerService,
-    private location: Location
+    private addPlaylist: AddPlaylistComponent
   ) {}
 
   public id: number | null = 1;
-  public song: Song | null = null;
+  public song: Song = new Song({});
 
   public linkPhotoPlay: string = "../assets/Icons/play-button.svg";
   public linkPhotoShuffle: string =
@@ -42,6 +43,10 @@ export class CurrentMusicComponent implements OnInit {
         progress.style.width = this.player.getProgress() + "%";
       }
     }, 500);
+  }
+
+  public openModalAddPlalist() {
+    this.addPlaylist.openDialog(this.song);
   }
 
   public playSong() {
