@@ -185,7 +185,7 @@ main {
 .current__time {
   z-index: 3;
   @include flex-center;
-  font-size: 2rem;
+  font-size: 1.2rem;
   grid-gap: 2rem;
   width: 100%;
   input {
