@@ -60,6 +60,10 @@ export class MusicPlayerComponent implements OnInit {
   public openModalAddPlalist() {
     if(this.song)this.addPlaylist.openDialog(this.song);
   }
+  public async addToFavorites() {
+    this.player.addToFavs();
+  }
+
   public fgoBack() {
     window.history.back();
   }

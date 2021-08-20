@@ -91,7 +91,7 @@ export class EngineService {
       songId,
       token,
     })
-      .then(() => this.toast.openSnackBar("با موفقیت اضافه شد","Spotify"))
+      .then(() => this.toast.openSnackBar("با موفقیت اضافه شد", "Spotify"))
       .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
     return true;
   }

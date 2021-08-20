@@ -25,7 +25,6 @@ export class AddPlaylistComponent implements OnInit {
   public playlists: Array<Playlist> = [];
   async ngOnInit() {
     this.playlists = await this.engine.getAllPlaylist();
-    console.log(this.playlists);
   }
 
   public openDialog(song: Song) {
@@ -40,6 +39,8 @@ export class AddPlaylistComponent implements OnInit {
 
   public async addToSelectedPlaylist(id: number) {
     let success = await this.engine.postAddSong(id, this.data.song.id);
-    if (success) this.dialog.closeAll();
+    if (success) {
+      this.dialog.closeAll();
+    }
   }
 }

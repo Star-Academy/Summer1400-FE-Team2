@@ -110,6 +110,11 @@ export class PlayerService {
     this.audio.pause();
   }
 
+  public async addToFavs() {
+    let fav = localStorage.getItem("favorites");
+    if (fav) this.engine.postAddSong(parseInt(fav), this.id);
+  }
+
   public replaySong() {
     if (this.isLoop) {
       this.audio.loop = false;

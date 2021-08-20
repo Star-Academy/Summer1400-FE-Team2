@@ -49,6 +49,10 @@ export class CurrentMusicComponent implements OnInit {
     this.addPlaylist.openDialog(this.song);
   }
 
+  public async addToFavorites() {
+    this.player.addToFavs();
+  }
+
   public playSong() {
     if (!this.player.autoPlay) {
       this.player.playSong();
