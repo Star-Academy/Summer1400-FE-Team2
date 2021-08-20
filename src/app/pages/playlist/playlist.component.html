@@ -1,13 +1,13 @@
 <main>
     <section class="playlist-details">
         <div class="playlist-details__image">
-            <img id='playlist-img' src="../assets/images/sample.jpg" alt="playlist-image" />
+            <img id='playlist-img' [src]="playlist?.cover || '../assets/images/sample.jpg' " alt="playlist-image" />
         </div>
         <div class="playlist-details__content">
             <p>لیست اهنگ</p>
-            <h1>.name</h1>
+            <h1>{{playlist?.name}}</h1>
             <div class="flex songsListDetails">
-                <span>data.songs.length آهنگ </span>
+                <span>{{playlist?.songs?.length || 0}}</span>
             </div>
         </div>
     </section>
@@ -21,11 +21,11 @@
                 <img class="svg-button" id="likeEmpty-svg" src="../assets/Icons/like-button-empty.svg" alt="">
             </button>
             <div class="dropdown">
-                <button class="dropbtn">
+                <button class="dropbtn" (click)="onDetailsBtn()">
                     <img class="svg-button" id="details-svg" src="../assets/Icons/dots-button.svg" alt="">
                 </button>
-                <div class="dropdown-content" id="myDropdown">
-                    <a id="addToplaylistBtn" href="./playlist.html">افزودن به پلی لیست</a>
+                <div class="dropdown-content" id="myDropdown" [ngClass]="status ? 'show' : 'hide'">
+                    <a id="addToplaylistBtn" routerLink="/home">افزودن به پلی لیست</a>
                     <button id="removePlaylistBtn">حذف پلی لیست</button>
                 </div>
             </div>

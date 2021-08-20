@@ -43,7 +43,7 @@ const routes: Routes = [
     canActivate: [GuardService],
   },
   {
-    path: "playlist",
+    path: "playlist/:id",
     component: LayoutComponent,
     children: [{ path: "", component: PlaylistComponent}],
     // canActivate: [GuardService],

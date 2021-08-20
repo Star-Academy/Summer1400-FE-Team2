@@ -97,6 +97,10 @@ main {
     text-align: right;
     border-radius: 6px;
     font-size: 0.8rem;
+    width: 100%;
+    &:hover {
+        background-color: #333333;
+    }
 }
 
 .dropdown-content a:hover {
@@ -105,4 +109,40 @@ main {
 
 .show {
     display: block;
+}
+
+table {
+    width: 95%;
+    color: rgb(192, 192, 192);
+    text-align: center;
+    font-size: 1rem;
+    th {
+        font-size: 1.2rem;
+    }
+    td,
+    th {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    tr {
+        padding: 0.2rem 0.4rem;
+        width: 100%;
+        display: block;
+        margin-bottom: 1.5rem;
+        display: grid;
+        grid-template-columns: 5% 40% 35% 15% 5%;
+    }
+    tbody tr:hover {
+        background-color: rgba($color: #525252, $alpha: 0.5);
+        color: white;
+        .remove-column {
+            display: flex;
+        }
+    }
+    .remove-column {
+        display: none;
+        cursor: pointer;
+    }
 }
