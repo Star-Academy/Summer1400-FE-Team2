@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import Playlist from "src/app/models/Playlist";
 import { EngineService } from "src/app/service/engine.service";
 
@@ -8,15 +8,23 @@ import { EngineService } from "src/app/service/engine.service";
   styleUrls: ["./playlist-card.component.scss"],
 })
 export class PlaylistCardComponent implements OnInit {
-  constructor(private engine:EngineService) {}
+  constructor(private engine: EngineService) {}
   ngOnInit(): void {}
 
   @Input() public playlist!: Playlist;
   default_img = "../../../assets/Icons/musical-note.svg";
-  default_artist =this.engine.getUsername();
-
-  onEditBtn(){
-    console.log('on edit button');
+  default_artist = this.engine.getUsername();
+  status: boolean = false;
+  onEditBtn() {
+    console.log("on edit button");
+    this.status = !this.status;
   }
 
+  onDeleteBtn() {
+    // open modal to ask user
+    const token = this.engine.getToken();
+    const id = this.playlist.id;
+    this.engine.removePlaylist(token, id);
+    this.status = !this.status;
+  }
 }
