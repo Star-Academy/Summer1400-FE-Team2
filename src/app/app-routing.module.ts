@@ -43,6 +43,12 @@ const routes: Routes = [
     canActivate: [GuardService],
   },
   {
+    path: "playlist",
+    component: LayoutComponent,
+    children: [{ path: "", component: PlaylistComponent}],
+    // canActivate: [GuardService],
+  },
+  {
     path: "",
     redirectTo: "home",
     pathMatch: "full",

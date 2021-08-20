@@ -116,6 +116,17 @@ export class EngineService {
     return playlists_arr;
   }
 
+  public async removePlaylist(token:string,id:number | string){
+    await EngineService.sendRequest(API.routes.postRemovePlaylist,{
+      token:token,
+      id:id
+    }).then(res=>{
+      this.toast.openSnackBar("پلی لیست با موفقیت حذف شد", "پیغام سرور");
+      return res;
+    })
+    .catch(error=>this.toast.openSnackBar(error.message, "پیغام سرور")); 
+  }
+
   public async postCreatePlaylist(name: string): Promise<Object> {
     let token = this.getToken();
     const answer = await EngineService.sendRequest(

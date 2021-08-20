@@ -1,1 +1,49 @@
-<p>playlist works!</p>
+<main>
+    <section class="playlist-details">
+        <div class="playlist-details__image">
+            <img id='playlist-img' src="../assets/images/sample.jpg" alt="playlist-image" />
+        </div>
+        <div class="playlist-details__content">
+            <p>لیست اهنگ</p>
+            <h1>.name</h1>
+            <div class="flex songsListDetails">
+                <span>data.songs.length آهنگ </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="playlist-controls__container">
+        <div class="playlist-controls">
+            <button id="playMusicBtn">
+                <img src="../assets/Icons/play-button.svg" alt="">
+            </button>
+            <button id="like-songs">
+                <img class="svg-button" id="likeEmpty-svg" src="../assets/Icons/like-button-empty.svg" alt="">
+            </button>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img class="svg-button" id="details-svg" src="../assets/Icons/dots-button.svg" alt="">
+                </button>
+                <div class="dropdown-content" id="myDropdown">
+                    <a id="addToplaylistBtn" href="./playlist.html">افزودن به پلی لیست</a>
+                    <button id="removePlaylistBtn">حذف پلی لیست</button>
+                </div>
+            </div>
+        </div>
+        <div class="playlist-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>عنوان</th>
+                        <th>آلبوم</th>
+                        <th>تاریخ </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="playlist-table__body"></tbody>
+            </table>
+        </div>
+    </section>
+
+</main>

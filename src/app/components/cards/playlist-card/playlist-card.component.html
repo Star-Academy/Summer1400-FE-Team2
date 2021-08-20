@@ -11,7 +11,15 @@
 
         </div>
     </a>
-    <button class="edit-card-button" (click)="onEditBtn()">
-        <img src="../../../../assets/Icons/dots-button.svg" alt="">
-    </button>
+    <div class="dropdown_container">
+        <div class="dropdown">
+            <button class="edit-card-button dropbtn" (click)="onEditBtn()">
+                <img src="../../../../assets/Icons/dots-button.svg" alt="">
+            </button>
+            <div class="dropdown-content" #myDropdown [ngClass]="status ? 'show' : 'hide'">
+                <a id="addToplaylistBtn" routerLink="/all-songs">افزودن به پلی لیست</a>
+                <button id="removePlaylistBtn" (click)="onDeleteBtn()">حذف پلی لیست</button>
+            </div>
+        </div>
+    </div>
 </div>
