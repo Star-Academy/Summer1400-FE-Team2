@@ -8,6 +8,8 @@
     }
     width: 100%;
     display: flex;
+    max-height: 30rem;
+    overflow: hidden;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
