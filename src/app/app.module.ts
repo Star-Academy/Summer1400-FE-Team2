@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MobileNavigationComponent } from "./components/mobile-navigation/mobile-navigation.component";
-import { CardComponent } from "./components/card/card.component";
+import { CardComponent } from "./components/cards/card/card.component";
 import { DesktopNavigationComponent } from "./components/desktop-navigation/desktop-navigation.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { CurrentMusicComponent } from "./components/current-music/current-music.component";
@@ -23,6 +23,7 @@ import { CreatePlaylistComponent } from './components/modals/create-playlist/cre
 import { EditProfileComponent } from './components/modals/edit-profile/edit-profile.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CommonModule } from "@angular/common";
+import { PlaylistCardComponent } from './components/cards/playlist-card/playlist-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { CommonModule } from "@angular/common";
     ProfileComponent,
     CreatePlaylistComponent,
     EditProfileComponent,
+    PlaylistCardComponent,
   ],
   imports: [
     BrowserModule,
