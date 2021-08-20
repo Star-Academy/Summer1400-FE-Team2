@@ -16,7 +16,7 @@
             <img class="" src="../assets/Icons/music-playlist-button.svg" alt="">
             <span>ساخت لیست اهنگ</span>
         </a>
-        <a routerLink="/favorites" class="archived-menu" routerLinkActive="active">
+        <a [routerLink]="['/playlist',favorites]" class="archived-menu" routerLinkActive="active">
             <img src="../assets/Icons/like.svg" alt="">
             <span>موردعلاقه ها</span>
         </a>

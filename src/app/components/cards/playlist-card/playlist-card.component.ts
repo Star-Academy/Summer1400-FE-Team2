@@ -21,10 +21,9 @@ export class PlaylistCardComponent implements OnInit {
   }
 
   onDeleteBtn() {
-    // open modal to ask user
     const token = this.engine.getToken();
     const id = this.playlist.id;
-    this.engine.removePlaylist(token, id);
+    this.engine.removePlaylist(token, id,this.playlist.name);
     this.status = !this.status;
   }
 }

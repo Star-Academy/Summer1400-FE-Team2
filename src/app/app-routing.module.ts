@@ -33,23 +33,18 @@ const routes: Routes = [
     children: [{ path: "", component: LandingPageComponent }],
   },
   {
-    path: "favorites",
-    component: LayoutComponent,
-    canActivate: [GuardService],
-  },
-  {
     path: "song/:id",
     component: MusicPlayerComponent,
     canActivate: [GuardService],
   },
   {
-    path: "playlist",
+    path: "playlist/:id",
     component: LayoutComponent,
-    children: [{ path: "", component: PlaylistComponent}],
-    // canActivate: [GuardService],
+    canActivate: [GuardService],
+    children: [{ path: "", component: PlaylistComponent }],
   },
   {
-    path: "",
+    path: "**",
     redirectTo: "home",
     pathMatch: "full",
   },

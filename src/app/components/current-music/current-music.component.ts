@@ -37,7 +37,6 @@ export class CurrentMusicComponent implements OnInit {
     if (this.player.isLoop)
       this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
     let progress = document.getElementById("progress");
-    console.log(progress);
     setInterval(() => {
       if (progress) {
         progress.style.width = this.player.getProgress() + "%";

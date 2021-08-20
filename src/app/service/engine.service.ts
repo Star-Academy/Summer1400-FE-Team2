@@ -105,7 +105,7 @@ export class EngineService {
     return new Playlist(data);
   }
 
-  public async getAllPlaylist(token: string): Promise<object> {
+  public async getAllPlaylist(token: string): Promise<Array<Playlist>> {
     const playlists = await EngineService.sendRequest(
       API.routes.postAllPlaylists,
       { token: token }
@@ -116,15 +116,24 @@ export class EngineService {
     return playlists_arr;
   }
 
-  public async removePlaylist(token:string,id:number | string){
-    await EngineService.sendRequest(API.routes.postRemovePlaylist,{
-      token:token,
-      id:id
-    }).then(res=>{
-      this.toast.openSnackBar("پلی لیست با موفقیت حذف شد", "پیغام سرور");
-      return res;
+  public async removePlaylist(
+    token: string,
+    id: number,
+    name: string | string
+  ) {
+    if (name === "مورد علاقه") {
+      this.toast.openSnackBar("لیست مورد علاقه شما قابل حذف نیست", "ُSpotify");
+      return;
+    }
+    await EngineService.sendRequest(API.routes.postRemovePlaylist, {
+      token: token,
+      id: id,
     })
-    .catch(error=>this.toast.openSnackBar(error.message, "پیغام سرور")); 
+      .then((res) => {
+        this.toast.openSnackBar("پلی لیست با موفقیت حذف شد", "پیغام سرور");
+        return res;
+      })
+      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
   }
 
   public async postCreatePlaylist(name: string): Promise<Object> {
@@ -133,6 +142,7 @@ export class EngineService {
       API.routes.postCreatePlaylist,
       { name, token }
     ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    if (name === "مورد علاقه") localStorage.setItem("favorites", answer.id);
     return true;
   }
 
@@ -174,6 +184,11 @@ export class EngineService {
     ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
     this.setToken(token);
     this.setUserId(id);
+    if (token) {
+      let playlists = await this.getAllPlaylist(token);
+      let id = playlists.filter((x) => x.name === "مورد علاقه")[0].id;
+      localStorage.setItem("favorites", `${id}`);
+    }
     this.setUsername(user_info.username);
     return true;
   }
