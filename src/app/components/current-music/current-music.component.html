@@ -1,15 +1,10 @@
 <section id="current-music__container">
     <div class="music-current-desktop">
-        <div class="hidden-progress">
-            <div class="progress-container" id="progress-container">
-                <div class="progress" id="progress"></div>
-            </div>
-        </div>
         <div class="desktop_container">
             <div class="current-music_details">
-                <audio src="" id="audio"></audio>
                 <div class="desktop_img">
-                    <a [routerLink]="['/song', song?.id]"><img src={{song?.cover}} alt="" class="music__img " id="cover" /></a>
+                    <a [routerLink]="['/song', song?.id]"><img src={{song?.cover}} alt="" class="music__img "
+                            id="cover" /></a>
                 </div>
                 <div class="title__artist">
                     <h5 class="music__name" id="title">{{song?.name}}</h5>
@@ -19,27 +14,27 @@
             <div class="song_container music__container">
                 <div class="button-controls">
                     <div class="btns">
-                        <button id="repeat" class="svgColor">
-                            <img src="../assets/Icons/loop-button.svg" alt="" class="replay">
+                        <button id="repeat" class="svgColor" (click)="replaySong()">
+                            <img src={{linkPhotoReplay}} alt="" class="replay">
                         </button>
                         <button class="btn--like">
                             <img src="../assets/Icons/like-button-empty.svg" alt="" class="svgColor" />
                         </button>
                         <div class="controls">
-                            <button id="next" class="svgColor">
+                            <button id="next" class="svgColor" (click)="nextSong()">
                                 <img src="../assets/Icons/next-button.svg" alt="" class="controls-button">
                             </button>
-                            <button id="playpause" class="svgColor">
-                                <img src="../assets/Icons/play-button.svg" alt="" class="controls-button">
+                            <button id="playpause" class="svgColor" (click)="playSong()">
+                                <img src={{linkPhotoPlay}} alt="" class="controls-button">
                             </button>
-                            <button id="prev" class="svgColor">
+                            <button id="prev" class="svgColor" (click)="prevSong()">
                                 <img src="../assets/Icons/back-button.svg" alt="" class="controls-button">
                             </button>
                         </div>
                         <button class="btn--add"><img src="../assets/Icons/add_circle_white_24dp.svg" alt=""></button>
                         <div id="select-playlists"></div>
-                        <button id="shuffle" class="svgColor">
-                            <img src="../assets/Icons/shuffle-disabled-button.svg" alt="" class="replay">
+                        <button id="shuffle" class="svgColor" (click)="shuffleSongs()">
+                            <img src={{linkPhotoShuffle}} alt="" class="replay">
                         </button>
                     </div>
 

@@ -49,9 +49,6 @@
     margin: auto;
     .progress-container {
         width: 70%;
-        .progress {
-            background-color: rgb(80, 79, 79);
-        }
     }
 }
 
@@ -128,7 +125,11 @@
 }
 
 .progress {
-    background-color: white;
+    background-color: #242627;
+    border-radius: 5px;
+    height: 100%;
+    width: 0;
+    transition: width 0.1s linear;
 }
 
 .progress-container {
@@ -141,13 +142,6 @@
     width: 100%;
 }
 
-.progress {
-    background-color: gray;
-    border-radius: 5px;
-    height: 100%;
-    width: 0;
-    transition: width 0.1s linear;
-}
 
 .svgColor {
     filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);

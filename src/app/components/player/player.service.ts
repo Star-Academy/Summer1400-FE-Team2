@@ -32,6 +32,10 @@ export class PlayerService {
     return this.songs[this.index];
   };
 
+  public getProgress(): number {
+    return (this.audio.currentTime / this.audio.duration) * 100;
+  }
+
   public getTimeDuration(): string {
     if (!this.audio.duration) return "00:00";
     var minutes = "0" + Math.floor(this.audio.duration / 60);
