@@ -3,6 +3,15 @@
         <div class="music-link__image">
             <img [src]="playlist?.cover || default_img" alt="cover" />
         </div>
-        <h3 class="card-playlist__title">{{ playlist?.name }}</h3>
+        <div class="card-playlist-info_container">
+            <div class="card-playlist-info">
+                <h3 class="card-playlist__title">{{ playlist?.name }}</h3>
+                <h5>{{playlist.artist|| default_artist }}</h5>
+            </div>
+
+        </div>
     </a>
+    <button class="edit-card-button" (click)="onEditBtn()">
+        <img src="../../../../assets/Icons/dots-button.svg" alt="">
+    </button>
 </div>
