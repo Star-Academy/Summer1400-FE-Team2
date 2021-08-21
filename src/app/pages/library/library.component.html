@@ -1,8 +1,8 @@
 <main>
     <app-profile></app-profile>
     <div class="cards__container">
-        <div *ngFor="let playlist of playlists">
-            <app-playlist-card [playlist]="playlist" (deleteEventEmitter)="refresh()"></app-playlist-card>
+        <div *ngFor="let playlist of _dataHandle.playlists">
+            <app-playlist-card [playlist]="playlist"></app-playlist-card>
         </div>
     </div>
 </main>

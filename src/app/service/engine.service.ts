@@ -144,17 +144,13 @@ export class EngineService {
     return playlists_arr;
   }
 
-  public async removePlaylist(
-    token: string,
-    id: number,
-    name: string | string
-  ) {
+  public async removePlaylist(id: number, name: string | string) {
     if (name === "مورد علاقه") {
       this._toast.openSnackBar("لیست مورد علاقه شما قابل حذف نیست", "ُSpotify");
       return;
     }
     await EngineService.sendRequest(API.routes.postRemovePlaylist, {
-      token: token,
+      token: this.getToken(),
       id: id,
     })
       .then((res) => {
