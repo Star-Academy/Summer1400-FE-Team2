@@ -9,7 +9,7 @@ import { EngineService } from "src/app/service/engine.service";
 export class LibraryComponent implements OnInit {
   constructor(private _engine: EngineService) {}
 
-  public playlists: any = [];
+  public playlists: Playlist[] = [];
 
   async ngOnInit() {
     this.playlists = await this._engine.getAllPlaylist();

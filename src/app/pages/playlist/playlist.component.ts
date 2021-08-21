@@ -13,24 +13,29 @@ export class PlaylistComponent implements OnInit {
     private _Activatedroute: ActivatedRoute
   ) {}
   public status: boolean = false;
+  public playlistId: number = 0;
+  public playlist: Playlist | null = null;
 
   async ngOnInit() {
     this._Activatedroute.paramMap.subscribe((params) => {
       let playlist_id = params.get("id");
       if (playlist_id) {
-        this.setPlaylist(playlist_id);
+        this.playlistId = parseInt(playlist_id);
+        this.setPlaylist();
       }
     });
   }
 
-  playlist: Playlist | null = null;
   setplaylist() {}
-  async setPlaylist(id: string) {
-    const playlist = await this._engine.getPlaylist(+id);
-    this.playlist = playlist;
+  async setPlaylist() {
+    this.playlist = await this._engine.getPlaylist(this.playlistId);
   }
 
   onDetailsBtn() {
     this.status = !this.status;
+  }
+
+  public async refresh() {
+    this.playlist = await this._engine.getPlaylist(this.playlistId);
   }
 }

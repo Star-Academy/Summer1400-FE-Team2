@@ -42,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody id="playlist-table__body">
-                    <app-song-item *ngFor="let song of playlist?.songs; let i=index" [Index]="i" [Song]="song" [Playlist]="playlist"></app-song-item>
+                    <app-song-item  (deleteEventEmitter)="refresh()" *ngFor="let song of playlist?.songs; let i=index" [Index]="i" [Song]="song" [Playlist]="playlist"></app-song-item>
                 </tbody>
             </table>
         </div>
