@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
+import { Component, Input, EventEmitter, OnInit, Output } from "@angular/core";
 import Playlist from "src/app/models/Playlist";
 import { EngineService } from "src/app/service/engine.service";
 
@@ -12,17 +12,20 @@ export class PlaylistCardComponent implements OnInit {
   ngOnInit(): void {}
 
   @Input() public playlist!: Playlist;
+  @Output() public deleteEventEmitter: EventEmitter<Boolean> =
+    new EventEmitter<Boolean>();
   default_img = "../../../assets/Icons/musical-note.svg";
   default_artist = this._engine.getUsername();
   status: boolean = false;
-  onEditBtn() {
+  public onEditBtn() {
     this.status = !this.status;
   }
 
-  onDeleteBtn() {
+  public onDeleteBtn() {
     const token = this._engine.getToken();
     const id = this.playlist.id;
     this._engine.removePlaylist(token, id, this.playlist.name);
+    this.deleteEventEmitter.emit(true);
     this.status = !this.status;
   }
 }
