@@ -25,7 +25,7 @@ import { MatDialogModule, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { CommonModule } from "@angular/common";
 import { PlaylistCardComponent } from "./components/cards/playlist-card/playlist-card.component";
 import { AddPlaylistComponent } from "./components/modals/add-playlist/add-playlist.component";
-import { SongItemComponent } from './pages/playlist/song-item/song-item.component';
+import { SongItemComponent } from "./pages/playlist/song-item/song-item.component";
 
 @NgModule({
   declarations: [
@@ -59,7 +59,7 @@ import { SongItemComponent } from './pages/playlist/song-item/song-item.componen
     MatDialogModule,
     CommonModule,
   ],
-  providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
+  providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }, LibraryComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

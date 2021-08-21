@@ -1,64 +1,64 @@
 main {
-    width: 85%;
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: auto;
-    margin-bottom: 10rem;
-    background-color: #1d1d1d;
+  width: 85%;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom: 10rem;
+  background-color: #1d1d1d;
 }
 
 .cards__container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    column-gap: 0.5rem;
-    width: 90%;
-    margin: auto;
-    .music-link__image img {
-        width: 40%;
-    }
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 0.5rem;
+  width: 90%;
+  margin: auto;
+  .music-link__image img {
+    width: 40%;
+  }
 }
 
 @media (max-width: 1200px) {
-    main {
-        width: 100%;
-    }
-    .cards__container {
-        grid-template-columns: repeat(5, 1fr);
-    }
+  main {
+    width: 100%;
+  }
+  .cards__container {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
-    main {
-        margin: auto;
-        margin-bottom: 20%;
-    }
-    .cards__container {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  main {
+    margin: auto;
+    margin-bottom: 30%;
+  }
+  .cards__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-    main {
-        margin-bottom: 15rem;
-    }
-    .cards__container {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  main {
+    margin-bottom: 40%;
+  }
+  .cards__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 600px) {
-    .cards__container {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .cards__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media (max-width: 500px) {
-    .card-playlist {
-        padding: 0 0 0 0.4rem;
-        a {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+  .card-playlist {
+    padding: 0 0 0 0.4rem;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+  }
 }
