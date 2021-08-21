@@ -146,3 +146,107 @@ table {
         cursor: pointer;
     }
 }
+
+@media (max-width: 1200px) {
+    main {
+        width: 95%;
+        margin: auto;
+        margin-top: 7rem;
+        margin-bottom: 10rem;
+    }
+    .cards__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .playlist-controls {
+        width: 25%;
+        justify-content: space-between;
+    }
+    table {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .cards__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .playlist-details {
+        .playlist-details__image {
+            width: 30%;
+        }
+        .playlist-details__content {
+            width: 60%;
+            font-size: 0.9rem;
+        }
+    }
+    main {
+        margin-bottom: 12rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    table {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+    thead {
+        display: none;
+    }
+    table tr {
+        grid-template-columns: 80% 10% 10%;
+    }
+    .hide-column {
+        display: none;
+    }
+    .songsList-details {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .song-details {
+        div:nth-child(1) {
+            width: 20%;
+        }
+    }
+    .playlist-details {
+        flex-flow: column;
+        padding: 0.8rem 0.2rem;
+        .playlist-details__image {
+            width: 55%;
+            margin: auto;
+        }
+        .playlist-details__content {
+            width: 90%;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    }
+    .playlist-controls {
+        width: 40%;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards__container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .playlist-controls {
+        width: 50%;
+        padding: 0.5rem;
+        a {
+            font-size: 1.2rem;
+        }
+        .dropdown-content a {
+            font-size: 0.6rem;
+        }
+    }
+    #playMusicBtn {
+        font-size: 2.2rem;
+    }
+    .songsListDetails {
+        display: none;
+    }
+}
