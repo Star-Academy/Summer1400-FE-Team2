@@ -1,0 +1,85 @@
+tr {
+    padding: 0.2rem 0.4rem;
+    width: 100%;
+    display: block;
+    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: 5% 40% 35% 15% 5%;
+}
+
+td,
+th {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+tr:hover {
+    background-color: rgba($color: #525252, $alpha: 0.5);
+    color: white;
+    .remove-column {
+        display: flex;
+    }
+}
+
+.song-details__container {
+    width: 100%;
+    margin: auto;
+}
+
+.song-details {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    img {
+        width: 100%;
+        display: block;
+    }
+    div:nth-child(1) {
+        width: 10%;
+        margin-left: 0.5rem;
+    }
+    div:nth-child(2) {
+        display: flex;
+        justify-content: space-evenly;
+        flex-flow: column;
+        align-items: center;
+    }
+}
+
+.clock-sign {
+    width: 1.5rem;
+}
+
+.details_sign_button {
+    cursor: pointer;
+}
+
+.likeBtn,
+.like_sign_button {
+    color: #3bb954;
+    width: 1rem;
+    filter: invert(56%) sepia(99%) saturate(317%) hue-rotate(80deg) brightness(89%) contrast(90%);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.play_sign_button {
+    cursor: pointer;
+    width: 1rem;
+    display: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+.songsList-details {
+    display: none;
+}
+
+.remove-column {
+    display: none;
+    cursor: pointer;
+}

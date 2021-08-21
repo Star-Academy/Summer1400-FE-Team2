@@ -1,0 +1,22 @@
+<tr>
+    <td class="hide-column">
+        <span>{{Index+1}}</span>
+        <img src="../assets/Icons/play-triangle-button.svg" class="play_sign_button svgColor" alt="">
+    </td>
+    <td class="song-details__container">
+        <div class="song-details">
+            <div>
+                <a [routerLink]="['/song', Song.id]">
+                    <img src={{Song.cover}} />
+                </a>
+            </div>
+            <div>
+                <h6>{{Song.name}}</h6>
+                <h6>{{Song.artist}}</h6>
+            </div>
+        </div>
+    </td>
+    <td class="hide-column">{{Playlist?.name}}</td>
+    <td class="hide-column">{{publish_date}}</td>
+    <td class="remove-column" (click)="onDeleteSong()"><img id=" song.id" class="remove" src="../assets/Icons/remove_circle_white_24dp.svg" /></td>
+</tr>

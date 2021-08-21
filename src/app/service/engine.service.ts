@@ -96,6 +96,18 @@ export class EngineService {
     return true;
   }
 
+
+  public async removeSong(token:string,playlistId:number|string,songId:number){
+    const data = EngineService.sendRequest(API.routes.postRemoveSong,{
+      token:token,
+      playlistId:playlistId,
+      songId:songId
+    })
+    .then(() => this.toast.openSnackBar("با موفقیت حذف شد", "Spotify"))
+    .catch(error=>this.toast.openSnackBar(error.message, "پیغام سرور"))
+    return data;
+  }
+
   public async postSearch(
     phrase: string = "عشق",
     count: number = 20,

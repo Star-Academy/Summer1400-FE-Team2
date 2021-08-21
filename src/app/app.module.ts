@@ -25,6 +25,7 @@ import { MatDialogModule, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { CommonModule } from "@angular/common";
 import { PlaylistCardComponent } from "./components/cards/playlist-card/playlist-card.component";
 import { AddPlaylistComponent } from "./components/modals/add-playlist/add-playlist.component";
+import { SongItemComponent } from './pages/playlist/song-item/song-item.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AddPlaylistComponent } from "./components/modals/add-playlist/add-playl
     EditProfileComponent,
     PlaylistCardComponent,
     AddPlaylistComponent,
+    SongItemComponent,
   ],
   imports: [
     BrowserModule,
