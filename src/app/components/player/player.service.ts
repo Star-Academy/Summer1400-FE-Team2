@@ -36,20 +36,19 @@ export class PlayerService {
     return (this.audio.currentTime / this.audio.duration) * 100;
   }
 
-  private getTimeFormat(time: number): string {
+  public getTimeDuration(): string {
+    if (!this.audio.duration) return "00:00";
     var minutes = "0" + Math.floor(this.audio.duration / 60);
     var seconds = "0" + Math.floor(this.audio.duration % 60);
     var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
     return dur;
   }
 
-  public getTimeDuration(): string {
-    if (!this.audio.duration) return "00:00";
-    return this.getTimeFormat(this.audio.duration);
-  }
-
   public getCurrentTime(): string {
-    return this.getTimeFormat(this.audio.currentTime);
+    var minutes = "0" + Math.floor(this.audio.currentTime / 60);
+    var seconds = "0" + Math.floor(this.audio.currentTime % 60);
+    var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
+    return dur;
   }
 
   async getPlaylistName(playlist: number): Promise<string> {

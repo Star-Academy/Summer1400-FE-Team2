@@ -13,6 +13,7 @@
   }
   a {
     color: #fefefe;
+    word-break: break-all;
   }
   width: 100%;
   display: flex;
@@ -52,7 +53,7 @@
 .dropdown_container {
   position: absolute;
   top: auto;
-  bottom: 20px;
+  bottom: 0px;
   left: 8px;
   width: 30%;
 }

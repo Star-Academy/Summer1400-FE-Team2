@@ -71,6 +71,11 @@ mat-dialog-content,
       cursor: pointer;
       @include flex-center;
       gap: 0.5rem;
+      width: 100%;
+      max-width: 10rem;
+      span {
+        word-break: break-all;
+      }
     }
   }
 }
