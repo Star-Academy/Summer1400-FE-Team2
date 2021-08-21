@@ -17,6 +17,7 @@ export class DesktopNavigationComponent implements OnInit {
   public favorites = localStorage.getItem("favorites");
   ngOnInit(): void {}
   public openModalCreatePlalist() {
+
     this.createPlaylist.openDialog();
   }
 }

@@ -18,6 +18,10 @@ export class CreatePlaylistComponent implements OnInit {
   ngOnInit(): void {}
 
   public openDialog() {
+    if (!this.engine.getToken()) {
+      this.engine.shouldLogin();
+      return;
+    }
     const dialogRef = this.dialog.open(CreatePlaylistComponent, {
       data: {},
       panelClass: "my-custom-dialog-class",
