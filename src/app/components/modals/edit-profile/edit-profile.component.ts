@@ -1,7 +1,6 @@
 import { Component, OnChanges, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import User from "src/app/models/User";
-import { ProfileComponent } from "src/app/pages/library/profile/profile.component";
 import { EngineService } from "src/app/service/engine.service";
 
 @Component({
@@ -10,7 +9,7 @@ import { EngineService } from "src/app/service/engine.service";
   styleUrls: ["./edit-profile.component.scss"],
 })
 export class EditProfileComponent implements OnInit, OnChanges {
-  constructor(public dialog: MatDialog, private engine: EngineService) {}
+  constructor(public _dialog: MatDialog, private _engine: EngineService) {}
 
   ngOnInit(): void {
     this.setModalData();
@@ -18,15 +17,15 @@ export class EditProfileComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.setModalData();
   }
-  avatarLink = "";
-  username = "";
-  firstName = "";
-  lastName = "";
-  password = "";
-  avatar = "";
-  async setModalData() {
-    let id = this.engine.getUserId();
-    const user_data = await this.engine.getUser(id);
+  public avatarLink = "";
+  public username = "";
+  public firstName = "";
+  public lastName = "";
+  public password = "";
+  public avatar = "";
+  public async setModalData() {
+    let id = this._engine.getUserId();
+    const user_data = await this._engine.getUser(id);
     this.username = user_data["username" as keyof object];
     this.firstName = user_data["first_name" as keyof object];
     this.lastName = user_data["last_name" as keyof object];
@@ -38,22 +37,19 @@ export class EditProfileComponent implements OnInit, OnChanges {
       ? `url(${user_data["avatar" as keyof object]})`
       : "url('/assets/Icons/user-profile.svg')";
     this.password = user_data["password" as keyof object];
-    console.log(user_data);
   }
   public openDialog() {
-    const dialogRef = this.dialog.open(EditProfileComponent, {
+    const dialogRef = this._dialog.open(EditProfileComponent, {
       data: {},
       panelClass: "my-custom-dialog-class",
       width: "550px",
     });
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
-  async onSaveModal() {
+  public async onSaveModal() {
     let user_info = {};
     user_info = {
-      token: this.engine.getToken(),
+      token: this._engine.getToken(),
       username: this.username,
       avatar: this.avatar,
       firstName: this.firstName,
@@ -63,35 +59,31 @@ export class EditProfileComponent implements OnInit, OnChanges {
     if (this.password !== "" && this.password !== undefined) {
       Object.assign(user_info, { password: this.password });
     }
-    localStorage.setItem('username',this.username);
-    // if(this.username !==this.engine.getUsername()){
-    //   // add username to alter
-    // }
-    console.log(user_info);
-    await this.engine.alterUserInfo(new User(user_info));
+    localStorage.setItem("username", this.username);
+    await this._engine.alterUserInfo(new User(user_info));
   }
 
-  async onChangeAvatar(myfile: any) {
+  public async onChangeAvatar(myfile: any) {
     let file = myfile.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = async () => {
       this.avatarLink = `url(${reader.result})`;
-      this.avatar = reader.result+'';
+      this.avatar = reader.result + "";
       let user = {
-        token: this.engine.getToken(),
+        token: this._engine.getToken(),
         avatar: reader.result,
       };
-      await this.engine.alterUserInfo(new User(user));
+      await this._engine.alterUserInfo(new User(user));
     };
   }
-   async onDeleteBtn(){
+  public async onDeleteBtn() {
     this.avatarLink = "url('/assets/Icons/user-profile.svg')";
-    this.avatar ='/assets/Icons/user-profile.svg';
+    this.avatar = "/assets/Icons/user-profile.svg";
     let user = {
-      token: this.engine.getToken(),
+      token: this._engine.getToken(),
       avatar: this.avatar,
     };
-    await this.engine.alterUserInfo(new User(user));
+    await this._engine.alterUserInfo(new User(user));
   }
 }

@@ -8,13 +8,12 @@ import { EngineService } from 'src/app/service/engine.service';
 })
 export class LibraryComponent implements OnInit {
 
-  constructor(private engineService:EngineService) { }
+  constructor(private _engine:EngineService) { }
 
   public playlists:any=[];
   
   async ngOnInit(){
-    this.playlists= await this.engineService.getAllPlaylist(this.engineService.getToken());
-    console.log(this.playlists);
+    this.playlists= await this._engine.getAllPlaylist();
   }
 
 }

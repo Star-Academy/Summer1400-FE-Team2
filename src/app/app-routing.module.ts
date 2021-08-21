@@ -35,7 +35,6 @@ const routes: Routes = [
   {
     path: "song/:id",
     component: MusicPlayerComponent,
-    canActivate: [GuardService],
   },
   {
     path: "playlist/:id",

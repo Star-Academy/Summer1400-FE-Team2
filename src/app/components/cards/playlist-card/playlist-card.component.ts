@@ -8,22 +8,21 @@ import { EngineService } from "src/app/service/engine.service";
   styleUrls: ["./playlist-card.component.scss"],
 })
 export class PlaylistCardComponent implements OnInit {
-  constructor(private engine: EngineService) {}
+  constructor(private _engine: EngineService) {}
   ngOnInit(): void {}
 
   @Input() public playlist!: Playlist;
   default_img = "../../../assets/Icons/musical-note.svg";
-  default_artist = this.engine.getUsername();
+  default_artist = this._engine.getUsername();
   status: boolean = false;
   onEditBtn() {
-    console.log("on edit button");
     this.status = !this.status;
   }
 
   onDeleteBtn() {
-    const token = this.engine.getToken();
+    const token = this._engine.getToken();
     const id = this.playlist.id;
-    this.engine.removePlaylist(token, id,this.playlist.name);
+    this._engine.removePlaylist(token, id, this.playlist.name);
     this.status = !this.status;
   }
 }

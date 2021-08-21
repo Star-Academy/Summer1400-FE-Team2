@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginUsername = "";
   loginPassword = "";
 
-  constructor(private engineService: EngineService, private router: Router) {}
+  constructor(private _engine: EngineService) {}
 
   ngOnInit(): void {}
 
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       username: this.loginUsername,
     };
 
-    const success = await this.engineService.loginUser(new User(user));
-    if (success) this.engineService.welcomeUser();
+    const success = await this._engine.loginUser(new User(user));
+    if (success) this._engine.welcomeUser();
   }
 }

@@ -29,25 +29,25 @@ export class AllSongsComponent implements OnInit {
     { id: 1200, name: "همه" },
   ];
   public constructor(
-    private engineService: EngineService,
-    private activatedRoute: ActivatedRoute,
-    private location: Location
+    private _engine: EngineService,
+    private _activatedRoute: ActivatedRoute,
+    private _location: Location
   ) {}
 
   public async ngOnInit() {
-    this.activatedRoute.queryParams.subscribe((params) => {
+    this._activatedRoute.queryParams.subscribe((params) => {
       let data = params["search"];
       if (data !== "") {
         this.searchText = data;
         this.search();
-        this.location.replaceState("/all-songs");
+        this._location.replaceState("/all-songs");
       } else this.change();
     });
   }
 
   async change() {
     if (!this.searchText)
-      this.songs = await this.engineService.postFilterSongs(
+      this.songs = await this._engine.postFilterSongs(
         this.selectedNumber,
         1,
         this.selectedFilter
@@ -57,7 +57,7 @@ export class AllSongsComponent implements OnInit {
 
   async search() {
     if (this.searchText) {
-      this.songs = await this.engineService.postSearch(
+      this.songs = await this._engine.postSearch(
         this.searchText,
         this.selectedNumber,
         this.selectedFilter,

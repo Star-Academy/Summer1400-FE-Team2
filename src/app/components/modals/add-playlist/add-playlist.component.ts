@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import Song from "src/app/models/SongModal";
 import { EngineService } from "src/app/service/engine.service";
-import { ToastService } from "../../toast/toast.service";
 import { Inject } from "@angular/core";
 
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
@@ -15,16 +14,15 @@ import Playlist from "src/app/models/Playlist";
 })
 export class AddPlaylistComponent implements OnInit {
   constructor(
-    public dialog: MatDialog,
-    private engine: EngineService,
-    private toast: ToastService,
+    public _dialog: MatDialog,
+    private _engine: EngineService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   public song: Song | null = null;
   public playlists: Array<Playlist> = [];
   async ngOnInit() {
-    this.playlists = await this.engine.getAllPlaylist();
+    this.playlists = await this._engine.getAllPlaylist();
   }
 
   public openDialog(song: Song) {
@@ -34,13 +32,13 @@ export class AddPlaylistComponent implements OnInit {
     dialogConfig.data = {
       song: song,
     };
-    this.dialog.open(AddPlaylistComponent, dialogConfig);
+    this._dialog.open(AddPlaylistComponent, dialogConfig);
   }
 
   public async addToSelectedPlaylist(id: number) {
-    let success = await this.engine.postAddSong(id, this.data.song.id);
+    let success = await this._engine.postAddSong(id, this.data.song.id);
     if (success) {
-      this.dialog.closeAll();
+      this._dialog.closeAll();
     }
   }
 }

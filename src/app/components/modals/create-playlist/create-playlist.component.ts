@@ -10,19 +10,19 @@ import { ToastService } from "../../toast/toast.service";
 })
 export class CreatePlaylistComponent implements OnInit {
   constructor(
-    public dialog: MatDialog,
-    private engine: EngineService,
-    private toast: ToastService
+    public _dialog: MatDialog,
+    private _engine: EngineService,
+    private _toast: ToastService
   ) {}
   namePlaylist = "";
   ngOnInit(): void {}
 
   public openDialog() {
-    if (!this.engine.getToken()) {
-      this.engine.shouldLogin();
+    if (!this._engine.getToken()) {
+      this._engine.shouldLogin();
       return;
     }
-    const dialogRef = this.dialog.open(CreatePlaylistComponent, {
+    const dialogRef = this._dialog.open(CreatePlaylistComponent, {
       data: {},
       panelClass: "my-custom-dialog-class",
     });
@@ -32,9 +32,9 @@ export class CreatePlaylistComponent implements OnInit {
 
   public async createNewPlaylist() {
     if (this.namePlaylist !== "") {
-      let success = await this.engine.postCreatePlaylist(this.namePlaylist);
-      if (success) this.toast.openSnackBar("پلی لیست ساخته شد", "پیغام سرور");
-      this.dialog.closeAll();
-    } else this.toast.openSnackBar("لطفا نام را وارد کنید", "Spotify");
+      let success = await this._engine.postCreatePlaylist(this.namePlaylist);
+      if (success) this._toast.openSnackBar("پلی لیست ساخته شد", "پیغام سرور");
+      this._dialog.closeAll();
+    } else this._toast.openSnackBar("لطفا نام را وارد کنید", "Spotify");
   }
 }

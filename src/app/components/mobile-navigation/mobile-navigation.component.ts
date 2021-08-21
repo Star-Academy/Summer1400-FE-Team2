@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnChanges,
-  OnInit,
-  ViewChild,
-} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { CreatePlaylistComponent } from "../modals/create-playlist/create-playlist.component";
 @Component({
   selector: "app-mobile-navigation",
@@ -13,12 +7,12 @@ import { CreatePlaylistComponent } from "../modals/create-playlist/create-playli
   providers: [CreatePlaylistComponent],
 })
 export class MobileNavigationComponent implements OnInit {
-  constructor(private createPlaylist: CreatePlaylistComponent) {}
+  constructor(private _createPlaylist: CreatePlaylistComponent) {}
   public favorites = localStorage.getItem("favorites");
 
   ngOnInit(): void {}
 
   public openModalCreatePlalist() {
-    this.createPlaylist.openDialog();
+    this._createPlaylist.openDialog();
   }
 }

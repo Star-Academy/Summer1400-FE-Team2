@@ -7,7 +7,7 @@ import { ToastService } from "../toast/toast.service";
   providedIn: "root",
 })
 export class PlayerService {
-  constructor(private engine: EngineService, private toast: ToastService) {}
+  constructor(private _engine: EngineService, private _toast: ToastService) {}
 
   public id: number = 1;
   public index: number = 0;
@@ -36,36 +36,37 @@ export class PlayerService {
     return (this.audio.currentTime / this.audio.duration) * 100;
   }
 
-  public getTimeDuration(): string {
-    if (!this.audio.duration) return "00:00";
+  private getTimeFormat(time: number): string {
     var minutes = "0" + Math.floor(this.audio.duration / 60);
     var seconds = "0" + Math.floor(this.audio.duration % 60);
     var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
     return dur;
   }
 
+  public getTimeDuration(): string {
+    if (!this.audio.duration) return "00:00";
+    return this.getTimeFormat(this.audio.duration);
+  }
+
   public getCurrentTime(): string {
-    var minutes = "0" + Math.floor(this.audio.currentTime / 60);
-    var seconds = "0" + Math.floor(this.audio.currentTime % 60);
-    var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
-    return dur;
+    return this.getTimeFormat(this.audio.currentTime);
   }
 
   async getPlaylistName(playlist: number): Promise<string> {
-    let data = await this.engine.getPlaylist(playlist);
+    let data = await this._engine.getPlaylist(playlist);
     this.songs = data.songs;
     return data.name;
   }
 
   async getAllSongs(): Promise<void> {
-    this.songs = await this.engine.getAllSongs();
+    this.songs = await this._engine.getAllSongs();
   }
 
   public loadSong(song: Song): void {
     this.id = song.id;
     this.audio.src = song.file;
     this.audio.load();
-    this.toast.openSnackBar("کمی صبر کنید", "Spotify");
+    this._toast.openSnackBar("کمی صبر کنید", "Spotify");
     if (this.autoPlay) this.playSong();
   }
   private randomIndex(): number {
@@ -112,7 +113,7 @@ export class PlayerService {
 
   public async addToFavs() {
     let fav = localStorage.getItem("favorites");
-    if (fav) this.engine.postAddSong(parseInt(fav), this.id);
+    if (fav) this._engine.postAddSong(parseInt(fav), this.id);
   }
 
   public replaySong() {
