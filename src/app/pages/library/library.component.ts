@@ -8,5 +8,5 @@ import { DataHandlerService } from "src/app/service/dataHandler/data-handler.ser
 export class LibraryComponent implements OnInit {
   constructor(public _dataHandle: DataHandlerService) {}
 
-  async ngOnInit() {}
+  async ngOnInit() {this._dataHandle.getUser();}
 }

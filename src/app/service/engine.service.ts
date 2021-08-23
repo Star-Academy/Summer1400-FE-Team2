@@ -133,7 +133,6 @@ export class EngineService {
   }
 
   public async getAllPlaylist(): Promise<Array<Playlist>> {
-    this._toast.openSnackBar("کمی صبر کنید", "Spotify");
     const playlists = await EngineService.sendRequest(
       API.routes.postAllPlaylists,
       { token: this.getToken() }
@@ -146,7 +145,7 @@ export class EngineService {
 
   public async removePlaylist(id: number, name: string | string) {
     if (name === "مورد علاقه") {
-      this._toast.openSnackBar("لیست مورد علاقه شما قابل حذف نیست", "ُSpotify");
+      this._toast.openSnackBar("لیست مورد علاقه شما قابل حذف نیست", "Spotify");
       return;
     }
     await EngineService.sendRequest(API.routes.postRemovePlaylist, {
@@ -234,7 +233,7 @@ export class EngineService {
   public setUserId(id: number) {
     localStorage.setItem("userId", "" + id);
   }
-  public getUserId(){
+  public getUserId() {
     return localStorage.getItem("userId") || "";
   }
 

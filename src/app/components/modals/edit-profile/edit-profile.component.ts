@@ -27,20 +27,11 @@ export class EditProfileComponent implements OnInit, OnChanges {
   public firstName = "";
   public lastName = "";
   public password = "";
-  public avatar = "";
 
   public async setModalData() {
-    console.log("call");
     this.username = this._dataHandler.user.username;
     this.firstName = this._dataHandler.user.firstName;
     this.lastName = this._dataHandler.user.lastName;
-    this.avatar = this._dataHandler.user.avatar
-      ? `url(${this._dataHandler.user.avatar})`
-      : "url('/assets/Icons/user-profile.svg')";
-
-    this.avatarLink = this._dataHandler.user.avatar
-      ? `url(${this._dataHandler.user.avatar})`
-      : "url('/assets/Icons/user-profile.svg')";
     this.password = this._dataHandler.user.password;
   }
 
@@ -57,15 +48,16 @@ export class EditProfileComponent implements OnInit, OnChanges {
     let user = {
       token: this._engine.getToken(),
       username: this.username,
-      firstName: this.firstName,
-      lastName: this.lastName,
+      first_name: this.firstName,
+      last_name: this.lastName,
     };
-
     if (this.password !== "" && this.password !== undefined) {
       Object.assign(user, { password: this.password });
     }
     localStorage.setItem("username", this.username);
-    await this._dataHandler.alterUser(new User(user));
+    await this._dataHandler
+      .alterUser(new User(user))
+      .then(() => this.setModalData());
   }
 
   public async onChangeAvatar(myfile: any) {
@@ -73,8 +65,6 @@ export class EditProfileComponent implements OnInit, OnChanges {
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = async () => {
-      this.avatarLink = `${reader.result}`;
-      this.avatar = reader.result + "";
       let user = {
         token: this._engine.getToken(),
         avatar: reader.result,
@@ -85,13 +75,12 @@ export class EditProfileComponent implements OnInit, OnChanges {
     };
   }
   public async onDeleteBtn() {
-    this.avatarLink = "url('/assets/Icons/user-profile.svg')";
-    this.avatar = "/assets/Icons/user-profile.svg";
     let user = {
-      username: this.username,
       token: this._engine.getToken(),
-      avatar: this.avatar,
+      avatar: "/assets/Icons/user-profile.svg",
     };
-    await this._dataHandler.alterUser(new User(user));
+    await this._dataHandler
+      .alterUser(new User(user))
+      .then(() => this.setModalData());
   }
 }
