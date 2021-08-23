@@ -144,4 +144,7 @@ export class MusicPlayerComponent implements OnInit {
       lyricsBtn.style.display = "block";
     }
   }
+  public isNameWidthLong(){        
+    return this.song?.name.length! < 12;
+  }
 }

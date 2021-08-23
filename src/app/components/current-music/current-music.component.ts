@@ -77,4 +77,7 @@ export class CurrentMusicComponent implements OnInit {
     }
     this._player.shuffleSong();
   }
+  public isNameWidthLong(){        
+    return this._player.currentSong.name?.length! < 12;
+  }
 }

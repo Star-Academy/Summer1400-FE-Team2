@@ -3,11 +3,15 @@
         <div class="desktop_container">
             <div class="current-music_details">
                 <div class="desktop_img">
-                    <a [routerLink]="['/song', _player.currentSong?.id]"><img src={{_player.currentSong.cover}} alt=""
-                            class="music__img " id="cover" /></a>
+                    <a [routerLink]="['/song', _player.currentSong?.id]"><img src={{_player.currentSong.cover}} alt="" class="music__img " id="cover" /></a>
                 </div>
                 <div class="title__artist">
-                    <h5 class="music__name" id="title">{{_player.currentSong.name}}</h5>
+                    <h5 class="music__name" id="title" *ngIf="isNameWidthLong(); else scrollName">{{_player.currentSong.name}}</h5>
+                    <ng-template #scrollName>
+                        <marquee class="music__name" id="title" behavior="scroll" direction="right" scrollamount="3">
+                            {{_player.currentSong.name}}
+                        </marquee>
+                    </ng-template>
                     <h5 class="singer" id="artist">{{_player.currentSong.artist}}</h5>
                 </div>
             </div>
