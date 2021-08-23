@@ -48,8 +48,7 @@ export class MusicPlayerComponent implements OnInit {
           this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
         this.getDuration();
         let progress = document.getElementById("progress");
-        setInterval(() => {
-          this.currentTime = this._player.getCurrentTime();
+        setInterval(() => {          
           if (progress) {
             progress.style.width = this._player.getProgress() + "%";
           }
