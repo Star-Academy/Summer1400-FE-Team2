@@ -7,14 +7,14 @@
             <p>لیست اهنگ</p>
             <h1>{{playlist?.name}}</h1>
             <div class="flex songsListDetails">
-                <span>{{playlist?.songs?.length || 0}}اهنگ</span>
+                <span>{{playlist?.songs?.length || 0}} آهنگ </span>
             </div>
         </div>
     </section>
 
     <section class="playlist-controls__container">
         <div class="playlist-controls">
-            <button id="playMusicBtn">
+            <button id="playMusicBtn" (click)="onPlay()">
                 <img src="../assets/Icons/play-button.svg" alt="">
             </button>
             <button id="like-songs">
@@ -42,7 +42,8 @@
                     </tr>
                 </thead>
                 <tbody id="playlist-table__body">
-                    <app-song-item  (deleteEventEmitter)="refresh()" *ngFor="let song of playlist?.songs; let i=index" [Index]="i" [Song]="song" [Playlist]="playlist"></app-song-item>
+                    <app-song-item (deleteEventEmitter)="refresh()" *ngFor="let song of playlist?.songs; let i=index"
+                        [Index]="i" [Song]="song" [Playlist]="playlist"></app-song-item>
                 </tbody>
             </table>
         </div>

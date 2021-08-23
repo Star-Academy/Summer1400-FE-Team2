@@ -29,7 +29,7 @@ export class MusicPlayerComponent implements OnInit {
   public linkPhotoReplay: string = "../assets/Icons/loop-button.svg";
 
   public async ngOnInit() {
-    await this._player.getAllSongs();
+    if (this._player.name === "همه آهنگ ها") await this._player.getAllSongs();
     this._Activatedroute.paramMap.subscribe((params) => {
       let number = params.get("id");
       if (number) {

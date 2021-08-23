@@ -3,12 +3,12 @@
         <div class="desktop_container">
             <div class="current-music_details">
                 <div class="desktop_img">
-                    <a [routerLink]="['/song', song?.id]"><img src={{song?.cover}} alt="" class="music__img "
-                            id="cover" /></a>
+                    <a [routerLink]="['/song', _player.currentSong?.id]"><img src={{_player.currentSong.cover}} alt=""
+                            class="music__img " id="cover" /></a>
                 </div>
                 <div class="title__artist">
-                    <h5 class="music__name" id="title">{{song?.name}}</h5>
-                    <h5 class="singer" id="artist">{{song?.artist}}</h5>
+                    <h5 class="music__name" id="title">{{_player.currentSong.name}}</h5>
+                    <h5 class="singer" id="artist">{{_player.currentSong.artist}}</h5>
                 </div>
             </div>
             <div class="song_container music__container">

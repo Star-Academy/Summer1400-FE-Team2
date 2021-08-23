@@ -12,15 +12,17 @@ export class PlayerService {
   public id: number = 1;
   public index: number = 0;
   public autoPlay: Boolean = false;
-  public songs: Song[] = [];
+  public songsList: Song[] = [];
+  public currentSong: Song = new Song({});
   public audio = new Audio();
   public isLoop: Boolean = false;
   public isShuffle: Boolean = false;
+  public name: String = "همه آهنگ ها";
 
   public setId = (number: number): void => {
     this.id = number;
-    let firstSong = this.songs.filter((song) => song.id === number)[0];
-    this.index = this.songs.indexOf(firstSong);
+    let firstSong = this.songsList.filter((song) => song.id === number)[0];
+    this.index = this.songsList.indexOf(firstSong);
     this.loadSong(firstSong);
   };
 
@@ -29,7 +31,7 @@ export class PlayerService {
   };
 
   public getSong = (): Song => {
-    return this.songs[this.index];
+    return this.songsList[this.index];
   };
 
   public getProgress(): number {
@@ -51,18 +53,22 @@ export class PlayerService {
     return dur;
   }
 
-  async getPlaylistName(playlist: number): Promise<string> {
-    let data = await this._engine.getPlaylist(playlist);
-    this.songs = data.songs;
-    return data.name;
+  async getPlaylistName(playlist: number): Promise<void> {
+    let { songs, name } = await this._engine.getPlaylist(playlist);
+    this.songsList = songs;
+    this.name = name;
+    await this.setId(this.songsList[0].id);
+    console.log(this.id, this.songsList);
   }
 
   async getAllSongs(): Promise<void> {
-    this.songs = await this._engine.getAllSongs();
+    this.songsList = await this._engine.getAllSongs();
+    this.name = "همه آهنگ ها";
   }
 
   public loadSong(song: Song): void {
     this.id = song.id;
+    this.currentSong = song;
     this.audio.src = song.file;
     this.audio.load();
     this._toast.openSnackBar("کمی صبر کنید", "Spotify");
@@ -70,8 +76,8 @@ export class PlayerService {
   }
   private randomIndex(): number {
     let random = 1200;
-    while (random >= this.songs.length) {
-      random = Math.ceil(Math.random() * this.songs.length);
+    while (random >= this.songsList.length) {
+      random = Math.ceil(Math.random() * this.songsList.length);
     }
     return random;
   }
@@ -80,10 +86,10 @@ export class PlayerService {
     if (this.isShuffle) {
       this.index = this.randomIndex();
     } else {
-      if (this.index > this.songs.length - 2) this.index = 0;
+      if (this.index > this.songsList.length - 2) this.index = 0;
       else this.index++;
     }
-    let song = this.songs[this.index];
+    let song = this.songsList[this.index];
     this.loadSong(song);
     return song;
   }
@@ -92,10 +98,10 @@ export class PlayerService {
     if (this.isShuffle) {
       this.index = this.randomIndex();
     } else {
-      if (this.index <= 0) this.index = this.songs.length - 1;
+      if (this.index <= 0) this.index = this.songsList.length - 1;
       else this.index--;
     }
-    let song = this.songs[this.index];
+    let song = this.songsList[this.index];
     this.loadSong(song);
     return song;
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import Playlist from "src/app/models/Playlist";
 import { EngineService } from "src/app/service/engine.service";
 import { ActivatedRoute } from "@angular/router";
+import { PlayerService } from "src/app/components/player/player.service";
 @Component({
   selector: "app-playlist",
   templateUrl: "./playlist.component.html",
@@ -10,7 +11,8 @@ import { ActivatedRoute } from "@angular/router";
 export class PlaylistComponent implements OnInit {
   constructor(
     private _engine: EngineService,
-    private _Activatedroute: ActivatedRoute
+    private _Activatedroute: ActivatedRoute,
+    private _player: PlayerService
   ) {}
   public status: boolean = false;
   public playlistId: number = 0;
@@ -33,6 +35,10 @@ export class PlaylistComponent implements OnInit {
 
   onDetailsBtn() {
     this.status = !this.status;
+  }
+
+  async onPlay() {
+    await this._player.getPlaylistName(this.playlistId);
   }
 
   public async refresh() {
