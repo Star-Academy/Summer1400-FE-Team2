@@ -22,8 +22,8 @@ export class RegisterComponent implements OnInit {
       username: this.registerUsername,
       email: this.registerEmail,
       password: this.registerPassword,
-      firstName: this.registerFirstName,
-      lastName: this.registerLastName,
+      first_name: this.registerFirstName,
+      last_name: this.registerLastName,
     };
 
     const success = await this._engine.registerUser(new User(user));

@@ -14,11 +14,10 @@ export class DataHandlerService {
   public playlists: Playlist[] = [];
   public user: User = new User({ firstName: "loading" });
 
-  private async getUser() {
+  public async getUser() {
     this.user = await this._engine.getUser();
   }
   public async alterUser(user: User) {
-    console.log(user);
     await this._engine.alterUserInfo(user);
     this.getUser();
   }

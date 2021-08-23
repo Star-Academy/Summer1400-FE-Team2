@@ -11,7 +11,7 @@ import { DataHandlerService } from "src/app/service/dataHandler/data-handler.ser
 })
 export class ProfileComponent implements OnInit {
   constructor(
-    private enginService: EngineService,
+    private _engine: EngineService,
     private editModal: EditProfileComponent,
     public _dataHandler: DataHandlerService
   ) {}
@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = async () => {
       let user = {
-        token: this.enginService.getToken(),
+        token: this._engine.getToken(),
         avatar: reader.result,
       };
       await this._dataHandler.alterUser(new User(user));

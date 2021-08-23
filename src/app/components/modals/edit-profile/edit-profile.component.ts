@@ -27,19 +27,11 @@ export class EditProfileComponent implements OnInit, OnChanges {
   public firstName = "";
   public lastName = "";
   public password = "";
-  public avatar = "";
 
   public async setModalData() {
     this.username = this._dataHandler.user.username;
     this.firstName = this._dataHandler.user.firstName;
     this.lastName = this._dataHandler.user.lastName;
-    this.avatar = this._dataHandler.user.avatar
-      ? `url(${this._dataHandler.user.avatar})`
-      : "url('/assets/Icons/user-profile.svg')";
-
-    this.avatarLink = this._dataHandler.user.avatar
-      ? `url(${this._dataHandler.user.avatar})`
-      : "url('/assets/Icons/user-profile.svg')";
     this.password = this._dataHandler.user.password;
   }
 
@@ -73,8 +65,6 @@ export class EditProfileComponent implements OnInit, OnChanges {
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = async () => {
-      this.avatarLink = `${reader.result}`;
-      this.avatar = reader.result + "";
       let user = {
         token: this._engine.getToken(),
         avatar: reader.result,
@@ -85,11 +75,9 @@ export class EditProfileComponent implements OnInit, OnChanges {
     };
   }
   public async onDeleteBtn() {
-    this.avatarLink = "url('/assets/Icons/user-profile.svg')";
-    this.avatar = "/assets/Icons/user-profile.svg";
     let user = {
       token: this._engine.getToken(),
-      avatar: this.avatar,
+      avatar: "/assets/Icons/user-profile.svg",
     };
     await this._dataHandler
       .alterUser(new User(user))
