@@ -256,4 +256,7 @@ export class EngineService {
   public shouldLogin() {
     this._toast.openSnackBar("ابتدا وارد شوید", " Spotify ");
   }
+  public logout() {
+    localStorage.clear();
+  }
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import Song from "src/app/models/SongModal";
 import { AddPlaylistComponent } from "../modals/add-playlist/add-playlist.component";
 import { PlayerService } from "../player/player.service";
 
@@ -14,6 +13,7 @@ export class CurrentMusicComponent implements OnInit {
     public _player: PlayerService,
     private _addPlaylist: AddPlaylistComponent
   ) {}
+
   public linkPhotoPlay: string = "../assets/Icons/play-button.svg";
   public linkPhotoShuffle: string =
     "../assets/Icons/shuffle-disabled-button.svg";
@@ -27,16 +27,13 @@ export class CurrentMusicComponent implements OnInit {
       this.linkPhotoShuffle = "../assets/Icons/shuffle-button.svg";
     if (this._player.isLoop)
       this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
+
     let container = document.getElementById("progress-container");
     container?.addEventListener("click", (e) => {
       this._player.seek(e.offsetX, container?.offsetWidth);
     });
-    let progress = document.getElementById("progress");
-    setInterval(() => {
-      if (progress) {
-        progress.style.width = this._player.getProgress() + "%";
-      }
-    }, 500);
+
+    setInterval(() => {}, 200);
   }
 
   public openModalAddPlalist() {
@@ -64,6 +61,7 @@ export class CurrentMusicComponent implements OnInit {
   public prevSong() {
     this._player.getPrevSong();
   }
+
   public replaySong() {
     if (!this._player.isLoop) {
       this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
@@ -81,7 +79,8 @@ export class CurrentMusicComponent implements OnInit {
     }
     this._player.shuffleSong();
   }
+
   public isNameWidthLong() {
-    return this._player.currentSong.name?.length! < 12;
+    return this._player.currentSong.name?.length! < 20;
   }
 }

@@ -16,7 +16,7 @@ export class CreatePlaylistComponent implements OnInit {
     private _toast: ToastService,
     private _dataHandle: DataHandlerService
   ) {}
-  namePlaylist = "";
+  public namePlaylist = "";
   ngOnInit(): void {}
 
   public openDialog() {

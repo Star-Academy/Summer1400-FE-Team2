@@ -17,6 +17,12 @@ export class DataHandlerService {
   public async getUser() {
     this.user = await this._engine.getUser();
   }
+  public getUsername(): string {
+    return this.user.username;
+  }
+  public setUsername(username: string) {
+    this._engine.setUsername(username);
+  }
   public async alterUser(user: User) {
     await this._engine.alterUserInfo(user);
     await this.getPlaylists();

@@ -50,12 +50,7 @@ export class MusicPlayerComponent implements OnInit {
         container?.addEventListener("click", (e) => {
           this._player.seek(e.offsetX, container?.offsetWidth);
         });
-        let progress = document.getElementById("progress");
-        setInterval(() => {
-          if (progress) {
-            progress.style.width = this._player.getProgress() + "%";
-          }
-        }, 500);
+        setInterval(() => {}, 200);
       }
     });
   }

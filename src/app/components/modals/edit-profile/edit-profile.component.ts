@@ -32,7 +32,6 @@ export class EditProfileComponent implements OnInit, OnChanges {
     this.username = this._dataHandler.user.username;
     this.firstName = this._dataHandler.user.firstName;
     this.lastName = this._dataHandler.user.lastName;
-    this.password = this._dataHandler.user.password;
   }
 
   public openDialog() {
@@ -54,7 +53,7 @@ export class EditProfileComponent implements OnInit, OnChanges {
     if (this.password !== "" && this.password !== undefined) {
       Object.assign(user, { password: this.password });
     }
-    localStorage.setItem("username", this.username);
+    this._dataHandler.setUsername(this.username);
     await this._dataHandler
       .alterUser(new User(user))
       .then(() => this.setModalData());

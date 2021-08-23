@@ -5,6 +5,7 @@ import { EngineService } from "src/app/service/engine.service";
 import { Inject } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import Playlist from "src/app/models/Playlist";
+
 @Component({
   selector: "app-add-playlist",
   templateUrl: "./add-playlist.component.html",
@@ -20,6 +21,7 @@ export class AddPlaylistComponent implements OnInit {
 
   public song: Song | null = null;
   public playlists: Array<Playlist> = [];
+
   async ngOnInit() {
     this.playlists = await this._engine.getAllPlaylist();
   }

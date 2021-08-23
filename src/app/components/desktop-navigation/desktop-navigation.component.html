@@ -1,4 +1,3 @@
-<!-------------- Sidebar -------------->
 <aside class="aside-box" id="aside-desktop">
     <nav id="nav-links">
         <a routerLink="/home" id="spotify-logo">
@@ -27,7 +26,7 @@
         </ul>
         <ul>
             <li>
-                <a (click)="openModalCreatePlalist()" class="createListMenu">
+                <a (click)="_createPlaylist.openDialog()" class="createListMenu">
                     <img class="" src="../assets/Icons/music-playlist-button.svg" alt="">
                     <span>ساخت لیست اهنگ</span>
                 </a>

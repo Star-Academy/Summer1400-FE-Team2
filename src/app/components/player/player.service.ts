@@ -34,23 +34,24 @@ export class PlayerService {
     return this.songsList[this.index];
   };
 
-  public getProgress(): number {
-    return (this.audio.currentTime / this.audio.duration) * 100;
+  public getProgress(): string {
+    let time = (this.audio.currentTime / this.audio.duration) * 100 + "%";
+    return time;
+  }
+
+  private convertTime(time: number): string {
+    var minutes = "0" + Math.floor(time / 60);
+    var seconds = "0" + Math.floor(time % 60);
+    return minutes.substr(-2) + ":" + seconds.substr(-2);
   }
 
   public getTimeDuration(): string {
     if (!this.audio.duration) return "00:00";
-    var minutes = "0" + Math.floor(this.audio.duration / 60);
-    var seconds = "0" + Math.floor(this.audio.duration % 60);
-    var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
-    return dur;
+    return this.convertTime(this.audio.duration);
   }
 
   public getCurrentTime(): string {
-    var minutes = "0" + Math.floor(this.audio.currentTime / 60);
-    var seconds = "0" + Math.floor(this.audio.currentTime % 60);
-    var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
-    return dur;
+    return this.convertTime(this.audio.currentTime);
   }
 
   async getPlaylistName(playlist: number): Promise<void> {

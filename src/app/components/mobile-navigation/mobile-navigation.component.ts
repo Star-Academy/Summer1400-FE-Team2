@@ -7,12 +7,7 @@ import { CreatePlaylistComponent } from "../modals/create-playlist/create-playli
   providers: [CreatePlaylistComponent],
 })
 export class MobileNavigationComponent implements OnInit {
-  constructor(private _createPlaylist: CreatePlaylistComponent) {}
+  constructor(public _createPlaylist: CreatePlaylistComponent) {}
   public favorites = localStorage.getItem("favorites");
-
   ngOnInit(): void {}
-
-  public openModalCreatePlalist() {
-    this._createPlaylist.openDialog();
-  }
 }

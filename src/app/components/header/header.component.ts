@@ -10,6 +10,7 @@ import { EngineService } from "src/app/service/engine.service";
 export class HeaderComponent implements OnInit {
   constructor(private _engine: EngineService, private _router: Router) {}
   public searchText: string = "";
+  
   ngOnInit(): void {}
   isLogedIn = this._engine.getToken();
   username = this._engine.getUsername();
@@ -23,13 +24,16 @@ export class HeaderComponent implements OnInit {
   fgoBack() {
     window.history.back();
   }
+
   fgoForward() {
     window.history.forward();
   }
+
   onLogoutBtn() {
-    localStorage.clear();
+    this._engine.logout();
     this._router.navigateByUrl("login");
   }
+
   onUserProfileBtn() {
     this._router.navigateByUrl("library");
   }

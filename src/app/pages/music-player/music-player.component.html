@@ -41,7 +41,7 @@
             <div class="current__time">
                 <span id="durtime">{{duration}}</span>
                 <div class="progress-container" id="progress-container">
-                    <div class="progress" id="progress"></div>
+                    <div class="progress" id="progress" [ngStyle]="{width : _player.getProgress()}"></div>
                 </div>
                 <span id="curtime">{{_player.getCurrentTime()}}</span>
             </div>
