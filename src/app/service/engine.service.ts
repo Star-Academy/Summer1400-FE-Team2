@@ -217,6 +217,7 @@ export class EngineService {
   }
 
   public async alterUserInfo(user_info: User): Promise<void> {
+    this.setUsername(user_info.username);
     await EngineService.sendRequest(API.routes.postAlter, user_info)
       .then((res) => {
         this._toast.openSnackBar("اطلاعات با موفقیت ثبت شد", "پیغام سرور");

@@ -19,6 +19,7 @@ export class DataHandlerService {
   }
   public async alterUser(user: User) {
     await this._engine.alterUserInfo(user);
+    await this.getPlaylists();
     this.getUser();
   }
 
