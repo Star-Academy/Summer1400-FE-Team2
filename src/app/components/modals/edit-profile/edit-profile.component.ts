@@ -30,7 +30,6 @@ export class EditProfileComponent implements OnInit, OnChanges {
   public avatar = "";
 
   public async setModalData() {
-    console.log("call");
     this.username = this._dataHandler.user.username;
     this.firstName = this._dataHandler.user.firstName;
     this.lastName = this._dataHandler.user.lastName;
@@ -57,15 +56,16 @@ export class EditProfileComponent implements OnInit, OnChanges {
     let user = {
       token: this._engine.getToken(),
       username: this.username,
-      firstName: this.firstName,
-      lastName: this.lastName,
+      first_name: this.firstName,
+      last_name: this.lastName,
     };
-
     if (this.password !== "" && this.password !== undefined) {
       Object.assign(user, { password: this.password });
     }
     localStorage.setItem("username", this.username);
-    await this._dataHandler.alterUser(new User(user));
+    await this._dataHandler
+      .alterUser(new User(user))
+      .then(() => this.setModalData());
   }
 
   public async onChangeAvatar(myfile: any) {
@@ -88,10 +88,11 @@ export class EditProfileComponent implements OnInit, OnChanges {
     this.avatarLink = "url('/assets/Icons/user-profile.svg')";
     this.avatar = "/assets/Icons/user-profile.svg";
     let user = {
-      username: this.username,
       token: this._engine.getToken(),
       avatar: this.avatar,
     };
-    await this._dataHandler.alterUser(new User(user));
+    await this._dataHandler
+      .alterUser(new User(user))
+      .then(() => this.setModalData());
   }
 }

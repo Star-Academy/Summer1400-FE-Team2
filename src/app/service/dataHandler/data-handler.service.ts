@@ -18,7 +18,8 @@ export class DataHandlerService {
     this.user = await this._engine.getUser();
   }
   public async alterUser(user: User) {
-    await this._engine.alterUserInfo(new User(user));
+    console.log(user);
+    await this._engine.alterUserInfo(user);
     this.getUser();
   }
 
