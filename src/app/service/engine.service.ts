@@ -170,11 +170,11 @@ export class EngineService {
     return true;
   }
 
-  public async getUser(id: number | string): Promise<Object> {
+  public async getUser(): Promise<User> {
     const { user } = await EngineService.sendRequest(
-      API.routes.getUser + id
+      API.routes.getUser + +this.getUserId()
     ).catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
-    return user;
+    return new User(user);
   }
 
   public async isUserLogedin(): Promise<Object> {
@@ -234,7 +234,7 @@ export class EngineService {
   public setUserId(id: number) {
     localStorage.setItem("userId", "" + id);
   }
-  public getUserId() {
+  public getUserId(){
     return localStorage.getItem("userId") || "";
   }
 

@@ -1,15 +1,15 @@
 <section id="profile_container">
     <div class="profile">
         <div>
-            <div class="profile-photo_container" [ngStyle]="{backgroundImage:avatar}">
+            <div class="profile-photo_container" [ngStyle]="{backgroundImage:'url('+_dataHandler.user.avatar+')'}">
                 <div class="profile-photo">
                     <label for="myfile"> <img src="../assets/Icons/edit-button.svg" alt=""> انتخاب عکس </label>
                     <input (change)="onChangeAvatar(myfile)" type="file" id="myfile" #myfile name="myfile" class="custom-file-input">
                 </div>
             </div>
             <div class="profile-info">
-                <h5 id="profile-username">{{username}}</h5>
-                <h1 id="profile-name">{{first_name}} {{last_name}}</h1>
+                <h5 id="profile-username">{{this._dataHandler.user.username}}</h5>
+                <h1 id="profile-name">{{this._dataHandler.user.firstName}} {{this._dataHandler.user.lastName}}</h1>
                 <button id="edit-profile-button" (click)="onEditProfile()"><img src="../assets/Icons/settings_white_24dp.svg" alt="edit" /></button>
             </div>
 

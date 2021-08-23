@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import User from "src/app/models/User";
+import { DataHandlerService } from "src/app/service/dataHandler/data-handler.service";
 import { EngineService } from "src/app/service/engine.service";
 
 @Component({
@@ -9,7 +10,11 @@ import { EngineService } from "src/app/service/engine.service";
   styleUrls: ["./edit-profile.component.scss"],
 })
 export class EditProfileComponent implements OnInit, OnChanges {
-  constructor(public _dialog: MatDialog, private _engine: EngineService) {}
+  constructor(
+    public _dialog: MatDialog,
+    private _engine: EngineService,
+    public _dataHandler: DataHandlerService
+  ) {}
 
   ngOnInit(): void {
     this.setModalData();
@@ -23,21 +28,22 @@ export class EditProfileComponent implements OnInit, OnChanges {
   public lastName = "";
   public password = "";
   public avatar = "";
-  public async setModalData() {
-    let id = this._engine.getUserId();
-    const user_data = await this._engine.getUser(id);
-    this.username = user_data["username" as keyof object];
-    this.firstName = user_data["first_name" as keyof object];
-    this.lastName = user_data["last_name" as keyof object];
-    this.avatar = user_data["avatar" as keyof object]
-      ? user_data["avatar" as keyof object]
-      : "/assets/Icons/user-profile.svg";
 
-    this.avatarLink = user_data["avatar" as keyof object]
-      ? `url(${user_data["avatar" as keyof object]})`
+  public async setModalData() {
+    console.log("call");
+    this.username = this._dataHandler.user.username;
+    this.firstName = this._dataHandler.user.firstName;
+    this.lastName = this._dataHandler.user.lastName;
+    this.avatar = this._dataHandler.user.avatar
+      ? `url(${this._dataHandler.user.avatar})`
       : "url('/assets/Icons/user-profile.svg')";
-    this.password = user_data["password" as keyof object];
+
+    this.avatarLink = this._dataHandler.user.avatar
+      ? `url(${this._dataHandler.user.avatar})`
+      : "url('/assets/Icons/user-profile.svg')";
+    this.password = this._dataHandler.user.password;
   }
+
   public openDialog() {
     const dialogRef = this._dialog.open(EditProfileComponent, {
       data: {},
@@ -46,21 +52,20 @@ export class EditProfileComponent implements OnInit, OnChanges {
     });
     dialogRef.afterClosed().subscribe((result) => {});
   }
+
   public async onSaveModal() {
-    let user_info = {};
-    user_info = {
+    let user = {
       token: this._engine.getToken(),
       username: this.username,
-      avatar: this.avatar,
       firstName: this.firstName,
       lastName: this.lastName,
     };
 
     if (this.password !== "" && this.password !== undefined) {
-      Object.assign(user_info, { password: this.password });
+      Object.assign(user, { password: this.password });
     }
     localStorage.setItem("username", this.username);
-    await this._engine.alterUserInfo(new User(user_info));
+    await this._dataHandler.alterUser(new User(user));
   }
 
   public async onChangeAvatar(myfile: any) {
@@ -68,22 +73,25 @@ export class EditProfileComponent implements OnInit, OnChanges {
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = async () => {
-      this.avatarLink = `url(${reader.result})`;
+      this.avatarLink = `${reader.result}`;
       this.avatar = reader.result + "";
       let user = {
         token: this._engine.getToken(),
         avatar: reader.result,
       };
-      await this._engine.alterUserInfo(new User(user));
+      await this._dataHandler
+        .alterUser(new User(user))
+        .then(() => this.setModalData());
     };
   }
   public async onDeleteBtn() {
     this.avatarLink = "url('/assets/Icons/user-profile.svg')";
     this.avatar = "/assets/Icons/user-profile.svg";
     let user = {
+      username: this.username,
       token: this._engine.getToken(),
       avatar: this.avatar,
     };
-    await this._engine.alterUserInfo(new User(user));
+    await this._dataHandler.alterUser(new User(user));
   }
 }

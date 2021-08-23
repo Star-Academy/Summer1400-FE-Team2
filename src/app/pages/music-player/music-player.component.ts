@@ -22,7 +22,6 @@ export class MusicPlayerComponent implements OnInit {
   public id: number | null = 1;
   public song: Song | null = null;
   public duration: string = "00:00";
-  public currentTime: string = "00:00";
 
   public linkPhotoPlay: string = "../assets/Icons/play-button.svg";
   public linkPhotoShuffle: string =
@@ -48,7 +47,7 @@ export class MusicPlayerComponent implements OnInit {
           this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
         this.getDuration();
         let progress = document.getElementById("progress");
-        setInterval(() => {          
+        setInterval(() => {
           if (progress) {
             progress.style.width = this._player.getProgress() + "%";
           }

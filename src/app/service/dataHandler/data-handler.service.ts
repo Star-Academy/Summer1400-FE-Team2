@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import Playlist from "src/app/models/Playlist";
+import User from "src/app/models/User";
 import { EngineService } from "../engine.service";
 
 @Injectable({
@@ -8,8 +9,19 @@ import { EngineService } from "../engine.service";
 export class DataHandlerService {
   constructor(private _engine: EngineService) {
     this.getPlaylists();
+    this.getUser();
   }
   public playlists: Playlist[] = [];
+  public user: User = new User({ firstName: "loading" });
+
+  private async getUser() {
+    this.user = await this._engine.getUser();
+  }
+  public async alterUser(user: User) {
+    await this._engine.alterUserInfo(new User(user));
+    this.getUser();
+  }
+
   private async getPlaylists() {
     this.playlists = await this._engine.getAllPlaylist();
   }
