@@ -105,10 +105,14 @@ export class PlayerService {
     return song;
   }
 
+  public seek(time: number, long: number = 100) {
+    this.audio.currentTime = (time / long) * this.audio.duration;
+  }
+
   public playSong() {
     this.autoPlay = true;
     this.audio.play();
-    //this.audio.addEventListener("ended", () => this.getNextSong());
+    this.audio.addEventListener("ended", () => this.getNextSong());
   }
 
   public pauseSong() {
@@ -118,7 +122,7 @@ export class PlayerService {
 
   public async addToFavs() {
     let fav = this._engine.getFavoriteId();
-    if (fav) this._engine.postAddSong(parseInt(fav), this.id);
+    if (fav) await this._engine.postAddSong(parseInt(fav), this.id);
   }
 
   public replaySong() {

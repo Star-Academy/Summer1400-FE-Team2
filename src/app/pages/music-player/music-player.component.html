@@ -20,21 +20,22 @@
                     <div id="music-lyrics"></div>
                 </div>
                 <button id="song-lyrics-button" (click)="onShowLyrics()">متن اهنگ</button>
-                <img src={{song?.cover}} alt="" class="music__img" id="cover" />
+                <img src={{_player.currentSong?.cover}} alt="" class="music__img" id="cover" />
             </div>
             <div class="info__music">
                 <button class="btn--add" (click)="openModalAddPlalist()">
                     <img src="../assets/Icons/add_circle_outline_black_24dp.svg" alt=""></button>
                 <div class="title__artist">
-                    <h2 class="music__name" *ngIf="isNameWidthLong(); else scrollName">{{song?.name}}</h2>
+                    <h2 class="music__name" *ngIf="isNameWidthLong(); else scrollName">{{_player.currentSong?.name}}
+                    </h2>
                     <ng-template #scrollName>
                         <marquee class="music__name" id="title" behavior="scroll" direction="right" scrollamount="3">
-                            {{song?.name}}
+                            {{_player.currentSong?.name}}
                         </marquee>
                     </ng-template>
-                    <h4 class="singer" id="artist">{{song?.artist}}</h4>
+                    <h4 class="singer" id="artist">{{_player.currentSong?.artist}}</h4>
                 </div>
-                <button class="btn--like" (click)="addToFavorites()">
+                <button class="btn--like" (click)="this._player.addToFavs()">
                     <img src="../assets/Icons/like-button-empty.svg" alt=""></button>
             </div>
             <div class="current__time">

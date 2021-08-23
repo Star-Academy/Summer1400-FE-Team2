@@ -238,7 +238,7 @@ export class EngineService {
     return localStorage.getItem("userId") || "";
   }
   public getFavoriteId() {
-    return localStorage.getItem("favorite") || "";
+    return localStorage.getItem("favorites");
   }
 
   public setUsername(username: string) {

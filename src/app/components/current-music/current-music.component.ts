@@ -27,6 +27,10 @@ export class CurrentMusicComponent implements OnInit {
       this.linkPhotoShuffle = "../assets/Icons/shuffle-button.svg";
     if (this._player.isLoop)
       this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
+    let container = document.getElementById("progress-container");
+    container?.addEventListener("click", (e) => {
+      this._player.seek(e.offsetX, container?.offsetWidth);
+    });
     let progress = document.getElementById("progress");
     setInterval(() => {
       if (progress) {
@@ -77,7 +81,7 @@ export class CurrentMusicComponent implements OnInit {
     }
     this._player.shuffleSong();
   }
-  public isNameWidthLong(){        
+  public isNameWidthLong() {
     return this._player.currentSong.name?.length! < 12;
   }
 }

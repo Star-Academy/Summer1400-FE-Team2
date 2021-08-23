@@ -46,6 +46,10 @@ export class MusicPlayerComponent implements OnInit {
         if (this._player.isLoop)
           this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
         this.getDuration();
+        let container = document.getElementById("progress-container");
+        container?.addEventListener("click", (e) => {
+          this._player.seek(e.offsetX, container?.offsetWidth);
+        });
         let progress = document.getElementById("progress");
         setInterval(() => {
           if (progress) {
@@ -57,9 +61,6 @@ export class MusicPlayerComponent implements OnInit {
   }
   public openModalAddPlalist() {
     if (this.song) this._addPlaylist.openDialog(this.song);
-  }
-  public async addToFavorites() {
-    this._player.addToFavs();
   }
 
   public fgoBack() {
@@ -119,7 +120,6 @@ export class MusicPlayerComponent implements OnInit {
   public onShowLyrics() {
     this.showLyrics = true;
     this.toggleLyrics();
-
   }
   public onHideLyrics() {
     this.showLyrics = false;
@@ -131,20 +131,20 @@ export class MusicPlayerComponent implements OnInit {
     const back_lyricsBtn = document.getElementById("back-lyrics-button")!;
     const music_lyrics = document.getElementById("music-lyrics")!;
     const music_cover = document.getElementById("cover")!;
-    music_lyrics.innerText = this._player.currentSong.lyrics;    
-    if(this.showLyrics){
+    music_lyrics.innerText = this._player.currentSong.lyrics;
+    if (this.showLyrics) {
       music_cover.style.display = "none";
       lyrics_container.style.display = "block";
       music_lyrics.style.display = "block";
       lyricsBtn.style.display = "none";
-    }else{
+    } else {
       music_cover.style.display = "block";
       lyrics_container.style.display = "none";
       music_lyrics.style.display = "none";
       lyricsBtn.style.display = "block";
     }
   }
-  public isNameWidthLong(){        
+  public isNameWidthLong() {
     return this.song?.name.length! < 12;
   }
 }
