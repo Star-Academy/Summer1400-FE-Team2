@@ -70,8 +70,6 @@
   img {
     display: block;
     width: 100%;
-    filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
-
   }
   &:hover {
     transform: scale(1.1);
