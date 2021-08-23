@@ -117,7 +117,7 @@ export class PlayerService {
   }
 
   public async addToFavs() {
-    let fav = localStorage.getItem("favorites");
+    let fav = this._engine.getFavoriteId();
     if (fav) this._engine.postAddSong(parseInt(fav), this.id);
   }
 

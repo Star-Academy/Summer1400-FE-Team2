@@ -236,6 +236,9 @@ export class EngineService {
   public getUserId() {
     return localStorage.getItem("userId") || "";
   }
+  public getFavoriteId() {
+    return localStorage.getItem("favorite") || "";
+  }
 
   public setUsername(username: string) {
     localStorage.setItem("username", username);
