@@ -1,20 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import Playlist from 'src/app/models/Playlist';
-import { EngineService } from 'src/app/service/engine.service';
+import { Component, OnInit } from "@angular/core";
+import { DataHandlerService } from "src/app/service/dataHandler/data-handler.service";
 @Component({
-  selector: 'app-library',
-  templateUrl: './library.component.html',
-  styleUrls: ['./library.component.scss']
+  selector: "app-library",
+  templateUrl: "./library.component.html",
+  styleUrls: ["./library.component.scss"],
 })
 export class LibraryComponent implements OnInit {
+  constructor(public _dataHandle: DataHandlerService) {}
 
-  constructor(private engineService:EngineService) { }
-
-  public playlists:any=[];
-  
-  async ngOnInit(){
-    this.playlists= await this.engineService.getAllPlaylist(this.engineService.getToken());
-    console.log(this.playlists);
-  }
-
+  async ngOnInit() {}
 }

@@ -8,28 +8,34 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./playlist.component.scss"],
 })
 export class PlaylistComponent implements OnInit {
-  constructor(private engin: EngineService,private _Activatedroute: ActivatedRoute) {}
+  constructor(
+    private _engine: EngineService,
+    private _Activatedroute: ActivatedRoute
+  ) {}
+  public status: boolean = false;
+  public playlistId: number = 0;
+  public playlist: Playlist | null = null;
 
-   async ngOnInit() {
+  async ngOnInit() {
     this._Activatedroute.paramMap.subscribe((params) => {
-      let playlist_id = params.get('id');
-      if(playlist_id){
-        this.setPlaylist(playlist_id);
+      let playlist_id = params.get("id");
+      if (playlist_id) {
+        this.playlistId = parseInt(playlist_id);
+        this.setPlaylist();
       }
-    })
+    });
   }
 
-  playlist: Playlist | null = null;
   setplaylist() {}
-  async setPlaylist(id:string){
-    const playlist =await this.engin.getPlaylist(+id);
-    this.playlist = playlist;
+  async setPlaylist() {
+    this.playlist = await this._engine.getPlaylist(this.playlistId);
   }
 
-  status: boolean = false;
-  onDetailsBtn(){
-    console.log("on edit button");
+  onDetailsBtn() {
     this.status = !this.status;
   }
-}
 
+  public async refresh() {
+    this.playlist = await this._engine.getPlaylist(this.playlistId);
+  }
+}

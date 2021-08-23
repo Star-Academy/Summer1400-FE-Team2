@@ -33,9 +33,9 @@ export class LandingPageComponent implements OnInit {
       label: "پربازدید های هفته",
     },
   ];
-  public constructor(private engineService: EngineService) {}
+  public constructor(private _engine: EngineService) {}
 
   public async ngOnInit() {
-    this.songs = await this.engineService.getAllSongs();
+    this.songs = await this._engine.getAllSongs();
   }
 }

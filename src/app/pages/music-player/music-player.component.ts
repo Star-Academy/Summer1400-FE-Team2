@@ -14,9 +14,9 @@ import Song from "src/app/models/SongModal";
 export class MusicPlayerComponent implements OnInit {
   constructor(
     private _Activatedroute: ActivatedRoute,
-    public player: PlayerService,
-    private location: Location,
-    private addPlaylist: AddPlaylistComponent
+    public _player: PlayerService,
+    private _location: Location,
+    private _addPlaylist: AddPlaylistComponent
   ) {}
 
   public id: number | null = 1;
@@ -30,57 +30,57 @@ export class MusicPlayerComponent implements OnInit {
   public linkPhotoReplay: string = "../assets/Icons/loop-button.svg";
 
   public async ngOnInit() {
-    await this.player.getAllSongs();
+    await this._player.getAllSongs();
     this._Activatedroute.paramMap.subscribe((params) => {
       let number = params.get("id");
       if (number) {
         this.id = parseInt(number);
         let num = parseInt(number);
-        if (!this.player.autoPlay || num !== this.player.id) {
-          this.player.setId(num);
+        if (!this._player.autoPlay || num !== this._player.id) {
+          this._player.setId(num);
         }
-        this.song = this.player.getSong();
-        if (this.player.autoPlay)
+        this.song = this._player.getSong();
+        if (this._player.autoPlay)
           this.linkPhotoPlay = "../assets/Icons/pause-button.svg";
-        if (this.player.isShuffle)
+        if (this._player.isShuffle)
           this.linkPhotoShuffle = "../assets/Icons/shuffle-button.svg";
-        if (this.player.isLoop)
+        if (this._player.isLoop)
           this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
         this.getDuration();
         let progress = document.getElementById("progress");
         setInterval(() => {
-          this.currentTime = this.player.getCurrentTime();
+          this.currentTime = this._player.getCurrentTime();
           if (progress) {
-            progress.style.width = this.player.getProgress() + "%";
+            progress.style.width = this._player.getProgress() + "%";
           }
         }, 500);
       }
     });
   }
   public openModalAddPlalist() {
-    if(this.song)this.addPlaylist.openDialog(this.song);
+    if (this.song) this._addPlaylist.openDialog(this.song);
   }
   public async addToFavorites() {
-    this.player.addToFavs();
+    this._player.addToFavs();
   }
 
   public fgoBack() {
     window.history.back();
   }
   public playSong() {
-    if (!this.player.autoPlay) {
-      this.player.playSong();
+    if (!this._player.autoPlay) {
+      this._player.playSong();
       this.linkPhotoPlay = "../assets/Icons/pause-button.svg";
     } else {
-      this.player.pauseSong();
+      this._player.pauseSong();
       this.linkPhotoPlay = "../assets/Icons/play-button.svg";
     }
   }
 
   private getDuration() {
-    this.location.replaceState("/all-songs/" + this.id);
+    this._location.replaceState("/all-songs/" + this.id);
     let timer = setInterval(() => {
-      let time = this.player.getTimeDuration();
+      let time = this._player.getTimeDuration();
       if (time !== "00:00") {
         this.duration = time;
         clearInterval(timer);
@@ -88,34 +88,34 @@ export class MusicPlayerComponent implements OnInit {
     }, 100);
   }
   public nextSong() {
-    this.player.getNextSong();
-    this.song = this.player.getSong();
-    this.id = this.player.getId();
+    this._player.getNextSong();
+    this.song = this._player.getSong();
+    this.id = this._player.getId();
     this.getDuration();
   }
 
   public prevSong() {
-    this.player.getPrevSong();
-    this.song = this.player.getSong();
-    this.id = this.player.getId();
+    this._player.getPrevSong();
+    this.song = this._player.getSong();
+    this.id = this._player.getId();
     this.getDuration();
   }
 
   public replaySong() {
-    if (!this.player.isLoop) {
+    if (!this._player.isLoop) {
       this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
     } else {
       this.linkPhotoReplay = "../assets/Icons/loop-button.svg";
     }
-    this.player.replaySong();
+    this._player.replaySong();
   }
 
   public shuffleSongs() {
-    if (!this.player.isShuffle) {
+    if (!this._player.isShuffle) {
       this.linkPhotoShuffle = "../assets/Icons/shuffle-button.svg";
     } else {
       this.linkPhotoShuffle = "../assets/Icons/shuffle-disabled-button.svg";
     }
-    this.player.shuffleSong();
+    this._player.shuffleSong();
   }
 }

@@ -25,11 +25,8 @@ export class ProfileComponent implements OnInit, OnChanges {
   }
   ngOnChanges() {
     this.showUserInfo();
-    console.log("in onChange..");
   }
-  // ngDoCheck(){
-  //   this.showUserInfo();
-  // }
+
 
   first_name = "";
   last_name = "";
@@ -45,7 +42,6 @@ export class ProfileComponent implements OnInit, OnChanges {
     this.avatar = user_data["avatar" as keyof object]
       ? `url(${user_data["avatar" as keyof object]})`
       : "url('/assets/Icons/user-profile.svg')";
-    console.log(user_data);
   }
   async onChangeAvatar(myfile: any) {
     let file = myfile.files[0];

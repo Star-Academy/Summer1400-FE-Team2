@@ -7,7 +7,7 @@ import { ToastService } from "../toast/toast.service";
   providedIn: "root",
 })
 export class PlayerService {
-  constructor(private engine: EngineService, private toast: ToastService) {}
+  constructor(private _engine: EngineService, private _toast: ToastService) {}
 
   public id: number = 1;
   public index: number = 0;
@@ -52,20 +52,20 @@ export class PlayerService {
   }
 
   async getPlaylistName(playlist: number): Promise<string> {
-    let data = await this.engine.getPlaylist(playlist);
+    let data = await this._engine.getPlaylist(playlist);
     this.songs = data.songs;
     return data.name;
   }
 
   async getAllSongs(): Promise<void> {
-    this.songs = await this.engine.getAllSongs();
+    this.songs = await this._engine.getAllSongs();
   }
 
   public loadSong(song: Song): void {
     this.id = song.id;
     this.audio.src = song.file;
     this.audio.load();
-    this.toast.openSnackBar("کمی صبر کنید", "Spotify");
+    this._toast.openSnackBar("کمی صبر کنید", "Spotify");
     if (this.autoPlay) this.playSong();
   }
   private randomIndex(): number {
@@ -112,7 +112,7 @@ export class PlayerService {
 
   public async addToFavs() {
     let fav = localStorage.getItem("favorites");
-    if (fav) this.engine.postAddSong(parseInt(fav), this.id);
+    if (fav) this._engine.postAddSong(parseInt(fav), this.id);
   }
 
   public replaySong() {

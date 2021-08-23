@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 import User from "src/app/models/User";
 import { EngineService } from "src/app/service/engine.service";
 
@@ -15,7 +14,7 @@ export class RegisterComponent implements OnInit {
   registerPassword = "";
   registerUsername = "";
 
-  constructor(private engineService: EngineService, private router: Router) {}
+  constructor(private _engine: EngineService) {}
 
   ngOnInit(): void {}
   async onRegisterBtn() {
@@ -27,7 +26,7 @@ export class RegisterComponent implements OnInit {
       lastName: this.registerLastName,
     };
 
-    const success = await this.engineService.registerUser(new User(user));
-    if (success) this.engineService.welcomeUser();
+    const success = await this._engine.registerUser(new User(user));
+    if (success) this._engine.welcomeUser();
   }
 }

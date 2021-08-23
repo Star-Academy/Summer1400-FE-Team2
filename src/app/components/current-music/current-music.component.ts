@@ -1,6 +1,4 @@
-import { Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import Song from "src/app/models/SongModal";
 import { AddPlaylistComponent } from "../modals/add-playlist/add-playlist.component";
 import { PlayerService } from "../player/player.service";
@@ -13,8 +11,8 @@ import { PlayerService } from "../player/player.service";
 })
 export class CurrentMusicComponent implements OnInit {
   constructor(
-    public player: PlayerService,
-    private addPlaylist: AddPlaylistComponent
+    public _player: PlayerService,
+    private _addPlaylist: AddPlaylistComponent
   ) {}
 
   public id: number | null = 1;
@@ -26,69 +24,69 @@ export class CurrentMusicComponent implements OnInit {
   public linkPhotoReplay: string = "../assets/Icons/loop-button.svg";
 
   public async ngOnInit() {
-    await this.player.getAllSongs();
-    let number = this.player.getId();
+    await this._player.getAllSongs();
+    let number = this._player.getId();
     if (number) {
-      this.song = this.player.getSong();
+      this.song = this._player.getSong();
     }
-    if (this.player.autoPlay)
+    if (this._player.autoPlay)
       this.linkPhotoPlay = "../assets/Icons/pause-button.svg";
-    if (this.player.isShuffle)
+    if (this._player.isShuffle)
       this.linkPhotoShuffle = "../assets/Icons/shuffle-button.svg";
-    if (this.player.isLoop)
+    if (this._player.isLoop)
       this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
     let progress = document.getElementById("progress");
     setInterval(() => {
       if (progress) {
-        progress.style.width = this.player.getProgress() + "%";
+        progress.style.width = this._player.getProgress() + "%";
       }
     }, 500);
   }
 
   public openModalAddPlalist() {
-    this.addPlaylist.openDialog(this.song);
+    this._addPlaylist.openDialog(this.song);
   }
 
   public async addToFavorites() {
-    this.player.addToFavs();
+    this._player.addToFavs();
   }
 
   public playSong() {
-    if (!this.player.autoPlay) {
-      this.player.playSong();
+    if (!this._player.autoPlay) {
+      this._player.playSong();
       this.linkPhotoPlay = "../assets/Icons/pause-button.svg";
     } else {
-      this.player.pauseSong();
+      this._player.pauseSong();
       this.linkPhotoPlay = "../assets/Icons/play-button.svg";
     }
   }
 
   public nextSong() {
-    this.player.getNextSong();
-    this.song = this.player.getSong();
-    this.id = this.player.getId();
+    this._player.getNextSong();
+    this.song = this._player.getSong();
+    this.id = this._player.getId();
   }
 
   public prevSong() {
-    this.player.getPrevSong();
-    this.song = this.player.getSong();
-    this.id = this.player.getId();
+    this._player.getPrevSong();
+    this.song = this._player.getSong();
+    this.id = this._player.getId();
   }
   public replaySong() {
-    if (!this.player.isLoop) {
+    if (!this._player.isLoop) {
       this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
     } else {
       this.linkPhotoReplay = "../assets/Icons/loop-button.svg";
     }
-    this.player.replaySong();
+    this._player.replaySong();
   }
 
   public shuffleSongs() {
-    if (!this.player.isShuffle) {
+    if (!this._player.isShuffle) {
       this.linkPhotoShuffle = "../assets/Icons/shuffle-button.svg";
     } else {
       this.linkPhotoShuffle = "../assets/Icons/shuffle-disabled-button.svg";
     }
-    this.player.shuffleSong();
+    this._player.shuffleSong();
   }
 }

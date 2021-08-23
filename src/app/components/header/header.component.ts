@@ -8,15 +8,15 @@ import { EngineService } from "src/app/service/engine.service";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private enginService: EngineService, private router: Router) {}
+  constructor(private _engine: EngineService, private _router: Router) {}
   public searchText: string = "";
   ngOnInit(): void {}
-  isLogedIn = this.enginService.getToken();
-  username = this.enginService.getUsername();
+  isLogedIn = this._engine.getToken();
+  username = this._engine.getUsername();
 
   public sendToSongs() {
     if (this.searchText !== "") {
-      this.router.navigateByUrl("all-songs?search=" + this.searchText);
+      this._router.navigateByUrl("all-songs?search=" + this.searchText);
     }
   }
 
@@ -28,9 +28,9 @@ export class HeaderComponent implements OnInit {
   }
   onLogoutBtn() {
     localStorage.clear();
-    this.router.navigateByUrl("login");
+    this._router.navigateByUrl("login");
   }
   onUserProfileBtn() {
-    this.router.navigateByUrl("library");
+    this._router.navigateByUrl("library");
   }
 }

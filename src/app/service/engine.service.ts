@@ -32,7 +32,7 @@ const API = {
   providedIn: "root",
 })
 export class EngineService {
-  constructor(private router: Router, private toast: ToastService) {}
+  constructor(private _router: Router, private _toast: ToastService) {}
 
   private static async sendRequest(url: string, body?: object): Promise<any> {
     const init: RequestInit = {
@@ -64,7 +64,7 @@ export class EngineService {
   public async getOneSong(id: number = 1): Promise<Song> {
     const { song } = await EngineService.sendRequest(
       API.routes.getOneSong + id
-    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    ).catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     return new Song(song);
   }
 
@@ -73,11 +73,11 @@ export class EngineService {
     current: number = 1,
     sorter: string = "name"
   ): Promise<Song[]> {
-    this.toast.openSnackBar("در حال بارگزاری آهنگ", "کمی صبر کنید");
+    this._toast.openSnackBar("در حال بارگزاری آهنگ", "کمی صبر کنید");
     const { songs } = await EngineService.sendRequest(
       API.routes.postFilterSongs,
       { size, current, sorter }
-    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    ).catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     return songs.map((x: any) => new Song(x));
   }
 
@@ -91,20 +91,20 @@ export class EngineService {
       songId,
       token,
     })
-      .then(() => this.toast.openSnackBar("با موفقیت اضافه شد", "Spotify"))
-      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+      .then(() => this._toast.openSnackBar("با موفقیت اضافه شد", "Spotify"))
+      .catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     return true;
   }
 
-
-  public async removeSong(token:string,playlistId:number|string,songId:number){
-    const data = EngineService.sendRequest(API.routes.postRemoveSong,{
-      token:token,
-      playlistId:playlistId,
-      songId:songId
+  public async removeSong(playlistId: number | string, songId: number) {
+    let token = this.getToken();
+    const data = EngineService.sendRequest(API.routes.postRemoveSong, {
+      token,
+      playlistId: playlistId,
+      songId: songId,
     })
-    .then(() => this.toast.openSnackBar("با موفقیت حذف شد", "Spotify"))
-    .catch(error=>this.toast.openSnackBar(error.message, "پیغام سرور"))
+      .then(() => this._toast.openSnackBar("با موفقیت حذف شد", "Spotify"))
+      .catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     return data;
   }
 
@@ -114,54 +114,50 @@ export class EngineService {
     sorter: string = "name",
     desc: boolean = true
   ): Promise<Song[]> {
-    this.toast.openSnackBar("نتایج جست و جو در حال بارگزاری", "کمی صبر کنید");
+    this._toast.openSnackBar("نتایج جست و جو در حال بارگزاری", "کمی صبر کنید");
 
     const { songs } = await EngineService.sendRequest(API.routes.postSearch, {
       phrase,
       count,
       sorter,
       desc,
-    }).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    }).catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     return songs.map((x: any) => new Song(x));
   }
 
   public async getPlaylist(id: number): Promise<Playlist> {
     const data = await EngineService.sendRequest(
       API.routes.getPlaylist + id
-    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    ).catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     return new Playlist(data);
   }
 
-  public async getAllPlaylist(token?: string): Promise<Array<Playlist>> {
-    this.toast.openSnackBar("کمی صبر کنید", "Spotify");
+  public async getAllPlaylist(): Promise<Array<Playlist>> {
+    this._toast.openSnackBar("کمی صبر کنید", "Spotify");
     const playlists = await EngineService.sendRequest(
       API.routes.postAllPlaylists,
       { token: this.getToken() }
-    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    ).catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     let playlists_arr = playlists.map(
       (playlist: any) => new Playlist(playlist)
     );
     return playlists_arr;
   }
 
-  public async removePlaylist(
-    token: string,
-    id: number,
-    name: string | string
-  ) {
+  public async removePlaylist(id: number, name: string | string) {
     if (name === "مورد علاقه") {
-      this.toast.openSnackBar("لیست مورد علاقه شما قابل حذف نیست", "ُSpotify");
+      this._toast.openSnackBar("لیست مورد علاقه شما قابل حذف نیست", "ُSpotify");
       return;
     }
     await EngineService.sendRequest(API.routes.postRemovePlaylist, {
-      token: token,
+      token: this.getToken(),
       id: id,
     })
       .then((res) => {
-        this.toast.openSnackBar("پلی لیست با موفقیت حذف شد", "پیغام سرور");
+        this._toast.openSnackBar("پلی لیست با موفقیت حذف شد", "پیغام سرور");
         return res;
       })
-      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+      .catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
   }
 
   public async postCreatePlaylist(name: string): Promise<Object> {
@@ -169,7 +165,7 @@ export class EngineService {
     const answer = await EngineService.sendRequest(
       API.routes.postCreatePlaylist,
       { name, token }
-    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    ).catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     if (name === "مورد علاقه") localStorage.setItem("favorites", answer.id);
     return true;
   }
@@ -177,16 +173,16 @@ export class EngineService {
   public async getUser(id: number | string): Promise<Object> {
     const { user } = await EngineService.sendRequest(
       API.routes.getUser + id
-    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    ).catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     return user;
   }
 
-  public async isUserLogedin(token: string): Promise<Object> {
+  public async isUserLogedin(): Promise<Object> {
     const { id } = await EngineService.sendRequest(API.routes.postToken, {
-      token,
+      token: this.getToken(),
     })
       .then((res) => res)
-      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+      .catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
 
     return id;
   }
@@ -195,7 +191,7 @@ export class EngineService {
     const { token, id } = await EngineService.sendRequest(
       API.routes.postRegister,
       user_info
-    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    ).catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     this.setToken(token);
     this.setUserId(id);
     this.setUsername(user_info.username);
@@ -209,11 +205,11 @@ export class EngineService {
     const { token, id } = await EngineService.sendRequest(
       API.routes.postLogin,
       user_info
-    ).catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+    ).catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
     this.setToken(token);
     this.setUserId(id);
     if (token) {
-      let playlists = await this.getAllPlaylist(token);
+      let playlists = await this.getAllPlaylist();
       let id = playlists.filter((x) => x.name === "مورد علاقه")[0].id;
       localStorage.setItem("favorites", `${id}`);
     }
@@ -224,10 +220,10 @@ export class EngineService {
   public async alterUserInfo(user_info: User): Promise<void> {
     await EngineService.sendRequest(API.routes.postAlter, user_info)
       .then((res) => {
-        this.toast.openSnackBar("اطلاعات با موفقیت ثبت شد", "پیغام سرور");
+        this._toast.openSnackBar("اطلاعات با موفقیت ثبت شد", "پیغام سرور");
         return res;
       })
-      .catch((error) => this.toast.openSnackBar(error.message, "پیغام سرور"));
+      .catch((error) => this._toast.openSnackBar(error.message, "پیغام سرور"));
   }
   public setToken(token: string) {
     localStorage.setItem(TOKEN_KEY, token);
@@ -250,11 +246,11 @@ export class EngineService {
   }
 
   public welcomeUser() {
-    this.toast.openSnackBar(this.getUsername() + " خوش آمدی! ", " Spotify ");
-    this.router.navigateByUrl("home");
+    this._toast.openSnackBar(this.getUsername() + " خوش آمدی! ", " Spotify ");
+    this._router.navigateByUrl("home");
   }
 
   public shouldLogin() {
-    this.toast.openSnackBar("ابتدا وارد شوید", " Spotify ");
+    this._toast.openSnackBar("ابتدا وارد شوید", " Spotify ");
   }
 }
