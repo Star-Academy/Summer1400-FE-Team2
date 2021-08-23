@@ -22,7 +22,7 @@ export class MusicPlayerComponent implements OnInit {
   public id: number | null = 1;
   public song: Song | null = null;
   public duration: string = "00:00";
-
+  public showLyrics: Boolean = false;
   public linkPhotoPlay: string = "../assets/Icons/play-button.svg";
   public linkPhotoShuffle: string =
     "../assets/Icons/shuffle-disabled-button.svg";
@@ -115,5 +115,33 @@ export class MusicPlayerComponent implements OnInit {
       this.linkPhotoShuffle = "../assets/Icons/shuffle-disabled-button.svg";
     }
     this._player.shuffleSong();
+  }
+  public onShowLyrics() {
+    this.showLyrics = true;
+    this.toggleLyrics();
+
+  }
+  public onHideLyrics() {
+    this.showLyrics = false;
+    this.toggleLyrics();
+  }
+  public toggleLyrics() {
+    const lyricsBtn = document.getElementById("song-lyrics-button")!;
+    const lyrics_container = document.getElementById("music-lyrics_container")!;
+    const back_lyricsBtn = document.getElementById("back-lyrics-button")!;
+    const music_lyrics = document.getElementById("music-lyrics")!;
+    const music_cover = document.getElementById("cover")!;
+    music_lyrics.innerText = this._player.currentSong.lyrics;    
+    if(this.showLyrics){
+      music_cover.style.display = "none";
+      lyrics_container.style.display = "block";
+      music_lyrics.style.display = "block";
+      lyricsBtn.style.display = "none";
+    }else{
+      music_cover.style.display = "block";
+      lyrics_container.style.display = "none";
+      music_lyrics.style.display = "none";
+      lyricsBtn.style.display = "block";
+    }
   }
 }
