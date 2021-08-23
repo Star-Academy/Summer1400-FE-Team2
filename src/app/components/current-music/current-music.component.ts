@@ -14,10 +14,6 @@ export class CurrentMusicComponent implements OnInit {
     public _player: PlayerService,
     private _addPlaylist: AddPlaylistComponent
   ) {}
-
-  public id: number | null = 1;
-  public song: Song = new Song({});
-
   public linkPhotoPlay: string = "../assets/Icons/play-button.svg";
   public linkPhotoShuffle: string =
     "../assets/Icons/shuffle-disabled-button.svg";
@@ -25,10 +21,6 @@ export class CurrentMusicComponent implements OnInit {
 
   public async ngOnInit() {
     await this._player.getAllSongs();
-    let number = this._player.getId();
-    if (number) {
-      this.song = this._player.getSong();
-    }
     if (this._player.autoPlay)
       this.linkPhotoPlay = "../assets/Icons/pause-button.svg";
     if (this._player.isShuffle)
@@ -44,7 +36,7 @@ export class CurrentMusicComponent implements OnInit {
   }
 
   public openModalAddPlalist() {
-    this._addPlaylist.openDialog(this.song);
+    this._addPlaylist.openDialog(this._player.currentSong);
   }
 
   public async addToFavorites() {
@@ -63,14 +55,10 @@ export class CurrentMusicComponent implements OnInit {
 
   public nextSong() {
     this._player.getNextSong();
-    this.song = this._player.getSong();
-    this.id = this._player.getId();
   }
 
   public prevSong() {
     this._player.getPrevSong();
-    this.song = this._player.getSong();
-    this.id = this._player.getId();
   }
   public replaySong() {
     if (!this._player.isLoop) {
