@@ -1,5 +1,3 @@
-import { CloseScrollStrategyConfig } from "@angular/cdk/overlay/scroll/close-scroll-strategy";
-
 export default class Song {
   public id: number;
   public name: string;
@@ -14,8 +12,7 @@ export default class Song {
     this.artist = song.artist;
     this.lyrics = song.lyrics;
     this.cover = song.cover;
-    this.file = song.file;    
-    this.publish_date = song.publish_date;    
+    this.file = song.file;
+    this.publish_date = song.publish_date;
   }
-
 }
