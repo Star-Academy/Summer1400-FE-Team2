@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
         token: this.enginService.getToken(),
         avatar: reader.result,
       };
-      await this.enginService.alterUserInfo(new User(user));
+      await this._dataHandler.alterUser(new User(user));
     };
   }
 
