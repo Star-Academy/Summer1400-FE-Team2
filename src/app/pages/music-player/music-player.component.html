@@ -35,8 +35,8 @@
                     </ng-template>
                     <h4 class="singer" id="artist">{{_player.currentSong?.artist}}</h4>
                 </div>
-                <button class="btn--like" (click)="this._player.addToFavs()">
-                    <img src="../assets/Icons/like-button-empty.svg" alt=""></button>
+                <button class="btn--like" (click)="addToFavorites()">
+                    <img src={{linkPhotoLike}} alt=""></button>
             </div>
             <div class="current__time">
                 <span id="durtime">{{_player.getTimeDuration()}}</span>

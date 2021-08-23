@@ -23,6 +23,7 @@ export class MusicPlayerComponent implements OnInit {
   public linkPhotoShuffle: string =
     "../assets/Icons/shuffle-disabled-button.svg";
   public linkPhotoReplay: string = "../assets/Icons/loop-button.svg";
+  public linkPhotoLike: string = "../assets/Icons/like-button-empty.svg";
 
   public async ngOnInit() {
     if (this._player.name === "همه آهنگ ها") await this._player.getAllSongs();
@@ -38,6 +39,7 @@ export class MusicPlayerComponent implements OnInit {
           this.linkPhotoShuffle = "../assets/Icons/shuffle-button.svg";
         if (this._player.isLoop)
           this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
+        if (this._player.liked) this.linkPhotoLike = "../assets/Icons/like.svg";
         this.setUrl();
         let container = document.getElementById("progress-container");
         container?.addEventListener("click", (e) => {
@@ -71,11 +73,13 @@ export class MusicPlayerComponent implements OnInit {
   public nextSong() {
     this._player.getNextSong();
     this.setUrl();
+    this.toggleLike();
   }
 
   public prevSong() {
     this._player.getPrevSong();
     this.setUrl();
+    this.toggleLike();
   }
 
   public replaySong() {
@@ -120,5 +124,19 @@ export class MusicPlayerComponent implements OnInit {
   }
   public isNameWidthLong() {
     return this._player.currentSong?.name?.length! < 20;
+  }
+
+  private toggleLike() {
+    if (!this._player.liked) {
+      this.linkPhotoLike = "../assets/Icons/like-button-empty.svg";
+    } else {
+      this.linkPhotoLike = "../assets/Icons/like.svg";
+    }
+  }
+
+  public async addToFavorites() {
+    this._player.addToFavs();
+    this._player.liked = !this._player.liked;
+    this.toggleLike();
   }
 }

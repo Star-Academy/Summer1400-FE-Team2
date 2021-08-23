@@ -10,8 +10,10 @@ export class DataHandlerService {
   constructor(private _engine: EngineService) {
     this.getPlaylists();
     this.getUser();
+    this.getfavs();
   }
   public playlists: Playlist[] = [];
+  private favoriteSongs: Playlist = new Playlist({ songs: [] });
   public user: User = new User({ firstName: "loading" });
 
   public async getUser() {
@@ -19,6 +21,16 @@ export class DataHandlerService {
   }
   public getUsername(): string {
     return this.user.username;
+  }
+  public async getfavs() {
+    let id = this._engine.getFavoriteId();
+    if (id) {
+      this.favoriteSongs = await this._engine.getPlaylist(+id);
+    }
+  }
+  public ifSongExists(id: number): Boolean {
+    let res = this.favoriteSongs.songs.filter((x) => x.id === id);
+    return res.length === 1;
   }
   public setUsername(username: string) {
     this._engine.setUsername(username);

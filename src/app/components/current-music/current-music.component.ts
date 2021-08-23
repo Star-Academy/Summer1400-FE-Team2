@@ -18,6 +18,7 @@ export class CurrentMusicComponent implements OnInit {
   public linkPhotoShuffle: string =
     "../assets/Icons/shuffle-disabled-button.svg";
   public linkPhotoReplay: string = "../assets/Icons/loop-button.svg";
+  public linkPhotoLike: string = "../assets/Icons/like-button-empty.svg";
 
   public async ngOnInit() {
     await this._player.getAllSongs();
@@ -27,7 +28,7 @@ export class CurrentMusicComponent implements OnInit {
       this.linkPhotoShuffle = "../assets/Icons/shuffle-button.svg";
     if (this._player.isLoop)
       this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
-
+    if (this._player.liked) this.linkPhotoLike = "../assets/Icons/like.svg";
     let container = document.getElementById("progress-container");
     container?.addEventListener("click", (e) => {
       this._player.seek(e.offsetX, container?.offsetWidth);
@@ -40,8 +41,18 @@ export class CurrentMusicComponent implements OnInit {
     this._addPlaylist.openDialog(this._player.currentSong);
   }
 
+  private toggleLike() {
+    if (!this._player.liked) {
+      this.linkPhotoLike = "../assets/Icons/like-button-empty.svg";
+    } else {
+      this.linkPhotoLike = "../assets/Icons/like.svg";
+    }
+  }
+
   public async addToFavorites() {
     this._player.addToFavs();
+    this._player.liked = !this._player.liked;
+    this.toggleLike();
   }
 
   public playSong() {
@@ -56,10 +67,12 @@ export class CurrentMusicComponent implements OnInit {
 
   public nextSong() {
     this._player.getNextSong();
+    this.toggleLike();
   }
 
   public prevSong() {
     this._player.getPrevSong();
+    this.toggleLike();
   }
 
   public replaySong() {

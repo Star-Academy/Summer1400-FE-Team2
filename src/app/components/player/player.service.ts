@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import Song from "src/app/models/SongModal";
+import { DataHandlerService } from "src/app/service/dataHandler/data-handler.service";
 import { EngineService } from "src/app/service/engine.service";
 import { ToastService } from "../toast/toast.service";
 
@@ -7,7 +8,11 @@ import { ToastService } from "../toast/toast.service";
   providedIn: "root",
 })
 export class PlayerService {
-  constructor(private _engine: EngineService, private _toast: ToastService) {}
+  constructor(
+    private _engine: EngineService,
+    private _toast: ToastService,
+    public _dataHandler: DataHandlerService
+  ) {}
 
   public id: number = 1;
   public index: number = 0;
@@ -18,6 +23,7 @@ export class PlayerService {
   public isLoop: Boolean = false;
   public isShuffle: Boolean = false;
   public name: String = "همه آهنگ ها";
+  public liked: Boolean = false;
 
   public setId = (number: number): void => {
     this.id = number;
@@ -56,6 +62,7 @@ export class PlayerService {
 
   async getPlaylistName(playlist: number): Promise<void> {
     let { songs, name } = await this._engine.getPlaylist(playlist);
+    this.liked = this._dataHandler.ifSongExists(songs[0].id);
     this.songsList = songs;
     this.name = name;
     await this.setId(this.songsList[0].id);
@@ -70,6 +77,7 @@ export class PlayerService {
     this.id = song.id;
     this.currentSong = song;
     this.audio.src = song.file;
+    this.liked = this._dataHandler.ifSongExists(song.id);
     this.audio.load();
     this._toast.openSnackBar("کمی صبر کنید", "Spotify");
     if (this.autoPlay) this.playSong();
@@ -123,7 +131,11 @@ export class PlayerService {
 
   public async addToFavs() {
     let fav = this._engine.getFavoriteId();
-    if (fav) await this._engine.postAddSong(parseInt(fav), this.id);
+    if (fav)
+      !this.liked
+        ? await this._engine.postAddSong(parseInt(fav), this.id)
+        : await this._engine.removeSong(parseInt(fav), this.id);
+    await this._dataHandler.getfavs();
   }
 
   public replaySong() {
