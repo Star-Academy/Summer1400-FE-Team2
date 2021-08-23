@@ -58,7 +58,6 @@ export class PlayerService {
     this.songsList = songs;
     this.name = name;
     await this.setId(this.songsList[0].id);
-    console.log(this.id, this.songsList);
   }
 
   async getAllSongs(): Promise<void> {
@@ -109,6 +108,7 @@ export class PlayerService {
   public playSong() {
     this.autoPlay = true;
     this.audio.play();
+    //this.audio.addEventListener("ended", () => this.getNextSong());
   }
 
   public pauseSong() {
