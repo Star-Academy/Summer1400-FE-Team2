@@ -19,7 +19,7 @@
             </div>
         </div>
         <div id="modal-image_container">
-            <div class="modal-image" id='profile-image_container' [ngStyle]="{backgroundImage:avatarLink}">
+            <div class="modal-image" id='profile-image_container' [ngStyle]="{backgroundImage:'url('+_dataHandler.user.avatar+')'}">
                 <span id='delete-modalImg' (click)="onDeleteBtn()">حذف عکس</span>
                 <img id='profile-img' src="../assets/Icons/edit-button.svg" alt="">
                 <label for="modal-file" id='edit-modalImg'>انتخاب عکس</label>

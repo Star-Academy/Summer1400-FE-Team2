@@ -4,8 +4,8 @@ export default class User{
         this.username = user.username;
         this.token = user.token;
         this.email = user.email;
-        this.firstName = user.firstName;
-        this.lastName = user.lastName;
+        this.firstName = user.first_name;
+        this.lastName = user.last_name;
         this.avatar = user.avatar;
         this.gender = user.gender;
         this.birthDate = user.birthDate;
