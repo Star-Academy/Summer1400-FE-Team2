@@ -23,12 +23,20 @@ export class SongItemComponent implements OnInit {
 
   publish_date: string = "";
   playlistId: string = "";
+
   ngOnInit(): void {
-    this.publish_date = `
-  ${new Date(this.Song.publish_date).getFullYear()}/${new Date(
-      this.Song.publish_date
-    ).getMonth()}/${new Date(this.Song.publish_date).getDay()}
-  `;
+    let temp = new Audio();
+    temp.src = this.Song.file;
+    temp.load();
+    let timer = setInterval(() => {
+      let time = `${temp.duration}`;
+      if (time !== "NaN") {
+        var minutes = "0" + Math.floor(+time / 60);
+        var seconds = "0" + Math.floor(+time % 60);
+        this.publish_date = minutes.substr(-2) + ":" + seconds.substr(-2);
+        clearInterval(timer);
+      }
+    }, 200);
     this._Activatedroute.paramMap.subscribe((params) => {
       this.playlistId = params.get("id") || "";
     });

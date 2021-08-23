@@ -3,7 +3,6 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { AddPlaylistComponent } from "src/app/components/modals/add-playlist/add-playlist.component";
 import { PlayerService } from "src/app/components/player/player.service";
-import Song from "src/app/models/SongModal";
 
 @Component({
   selector: "app-music-player",
@@ -19,9 +18,6 @@ export class MusicPlayerComponent implements OnInit {
     private _addPlaylist: AddPlaylistComponent
   ) {}
 
-  public id: number | null = 1;
-  public song: Song | null = null;
-  public duration: string = "00:00";
   public showLyrics: Boolean = false;
   public linkPhotoPlay: string = "../assets/Icons/play-button.svg";
   public linkPhotoShuffle: string =
@@ -33,19 +29,16 @@ export class MusicPlayerComponent implements OnInit {
     this._Activatedroute.paramMap.subscribe((params) => {
       let number = params.get("id");
       if (number) {
-        this.id = parseInt(number);
         let num = parseInt(number);
-        if (!this._player.autoPlay || num !== this._player.id) {
+        if (!this._player.autoPlay || num !== this._player.id)
           this._player.setId(num);
-        }
-        this.song = this._player.getSong();
         if (this._player.autoPlay)
           this.linkPhotoPlay = "../assets/Icons/pause-button.svg";
         if (this._player.isShuffle)
           this.linkPhotoShuffle = "../assets/Icons/shuffle-button.svg";
         if (this._player.isLoop)
           this.linkPhotoReplay = "../assets/Icons/right-arrow-button.svg";
-        this.getDuration();
+        this.setUrl();
         let container = document.getElementById("progress-container");
         container?.addEventListener("click", (e) => {
           this._player.seek(e.offsetX, container?.offsetWidth);
@@ -55,7 +48,8 @@ export class MusicPlayerComponent implements OnInit {
     });
   }
   public openModalAddPlalist() {
-    if (this.song) this._addPlaylist.openDialog(this.song);
+    if (this._player.currentSong)
+      this._addPlaylist.openDialog(this._player.currentSong);
   }
 
   public fgoBack() {
@@ -71,28 +65,17 @@ export class MusicPlayerComponent implements OnInit {
     }
   }
 
-  private getDuration() {
-    this._location.replaceState("/all-songs/" + this.id);
-    let timer = setInterval(() => {
-      let time = this._player.getTimeDuration();
-      if (time !== "00:00") {
-        this.duration = time;
-        clearInterval(timer);
-      }
-    }, 100);
+  private setUrl() {
+    this._location.replaceState("/all-songs/" + this._player.id);
   }
   public nextSong() {
     this._player.getNextSong();
-    this.song = this._player.getSong();
-    this.id = this._player.getId();
-    this.getDuration();
+    this.setUrl();
   }
 
   public prevSong() {
     this._player.getPrevSong();
-    this.song = this._player.getSong();
-    this.id = this._player.getId();
-    this.getDuration();
+    this.setUrl();
   }
 
   public replaySong() {
@@ -112,18 +95,14 @@ export class MusicPlayerComponent implements OnInit {
     }
     this._player.shuffleSong();
   }
-  public onShowLyrics() {
-    this.showLyrics = true;
+  public toggleShowLyrics() {
+    this.showLyrics = !this.showLyrics;
     this.toggleLyrics();
   }
-  public onHideLyrics() {
-    this.showLyrics = false;
-    this.toggleLyrics();
-  }
+
   public toggleLyrics() {
     const lyricsBtn = document.getElementById("song-lyrics-button")!;
     const lyrics_container = document.getElementById("music-lyrics_container")!;
-    const back_lyricsBtn = document.getElementById("back-lyrics-button")!;
     const music_lyrics = document.getElementById("music-lyrics")!;
     const music_cover = document.getElementById("cover")!;
     music_lyrics.innerText = this._player.currentSong.lyrics;
@@ -140,6 +119,6 @@ export class MusicPlayerComponent implements OnInit {
     }
   }
   public isNameWidthLong() {
-    return this.song?.name.length! < 12;
+    return this._player.currentSong?.name?.length! < 20;
   }
 }

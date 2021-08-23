@@ -81,6 +81,6 @@ export class CurrentMusicComponent implements OnInit {
   }
 
   public isNameWidthLong() {
-    return this._player.currentSong.name?.length! < 20;
+    return this._player.currentSong?.name?.length! < 20;
   }
 }

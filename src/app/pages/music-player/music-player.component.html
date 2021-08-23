@@ -1,5 +1,5 @@
 <main>
-    <img src={{song?.cover}} class="background" />
+    <img src={{_player.currentSong?.cover}} class="background" />
     <div class="backgroundLayer"></div>
     <div class="music__container">
         <div class="music__content">
@@ -14,12 +14,12 @@
             </div>
             <div class="img--music">
                 <div id="music-lyrics_container">
-                    <button (click)="onHideLyrics()" id="back-lyrics-button">
+                    <button (click)="toggleShowLyrics()" id="back-lyrics-button">
                         <img src="../assets/Icons/back-arrow-button.svg" alt="">
                     </button>
                     <div id="music-lyrics"></div>
                 </div>
-                <button id="song-lyrics-button" (click)="onShowLyrics()">متن اهنگ</button>
+                <button id="song-lyrics-button" (click)="toggleShowLyrics()">متن اهنگ</button>
                 <img src={{_player.currentSong?.cover}} alt="" class="music__img" id="cover" />
             </div>
             <div class="info__music">
@@ -39,7 +39,7 @@
                     <img src="../assets/Icons/like-button-empty.svg" alt=""></button>
             </div>
             <div class="current__time">
-                <span id="durtime">{{duration}}</span>
+                <span id="durtime">{{_player.getTimeDuration()}}</span>
                 <div class="progress-container" id="progress-container">
                     <div class="progress" id="progress" [ngStyle]="{width : _player.getProgress()}"></div>
                 </div>

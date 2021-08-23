@@ -9,7 +9,7 @@ import { EngineService } from "src/app/service/engine.service";
 })
 export class LandingPageComponent implements OnInit {
   public songs: Song[] = [];
-  public random = Math.random() * 40;
+  public random = Math.random() * 50;
 
   public namePlaylists = [
     {
