@@ -3,6 +3,8 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { AddPlaylistComponent } from "src/app/components/modals/add-playlist/add-playlist.component";
 import { PlayerService } from "src/app/components/player/player.service";
+import { ToastService } from "src/app/components/toast/toast.service";
+import { EngineService } from "src/app/service/engine.service";
 
 @Component({
   selector: "app-music-player",
@@ -15,7 +17,9 @@ export class MusicPlayerComponent implements OnInit {
     private _Activatedroute: ActivatedRoute,
     public _player: PlayerService,
     private _location: Location,
-    private _addPlaylist: AddPlaylistComponent
+    private _addPlaylist: AddPlaylistComponent,
+    public toast:ToastService,
+    private _engin:EngineService
   ) {}
 
   public showLyrics: Boolean = false;
@@ -135,8 +139,12 @@ export class MusicPlayerComponent implements OnInit {
   }
 
   public async addToFavorites() {
-    this._player.addToFavs();
-    this._player.liked = !this._player.liked;
-    this.toggleLike();
+    if(this._engin.getToken()){
+      this._player.addToFavs();
+      this._player.liked = !this._player.liked;
+      this.toggleLike();
+    }else{
+      this.toast.openSnackBar("ابتدا وارد شوید",'Spotify');
+    }
   }
 }

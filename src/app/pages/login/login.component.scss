@@ -109,6 +109,12 @@ header {
     }
 }
 
+#login_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #apple-login-button {
     img {
         filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
@@ -157,6 +163,7 @@ header {
     }
     #loginBtn {
         font-size: 0.8rem;
+        width: 7rem;
         &:hover {
             background-color: rgb(44, 43, 43);
         }
@@ -203,8 +210,6 @@ header {
     .login-controls #loginBtn {
         width: 40%;
         font-size: 0.8rem;
-        margin: auto;
-        margin-left: 0;
     }
     .img-background {
         display: block;

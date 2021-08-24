@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { AddPlaylistComponent } from "../modals/add-playlist/add-playlist.component";
 import { PlayerService } from "../player/player.service";
-
+import { ToastService } from "../toast/toast.service";
+import { EngineService } from "src/app/service/engine.service";
 @Component({
   selector: "app-current-music",
   templateUrl: "./current-music.component.html",
@@ -11,7 +12,9 @@ import { PlayerService } from "../player/player.service";
 export class CurrentMusicComponent implements OnInit {
   constructor(
     public _player: PlayerService,
-    private _addPlaylist: AddPlaylistComponent
+    private _addPlaylist: AddPlaylistComponent,
+    public toast:ToastService,
+    private _engin:EngineService
   ) {}
 
   public linkPhotoPlay: string = "../assets/Icons/play-button.svg";
@@ -50,9 +53,13 @@ export class CurrentMusicComponent implements OnInit {
   }
 
   public async addToFavorites() {
-    this._player.addToFavs();
-    this._player.liked = !this._player.liked;
-    this.toggleLike();
+    if(this._engin.getToken()){
+      this._player.addToFavs();
+      this._player.liked = !this._player.liked;
+      this.toggleLike();
+    }else{
+      this.toast.openSnackBar("ابتدا وارد شوید",'Spotify');
+    }
   }
 
   public playSong() {

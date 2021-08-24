@@ -88,6 +88,7 @@ main {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 0.3rem;
     z-index: 1;
+    background-color: #333333;
 }
 
 .dropdown-content button,
@@ -219,7 +220,7 @@ table {
         flex-flow: column;
         padding: 0.8rem 0.2rem;
         .playlist-details__image {
-            width: 55%;
+            width: 65%;
             margin: auto;
         }
         .playlist-details__content {
@@ -238,7 +239,7 @@ table {
         grid-template-columns: repeat(1, 1fr);
     }
     .playlist-controls {
-        width: 50%;
+        width: 100%;
         padding: 0.5rem;
         a {
             font-size: 1.2rem;
@@ -252,5 +253,18 @@ table {
     }
     .songsListDetails {
         display: none;
+    }
+    .playlist-details {
+        margin-bottom: 0.5rem;
+        .playlist-details__image {
+            width: 100%;
+        }
+    }
+    .dropdown-content {
+        left: 10px;
+        button,
+        a {
+            font-size: 0.6rem;
+        }
     }
 }
