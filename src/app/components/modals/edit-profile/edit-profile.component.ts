@@ -66,6 +66,7 @@ export class EditProfileComponent implements OnInit, OnChanges {
     reader.onload = async () => {
       let user = {
         token: this._engine.getToken(),
+        username:this._engine.getUsername(),
         avatar: reader.result,
       };
       await this._dataHandler
@@ -76,6 +77,7 @@ export class EditProfileComponent implements OnInit, OnChanges {
   public async onDeleteBtn() {
     let user = {
       token: this._engine.getToken(),
+      username:this._engine.getUsername(),
       avatar: "/assets/Icons/user-profile.svg",
     };
     await this._dataHandler

@@ -6,7 +6,7 @@ export default class User {
     this.email = user.email;
     this.firstName = user.first_name;
     this.lastName = user.last_name;
-    this.avatar = user.avatar;
+    this.avatar = user.avatar?user.avatar:'../assets/Icons/user-profile.svg';
     this.gender = user.gender;
     this.birthDate = user.birthDate;
     this.password = user.password;

@@ -1,241 +1,240 @@
 @mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @mixin flex-space-evenly {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-evenly;
-  align-items: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 $paragraph-color: rgb(73, 194, 73);
 body {
-  font-family: "Cabin", sans-serif;
-  background-color: #fdf0e2;
-  min-height: 100vh;
+    font-family: "Cabin", sans-serif;
+    background-color: #fdf0e2;
+    min-height: 100vh;
 }
 
 main {
-  @include flex-center();
-  height: 100%;
+    @include flex-center();
+    height: 100%;
 }
 
 .img-background {
-  width: 60%;
-  img {
-    width: 100%;
-  }
+    width: 60%;
+    img {
+        width: 100%;
+    }
 }
 
 a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 header {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  a {
+    width: 100%;
     display: flex;
-    align-items: center;
-    color: black;
-    font-size: 1.5rem;
-    padding: 0.9rem;
-    img {
-      width: 2rem;
+    justify-content: center;
+    a {
+        display: flex;
+        align-items: center;
+        color: black;
+        font-size: 1.5rem;
+        padding: 0.9rem;
+        img {
+            width: 2rem;
+        }
     }
-  }
 }
 
 .container {
-  width: 95%;
-  padding: 1rem;
-  height: 60%;
-  margin: auto;
-  @include flex-space-evenly();
-  font-weight: bold;
-  background-color: #fffbf6;
-  border-radius: 7px;
-  box-shadow: 0px 0px 3px 5px rgba($color: #eeeeee, $alpha: 0.5);
+    width: 95%;
+    padding: 1rem;
+    height: 60%;
+    margin: auto;
+    @include flex-space-evenly();
+    font-weight: bold;
+    background-color: #fffbf6;
+    border-radius: 7px;
+    box-shadow: 0px 0px 3px 5px rgba($color: #eeeeee, $alpha: 0.5);
 }
 
 #container__header {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
 #password-description {
-  width: 100%;
-  margin-top: 0.5rem;
-  font-size: 0.7rem;
-  color: #d15b3b;
+    width: 100%;
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    color: #d15b3b;
 }
 
 .register-control {
-  font-size: 0.8rem;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  margin-bottom: 0.7rem;
-  input {
-    margin-top: 0.4rem;
-    outline: 0;
-    padding: 0.3rem;
-    border: 0;
     font-size: 0.8rem;
-    border-radius: 5px;
-    border-bottom: 1px solid #000;
-  }
-  small {
-    margin-top: 0.3rem;
-    color: #d15b3b;
-  }
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    margin-bottom: 0.7rem;
+    input {
+        margin-top: 0.4rem;
+        outline: 0;
+        padding: 0.3rem;
+        border: 0;
+        font-size: 0.8rem;
+        border-radius: 5px;
+        border-bottom: 1px solid #000;
+    }
+    small {
+        margin-top: 0.3rem;
+        color: #d15b3b;
+    }
 }
 
 #signUp-birth {
-  width: 100%;
-  p {
-    font-size: 0.9rem;
-  }
-  select,
-  div,
-  input {
     width: 100%;
-  }
-  label {
-    margin: 0.3rem auto;
-    text-align: center;
-    display: block;
-  }
-  input {
-    margin: 0;
-  }
-  div {
-    margin-bottom: 0.4rem;
-  }
-  select {
-    padding: 0.3rem;
-    font-size: 0.7rem;
-    outline: 0;
-    border-radius: 5px;
-    background-color: white;
-  }
+    p {
+        font-size: 0.9rem;
+    }
+    select,
+    div,
+    input {
+        width: 100%;
+    }
+    label {
+        margin: 0.3rem auto;
+        text-align: center;
+        display: block;
+    }
+    input {
+        margin: 0;
+    }
+    div {
+        margin-bottom: 0.4rem;
+    }
+    select {
+        padding: 0.3rem;
+        font-size: 0.7rem;
+        outline: 0;
+        border-radius: 5px;
+        background-color: white;
+    }
 }
 
 .signUp-gender__items {
-  margin-top: 0.3rem;
-  width: 60%;
-  display: flex;
-  justify-content: space-between;
-  flex-flow: row;
-  div {
-    margin-right: 1rem;
-  }
+    margin-top: 0.3rem;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row;
+    div {
+        margin-right: 1rem;
+    }
 }
 
 #signInBtn {
-  font-size: 0.9rem;
-  &:hover {
-    text-decoration: underline;
-  }
-  color: #e66946;
+    font-size: 0.9rem;
+    &:hover {
+        text-decoration: underline;
+    }
+    color: #e66946;
 }
 
 #registerBtn {
-  display: block;
-  font-weight: bold;
-  max-width: 120px;
-  width: 100%;
-  margin: auto;
-  border: 0;
-  border-radius: 999px;
-  background-color: #ff5024;
-  color: white;
-  padding: 0.4rem 1rem;
-  cursor: pointer;
-  font-size: 0.7rem;
-  &:active {
-    transform: scale(1.1);
-  }
-  &:hover {
-    background-color: rgb(63, 63, 63);
-  }
+    display: block;
+    font-weight: bold;
+    max-width: 120px;
+    width: 100%;
+    margin: auto;
+    border: 0;
+    border-radius: 999px;
+    background-color: #ff5024;
+    color: white;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    font-size: 0.7rem;
+    &:active {
+        transform: scale(1.1);
+    }
+    &:hover {
+        background-color: rgb(63, 63, 63);
+    }
 }
 
 .register-name {
-  width: 47%;
-  margin: 0.3rem;
+    width: 100%;
 }
 
 #signIn-header {
-  margin-top: 1rem;
-  a {
-    display: block;
-    text-align: center;
-  }
+    margin-top: 1rem;
+    a {
+        display: block;
+        text-align: center;
+    }
 }
 
 @media (min-width: 480px) {
-  .container {
-    width: 80%;
-  }
-  #signUp-birth {
-    flex-flow: row;
-    justify-content: space-between;
-    div {
-      width: 30%;
+    .container {
+        width: 80%;
     }
-  }
+    #signUp-birth {
+        flex-flow: row;
+        justify-content: space-between;
+        div {
+            width: 30%;
+        }
+    }
 }
 
 @media (min-width: 600px) {
-  .container {
-    width: 80%;
-  }
-  main {
-    width: 90%;
-    margin: auto;
-  }
+    .container {
+        width: 80%;
+    }
+    main {
+        width: 90%;
+        margin: auto;
+    }
 }
 
 @media (max-width: 767px) {
-  .img-background {
-    display: none;
-  }
-  .register-name {
-    width: 100%;
-  }
+    .img-background {
+        display: none;
+    }
+    .register-name {
+        width: 100%;
+    }
 }
 
 @media (min-width: 768px) {
-  .container {
-    width: 50%;
-  }
-  .register-control {
-    input,
-    label {
-      font-size: 0.8rem;
+    .container {
+        width: 50%;
     }
-  }
+    .register-control {
+        input,
+        label {
+            font-size: 0.8rem;
+        }
+    }
 }
 
 @media (min-width: 900px) {
-  .container {
-    width: 40%;
-  }
+    .container {
+        width: 40%;
+    }
 }
 
 @media (min-width: 1200px) {
-  .container {
-    width: 30%;
-  }
-  #signIn-header {
-    a {
-      display: inline !important;
+    .container {
+        width: 30%;
     }
-  }
+    #signIn-header {
+        a {
+            display: inline !important;
+        }
+    }
 }

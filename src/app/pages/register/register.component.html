@@ -10,28 +10,23 @@
             <form action="" id="registerForm">
                 <div class="register-control">
                     <label for="register-email">ایمیل و نامت رو وارد کن</label>
-                    <input [(ngModel)]="registerEmail" name="email" id="register-email" type="email" placeholder="ایمیل"
-                        required spellcheck="false" />
+                    <input [(ngModel)]="registerEmail" name="email" id="register-email" type="email" placeholder="ایمیل" required spellcheck="false" />
                 </div>
                 <div class="register-control" style="display:block">
-                    <input [(ngModel)]="registerFirstName" type="text" class="register-name" name="firstName"
-                        placeholder="نام" required />
-                    <input [(ngModel)]="registerLastName" type="text" class="register-name" name="lastName"
-                        placeholder="نام خانوادگی" required />
+                    <input [(ngModel)]="registerFirstName" type="text" class="register-name" name="firstName" placeholder="نام" required />
+                    <input [(ngModel)]="registerLastName" type="text" class="register-name" name="lastName" placeholder="نام خانوادگی" required />
                 </div>
                 <div class="register-control">
                     <label for="register-password">کلمه عبور بساز</label>
-                    <input [(ngModel)]="registerPassword" name="password" id="register-password" type="password"
-                        required />
+                    <input [(ngModel)]="registerPassword" name="password" id="register-password" type="password" required pattern=".{8,}" minlength="8" />
                     <p id="password-description">
-                        کلمه عبور باید شامل <u> حداقل </u> یک عدد و<b> یک حرف بزرگ و کوچک </b> و <u> حداقل </u>به تعداد
-                        <b>۸ کاراکتر یا بیشتر </b> باشد.
+                        کلمه عبور باید شامل <u> حداقل </u>
+                        <b>۸ کاراکتر </b> باشد.
                     </p>
                 </div>
                 <div class="register-control">
                     <label for="register-username">نام کاربری </label>
-                    <input [(ngModel)]="registerUsername" name="username" id="register-username" type="text"
-                        placeholder="یک نام کاربری وارد کن" required />
+                    <input [(ngModel)]="registerUsername" name="username" id="register-username" type="text" placeholder="یک نام کاربری وارد کن" required />
                     <small>این نام کاربری روی پروفایلت نمایش داده میشه</small>
                 </div>
                 <input (click)="onRegisterBtn()" type="submit" value="ثبت نام" id="registerBtn" />
