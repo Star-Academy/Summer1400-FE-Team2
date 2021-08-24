@@ -22,7 +22,7 @@ export class EditProfileComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.setModalData();
   }
-  public avatarLink = "";
+  public avatarLink:string | ArrayBuffer = "";
   public username = "";
   public firstName = "";
   public lastName = "";
@@ -48,7 +48,7 @@ export class EditProfileComponent implements OnInit, OnChanges {
       token: this._engine.getToken(),
       username: this.username,
       first_name: this.firstName,
-      last_name: this.lastName,
+      last_name: this.lastName      
     };
     if (this.password !== "" && this.password !== undefined) {
       Object.assign(user, { password: this.password });
@@ -69,6 +69,7 @@ export class EditProfileComponent implements OnInit, OnChanges {
         username:this._engine.getUsername(),
         avatar: reader.result,
       };
+      this.avatarLink = reader.result || '/assets/Icons/user-profile.svg';
       await this._dataHandler
         .alterUser(new User(user))
         .then(() => this.setModalData());
@@ -80,6 +81,7 @@ export class EditProfileComponent implements OnInit, OnChanges {
       username:this._engine.getUsername(),
       avatar: "/assets/Icons/user-profile.svg",
     };
+    this.avatarLink = "/assets/Icons/user-profile.svg";
     await this._dataHandler
       .alterUser(new User(user))
       .then(() => this.setModalData());

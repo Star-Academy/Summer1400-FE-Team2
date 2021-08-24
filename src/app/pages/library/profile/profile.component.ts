@@ -34,4 +34,7 @@ export class ProfileComponent implements OnInit {
   onEditProfile() {
     this.editModal.openDialog();
   }
+  getProfileUrl(){
+    return `url(${this._dataHandler.user.avatar})` || '../assets/Icons/user-profile.svg';
+  }
 }
