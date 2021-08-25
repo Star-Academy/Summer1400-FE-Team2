@@ -22,4 +22,13 @@ describe('RegisterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  class MockEngineService{
+
+  }
+
+  it(`#onRegisterBtn() should send input data to engine`,() =>{
+    //const register = new RegisterComponent();
+
+  });
 });
