@@ -8,9 +8,11 @@ import { EngineService } from "../engine.service";
 })
 export class DataHandlerService {
   constructor(private _engine: EngineService) {
-    this.getPlaylists();
-    this.getUser();
-    this.getfavs();
+    if(this._engine.getToken()){
+      this.getPlaylists();
+      this.getUser();
+      this.getfavs();
+    }
   }
   public playlists: Playlist[] = [];
   private favoriteSongs: Playlist = new Playlist({ songs: [] });
