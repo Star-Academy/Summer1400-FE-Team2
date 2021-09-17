@@ -56,4 +56,11 @@ export class DataHandlerService {
     await this.getPlaylists();
     return res;
   }
+  getProfileUrl(){
+    if(this.user.avatar){
+      return  `url(${this.user.avatar})`;
+    }else{
+      return  '../assets/Icons/user-profile.svg';
+    }    
+  }
 }
