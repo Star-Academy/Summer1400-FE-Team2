@@ -1,19 +1,19 @@
 <aside id="aside-mobile">
     <nav class="aside-mobile__links">
         <a routerLink="/home" routerLinkActive="active">
-            <img src="../assets/Icons/home-button.svg" alt="">
+            <img src="../assets/Icons/home-button.svg" class="svgColor-transparent" alt="">
             <span>خانه </span>
         </a>
         <a routerLink="/all-songs" routerLinkActive="active" class="btnSearchMenu">
-            <img src="../assets/Icons/search-button.svg" alt="">
+            <img src="../assets/Icons/search-button.svg" class="svgColor-transparent" alt="">
             <span>جست و جو</span>
         </a>
         <a routerLink="/library" routerLinkActive="active" class="libraryMenu">
-            <img src="../assets/Icons/library-button.svg" alt="">
+            <img src="../assets/Icons/library-button.svg" class="svgColor-transparent" alt="">
             <span>کتابخانه</span>
         </a>
         <a (click)="_createPlaylist.openDialog()" class="createListMenu">
-            <img class="" src="../assets/Icons/music-playlist-button.svg" alt="">
+            <img class="" src="../assets/Icons/music-playlist-button.svg" class="svgColor-transparent" alt="">
             <span>ساخت لیست اهنگ</span>
         </a>
         <a [routerLink]="['/playlist',favorites]" class="archived-menu" routerLinkActive="active">

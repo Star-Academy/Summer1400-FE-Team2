@@ -3,8 +3,7 @@
         <div class="desktop_container">
             <div class="current-music_details">
                 <div class="desktop_img">
-                    <a [routerLink]="['/song', _player.currentSong?.id]"><img src={{_player.currentSong.cover}} alt=""
-                            class="music__img " id="cover" /></a>
+                    <a [routerLink]="['/song', _player.currentSong?.id]"><img src={{_player.currentSong.cover}} alt="" class="music__img " id="cover" /></a>
                 </div>
                 <div class="title__artist">
                     <h5 class="music__name" id="title" *ngIf="isNameWidthLong(); else scrollName">
@@ -24,7 +23,7 @@
                             <img src={{linkPhotoReplay}} alt="" class="replay">
                         </button>
                         <button class="btn--like" (click)="addToFavorites()">
-                            <img src={{linkPhotoLike}} alt="" class="svgColor" />
+                            <img src={{linkPhotoLike}} alt="" />
                         </button>
                         <div class="controls">
                             <button id="next" class="svgColor" (click)="nextSong()">

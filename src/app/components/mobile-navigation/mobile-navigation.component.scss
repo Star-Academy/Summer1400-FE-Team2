@@ -15,7 +15,6 @@
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     overflow-x: auto;
     a {
-        // color: white;
         color: #d6d6d6;
         display: flex;
         flex-direction: column;
@@ -33,22 +32,24 @@
     }
     a:hover {
         color: white;
-        img {
+        img.svgColor-transparent {
             filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
         }
     }
     a.active {
         color: white;
         background: #444444;
-        img {
+        img.svgColor-transparent {
             filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
         }
     }
     img {
         width: 1.1rem;
-        // filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
-        filter: invert(78%) sepia(0%) saturate(1209%) hue-rotate(140deg) brightness(85%) contrast(96%);
     }
+}
+
+.svgColor-transparent {
+    filter: invert(78%) sepia(0%) saturate(1209%) hue-rotate(140deg) brightness(85%) contrast(96%);
 }
 
 @media (max-width: 1200px) {

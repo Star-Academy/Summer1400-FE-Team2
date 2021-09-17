@@ -11,7 +11,6 @@
 
 #nav-links {
     ul {
-        // @include ul-setup();
         margin-bottom: 2rem;
     }
     a {
@@ -25,21 +24,20 @@
     a:hover {
         color: white;
         cursor: pointer;
-        img {
+        img.svgColor-transparent {
             filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
         }
     }
     a.active {
         background-color: #282828;
         color: white;
-        img {
+        img.svgColor-transparent {
             filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
         }
     }
     img {
         width: 1.2rem;
         margin-left: 0.5rem;
-        filter: invert(78%) sepia(0%) saturate(1209%) hue-rotate(140deg) brightness(85%) contrast(96%);
     }
     #spotify-logo {
         color: white;
@@ -55,6 +53,10 @@
             filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
         }
     }
+}
+
+.svgColor-transparent {
+    filter: invert(78%) sepia(0%) saturate(1209%) hue-rotate(140deg) brightness(85%) contrast(96%);
 }
 
 @media (max-width: 1200px) {
