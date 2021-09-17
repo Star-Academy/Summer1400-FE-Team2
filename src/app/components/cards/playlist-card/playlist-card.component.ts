@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
 import Playlist from "src/app/models/Playlist";
 import { DataHandlerService } from "src/app/service/dataHandler/data-handler.service";
+import { DeletePlaylistComponent } from "../../modals/delete-playlist/delete-playlist.component";
 
 @Component({
   selector: "app-playlist-card",
@@ -8,7 +11,7 @@ import { DataHandlerService } from "src/app/service/dataHandler/data-handler.ser
   styleUrls: ["./playlist-card.component.scss"],
 })
 export class PlaylistCardComponent implements OnInit {
-  constructor(private _dataHandle: DataHandlerService) {}
+  constructor(private _dataHandle: DataHandlerService,private dialog:MatDialog,private router:Router) {}
   ngOnInit(): void {}
 
   @Input() public playlist!: Playlist;
@@ -21,7 +24,15 @@ export class PlaylistCardComponent implements OnInit {
   }
 
   public onDeleteBtn() {
-    this._dataHandle.removePlaylist(this.playlist.name, this.playlist.id);
-    this.status = !this.status;
+    this.dialog.open(DeletePlaylistComponent, {
+      height: '250px',
+      width: '600px',
+      backdropClass: 'backdropBackground'
+    });
+    // this._dataHandle.removePlaylist(this.playlist.name, this.playlist.id);
+    // this.status = !this.status;
+  }
+  onMusicLink(){
+    this.router.navigate(['/playlist',this.playlist.id])
   }
 }

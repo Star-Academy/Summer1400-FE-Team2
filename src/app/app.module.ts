@@ -26,6 +26,12 @@ import { CommonModule } from "@angular/common";
 import { PlaylistCardComponent } from "./components/cards/playlist-card/playlist-card.component";
 import { AddPlaylistComponent } from "./components/modals/add-playlist/add-playlist.component";
 import { SongItemComponent } from "./pages/playlist/song-item/song-item.component";
+import { SpinnerComponent } from "./components/spinner/spinner.component";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { DeletePlaylistComponent } from "./components/modals/delete-playlist/delete-playlist.component";
+import { MatMenuModule } from "@angular/material/menu";
+import {MatIconModule} from '@angular/material/icon';
+import { ClickStopPropagationDirective } from './directives/click-stop-propagation.directive';
 
 @NgModule({
   declarations: [
@@ -49,6 +55,9 @@ import { SongItemComponent } from "./pages/playlist/song-item/song-item.componen
     PlaylistCardComponent,
     AddPlaylistComponent,
     SongItemComponent,
+    SpinnerComponent,
+    DeletePlaylistComponent,
+    ClickStopPropagationDirective,    
   ],
   imports: [
     BrowserModule,
@@ -58,6 +67,9 @@ import { SongItemComponent } from "./pages/playlist/song-item/song-item.componen
     MatSnackBarModule,
     MatDialogModule,
     CommonModule,
+    MatProgressSpinnerModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }, LibraryComponent],
   bootstrap: [AppComponent],

@@ -1,5 +1,5 @@
 <div class="card-playlist">
-    <a class="music-link" [routerLink]="['/playlist', playlist.id]">
+    <div class="music-link" (click)="onMusicLink()">
         <div class="music-link__image">
             <img [src]="playlist?.cover || default_img" alt="cover" />
         </div>
@@ -8,18 +8,19 @@
                 <h3 class="card-playlist__title">{{ playlist?.name }}</h3>
                 <h5>{{playlist.artist|| default_artist }}</h5>
             </div>
-
-        </div>
-    </a>
-    <div class="dropdown_container">
-        <div class="dropdown">
-            <button class="edit-card-button dropbtn" (click)="onEditBtn()">
-                <img src="../../../../assets/Icons/dots-button.svg" alt="">
-            </button>
-            <div class="dropdown-content" #myDropdown [ngClass]="status ? 'show' : 'hide'">
-                <a id="addToplaylistBtn" routerLink="/all-songs">افزودن به پلی لیست</a>
-                <button id="removePlaylistBtn" (click)="onDeleteBtn()">حذف پلی لیست</button>
-            </div>
+            <button appClickStopPropagation id="detail-button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon class="mat-icon-detail" >more_vert</mat-icon>
+              </button>
         </div>
     </div>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onDeleteBtn()">
+            <span>حذف پلی لیست</span>
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-menu-item>
+            <span>افزودن اهنگ</span>
+          <mat-icon>add_circle</mat-icon>
+        </button>
+    </mat-menu>
 </div>
