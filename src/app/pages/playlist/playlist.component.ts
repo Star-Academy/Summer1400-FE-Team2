@@ -17,15 +17,27 @@ export class PlaylistComponent implements OnInit {
   public status: boolean = false;
   public playlistId: number = 0;
   public playlist: Playlist | null = null;
-
-  async ngOnInit() {
+  playBtnSrc = "../assets/Icons/play-button.svg";
+  isPlaying = this._player.autoPlay;  
+  async ngOnInit() {    
+    this.playBtnSrc = this.isPlaying
+    ? "../assets/Icons/pause-button.svg"
+    : "../assets/Icons/play-button.svg";
     this._Activatedroute.paramMap.subscribe((params) => {
       let playlist_id = params.get("id");
       if (playlist_id) {
         this.playlistId = parseInt(playlist_id);
         this.setPlaylist();
       }
+    });        
+    this._player.isPlaylistEnabled.subscribe((isPlaying: boolean) => {       
+      this.playBtnSrc = isPlaying
+        ? "../assets/Icons/pause-button.svg"
+        : "../assets/Icons/play-button.svg";
+      this.isPlaying = isPlaying;
     });
+    // check this.....
+   await this._player.setSongsList(this.playlistId);
   }
 
   setplaylist() {}
@@ -37,8 +49,22 @@ export class PlaylistComponent implements OnInit {
     this.status = !this.status;
   }
 
+  // check this.....
   async onPlay() {
-    await this._player.getPlaylistName(this.playlistId);
+    if (this._player.isFirstPlay) {      
+      await this._player.getPlaylistName(this.playlistId);
+      this._player.isFirstPlay = false;
+    }
+    this.isPlaying = !this.isPlaying;    
+    if (this.isPlaying) {
+      this._player.playSong();      
+      this.playBtnSrc = "../assets/Icons/pause-button.svg";
+      this._player.isCurrentMusicEnabled.emit(true);
+    } else {
+      this._player.pauseSong();      
+      this.playBtnSrc = "../assets/Icons/play-button.svg";
+      this._player.isCurrentMusicEnabled.emit(false);
+    }   
   }
 
   public async refresh() {

@@ -38,6 +38,9 @@ export class CurrentMusicComponent implements OnInit {
     });
 
     setInterval(() => {}, 200);
+    this._player.isCurrentMusicEnabled.subscribe((isPlaying:boolean)=>{
+      this.linkPhotoPlay = isPlaying?"../assets/Icons/pause-button.svg":"../assets/Icons/play-button.svg";
+    })
   }
 
   public openModalAddPlalist() {
@@ -66,10 +69,12 @@ export class CurrentMusicComponent implements OnInit {
     if (!this._player.autoPlay) {
       this._player.playSong();
       this.linkPhotoPlay = "../assets/Icons/pause-button.svg";
+      this._player.isPlaylistEnabled.emit(true);
     } else {
       this._player.pauseSong();
       this.linkPhotoPlay = "../assets/Icons/play-button.svg";
-    }
+      this._player.isPlaylistEnabled.emit(false);
+    } 
   }
 
   public nextSong() {

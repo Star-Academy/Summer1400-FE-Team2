@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import Song from "src/app/models/SongModal";
 import { DataHandlerService } from "src/app/service/dataHandler/data-handler.service";
 import { EngineService } from "src/app/service/engine.service";
@@ -24,6 +24,9 @@ export class PlayerService {
   public isShuffle: Boolean = false;
   public name: String = "همه آهنگ ها";
   public liked: Boolean = false;
+  public isFirstPlay = true;
+  public isCurrentMusicEnabled = new EventEmitter<Boolean>();
+  public isPlaylistEnabled = new EventEmitter<Boolean>();
 
   public setId = (number: number): void => {
     this.id = number;
@@ -68,6 +71,13 @@ export class PlayerService {
     await this.setId(this.songsList[0].id);
   }
 
+  async setSongsList(playlist: number): Promise<void> {
+    let { songs, name } = await this._engine.getPlaylist(playlist);
+    this.liked = this._dataHandler.ifSongExists(songs[0].id);
+    this.songsList = songs;
+    this.name = name;
+  }  
+
   async getAllSongs(): Promise<void> {
     this.songsList = await this._engine.getAllSongs();
     this.name = "همه آهنگ ها";
@@ -98,6 +108,7 @@ export class PlayerService {
       else this.index++;
     }
     let song = this.songsList[this.index];
+    console.log('[getNextSong] songsList = ',this.songsList,'index='+this.index);
     this.loadSong(song);
     return song;
   }
@@ -119,12 +130,14 @@ export class PlayerService {
   }
 
   public playSong() {
+    console.log("in play song service");
     this.autoPlay = true;
     this.audio.play();
     this.audio.addEventListener("ended", () => this.getNextSong());
   }
 
   public pauseSong() {
+    console.log("in pause song service");
     this.autoPlay = false;
     this.audio.pause();
   }

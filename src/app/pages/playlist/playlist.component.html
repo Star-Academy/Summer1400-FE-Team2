@@ -15,7 +15,7 @@
     <section class="playlist-controls__container">
         <div class="playlist-controls">
             <button id="playMusicBtn" (click)="onPlay()">
-                <img src="../assets/Icons/play-button.svg" alt="">
+                <img [src]="playBtnSrc" alt="">
             </button>
             <button id="like-songs">
                 <img class="svg-button" id="likeEmpty-svg" src="../assets/Icons/like-button-empty.svg" alt="">
@@ -42,8 +42,7 @@
                     </tr>
                 </thead>
                 <tbody id="playlist-table__body">
-                    <app-song-item (deleteEventEmitter)="refresh()" *ngFor="let song of playlist?.songs; let i=index"
-                        [Index]="i" [Song]="song" [Playlist]="playlist"></app-song-item>
+                    <app-song-item (deleteEventEmitter)="refresh()" *ngFor="let song of playlist?.songs; let i=index" [Index]="i" [Song]="song" [Playlist]="playlist"></app-song-item>
                 </tbody>
             </table>
         </div>
