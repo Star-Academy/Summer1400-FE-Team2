@@ -86,6 +86,10 @@ tr:hover {
     cursor: pointer;
 }
 
+.song-time {
+    font-size: 1rem;
+}
+
 @media (max-width:1200px) {
     .song-details {
         div:nth-child(1) {
@@ -99,7 +103,7 @@ tr:hover {
         grid-template-columns: repeat(2, 1fr);
     }
     tr {
-        grid-template-columns: 87% 13%;
+        grid-template-columns: 65% 25% 10%;
     }
     .hide-column {
         display: none;
