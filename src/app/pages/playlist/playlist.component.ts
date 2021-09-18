@@ -3,6 +3,8 @@ import Playlist from "src/app/models/Playlist";
 import { EngineService } from "src/app/service/engine.service";
 import { ActivatedRoute } from "@angular/router";
 import { PlayerService } from "src/app/components/player/player.service";
+import { MatDialog } from "@angular/material/dialog";
+import { DeletePlaylistComponent } from "src/app/components/modals/delete-playlist/delete-playlist.component";
 @Component({
   selector: "app-playlist",
   templateUrl: "./playlist.component.html",
@@ -12,13 +14,15 @@ export class PlaylistComponent implements OnInit {
   constructor(
     private _engine: EngineService,
     private _Activatedroute: ActivatedRoute,
-    private _player: PlayerService
+    private _player: PlayerService,
+    private dialog:MatDialog
   ) {}
   public status: boolean = false;
   public playlistId: number = 0;
   public playlist: Playlist | null = null;
   playBtnSrc = "../assets/Icons/play-button.svg";
   isPlaying = this._player.autoPlay;  
+  isLoading = true;
   async ngOnInit() {    
     this.playBtnSrc = this.isPlaying
     ? "../assets/Icons/pause-button.svg"
@@ -38,6 +42,7 @@ export class PlaylistComponent implements OnInit {
     });
     // check this.....
    await this._player.setSongsList(this.playlistId);
+   this.isLoading = false;
   }
 
   setplaylist() {}
@@ -69,5 +74,13 @@ export class PlaylistComponent implements OnInit {
 
   public async refresh() {
     this.playlist = await this._engine.getPlaylist(this.playlistId);
+  }
+  public onDeleteBtn() {
+    this.dialog.open(DeletePlaylistComponent, {
+      backdropClass: 'backdropClass',      
+      width: '600px',
+    });
+    // this._dataHandle.removePlaylist(this.playlist.name, this.playlist.id);
+    // this.status = !this.status;
   }
 }

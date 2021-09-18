@@ -61,16 +61,6 @@ main {
     }
 }
 
-.dropdown .dropbtn {
-    cursor: pointer;
-    font-size: 1rem;
-    border: none;
-    outline: none;
-    color: #909090;
-    background-color: inherit;
-    margin: 0;
-}
-
 .svg-button {
     width: 1.5rem;
     filter: invert(59%) sepia(2%) saturate(10%) hue-rotate(338deg) brightness(97%) contrast(85%);
@@ -80,38 +70,8 @@ main {
     filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
 }
 
-.dropdown-content {
-    display: none;
-    border-radius: 6px;
-    position: absolute;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    padding: 0.3rem;
-    z-index: 1;
-    background-color: #333333;
-}
-
-.dropdown-content button,
-.dropdown-content a {
-    color: white;
-    padding: 0.3rem 0.5rem;
-    text-decoration: none;
-    display: block;
-    text-align: right;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    width: 100%;
-    &:hover {
-        background-color: #333333;
-    }
-}
-
-.dropdown-content a:hover {
-    background-color: transparent;
-}
-
-.show {
-    display: block;
+.detialBtn {
+    font-size: 1.5rem;
 }
 
 table {
@@ -244,9 +204,6 @@ table {
         a {
             font-size: 1.2rem;
         }
-        .dropdown-content a {
-            font-size: 0.6rem;
-        }
     }
     #playMusicBtn {
         font-size: 2.2rem;
@@ -258,13 +215,6 @@ table {
         margin-bottom: 0.5rem;
         .playlist-details__image {
             width: 100%;
-        }
-    }
-    .dropdown-content {
-        left: 10px;
-        button,
-        a {
-            font-size: 0.6rem;
         }
     }
 }
