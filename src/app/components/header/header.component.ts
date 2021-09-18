@@ -11,7 +11,15 @@ export class HeaderComponent implements OnInit {
   constructor(private _engine: EngineService, private _router: Router) {}
   public searchText: string = "";
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.addEventListener('click', (event)=>{
+      const dropdown = document.querySelector('.dropdown-content');
+      const dropbtn = document.querySelector('.dropbtn');
+      if (event.target != dropdown && (<HTMLElement>event.target).parentNode!=dropdown && event.target !=dropbtn && (<HTMLElement>event.target).parentNode!=dropbtn){
+            this.isDropDownVisible = false;
+        }
+    });
+  }
   isLogedIn = this._engine.getToken();
   username = this._engine.getUsername();
   isDropDownVisible = false;
