@@ -10,7 +10,7 @@ import { EngineService } from "src/app/service/engine.service";
 export class LandingPageComponent implements OnInit {
   public songs: Song[] = [];
   public random = Math.random() * 50;
-
+  isLoading =true;
   public namePlaylists = [
     {
       key: "all",
@@ -37,5 +37,6 @@ export class LandingPageComponent implements OnInit {
 
   public async ngOnInit() {
     this.songs = await this._engine.getAllSongs();
+    this.isLoading = false;
   }
 }

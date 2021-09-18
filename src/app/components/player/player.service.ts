@@ -65,15 +65,15 @@ export class PlayerService {
 
   async getPlaylistName(playlist: number): Promise<void> {
     let { songs, name } = await this._engine.getPlaylist(playlist);
-    this.liked = this._dataHandler.ifSongExists(songs[0].id);
+    this.liked = this._dataHandler.ifSongExists(songs[0]?.id);
     this.songsList = songs;
     this.name = name;
-    await this.setId(this.songsList[0].id);
+    await this.setId(this.songsList[0]?.id);
   }
 
-  async setSongsList(playlist: number): Promise<void> {
-    let { songs, name } = await this._engine.getPlaylist(playlist);
-    this.liked = this._dataHandler.ifSongExists(songs[0].id);
+  async setSongsList(playlist: number): Promise<void> {    
+    let { songs, name } = await this._engine.getPlaylist(playlist);    
+    this.liked = this._dataHandler.ifSongExists(songs[0]?.id);
     this.songsList = songs;
     this.name = name;
   }  
