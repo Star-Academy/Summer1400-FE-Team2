@@ -1,26 +1,24 @@
-<div class="modal">
-    <div class="modal-playlist_container">
-        <div class="modal-playlist">
-            <div class="modal-header">
-                <h1>افزودن پلی لیست</h1>
-                <div class="close-modal" mat-button [mat-dialog-close]="true" cdkFocusInitial>
-                    <button id="close-profile-button">&times;</button>
-                </div>
-            </div>
-            <div class="modal-content">
-                <div class="modal-getInfo">
-                    <div>
-                        <input type="text" [(ngModel)]="namePlaylist" placeholder="یک نام اضافه کن">
-                    </div>
-                    <div>
-                        <textarea rows="5" placeholder="توضیحات (اختیاری)" spellcheck="false"></textarea>
-                    </div>
-                </div>
-                <div class="modal-image"> </div>
-            </div>
-            <div class="modal-footer">
-                <button class='save-modal-button' (click)="createNewPlaylist()">ذخیره</button>
-            </div>
+<div mat-dialog-title>
+    <div class="modal-header">
+        <h1>افزودن پلی لیست</h1>
+        <div class="close-modal" mat-button [mat-dialog-close]="true" cdkFocusInitial>
+            <button id="close-profile-button">&times;</button>
         </div>
     </div>
 </div>
+<mat-dialog-content class="mat-typography">
+    <div class="modal-content">
+        <div class="modal-getInfo">
+            <div>
+                <input type="text" [(ngModel)]="namePlaylist" placeholder="یک نام اضافه کن" />
+            </div>
+            <div>
+                <textarea rows="5" placeholder="توضیحات (اختیاری)" spellcheck="false"></textarea>
+            </div>
+        </div>
+        <div class="modal-image"></div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="save-modal-button" (click)="createNewPlaylist()">ذخیره</button>
+</mat-dialog-actions>
