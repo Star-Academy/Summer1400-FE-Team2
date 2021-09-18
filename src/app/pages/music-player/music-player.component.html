@@ -24,7 +24,8 @@
             </div>
             <div class="info__music">
                 <button class="btn--add" (click)="openModalAddPlalist()">
-                    <img src="../assets/Icons/add_circle_outline_black_24dp.svg" alt=""></button>
+                    <img src="../assets/Icons/add_circle_outline_black_24dp.svg" alt="">
+                </button>
                 <div class="title__artist">
                     <h2 class="music__name" *ngIf="isNameWidthLong(); else scrollName">{{_player.currentSong?.name}}
                     </h2>
@@ -35,8 +36,11 @@
                     </ng-template>
                     <h4 class="singer" id="artist">{{_player.currentSong?.artist}}</h4>
                 </div>
+                <a href="{{_player.currentSong.file}}" download class="downloadBtn">
+                    <img src="../../../assets/Icons/download-button.svg" alt="">
+                </a>
                 <button class="btn--like" (click)="addToFavorites()">
-                    <img src={{linkPhotoLike}} alt=""></button>
+                    <img src={{linkPhotoLike}}  [ngClass]="{'svgColor':linkPhotoLike=='../assets/Icons/like-button-empty.svg'}" alt=""></button>
             </div>
             <div class="current__time">
                 <span id="durtime">{{_player.getTimeDuration()}}</span>

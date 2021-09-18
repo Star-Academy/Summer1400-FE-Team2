@@ -257,6 +257,17 @@ main {
     }
 }
 
+.svgColor {
+    filter: invert(100%) sepia(100%) saturate(15%) hue-rotate(307deg) brightness(106%) contrast(103%);
+}
+
+.downloadBtn {
+    margin-left: 1rem;
+    img {
+        width: 1.6rem;
+    }
+}
+
 #music-lyrics {
     font-size: 1.3rem;
 }

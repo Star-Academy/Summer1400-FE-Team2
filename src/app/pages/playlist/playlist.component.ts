@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import Playlist from "src/app/models/Playlist";
 import { EngineService } from "src/app/service/engine.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { PlayerService } from "src/app/components/player/player.service";
 import { MatDialog } from "@angular/material/dialog";
 import { DeletePlaylistComponent } from "src/app/components/modals/delete-playlist/delete-playlist.component";
+import { DataHandlerService } from "src/app/service/dataHandler/data-handler.service";
 @Component({
   selector: "app-playlist",
   templateUrl: "./playlist.component.html",
@@ -15,7 +16,9 @@ export class PlaylistComponent implements OnInit {
     private _engine: EngineService,
     private _Activatedroute: ActivatedRoute,
     private _player: PlayerService,
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private _dataHandler:DataHandlerService,
+    private router:Router
   ) {}
   public status: boolean = false;
   public playlistId: number = 0;
@@ -75,12 +78,16 @@ export class PlaylistComponent implements OnInit {
   public async refresh() {
     this.playlist = await this._engine.getPlaylist(this.playlistId);
   }
-  public onDeleteBtn() {
-    this.dialog.open(DeletePlaylistComponent, {
+  public  onDeleteBtn() {
+   const dialogRef =  this.dialog.open(DeletePlaylistComponent, {
       backdropClass: 'backdropClass',      
       width: '600px',
     });
-    // this._dataHandle.removePlaylist(this.playlist.name, this.playlist.id);
-    // this.status = !this.status;
+    dialogRef.afterClosed().subscribe(action=>{
+      if(action.event =='delete'){
+       this._dataHandler.removePlaylist(this.playlist!.name, this.playlistId).then(res=>res);
+       this.router.navigateByUrl('/library');
+      }
+    })    
   }
 }

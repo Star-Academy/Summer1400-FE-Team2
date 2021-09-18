@@ -17,20 +17,18 @@ export class PlaylistCardComponent implements OnInit {
   @Input() public playlist!: Playlist;
   public default_img = "../../../assets/Icons/musical-note.svg";
   public default_artist = this._dataHandle.getUsername();
-  public status: boolean = false;
-
-  public onEditBtn() {
-    this.status = !this.status;
-  }
-
+  
   public onDeleteBtn() {
-    this.dialog.open(DeletePlaylistComponent, {
-      height: '250px',
+  const dialogRef =   this.dialog.open(DeletePlaylistComponent, {
+      backdropClass: 'backdropClass',      
       width: '600px',
-      backdropClass: 'backdropBackground'
     });
-    // this._dataHandle.removePlaylist(this.playlist.name, this.playlist.id);
-    // this.status = !this.status;
+    dialogRef.afterClosed().subscribe(action=>{
+      if(action.event =='delete'){
+       this._dataHandle.removePlaylist(this.playlist!.name, this.playlist.id).then(res=>res);
+       this.router.navigateByUrl('/library');
+      }
+    })      
   }
   onMusicLink(){
     this.router.navigate(['/playlist',this.playlist.id])

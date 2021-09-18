@@ -2,7 +2,7 @@
     <h1 mat-dialog-title>حذف پلی لیست</h1>
     <div mat-dialog-content> این عمل قابل برگشت نیست. ایا مطمین هستید؟</div>
     <div mat-dialog-actions>
-        <button mat-button mat-dialog-close id="deletBtn">حذف</button>
+        <button mat-button id="deletBtn" (click)="onDeleteBtn()">حذف</button>
         <button mat-button mat-dialog-close id="cancelDeleteBtn">انصراف</button>
     </div>
 </div>
