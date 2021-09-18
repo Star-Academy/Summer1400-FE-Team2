@@ -43,7 +43,7 @@ export class DataHandlerService {
     this.getUser();
   }
 
-  private async getPlaylists() {
+  public async getPlaylists() {
     this.playlists = await this._engine.getAllPlaylist();
   }
   public async addPlaylist(name: string): Promise<any> {
