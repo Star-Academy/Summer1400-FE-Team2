@@ -1,14 +1,22 @@
 <header>
     <div class="grid-item__header">
-        <div class="user-controls__links" *ngIf="isLogedIn; else logedinUser">
-            <a id="user-account__link" (click)="onUserProfileBtn()">
-                <img src="../assets/Icons/user-button.svg" alt="">
-                <span>{{username}}</span>
-            </a>
-            <a id="logoutBtn" (click)="onLogoutBtn()">
-                <img src="../assets/Icons/exit-button.svg" alt="">
-                <span>خروج</span>
-            </a>
+        <div dir="rtl" class="user-controls__links" *ngIf="isLogedIn; else logedinUser">
+            <div class="dropdown">
+                <a id="user-account__link" class="dropbtn" (click)="showDropDown()">
+                    <img src="../assets/Icons/user-button.svg" alt="" />
+                    <span>{{ username }}</span>
+                </a>
+                <div class="dropdown-content" *ngIf="isDropDownVisible">
+                    <button mat-menu-item routerLink='/library' (click)="isDropDownVisible = false">
+                        <span>پروفایل</span>
+                        <mat-icon>account_circle</mat-icon>
+                    </button>
+                    <button mat-menu-item (click)="onLogoutBtn()">
+                        <span>خروج</span>
+                        <mat-icon>exit_to_app</mat-icon>
+                      </button>
+                </div>
+            </div>
         </div>
         <ng-template #logedinUser>
             <div class="user-controls__links">
@@ -16,7 +24,7 @@
                     <span>ثبت نام</span>
                 </a>
                 <a routerLink="/login" class="controlBtn">
-                    <img src="../assets/Icons/login-button.svg" alt="">
+                    <img src="../assets/Icons/login-button.svg" alt="" />
                     <span>ورود</span>
                 </a>
             </div>
@@ -24,20 +32,19 @@
     </div>
     <div class="grid-item__header" id="boxSearchMenu">
         <div class="searchBox">
-            <input type="text" [(ngModel)]="searchText" (change)="sendToSongs()"
-                placeholder="خواننده ها , آهنگ ها....." />
+            <input type="text" [(ngModel)]="searchText" (change)="sendToSongs()" placeholder="خواننده ها , آهنگ ها....." />
             <button class="searchBox__button" id="searchBtn">
-                <img src="../assets/Icons/search-button.svg" alt="" />
-            </button>
+        <img src="../assets/Icons/search-button.svg" alt="" />
+      </button>
         </div>
     </div>
     <div class="grid-item__header">
         <div id="navigation__links">
             <a (click)="fgoForward()" id="goForward">
-                <img src="../assets/Icons/next-history-button.svg" alt="">
+                <img src="../assets/Icons/next-history-button.svg" alt="" />
             </a>
             <a (click)="fgoBack()" id="goBack">
-                <img src="../assets/Icons/back-history-button.svg" alt="">
+                <img src="../assets/Icons/back-history-button.svg" alt="" />
             </a>
         </div>
     </div>
