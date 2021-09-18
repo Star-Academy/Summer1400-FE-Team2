@@ -1,0 +1,35 @@
+@font-face {
+    font-family: Dirooz;
+    src: url("../../../../assets/fonts/Dirooz.ttf");
+}
+
+.mat-dialog-content,
+.mat-dialog-title {
+    color: white !important;
+    font-family: Dirooz;
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    width: 5rem;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+#deletBtn {
+    background-color: #1DB954;
+    color: white;
+}
